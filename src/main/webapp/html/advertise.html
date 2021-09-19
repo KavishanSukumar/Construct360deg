@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>companyadvertise</title>
+    <link rel="stylesheet" href="../resources/css/companyadvertise.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="../resources/js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div class="container-1">
+        <nav class="navbar">
+            <p>Navigation bar</p>
+        </nav>
+
+        <div class="siderbar">
+            <p>Sidebar</p>
+        </div>
+
+        <div class="heading">
+            <h2>Advertising</h2>
+        </div>
+            <div class="advertisingcomponent">
+                <img src="../resources/images/Advertise/advertiseimg.jpg">
+                <p>Every person is involved in the construction of the world as we know it.</p>
+            </div>
+            <div class="datacomponent">
+                <form class="dataform">
+                    <label for="advertisername">Advertiser Name</label>
+                    <input type="text" id="advertisername" name="advertisername" placeholder="Enter the name">
+                    <br>
+                    <label for="companyname">Company Name</label>
+                    <input type="text" id="companyname" name="companyname" placeholder="Enter the company name" required>
+                    <br>
+                    <label for="banchname">Branch Name</label>
+                    <input type="text" id="banchname" name="banchname" placeholder="Enter the branch Name">
+                    <br>
+                    <label for="areadistrict">Area/District</label>
+                    <input type="text" id="areadistrict" name="areadistrict" placeholder="Enter the Area/District">
+                    <br>
+                    <label for="companywebsite">Company Website</label>
+                    <input type="text" id="companywebsite" name="companywebsite" placeholder="Enter the company website">
+                    <br>
+                    <br>
+                    <label for="adimage">Advertising image</label>
+                    <input type="file" id="adimage" placeholder="png/jpg/jepg">
+                    <br>
+                    <br>
+                    <label for="desc">Description</label>
+                    <br>
+                    <textarea cols="50" rows="6" id="desc" name="desc"></textarea>
+                    <br>
+                    <input type="checkbox" id="policy" required>
+                    <label for="policy">I agree to the Terms of use and the Privacy Policy</label>
+                    <br>
+                    <button type="submit" name="Submit" id="advertisementsubmit" class="btn">Submit</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
