@@ -5,10 +5,10 @@ html{
 .container-1{
     display: grid;
     grid-template-areas:
-            'navbar navbar'
-            'sidebar sidebar'
-            'heading heading'
-            'advertisingcomponent datacomponent';
+            'navbar .'
+            'sidebar .'
+            '. heading heading'
+            '. advertisingcomponent datacomponent ';
 }
 .navbar{
     grid-area: navbar;
@@ -61,7 +61,7 @@ html{
 }
 
 .dataform>.btn:hover {
-    background-color: #FF3D00;
+    background-color: #ff7200;
 }
 .dataform>div {
     border-radius: 5px;
