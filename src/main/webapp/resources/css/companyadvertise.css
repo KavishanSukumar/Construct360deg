@@ -1,23 +1,44 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
 html{
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
 }
 .container-1{
     display: grid;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
     grid-template-areas:
-            'navbar .'
-            'sidebar .'
-            '. heading heading'
-            '. advertisingcomponent datacomponent ';
+        'navbar'
+        'container-2';
 }
-.navbar{
-    grid-area: navbar;
+
+.container-2{
+    grid-area: container-2;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-areas:
+            'siderbar container-3 datacomponent';
 }
-.sidebar{
-    grid-area: sidebar;
+
+.container-3{
+    display: grid;
+    border-right: 1px solid black;
+    grid-template-areas:
+            'heading'
+            'advertisingcomponent';
+}
+.datacomponent{
+    background-color: #D3D3D3;
+    box-shadow:  0 1px 5px rgba(104, 104, 104, 0.8);
+    padding: 20px;
+    margin: 10px;
 }
 .heading{
     grid-area: heading;
+    margin: 10PX;
 }
 .advertisingcomponent{
     grid-area: advertisingcomponent;
@@ -25,15 +46,8 @@ html{
     background-color: white;
     padding: 20px;
     margin: 10px;
-    border-right: 1px solid black;
 }
-.datacomponent{
-    grid-area: datacomponent;
-    background-color: #D3D3D3;
-    box-shadow:  0 1px 5px rgba(104, 104, 104, 0.8);
-    padding: 20px;
-    margin: 10px;
-}
+
 .advertisingcomponent >img{
     width: 300px;
     height: 300px;

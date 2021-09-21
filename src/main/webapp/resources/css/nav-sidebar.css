@@ -1,4 +1,23 @@
 
+header{
+    padding: 1px;
+    display: grid;
+    grid-template-areas:
+            'left_area right_area';
+}
+
+.navbar{
+    grid-area: navbar;
+    margin: 0px;
+    background: #22242A;
+    padding: 20px;
+    height: 30px;
+}
+
+.sidebar{
+    background: #22242A;
+    margin: 0px;
+}
 
 #logopic{
     width: 100px;
@@ -7,14 +26,20 @@
     margin-top: -15px;
     cursor: pointer;
     padding-right: 0%;
-    
+
 }
 
 .left_area {
     color: #fff;
-    margin: 0;
+    margin-left:38px;
     text-transform: uppercase;
     font-size: 24px;
+
+}
+.right_area{
+    text-align: right;
+    margin: -7px;
+    padding: 0px;
 }
 
 /*#logout_btn{
@@ -31,7 +56,7 @@
 }*/
 
 /* #logout_btn:hover{ */
-    /* background: skyblue; 
+    /* background: skyblue;
 }*/
 
 
@@ -57,7 +82,7 @@
     padding-left: 20%;
     box-sizing: border-box;
     transition: 0.5s;
-    transition-property:back; 
+    transition-property:back;
 }
 
 .sidebar a:hover{
@@ -71,7 +96,6 @@
 label #sidebar_btn{
     z-index: 1;
     color: #fff;
-    position: fixed;
     cursor: pointer;
     left:20px ;
     font-size: 20px;
@@ -103,7 +127,7 @@ ul{
     /* float: left; */
     right: -10px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-content: center;
     float: inherit;
 }
@@ -126,7 +150,8 @@ ul li a{
 ul li a:hover{
     color: #FF3D00;
 }
-#userimage{
+.userdesc{
     text-align: center;
     justify-content: center;
+    padding: 10px;
 }
