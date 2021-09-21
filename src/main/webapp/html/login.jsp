@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,13 +40,12 @@
             <h1>BUILD<br><span>YOUR DREAM</span><br>WITH PASSION</h1>
             <p class="par">It is not the beauty of a building you should look at; <br>its the construction of the foundation that will stand the test of time. ...</p>
             <button class="cn"><a href="#">Join with us</a></button>
-            <div class="form">
+            <form class="form" action="<%=request.getContextPath()%>/login" method="post">
                     <h2>Login here</h2>
-                    <p></p>
-                    <input type="text" name="" placeholder="Enter Username" required>
-                    <p></p>
-                    <input type="password" name="" placeholder="Enter Password" required>
-                    <input type="submit" name="" value="Login"><br>
+                    <br>
+                    <input type="text"  name="username" placeholder="Enter Username" required>
+                    <input type="password" name="password" placeholder="Enter Password" required>
+                    <input type="submit"  value="Submit"><br>
                     <a href="#">Lost your password?</a><br>
                     <a href="#">Don't have an account?</a>
                     <p class="loginwith">Login with</p>
@@ -54,7 +55,7 @@
                         <a href="#"><ion-icon name="logo-google"></ion-icon></a>
                         <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
                     </div>
-            </div>
+            </form>
         </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
