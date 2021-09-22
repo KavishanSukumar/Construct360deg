@@ -1,0 +1,146 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    /*box-sizing: border-box;*/
+}
+
+#advertise_product{
+    margin-left: 100px;
+}
+.container-1{
+    display: grid;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+    grid-template-areas:
+        'navbar'
+        'container-2';
+}
+
+.container-2{
+    grid-area: container-2;
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-areas:
+            'siderbar container-3 datacomponent';
+}
+
+.container-3{
+    display: grid;
+    border-right: 2px solid rgb(112, 112, 112); 
+    grid-template-areas:
+            'heading'
+            'advertisingcomponent';
+}
+.datacomponent{
+    /* background-color: #d3d3d3;
+    box-shadow:  0 1px 5px rgba(104, 104, 104, 0.8); */
+    padding: 44px;
+    margin-left: 200px;
+    margin-right: 200px;
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
+    /* padding-top: 50px; */
+}
+.heading{
+    grid-area: heading;
+    margin: 10PX;
+}
+.advertisingcomponent{
+    grid-area: advertisingcomponent;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    margin: 10px;
+    
+}
+
+.advertisingcomponent >img{
+    width: 300px;
+    height: 300px;
+}
+
+.dataform>input[type=text] {
+    width: 80%;
+    /* align-items: center; */
+    padding: 12px 20px;
+    margin: 8px 40px;
+    display: inline-block;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 11px;
+}
+
+.dataform>.btn{
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dataform>.btn:hover {
+    background-color: #ff7200;
+}
+.dataform>div {
+    border-radius: 5px;
+    padding: 20px;
+}
+.dataform{
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    /* padding: 20px; */
+} 
+/* #adv{
+    padding-left: 10%;    
+}
+
+#com{
+    padding-left: 10%;
+}
+
+#ban{
+    padding-left: 10%;
+}
+
+#are{
+    padding-left: 10%;
+}
+
+#compa{
+    padding-left: 10%;
+}
+
+#adim{
+    padding-left: 10%;
+}
+
+#descri{
+    padding-left: 10%;
+}
+
+#adimage{
+    padding-left: 10%;
+}
+*/
+#desc{ 
+    padding-left: 38%;
+    
+}   
+
+#advertisementsubmit{
+    padding-left: 10%;
+
+}
+
+#Iagree{
+    padding-left: 10%;
+    font-size: 10px;
+}
