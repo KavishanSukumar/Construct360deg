@@ -17,6 +17,7 @@ header{
 .sidebar{
     background: #22242A;
     margin: 0px;
+    height: 600px;
 }
 
 #logopic{
@@ -42,29 +43,12 @@ header{
     padding: 0px;
 }
 
-/*#logout_btn{
-    padding: 5px;
-    background: #19B3D3;
-    text-decoration: none;
-    float: right;
-    margin-top: 1px;
-    margin-right: 40px;
-    border-radius: 2px;
-    font-size:15px;
-    font-weight: 600;
-    color: #fff;
-}*/
-
-/* #logout_btn:hover{ */
-    /* background: skyblue;
-}*/
-
 
 #profile_image{
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 #profile_name{
@@ -77,7 +61,7 @@ header{
     color: rgb(255, 255, 255);
     display: block;
     width: 100%;
-    line-height: 60px;
+    line-height: 58px;
     text-decoration: none;
     padding-left: 20%;
     box-sizing: border-box;
@@ -86,7 +70,7 @@ header{
 }
 
 .sidebar a:hover{
-    background: #FF3D00;
+    background: #ff7200;
 }
 
 .sidebar i{
@@ -97,32 +81,33 @@ label #sidebar_btn{
     z-index: 1;
     color: #fff;
     cursor: pointer;
-    left:20px ;
     font-size: 20px;
-    margin: 5px 0;
     transition: 0.5s;
     transition-property: color;
+    margin-left: 10px;
 }
 
 label #sidebar_btn:hover{
-    color: #FF3D00;
+    color: #ff7200;
 }
 
-
-
-
-/*.content{*/
-/*    margin-left: 250px;*/
-/*    background: url(../images/navbar/homepagepic-1.jpg) no-repeat;*/
-/*    background-position: center;*/
-/*    background-size: cover;*/
-/*    height: 100vh;*/
-/*    transition: 0.5s;*/
-/*}*/
-
-
-
-
+label #sidebar_btn{
+    font-size: 27px;
+}
+#check:checked ~ .sidebar{
+    left: -190px;
+}
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+#check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 160px;
+    width: 90px;
+}
+#check{
+    display: none;
+} 
 ul{
     /* float: left; */
     right: -10px;
@@ -136,22 +121,24 @@ ul li{
     list-style: none;
     margin-left: 40px;
     margin-top: -3px;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 ul li a{
     text-decoration: none;
     color: #fff;
     font-family:  'Roboto', sans-serif;
-    /* font-weight: bold; */
     transition: 0.4s ease-in-out;
 }
 
 ul li a:hover{
-    color: #FF3D00;
+    color: #ff7200;
 }
 .userdesc{
     text-align: center;
     justify-content: center;
     padding: 10px;
+}
+.focus{
+    background: #ff7200;
 }
