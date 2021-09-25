@@ -1,0 +1,219 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background: darkgrey;
+}
+
+header{
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: 100% ;
+    height: 30px;
+}
+
+#logopic{
+    width: 100px;
+    float: left;
+    height: 70px;
+    margin-top: -15px;
+    cursor: pointer;
+    padding-right: 0%;
+}
+
+.left_area {
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.sidebar{
+    background: #22242A;
+    margin-top: 60px;
+    padding-top: 30px;
+    position: fixed; 
+    width: 250px;
+    height: 600px;
+    transition: 0.5s;
+    transition-property: left;
+}
+
+
+#profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}
+
+#profile_name{
+    color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: -23px;
+}
+
+.sidebar a{
+    color: rgb(255, 255, 255);
+    display: block;
+    width: 100%;
+    line-height: 56px;
+    text-decoration: none;
+    padding-left: 20%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property:back; 
+    font-size: 16px;
+}
+
+.sidebar a:hover{
+    background: #ff7200;
+}
+
+.sidebar i{
+    padding-right:10px ;
+    font-size: 16px;
+}
+
+label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left:20px ;
+    font-size: 25px;
+    transition: 0.5s;
+    transition-property: color;
+    
+}
+
+label #sidebar_btn:hover{
+    color: #ff7200;
+}
+
+#check:checked ~ .sidebar{
+    left: -185px;
+}
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+#check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 160px;
+    width: 90px;
+}
+#check{
+    display: none;
+} 
+ul{
+    display: flex;
+    justify-content: right;
+    margin-right: 50px;
+}
+ul li{
+    list-style: none;
+    margin-left: 40px;
+    font-size: 14px;
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family:  'Roboto', sans-serif;
+    transition: 0.4s ease-in-out;
+}
+ul li a:hover{
+    color: #FF3D00;
+}
+.container{
+    margin-left: 250px;
+    background-color: darkgrey;
+    width: 100%;
+    height: 200px;
+}
+#check:checked ~ .container{
+    margin-left: 60px;
+}
+#check{
+    display: none; 
+}
+p{
+    color: #171718;
+    font-size: 22px;
+    margin-left: 270px;
+    margin-top: -120px;
+}
+#check:checked ~ p{
+    margin-left: 80px;
+}
+.content{
+    width: 900px;
+    height: 430px;
+    background-color: #fff;
+    margin-left: 350px;
+}
+#check:checked ~ .content{
+    margin-left: 160px;
+}
+.content i{
+    font-size: 50px;
+    margin-left: 390px;
+    margin-top: 90px;
+}
+.content p{
+    text-align: center;
+    margin: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+form{
+    text-align: center;
+    margin-left: 120px;
+}
+form input{
+    font-size: 18px;
+}
+#div1 {
+    width: 835px;
+    height: 400px;
+    border: 3px solid #8d8989;
+    margin-left: 30px;
+}
+.btn1{
+    background-color: #757c76;
+    border: none;
+    border-radius: 20px;
+    color: rgb(5, 5, 5);
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 350px;
+    margin-top: 10px;
+}
+.btn1:hover{
+    background: #FF3D00;
+}
+.btn2{
+    background-color: #757c76;
+    border: none;
+    border-radius: 20px;
+    color: rgb(5, 5, 5);
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 610px;
+}
+.btn2:hover{
+    background: #FF3D00;
+}
+#check:checked ~ .btn1{
+    margin-left: 160px;
+}
+

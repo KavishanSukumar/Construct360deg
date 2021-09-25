@@ -1,0 +1,26 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    /*box-sizing: border-box;*/
+}
+.container-1{
+    display: grid;
+    grid-row-gap: 0px;
+    grid-column-gap: 0px;
+    grid-template-areas:
+        'navbar'
+        'container-2';
+}
+
+.container-2{
+    grid-area: container-2;
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    grid-template-areas:
+            'siderbar';
+}
+
+
