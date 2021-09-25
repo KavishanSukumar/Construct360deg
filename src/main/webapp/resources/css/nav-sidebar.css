@@ -7,7 +7,6 @@ header{
 }
 
 .navbar{
-    grid-area: navbar;
     margin: 0px;
     background: #22242A;
     padding: 20px;
@@ -17,7 +16,6 @@ header{
 .sidebar{
     background: #22242A;
     margin: 0px;
-    height: 600px;
 }
 
 #logopic{
@@ -74,7 +72,7 @@ header{
 }
 
 .sidebar i{
-    padding-right:10px ;
+    padding-right:4px ;
 }
 
 label #sidebar_btn{
@@ -141,4 +139,14 @@ ul li a:hover{
 }
 .focus{
     background: #ff7200;
+}
+
+.sidebutton{
+    text-align: right;
+    color: white;
+    background-color:#22242A ;
+    padding-right: 5px;
+}
+.fa-bars:hover{
+    color: #ff7200;
 }
