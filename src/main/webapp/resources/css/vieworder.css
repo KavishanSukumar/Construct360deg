@@ -9,7 +9,7 @@ body{
 }
 .container-2{
     display: grid;
-    grid-template-columns: 1fr 2fr 5fr;
+    grid-template-columns: 15% 2fr 5fr;
     grid-template-areas:
             'sidebar container-3 container-4';
 }
@@ -19,7 +19,7 @@ body{
     grid-template-areas:
             'heading'
             'ordercolm'
-        ;
+;
 }
 .ordercolm >ul{
     flex-direction: column;
@@ -35,6 +35,7 @@ body{
 }
 .heading>h4{
     padding: 10px;
+    text-align: center;
     margin: 10px 10px 10px 15px;
 }
 .container-4{

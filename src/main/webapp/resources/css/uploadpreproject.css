@@ -13,14 +13,6 @@ header{
     height: 30px;
 }
 
-#logopic{
-    width: 100px;
-    float: left;
-    height: 70px;
-    margin-top: -15px;
-    cursor: pointer;
-    padding-right: 0%;
-}
 
 .left_area {
     color: #fff;

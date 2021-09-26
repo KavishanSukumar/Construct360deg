@@ -6,90 +6,91 @@
     <link rel="stylesheet" href="../resources/css/vieworder.css">
     <link rel="stylesheet" href="../resources/css/nav-sidebar.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="../resources/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-    <div class="container-1">
-        <div class="navbar">
-            <header>
-                <div class="left_area">
-                    <!--<h2 class="logoname">Construct360</h2>-->
-                    <img src="../resources/images/navbar/LoginLogo.png" id="logopic">
-                </div>
-                <div class="right_area" >
-                    <!-- <a href="#" id="logout_btn">Logout</a> -->
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">PROJECT</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">CONTACT_US</a></li>
-                        <li><a href="#">ACCOUNT</a></li>
-                    </ul>
-                </div>
-            </header>
+<div class="container-1">
+    <div class="navbar">
+        <header>
+            <div class="left_area">
+                <!--<h2 class="logoname">Construct360</h2>-->
+                <img src="../resources/images/navbar/LoginLogo.png" id="logopic">
+            </div>
+            <div class="right_area" >
+                <!-- <a href="#" id="logout_btn">Logout</a> -->
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">PROJECT</a></li>
+                    <li><a href="#">SERVICES</a></li>
+                    <li><a href="#">CONTACT_US</a></li>
+                    <li><a href="#">ACCOUNT</a></li>
+                </ul>
+            </div>
+        </header>
+    </div>
+    <div class="container-2">
+        <div class="sidebar">
+            <div class="userdesc">
+                <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="">
+                <h4 id="profile_name">Reena</h4>
+            </div>
+            <div class="tabs">
+                <a href="#"><i class="fas fa-laptop-house" id="house"></i><span>Available Projects</span></a>
+                <a href="#"><i class="fas fa-hard-hat" id="hat"></i><span>Projects</span></a>
+                <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><span>Products</span></a>
+                <a href="#"><i class="fas fa-user" id="user"></i><span>Profile</span></a>
+                <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><span>Report</span></a>
+                <a href="#"><i class="fas fa-headset" id="head"></i><span>Help and Support</span></a>
+                <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><span>Logout</span></a>
+            </div>
         </div>
-        <div class="container-2">
-            <div class="sidebar">
-                <div class="userdesc">
-                    <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="">
-                    <h4 id="profile_name">Reena</h4>
-                </div>
-                <div class="tabs">
-                    <a href="#"><i class="fas fa-laptop-house" id="house"></i><span>Available Projects</span></a>
-                    <a href="#"><i class="fas fa-hard-hat" id="hat"></i><span>Projects</span></a>
-                    <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><span>Products</span></a>
-                    <a href="#"><i class="fas fa-user" id="user"></i><span>Profile</span></a>
-                    <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><span>Report</span></a>
-                    <a href="#"><i class="fas fa-headset" id="head"></i><span>Help and Support</span></a>
-                    <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><span>Logout</span></a>
-                </div>
-            </div>
-            <div class="container-3">
-                <div class="heading">
-                    <h4>Orders</h4>
-                </div>
-
-                <div class="ordercolm">
-                    <ul>
-                        <li id="order1" class="order">202125479875</li>
-                        <li id="order2" class="order">202125479878</li>
-                        <li id="order3" class="order">202125479879</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container-4">
-                <div class="heading">
-                    <h4>Order Number</h4>
-                </div>
-                <div class="orderdetailscolm">
-                    <table>
-                        <tr>
-                            <th>Item name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                        <tr>
-                            <td>Cement</td>
-                            <td>5.0</td>
-                            <td>7500.00</td>
-                        </tr>
-                        <tr>
-                            <td>Plaster of paris</td>
-                            <td>5.0</td>
-                            <td>9500.00</td>
-                        </tr>
-                        <tr>
-                            <th>Total</th>
-                            <td></td>
-                            <td>17000.00</td>
-                        </tr>
-                    </table>
-                </div>
+        <div class="container-3">
+            <div class="heading">
+                <h4>Orders</h4>
             </div>
 
+            <div class="ordercolm">
+                <ul>
+                    <li id="order1" class="order">202125479875</li>
+                    <li id="order2" class="order">202125479878</li>
+                    <li id="order3" class="order">202125479879</li>
+                </ul>
+            </div>
         </div>
-
+        <div class="container-4">
+            <div class="heading">
+                <h4>Order Number</h4>
+            </div>
+            <div class="orderdetailscolm">
+                <table>
+                    <tr>
+                        <th>Item name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>Cement</td>
+                        <td>5.0</td>
+                        <td>7500.00</td>
+                    </tr>
+                    <tr>
+                        <td>Plaster of paris</td>
+                        <td>5.0</td>
+                        <td>9500.00</td>
+                    </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td></td>
+                        <td>17000.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
     </div>
+
+
+</div>
 </body>
 </html>
