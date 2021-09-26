@@ -18,8 +18,7 @@ body{
     grid-template-rows: 1fr 10fr;
     grid-template-areas:
             'heading'
-            'ordercolm'
-;
+            'ordercolm';
 }
 .ordercolm >ul{
     flex-direction: column;
@@ -53,4 +52,14 @@ body{
     width: 60%;
     padding: 10px;
     border-spacing: 12px;
+}
+.dwn-btn{
+    padding-right: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.dwn-btn:hover{
+    background-color: #ff7200;
+
 }
