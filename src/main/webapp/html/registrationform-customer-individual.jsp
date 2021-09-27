@@ -16,7 +16,7 @@ pageEncoding="ISO-8859-1"%>
         <div class="title">
             Customer Registration Form
         </div>
-        <form class="form" action="<%=request.getContextPath()%>/registercustomerindividual" method="post">
+        <form class="form" action="<%=request.getContextPath()%>/registercustomerindividual" enctype='multipart/form-data' method="post">
            <div class="inputfield">
               <label color>First Name</label>
               <input type="text" class="input" name="firstname">
@@ -33,7 +33,7 @@ pageEncoding="ISO-8859-1"%>
            <div class="inputfield">
               <label color>Date of birth</label>
               <div class="dob">
-              <input type="date" id="birthday" name="birthday">
+              <input type="date" id="dob" name="dob">
             </div>
             
            </div> 
@@ -60,7 +60,15 @@ pageEncoding="ISO-8859-1"%>
                <input type="file" id="actual-btn" hidden name="nicsoftcpy"/>
                <label for="actual-btn">Choose File</label>
                <span id="file-chosen" style="color:white">No file chosen</span>
-               
+                 <script>
+                     const actualBtn = document.getElementById('actual-btn');
+
+                     const fileChosen = document.getElementById('file-chosen');
+
+                     actualBtn.addEventListener('change', function(){
+                         fileChosen.textContent = this.files[0].name
+                     })
+                 </script>
             </div>
          </div> 
             <div class="inputfield">
@@ -68,8 +76,9 @@ pageEncoding="ISO-8859-1"%>
               <div class="custom_select">
                 <select name="honorfic">
                   <option value="">Select</option>
-                  <option value="male">Mr</option>
-                  <option value="female">Mrs</option>
+                  <option value="Mr.">Mr</option>
+                  <option value="Mrs.">Mrs</option>
+                    <option value="Ms.">Ms</option>
                 </select>
               </div>
            </div> 
