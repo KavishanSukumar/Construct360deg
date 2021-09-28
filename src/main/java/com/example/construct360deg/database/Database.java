@@ -9,7 +9,7 @@ public class Database {
     private static Connection connection=null;
     private static String username="root";
     private static String password="";
-    private static String url="jdbc:mysql:// localhost:3306/construct360";
+    private static String url="jdbc:mysql:// localhost:3306/test";
 
 
     public static Connection getConnection(){

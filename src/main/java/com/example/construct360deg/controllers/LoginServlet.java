@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/login")
+@WebServlet("/loginvalidate")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,9 +26,9 @@ public class LoginServlet extends HttpServlet {
 
         if(userloginDAO.verify(userlogin)){
             HttpSession session=req.getSession();
-            resp.sendRedirect("./html/companyadvertise.html");
+            resp.sendRedirect("./html/viewproject.html");
         }else{
-            resp.sendRedirect("./html/vieworder.html");
+            resp.sendRedirect("./html/login.jsp");
         }
 
     }
