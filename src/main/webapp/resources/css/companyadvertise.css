@@ -18,7 +18,7 @@ html{
 .container-2{
     grid-area: container-2;
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-columns: 15% 4fr 5fr;
     grid-template-areas:
             'siderbar container-3 datacomponent';
 }

@@ -17,8 +17,7 @@ body{
   padding: 0 10px;
 }
 .wrapper{
-  max-width: 500px;
-  width: 100%;
+  width: 50%;
   background:black;
   margin: 50px auto;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
@@ -193,16 +192,16 @@ body{
    padding: 8px 10px;
   font-size: 15px; 
   border: 0;
-  background:  #FF3D00;
-  color: #fff;
+  background:  #ffffff;
+  color: #000000;
   cursor: pointer;
   border-radius: 3px;
   outline: none;
 }
-
 .wrapper .form .inputfield .btn:hover{
-  background: #FF3D00;
+  background: #FF7200;
 }
+
 
 .wrapper .form .inputfield:last-child{
   margin-bottom: 0;

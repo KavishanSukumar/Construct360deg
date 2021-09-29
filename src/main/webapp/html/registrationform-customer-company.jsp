@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/registrationform-customer-company.css">
+    <link rel="stylesheet" href="../resources/css/registrationform.css">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Registration form - Company</title>
@@ -13,38 +13,38 @@
         <div class="title">
             Customer Registration Form
         </div>
-        <div class="form">
+        <form class="form" action="<%=request.getContextPath()%>/registercustomercompany" enctype='multipart/form-data' method="post">
            <div class="inputfield">
               <label color>Company Name</label>
-              <input type="text" class="input">
+              <input type="text" class="input" name="companyname">
            </div>  
            
            <div class="inputfield">
             <label color>User Name</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="username">
            </div> 
            
            <div class="inputfield">
             <label>Company Email Address</label>
-            <input type="email" pattern=".+@globex\.com" size="300" required class="input">
+            <input type="email" required class="input" name="email">
            </div> 
              
            <div class="inputfield">
               <label>Password</label>
-              <input type="password" class="input">
+              <input type="password" class="input" name="password">
            </div>  
            <div class="inputfield">
             <label>Confirm Password</label>
-            <input type="password" class="input">
+            <input type="password" class="input" name="">
          </div>
          <div class="inputfield">
             <label>Registration Number</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="regnum">
          </div>
          <div class="inputfield">
             <label>Registration Softcopy</label>
              <div class = "filearea">
-               <input type="file" id="actual-btn" hidden/>
+               <input type="file" id="actual-btn" hidden name="regsoftcpy"/>
                <label for="actual-btn">Choose File</label>
                <span id="file-chosen" style="color:white">No file chosen</span>
                  <script>
@@ -61,27 +61,27 @@
             
           <div class="inputfield">
               <label>Contact Number</label>
-              <input type="text" class="input">
+              <input type="text" class="input" name="contactnum">
            </div> 
           <div class="inputfield">
               <label>Province</label>
-              <input type="text" class="input">
+              <input type="text" class="input" name="province">
            </div>
             <div class="inputfield">
                 <label>District</label>
-                <input type="text" class="input">
+                <input type="text" class="input" name="district">
             </div>
             <div class="inputfield">
                 <label>City</label>
-                <input type="text" class="input">
+                <input type="text" class="input" name="city">
             </div>
             <div class="inputfield">
                 <label>Street</label>
-                <input type="text" class="input">
+                <input type="text" class="input" name="street">
             </div>
             <div class="inputfield">
                 <label>Houseno</label>
-                <input type="text" class="input">
+                <input type="text" class="input" name="houseno">
             </div>
 
 
@@ -91,7 +91,7 @@
            <div class="inputfield">
             <label>Address proof</label>
              <div class = "filearea">
-               <input type="file" id="actual-btn1" hidden/>
+               <input type="file" id="actual-btn1" hidden name="addressproof"/>
                <label for="actual-btn1">Choose File</label>
                <span id="file-chosen1" style="color:white">No file chosen</span>
                <script>
@@ -119,7 +119,7 @@
           <div class="inputfield">
             <input type="submit" value="Register" class="btn">
           </div>
-        </div>
+        </form>
     </div>
     <script src="../js/registrationform-customer-company.js"></script>
 
