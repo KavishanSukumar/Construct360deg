@@ -39,6 +39,7 @@ html{
     /* background-color: #d3d3d3;
     box-shadow:  0 1px 5px rgba(104, 104, 104, 0.8); */
     padding: 44px;
+    padding-top: 125px;
     margin-left: 170px;
     margin-right: 160px;
     /* margin-top: 50px;
@@ -93,7 +94,7 @@ html{
 }
 .dataform>div {
     border-radius: 5px;
-    padding: 20px;
+    padding-top: 20px;
 }
 .dataform{
     border-radius: 5px;
