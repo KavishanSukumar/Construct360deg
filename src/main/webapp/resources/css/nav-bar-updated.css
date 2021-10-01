@@ -38,14 +38,14 @@ body{
 
 
 .nav-panel {
-    background: #797979;
+    background:black;
     padding: 0px;
     position: absolute;
     top: 100%;
     width: 100%;
     left: 0;
     height: 109px;
-    opacity: 1;
+    opacity: 0.75;
 }
 
 .hidden {
