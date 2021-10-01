@@ -1,0 +1,80 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    color: #ff7200;
+}
+body{
+    background-image: url("../images/registrationform2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.container-1{
+    display: flex;
+    background-color: black;
+    width: 50%;
+    margin: 5% auto;
+    color: white;
+    opacity: 0.8;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+label{
+    width: 145px;
+    display: inline-block;
+    text-align: left;
+    margin: 5px;
+    padding: 15px;
+}
+
+.terms>label{
+    text-align: left;
+    width: 285px;
+    height: 20px;
+    padding-top: 10px;
+    margin: 0px;
+}
+
+select{
+    text-align: center;
+    width: 365px;
+    height: 40px;
+    padding-top: 10px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+input {
+    display: inline-block;
+    padding: 10px 100px;
+    border-radius: 10px;
+    text-align: center;
+}
+input:hover{
+    border-color: #ff7200;
+}
+.submit{
+    padding: 10px 220px ;
+    margin: 0px 10px 10px 10px;
+}
+.terms{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+#terms2{
+    color: #FF3D00;
+}
+.submit:hover{
+    background-color: #ff7200;
+}
+
