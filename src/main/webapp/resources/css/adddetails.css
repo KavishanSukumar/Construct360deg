@@ -144,7 +144,6 @@ ul li a:hover,ul li i:hover{
 }
 form.example input[type=text] {
     padding: 8px;
-    /* position: fixed; */
     font-size: 16px;
     border: none;
     margin-top: 6px;
@@ -153,7 +152,6 @@ form.example input[type=text] {
   }
 form.example button {
     float: left;
-    /* position: fixed; */
     width: 3%;
     padding: 8px;
     background: #bbbfc2;
