@@ -217,7 +217,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>Copyright @ 2020 Construct360 com<br>Design codehack</p>
+        <p>All rights reserved 	&copy; 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
     </div>
 
 </div>
