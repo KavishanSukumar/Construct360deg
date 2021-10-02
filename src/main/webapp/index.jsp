@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./resources/css/homepage.css">
 </head>
 <body>
-<div id ="hoome" class="main">
+<div id ="HOME" class="main">
     <div class="navbar">
         <div class="logo">
             <!--<h2 class="logoname">Construct360</h2>-->
@@ -21,11 +21,11 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#hoome">HOME</a></li>
-                <li><a href="#seervise">SERVICES</a></li>
-                <li><a href="#prooject">PROJECT</a></li>
-                <li><a href="#AbooutUs">ABOUT_US</a></li>
-                <li><a href="#coonatact">CONTACT_US</a></li>
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#SERVICE">SERVICES</a></li>
+                <li><a href="#PROJECTS">PROJECT</a></li>
+                <li><a href="#ABOUT_US">ABOUT_US</a></li>
+                <li><a href="#CONTACT_US">CONTACT_US</a></li>
             </ul>
         </div>
 
@@ -49,7 +49,7 @@
 
 </div>
 <!-- //////////////////////////////////////////Services/////////////////////////////////////////////////////////////// -->
-<div id = "seervise" class="Services">
+<div id = "SERVICE" class="Services">
     <!-- <div id="Servicestopic"></div> -->
     <div class="Servicecontent">
         <div id="Emptybox1"></div>
@@ -91,7 +91,7 @@
 
 </div>
 <!-- /////////////////////////////////////////////////////// Projects//////////////////////////////////////////-->
-<div id="prooject" class="PProjects">
+<div id="PROJECTS" class="PProjects">
     <!-- <div id="Servicestopic"></div> -->
     <div class="Projectcontent">
         <div id="Emptybox3">
@@ -146,7 +146,7 @@
 
 </div>
 <!-- /////////////////////////////////////////// About Us//////////////////////////////////////////////-->
-<div id="AbooutUs" class="AboutUs">
+<div id="ABOUT_US" class="AboutUs">
     <!-- <div id="Servicestopic"></div> -->
     <div class="Aboutcontent">
         <div id="Aboutleft">
@@ -172,7 +172,7 @@
 
 </div>
 <!-- /////////////////////////////////////// Contact Us////////////////////////////////////////////////-->
-<div id="coonatact" class="ContactUs">
+<div id="CONTACT_US" class="ContactUs">
     <div id="contopic">
         <h1>CONTACT US</h1>
     </div>
