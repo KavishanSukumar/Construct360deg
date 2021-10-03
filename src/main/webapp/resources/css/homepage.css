@@ -579,9 +579,10 @@ input[type=submit]:hover {
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
-    background: rgb(241, 241, 241);
+    background: #000000;
 }
 .footer p{
     text-align: center;
+    color: rgb(255, 255, 255);
 
 }
