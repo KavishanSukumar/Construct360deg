@@ -3,6 +3,7 @@ package com.example.construct360deg.controllers;
 import com.example.construct360deg.dao.UserloginDAO;
 import com.example.construct360deg.model.Userlogin;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/loginvalidate")
 public class LoginServlet extends HttpServlet {
@@ -24,11 +26,17 @@ public class LoginServlet extends HttpServlet {
         userlogin.setUsername(username);
         userlogin.setPassword(password);
 
-        if(userloginDAO.verify(userlogin)){
-            HttpSession session=req.getSession();
-            resp.sendRedirect("./html/viewproject.html");
-        }else{
-            resp.sendRedirect("./html/login.jsp");
+        try {
+            if(userloginDAO.verify(userlogin)){
+                HttpSession session=req.getSession();
+                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewproject.html");
+                requestDispatcher.forward(req,resp);
+                System.out.println("Login successfull");
+            }else{
+                resp.sendRedirect("./html/login.jsp");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }
