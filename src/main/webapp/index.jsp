@@ -40,8 +40,8 @@
         <h1>DESIGN YOU HOUSE</h1>
         <P>Interior design is the art and science of enhancing the interior of a building to achieve a healthier and more aesthetically pleasing environment for the people using the space. <br>An interior designer is someone who plans, researches, coordinates, and manages such enhancement projects.</P>
         <div>
-            <button type="<%=request.getContextPath()%>"><span></span>SIGN IN</button>
-            <button type="<%=request.getContextPath()%>"><span></span>JOIN WITH US</button>
+           <a href="<%=request.getContextPath()%>/login"><button ><span></span>SIGN IN</button></a>
+            <a href="<%=request.getContextPath()%>/Registration"><button><span></span>JOIN WITH US</button></a>
         </div>
 
     </div>
