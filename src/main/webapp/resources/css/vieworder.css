@@ -12,10 +12,9 @@ body{
 }
 .container-2{
     display: grid;
-    margin-top: 109px;
-    grid-template-columns: 15% 2fr 13fr;
-    grid-template-areas:
-            'sidebar container-3 container-4';
+    grid-template-columns: 1fr 12fr;
+    grid-template-areas: 'container-3 container-4';
+    margin-top: 160px;
 }
 .container-3{
     display: grid;
@@ -59,7 +58,7 @@ body{
 }
 .dwn-btn{
     padding-right: 12px;
-    margin-left: 614px;
+    margin-left: 840px;
     font-size: 15px;
 }
 
