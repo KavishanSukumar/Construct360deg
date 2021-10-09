@@ -8,7 +8,7 @@ body{
     background: black;
     padding: 20px;
     width: 100% ;
-    height: 73px;
+    height: 65px;
     box-sizing: border-box;
 }
 #logopic{
@@ -30,7 +30,8 @@ body{
     margin-top: 15px;
 }
 .nav-panel {
-    background:black;
+    background: #000000d6;
+    margin-top: 50px;
     padding: 0px;
     position: absolute;
     top: 100%;
@@ -126,7 +127,7 @@ ul li a:hover,ul li i:hover{
 }
 .container{
     display: grid;
-    grid-template-rows: 73px 600px;
+    grid-template-rows: 65px 600px;
     grid-template-areas: 
     'menu_bar'
     'content';
@@ -144,7 +145,6 @@ ul li a:hover,ul li i:hover{
     height: 380px;
     padding: 20px;
     border-radius: 10px;
-    position: absolute;
     margin-top:110px;
     margin-left: 60px;
 }
@@ -156,7 +156,7 @@ ul li a:hover,ul li i:hover{
     padding: 20px;
     width: 810px;
     height: 450px;
-    margin-left: -900px;
+    margin-left: 70px;
     margin-top: 70px;
     grid-template-areas: 'user2 user5 user6';
 }
@@ -164,6 +164,7 @@ ul li a:hover,ul li i:hover{
     background-color: #e9e9e9;
     height: 50px;
     width: 1350px;
+    position: fixed;
 }
 form.example input[type=text] {
     padding: 8px;
