@@ -7,10 +7,9 @@ header{
     background: black;
     padding: 20px;
     width: 100%;
-    height: 62px;
-    position: relative;
+    height: 65px;
     box-sizing: border-box;
-    /* position: fixed; */
+    position: fixed;
 }
 #logopic{
     width: 100px;
@@ -31,7 +30,8 @@ header{
     margin-top: 15px;
 }
 .nav-panel {
-    background: black;
+    background: #000000d6;
+    margin-top: 30px;
     padding: 1rem;
     position: absolute;
     top: 100%;
@@ -124,24 +124,19 @@ ul li a:hover,ul li i:hover{
     color: #ff7200;
 }
 .container{
-    grid-template-rows: 70px 600px;
+    grid-template-rows: 65px 50px 600px;
     display: grid;
     grid-template-areas: 
     'header'
-    'content';
-}
-.content{
-    display: grid;
-    grid-template-rows: 50px 2550px;
-    grid-template-areas: 
     'content1'
     'content2';
 }
 .content1{
-    /* overflow: hidden; */
     background-color: #e9e9e9;
-    margin-top: -8px;
+    margin-top: 62px;
     height: 50px;
+    width: 100%;
+    position: fixed;
 }
 form.example input[type=text] {
     padding: 8px;
@@ -177,7 +172,7 @@ form.example::after {
     margin-left: 15px;
 }
 .main i{
-    color: #5e5c5c;
+    color: #7c7b7b;
     cursor: pointer;
     padding: 7px;
     font-size: 35px;
@@ -194,7 +189,7 @@ form.example::after {
     background-color: rgb(222, 225, 226);
     width: 900px;
     height: 1480px;
-    margin-top: 10px;
+    margin-top: 135px;
     margin-left: 210px;
 }
 .box1{border-bottom: 1px solid rgb(177, 167, 167);}
@@ -229,16 +224,8 @@ form.example::after {
 .box1 i{
     font-size: 25px;
     margin-left: 580px;
-    cursor: pointer;
     color: #292727;
 }
-/* .camera i{
-    font-size: 20px;
-    margin-top: -35px;
-    float: left;
-    margin-left: 210px;
-    overflow: auto; 
-} */
 .button {
     background-color: rgb(222, 225, 226);
     color: #000000;
@@ -265,6 +252,13 @@ form.example::after {
 .box2 .button{
     margin-top: 200px;
     width: 80px;}
+.box2 i{
+    float: right;
+    font-size: 20px;
+    margin-top: -490px;
+    margin-right: 10px;
+    color: #292727;
+}
 .box3 i{
     margin-left: 430px;
     font-size: 50px;
