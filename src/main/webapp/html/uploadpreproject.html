@@ -1,74 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Previous Project</title>
-    <link rel="stylesheet" href="../resources/css/uploadpreproject.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Previous Project</title>
+  <link rel="stylesheet" href="../resources/css/uploadpreproject.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
-    <input type="checkbox" id="check">
-    <!-- header area start -->
-    <header>
-        <div class="left_area">
-            <img src="../resources/images/uploadpreproject/LoginLogo.png" id="logopic">
-        </div>
-        <div class="right_area" >
-             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">PROJECT</a></li>
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">CONTACT_US</a></li>
-                <li><a href="#">ACCOUNT</a></li>
-            </ul>
-        </div>
-    </header>
-    <!-- header area end -->
-
-    <!-- sidebar start-->
-    <div class="sidebar">
-        <label for="check">
-            <i class="fas fa-bars" id="sidebar_btn"></i>
-        </label>
-        <center>
-            <img src="../resources/images/uploadpreproject/sidebarpro.jpg" id="profile_image" alt="">
-            <h4 id="profile_name">Construction</h4>
-        </center>
-        <a href="#"><i class="fas fa-laptop-house" id="house"></i><span>Available Projects</span></a>
-        <a href="#"><i class="fas fa-hard-hat" id="hat"></i><span>Projects</span></a>
-        <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><span>Products</span></a>
-        <a href="#"><i class="fas fa-user" id="user"></i><span>Profile</span></a>
-        <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><span>Report</span></a>
-        <a href="#"><i class="fas fa-headset" id="head"></i><span>Help and Support</span></a>
-        <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><span>Logout</span></a>
+<div class="container">
+<header>
+  <div class="left_area">
+    <img src="../resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
+  </div>
+  <div class="right_area">
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li><a href="#">SERVICES</a></li>
+      <li><a href="#">PROJECT</a></li>
+      <li><a href="#">CONTACT US</a></li>
+      <li> <i class="fas fa-bars" id="sidebar_btn" onclick="document.querySelector('#nav').classList.toggle('hidden')"></i></li>
+    </ul>
+  </div>
+  <div class="nav-panel hidden" id="nav">
+    <ul>
+      <div class="prof_img">
+        <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" >
+        <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
+      </div>
+      <a href="#"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
+      <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><h4>Products</h4></a>
+      <a href="#"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
+      <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><h4>Report</h4></a>
+      <a href="#"><i class="fas fa-headset" id="head"></i><h4>Help and Support</h4></a>
+      <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
+    </ul>
+  </div>
+</header>
+<div class="content1">
+    <form class="example" action="/action_page.java">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      <input type="text" placeholder="Search.." name="search">
+    </form> 
+    <div class="main"> 
+      <a href="#"><i class="fa fa-home"></i></a>
+      <a href="#"><i class="fa fa-bell"></i></a>
+      <a href="#"><i class="fa fa-mail-bulk"></i></a>
     </div>
-    <!-- sidebar end-->
+</div>
+<div class="content2">
+      <div class="setting">
+        <img src="../resources/images/viewprofile/user2.png">
+        <a href="#"><i class="fa fa-camera"></i></a>
+         <h3>Robert Johns</h3>
+         <p>Your personal account</p>
+         <div class="menu">
+          <h4>Account Settings</h4>
+          <a href="#">Account</a>
+          <a href="#">Emails</a>
+          <a href="#">Appointments</a>
+          <a href="#">Feedbacks</a>
+          <a target="" href="#" class="active">Projects</a>
+            <div class="subbtn" style="display: block;">
+            <a href="#" class="active">Upload Previous Project</a>
+            <a href="#">Update Ongoing Project</a>
+            </div>
+          <a href="#">Account security</a>
+         </div>
+      </div>
+      <div class="form">
+        <form action="/action_page.java">
+          <h3>Upload Previous Project</h3><br>
+          <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Homeno" name="HouseNumber">
 
-    <div class="container">
-    
-    </div>
-    <p>Upload the previous project - <span>PDF only</span></p>
+          <label for="area">Area: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="area" name="area">
 
-    <div class="content">
-        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-            <i class="fas fa-upload"></i>
-            <p>Drag and Drop a file here<br>or</p>
-            <form action="/action_page.java">
-                <input type="file" id="myFile" name="filename">
-                <!-- <input type="submit"> -->
-            </form>
-        </div>
-    </div>
-    
-    <!-- <button class="button">Button</button> -->
-    <a href="#" class="btn1">Save Changes</a>
-    <a href="#" class="btn2">Submit</a>
-    
+          <label for="city">City: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="city" name="city">
 
-    <script src="../resources/js/uploadpreproject.js"></script>
-    
+          <label for="district">District: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="district" name="district">
 
-</body>  
-</html>   
+          <label for="province">Province: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="province" name="province">
+
+          <label for="Rname">Reference Name: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Rname" name="Rname">
+
+          <label for="Rnum">Reference Number: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Rnum" name="Rnum">
+
+          <label for="img">Upload images:</label>
+          <input type="file" id="img" name="img">
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+</div>
+</div>
+</body>
+
+</html>
