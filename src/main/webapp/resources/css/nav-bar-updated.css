@@ -4,6 +4,12 @@ body{
     font-family: "Roboto", sans-serif;
     /* background-color: #c4c4c4; */
 }
+.container{
+    display: grid;
+    grid-template-rows: 72px auto;
+    grid-template-areas: "nav"
+                         "webpage";
+}
 .menu_bar{
     position: fixed;
     background: black;
@@ -38,7 +44,7 @@ body{
 
 
 .nav-panel {
-    background:#000000d6;
+    background:#000000d4;
     padding: 0px;
     position: absolute;
     top: 100%;
