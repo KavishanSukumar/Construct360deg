@@ -1,15 +1,9 @@
-<%@ page import="com.example.construct360deg.database.Database" %>
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.ResultSet" %>
+<%@ page import="com.example.construct360deg.model.ProductOrder" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <%
-    Connection connection=Database.getConnection();
-    String sql="SELECT orderid FROM `orders`";
-    PreparedStatement preparedStatement=connection.prepareStatement(sql);
-    ResultSet resultSet=preparedStatement.executeQuery();
-
+    ArrayList<Integer> productOrders= (ArrayList<Integer>) request.getAttribute("orderids");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,16 +18,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="../resources/js/jquery-3.6.0.js"></script>
+    <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
-
-
+        function getOrderDetails(ele){
+            var orderid=ele.id;
+            var text=" ";
+            var obj;
+            $("#orderdetailsrows").empty();
+            $.ajax({
+                url:"<%=request.getContextPath()%>/orderdetails",
+                type: 'POST',
+                data:{"orderid":orderid},
+                success: function (data){
+                    obj=data;
+                    for (let i in obj){
+                        text+="<tr><td>"+obj[i].productName+"</td><td>"+obj[i].quantity+"</td><td>"+ obj[i].quantity*obj[i].price +"</td></tr>";
+                        $("#orderdetailsrows").append(text);
+                        console.log(data);
+                    }
+                }
+            });
+            text=" ";
+        }
     </script>
 </head>
 
 <body>
-<!-- <input type="checkbox" id="check"> -->
-<!-- header area start -->
 <div class="container">
     <header class="menu_bar">
 
@@ -79,11 +89,8 @@
 
                 <div class="ordercolm">
                     <ul>
-<%--                        <li id="order1" class="order">202125479875</li>--%>
-<%--                        <li id="order2" class="order">202125479878</li>--%>
-<%--                        <li id="order3" class="order">202125479879</li>--%>
-                        <%for (;resultSet.next();){%>
-                            <li class="order"><%=resultSet.getInt("orderid")%></li>
+                        <%for (int i=0;i<productOrders.size();i++){%>
+                            <li class="order" onclick="getOrderDetails(this)" id="<%=productOrders.get(i)%>"><%=productOrders.get(i)%></li>
                         <%}%>
                     </ul>
                 </div>
@@ -94,21 +101,17 @@
                 </div>
                 <div class="orderdetailscolm">
                     <table>
+                        <thead>
                         <tr>
                             <th>Item name</th>
                             <th>Quantity</th>
                             <th>Price</th>
                         </tr>
-                        <tr>
-                            <td>Cement</td>
-                            <td>5.0</td>
-                            <td>7500.00</td>
-                        </tr>
-                        <tr>
-                            <td>Plaster of paris</td>
-                            <td>5.0</td>
-                            <td>9500.00</td>
-                        </tr>
+                        </thead>
+
+                        <tbody id="orderdetailsrows">
+
+                        </tbody>
                         <tr>
                             <th>Total</th>
                             <td></td>
