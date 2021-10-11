@@ -2,7 +2,9 @@ package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.RegistrationDAO;
 import com.example.construct360deg.model.UserRegistration;
+import org.apache.commons.codec.digest.DigestUtils;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,13 +27,9 @@ public class RegistrationServlet extends HttpServlet {
         String password=req.getParameter("password");
         String contactno=req.getParameter("contactno");
         String role=req.getParameter("professional");
-        try {
-            MessageDigest digest=MessageDigest.getInstance("SHA-256");
-            password=digest.digest(password.getBytes(StandardCharsets.UTF_8)).toString();
-            System.out.println(password);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+
+        password= DigestUtils.sha256Hex(password);
+
         userRegistration.setEmail(email);
         userRegistration.setUsername(username);
         userRegistration.setPassword(password);
@@ -39,6 +37,8 @@ public class RegistrationServlet extends HttpServlet {
         userRegistration.setProfessionalrole(role);
         try {
             if (registrationDAO.userRegistration(userRegistration)){
+                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
+                requestDispatcher.forward(req,resp);
                 System.out.println("Successful");
             }else{
                 System.out.println("Error");

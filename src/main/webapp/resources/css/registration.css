@@ -18,11 +18,20 @@ body{
 }
 .container-1{
     display: flex;
-    background-color: black;
+    flex-direction: row;
+    justify-content: center;
+}
+.container-2{
+    text-align: center;
     width: 50%;
-    margin: 5% auto;
+}
+.container-3{
+    display: flex;
+    background-color: black;
+    width: 45%;
+    margin: 4% auto;
     color: white;
-    opacity: 0.8;
+    opacity: 0.9;
     border-radius: 10px;
     flex-direction: column;
     justify-content: center;
@@ -64,12 +73,14 @@ input:hover{
     border-color: #ff7200;
 }
 .submit{
-    padding: 10px 220px ;
-    margin: 0px 10px 10px 10px;
+    padding: 10px 50px ;
+    margin: 0px 60px 20px 0px;
+    text-align: right;
 }
 .terms{
     margin-top: 10px;
     margin-bottom: 0px;
+    margin-right: 184px;
 }
 #terms2{
     color: #FF3D00;
@@ -78,3 +89,24 @@ input:hover{
     background-color: #ff7200;
 }
 
+.sidepic{
+    width: 60%;
+    height: 47%;
+    margin-top: 23%;
+    border: 12px solid black;
+    box-shadow: 8px 8px 0px black;
+}
+.sbt-btn{
+    text-align: right;
+}
+
+.container-2 > .par{
+    font-family:  'Roboto', sans-serif;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+    color: white;
+    text-align: right;
+
+}

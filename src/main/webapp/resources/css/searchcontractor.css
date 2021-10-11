@@ -3,13 +3,13 @@ body{
     padding: 0;
     font-family: "Roboto", sans-serif;
 }
-header{
+.menu_bar{
+    position: fixed;
     background: black;
     padding: 20px;
-    width: 100%;
+    width: 100% ;
     height: 65px;
     box-sizing: border-box;
-    position: fixed;
 }
 #logopic{
     width: 100px;
@@ -29,9 +29,9 @@ header{
     float: right;
     margin-top: 15px;
 }
-.nav-panel{
+.nav-panel {
     background: #000000d6;
-    margin-top: 45px;
+    margin-top: 50px;
     padding: 0px;
     position: absolute;
     top: 100%;
@@ -65,11 +65,13 @@ header{
     margin-left: 44px;
     margin-right: 44px;
     margin-top: 18px;
+    cursor: pointer;
 }
 #profile_name{
     color: rgb(255, 255, 255);
     margin-top: 0;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .fa-bars {
     z-index: 1;
@@ -81,7 +83,7 @@ header{
     transition-property: color;
 }
 .nav-panel a:hover{
-    color: #ff7200;
+    color: #FF7200;
     transition: 0.4s ease-in-out;
     height: 107px;
 }
@@ -121,21 +123,47 @@ ul li a{
     transition: 0.4s ease-in-out;
 }
 ul li a:hover,ul li i:hover{
-    color: #ff7200;
+    color: #FF7200;
 }
 .container{
-    grid-template-rows: 65px 50px 600px;
     display: grid;
+    grid-template-rows: 65px 600px;
     grid-template-areas: 
-    'header'
-    'content1'
-    'content2';
+    'menu_bar'
+    'content';
+}
+.content{
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:'container-3 container-4';
+}
+.container-3{
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    background-color: rgb(240, 232, 232);
+    width: 270px;
+    height: 380px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top:110px;
+    margin-left: 60px;
+}
+.container-4{
+    background-color: rgb(240, 232, 232);
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    display: grid;
+    border-radius: 5px;
+    padding: 20px;
+    width: 810px;
+    height: 450px;
+    margin-left: 70px;
+    margin-top: 70px;
+    grid-template-areas: 'user2 user5 user6';
 }
 .content1{
     background-color: #e9e9e9;
-    margin-top: 62px;
     height: 50px;
-    width: 100%;
+    width: 1350px;
     position: fixed;
 }
 form.example input[type=text] {
@@ -166,113 +194,70 @@ form.example::after {
     clear: both;
     display: table;
 }
-.main{
-    float: left;
-    margin-top: -40px;
-    margin-left: 15px;
-}
-.main i{
-    color: #7c7b7b;
+.box{
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 12px;
     cursor: pointer;
-    padding: 7px;
-    font-size: 35px;
-}
-.main i:hover{
-    background: #d6d4d1;
-}
-.content2{
-    display: grid;
-    grid-template-columns: 500px 700px;
-    background-color: #fff;
-    width: 100%;
-    height: 600px;
-    margin-top: 100px;
-}
-.setting{
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left: 20px;
-    height: 640px;
-}
-.setting i{
-    margin-left: -30px;
-    color: #5e5c5c;
-    cursor: pointer;
-}
-.setting img{
-    width: 100px;
-    border-radius: 50%;
-    margin-top: 20px;
-    margin-left: 80px;
-    border: 1px solid rgb(177, 175, 175);
-}
-.setting h3{
-    margin-left: 200px;
-    margin-top: -90px;
-}
-.setting p{
-    margin-left: 200px;
-    margin-top: -15px;
     font-size: 15px;
+    margin-top: 10px;
+    margin-left: 25px;
 }
-.menu{
-    display: flex;
-    flex-direction: column;
-    height: 360px;
-    width: 230px;
-    margin-left: 85px;
-    margin-top: 70px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    border-radius: 8px;
+/* Hide the browser's default checkbox */
+.box input{
+    height: 0px;
+    width: 0px;
 }
-.menu a{
-    text-decoration: none;
-    color: #000000;
-    height: 18px;
-    display: inline-block;
-    font-size: 15px;
-    transition-duration: 0.3s;
-    padding: 16px;
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: 1px solid rgb(161, 155, 155);
 }
-.menu a:hover{background: #dad7d5;}
-.menu a.active{background-color: #dad7d5;}
-.menu h4{margin-left: 15px;}
-.form input[type=text]{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+/* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
   }
-.form input[type=submit] {
-    width: 100%;
-    background-color: #abafac;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  /* Show the checkmark when checked */
+.box input:checked ~ .checkmark:after {
+    display: block;
+}
+  /* Style the checkmark/indicator */
+.box .checkmark:after {
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.container-3 i{
+      color: rgb(217, 219, 92);
+}
+.gallery{
+    margin: 5px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
+}
+.gallery .desc{
+    text-align: center;
+    width: 200px;
     font-size: 15px;
-  } 
-.form input[type=submit]:hover {
-    background-color: #ff7200;
-    color: #fff;
 }
-.form{
-    background-color: rgb(230, 228, 228);
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    border-radius: 10px;
-    margin-top: 50px;
-    padding: 30px;
-    height: 600px;
-}
-.form label{font-size: 15px;}
-.form i{
-    cursor: pointer;
-    color: #5e5c5c;
-}
+
+
+
+
+
 
 

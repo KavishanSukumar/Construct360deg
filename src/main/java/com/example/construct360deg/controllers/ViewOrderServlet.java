@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet("/login")
-public class HomeAccountServlet extends HttpServlet {
+@WebServlet("/vieworders")
+public class ViewOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/vieworder.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

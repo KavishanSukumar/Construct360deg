@@ -5,23 +5,27 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Previous Project</title>
-  <link rel="stylesheet" href="../resources/css/uploadpreproject.css">
+  <title>Delete Account</title>
+  <link rel="stylesheet" href="../resources/css/deleteaccount.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+<!-- header area start -->
 <div class="container">
 <header>
   <div class="left_area">
+    <!--<h2 class="logoname">Construct360</h2>-->
     <img src="../resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
   </div>
   <div class="right_area">
+    <!-- <a href="#" id="logout_btn">Logout</a> -->
     <ul>
       <li><a href="#">HOME</a></li>
       <li><a href="#">SERVICES</a></li>
       <li><a href="#">PROJECT</a></li>
       <li><a href="#">CONTACT US</a></li>
+      <!-- <li><a href="#">ACCOUNT</a></li> -->
       <li> <i class="fas fa-bars" id="sidebar_btn" onclick="document.querySelector('#nav').classList.toggle('hidden')"></i></li>
     </ul>
   </div>
@@ -63,42 +67,27 @@
           <a href="#">Emails</a>
           <a href="#">Appointments</a>
           <a href="#">Feedbacks</a>
-          <a target="" href="#" class="active">Projects</a>
-            <div class="subbtn" style="display: block;">
-            <a href="#" class="active">Upload Previous Project</a>
-            <a href="#">Update Ongoing Project</a>
-            </div>
-          <a href="#">Account security</a>
+          <a href="#">projects</a>
+          <a class="active" href="#">Account security</a>
          </div>
       </div>
       <div class="form">
-        <form action="/action_page.java">
-          <h3>Upload Previous Project</h3><br>
-          <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="Homeno" name="HouseNumber">
+        <h1>Delete Your Account</h1>
+        <h3>We are sorry to see you go.</h3>
+        <br>
+        <h4>Before you go...</h4>
+        <p>* If you're sick of getting email notifications from us, you can disable them here.
+            <br><br>* If you want to change your username, you can do that here.
+        <br><br>* Account deletion is final. There will be no way to restore your account. </p>
+        <div class="btn">
+            <a class="left-btn" href="#">
+                <span>Keep my account</span>
+            </a>
+            <a class="right-btn" href="#">
+                <span>Delete my account</span>
+            </a>
+        </div>
 
-          <label for="area">Area: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="area" name="area">
-
-          <label for="city">City: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="city" name="city">
-
-          <label for="district">District: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="district" name="district">
-
-          <label for="province">Province: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="province" name="province">
-
-          <label for="Rname">Reference Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="Rname" name="Rname">
-
-          <label for="Rnum">Reference Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="Rnum" name="Rnum">
-
-          <label for="img">Upload images:</label>
-          <input type="file" id="img" name="img">
-          <input type="submit" value="Submit">
-        </form>
       </div>
 </div>
 </div>

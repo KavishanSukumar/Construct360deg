@@ -6,9 +6,10 @@ body{
 }
 .container{
     display: grid;
-    grid-template-rows: 72px auto;
+    grid-template-rows: 70px 75vh 100px;
     grid-template-areas: "nav"
-                         "webpage";
+                         "webpage"
+                         "footer";
 }
 .menu_bar{
     position: fixed;
@@ -170,4 +171,17 @@ ul li a:hover,ul li i:hover{
     width: 100%;
     margin-top: 0%;
 
+}
+.footer{
+    grid-area: footer;
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
 }
