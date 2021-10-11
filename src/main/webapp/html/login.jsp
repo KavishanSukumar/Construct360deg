@@ -27,11 +27,11 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="<%=request.getContextPath()%>/#hoome">HOME</a></li>
-                    <li><a href="<%=request.getContextPath()%>/#seervise">SERVICES</a></li>
-                    <li><a href="<%=request.getContextPath()%>/#prooject">PROJECT</a></li>
-                    <li><a href="<%=request.getContextPath()%>/#AbooutUs">ABOUT_US</a></li>
-                    <li><a href="<%=request.getContextPath()%>/#coonatact">CONTACT_US</a></li>
+                    <li><a href="<%=request.getContextPath()%>/#HOME">HOME</a></li>
+                    <li><a href="<%=request.getContextPath()%>/#SERVICE">SERVICES</a></li>
+                    <li><a href="<%=request.getContextPath()%>/#PROJECTS">PROJECT</a></li>
+                    <li><a href="<%=request.getContextPath()%>/#ABOUT_US">ABOUT_US</a></li>
+                    <li><a href="<%=request.getContextPath()%>/#CONTACT_US">CONTACT_US</a></li>
                 </ul>
             </div>
             
