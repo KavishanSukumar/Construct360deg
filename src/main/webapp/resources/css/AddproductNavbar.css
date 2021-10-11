@@ -150,7 +150,7 @@ ul li a:hover,ul li i:hover{
 }
 .content{
     /*margin-left: 250px;*/
-    background: url(../images/navbar/homepagepic-1.jpg) no-repeat;
+    /* background: url(../images/navbar/homepagepic-1.jpg) no-repeat; */
     /*background-position: center;*/
     background-size: cover;
     height: 100vh;
