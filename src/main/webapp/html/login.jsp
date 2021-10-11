@@ -39,7 +39,7 @@
     <div class="content">
         <h1>BUILD<br><span>YOUR DREAM</span><br>WITH PASSION</h1>
         <p class="par">It is not the beauty of a building you should look at; <br>its the construction of the foundation that will stand the test of time. ...</p>
-        <button class="cn"><a href="<%=request.getContextPath()%>/Registration">Join with us</a></button>
+        <button class="cn"><a href="<%=request.getContextPath()%>/registration">Join with us</a></button>
         <form class="form" action="<%=request.getContextPath()%>/loginvalidate" method="post">
             <h2>Login here</h2>
             <br>
