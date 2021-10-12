@@ -13,9 +13,9 @@ body{
 .container-2{
     display: grid;
     margin-top: 109px;
-    grid-template-columns: 15% 2fr 13fr;
+    grid-template-columns: 2fr 13fr;
     grid-template-areas:
-            'sidebar container-3 container-4';
+            ' container-3 container-4';
 }
 .container-3{
     display: grid;

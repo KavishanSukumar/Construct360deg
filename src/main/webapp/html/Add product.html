@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar</title>
+  <title>Add product</title>
   <link rel="stylesheet" href="../resources/css/AddproductNavbar.css">
   <link rel="stylesheet" href="../resources/css/AddProduct.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -74,18 +74,17 @@
           <option selected>Select category</option>
           <option value="1">Branded</option>
           <option value="2">Non branded</option>
-          <option value="3">GHethy</option>
         </select>
       </div>
       <div class="row7">
           <div class="col9">
-              <label for="expire_date">Expire Date</label>
-              <input id="expire_date" size = "16" name="expire_date" type="date" class="form-control validate" data-large-mode="true"/>
+              <label for="Price">Price</label>
+              <input id="Price"  name="Price" type="text" size = "24" min="0" max="1000" class="form-control validate" required/>
             </div>
             <div class="row10">
               <label for="stock">Units In Stock
               </label>
-              <input id="stock" name="stock" type="text" class="form-control validate" required />
+              <input id="stock" name="stock" type="number" min="0" max="1000" class="form-control validate" required />
             </div>
       </div>
       </form>
