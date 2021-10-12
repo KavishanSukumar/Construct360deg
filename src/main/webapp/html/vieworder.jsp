@@ -23,22 +23,22 @@
         function getOrderDetails(ele){
             var orderid=ele.id;
             var text=" ";
-            var obj;
+            var total=0;
             $("#orderdetailsrows").empty();
             $.ajax({
                 url:"<%=request.getContextPath()%>/orderdetails",
                 type: 'POST',
                 data:{"orderid":orderid},
                 success: function (data){
-                    obj=data;
-                    for (let i in obj){
-                        text+="<tr><td>"+obj[i].productName+"</td><td>"+obj[i].quantity+"</td><td>"+ obj[i].quantity*obj[i].price +"</td></tr>";
+                    for (let i in data){
+                        text="<tr><td>"+data[i].productName+"</td><td>"+data[i].quantity+"</td><td>"+ data[i].quantity*data[i].price +"</td></tr>";
                         $("#orderdetailsrows").append(text);
-                        console.log(data);
+                        total+=data[i].quantity*data[i].price;
                     }
+                    $("#totalvalue").empty();
+                    $("#totalvalue").append(total);
                 }
             });
-            text=" ";
         }
     </script>
 </head>
@@ -115,7 +115,7 @@
                         <tr>
                             <th>Total</th>
                             <td></td>
-                            <td>17000.00</td>
+                            <td id="totalvalue">0.00</td>
                         </tr>
                     </table>
                     <div class="">

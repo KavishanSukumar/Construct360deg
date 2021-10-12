@@ -32,6 +32,5 @@ public class ViewOrderDetailsServlet extends HttpServlet {
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
         out.print(orderlistString);
-        System.out.println(orderlistString);
     }
 }
