@@ -18,24 +18,7 @@
 <!-- header area start -->
   <div class="Maxcontainer">
     <div class="firstpart">
-  <header class="menu_bar">
-
-    <div class="left_area">
-      <!--<h2 class="logoname">Construct360</h2>-->
-      <img src="../resources/images/Addproduct/LoginLogo.png" id="logopic" sizes="100px">
-    </div>
-    <div class="right_area">
-      <!-- <a href="#" id="logout_btn">Logout</a> -->
-      <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">SERVICES</a></li>
-        <li><a href="#">PROJECT</a></li>
-        <li><a href="#">CONTACT US</a></li>
-        <li> <i class="fas fa-bars" id="sidebar_btn" onclick="document.querySelector('#nav').classList.toggle('hidden')"></i></li>
-      </ul>
-    </div>
-    <%@include file="sidebar.jsp"%>
-  </header>
+      <%@include file="sidebar.jsp"%>
   </div>
   <div class="content">
     <div class="leftSide">
