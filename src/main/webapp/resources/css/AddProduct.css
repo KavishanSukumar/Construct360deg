@@ -70,12 +70,12 @@
     float: left;
     padding-left: 18px;
 }
-#expire_date{
-    margin-left: 35px;
+#Price{
+    margin-left: 83px;
     border: 2px solid gray;
 }
 #stock{
-    margin-left: -2px;
+    margin-left: 2px;
     border: 2px solid gray;
 }
 .row11{
