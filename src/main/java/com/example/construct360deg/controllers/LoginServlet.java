@@ -29,9 +29,10 @@ public class LoginServlet extends HttpServlet {
         try {
             if(userloginDAO.verify(userlogin)){
                 HttpSession session=req.getSession();
+                session.setAttribute("uname",username);
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewproject.html");
                 requestDispatcher.forward(req,resp);
-                System.out.println("Login successfull");
+
             }else{
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
                 requestDispatcher.forward(req,resp);
