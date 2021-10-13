@@ -64,6 +64,10 @@ body{
 
 }
 
+.nav-panel a:hover{
+    transform: scale(1.1);
+}
+
 #profile_image{
     display: flex;
     width: 75px;
