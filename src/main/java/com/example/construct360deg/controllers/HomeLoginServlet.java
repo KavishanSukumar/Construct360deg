@@ -14,4 +14,8 @@ public class HomeLoginServlet extends HttpServlet {
         RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
         requestDispatcher.forward(req,resp);
     }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
+        requestDispatcher.forward(req,resp);
+    }
 }

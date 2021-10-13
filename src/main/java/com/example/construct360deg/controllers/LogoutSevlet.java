@@ -16,4 +16,9 @@ public class LogoutSevlet extends HttpServlet {
         session.removeAttribute("uname");
         resp.sendRedirect(req.getContextPath()+"/login");
     }
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session=req.getSession();
+        session.removeAttribute("uname");
+        resp.sendRedirect(req.getContextPath()+"/login");
+    }
 }

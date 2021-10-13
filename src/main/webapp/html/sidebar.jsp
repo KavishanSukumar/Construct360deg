@@ -2,7 +2,7 @@
 
     <div class="left_area">
         <!--<h2 class="logoname">Construct360</h2>-->
-        <img src="./resources/images/Addproduct/LoginLogo.png" id="logopic" sizes="100px">
+        <img src="./resources/images/Logo.png" id="logopic" sizes="100px">
     </div>
     <div class="right_area">
         <!-- <a href="#" id="logout_btn">Logout</a> -->
