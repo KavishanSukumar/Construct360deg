@@ -1,7 +1,6 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.OrderDAO;
-import com.example.construct360deg.model.ProductOrder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

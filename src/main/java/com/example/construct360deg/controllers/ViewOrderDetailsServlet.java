@@ -1,9 +1,8 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.OrderDAO;
-import com.example.construct360deg.model.ProductOrder;
+import com.example.construct360deg.model.Product;
 import com.google.gson.Gson;
-import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +20,7 @@ public class ViewOrderDetailsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         OrderDAO orderDAO=new OrderDAO();
 
-        ArrayList<ProductOrder> orderlist=new ArrayList<>();
+        ArrayList<Product> orderlist=new ArrayList<>();
         try {
             orderlist=orderDAO.getOrderDetails(Integer.parseInt(req.getParameter("orderid")));
         } catch (SQLException e) {

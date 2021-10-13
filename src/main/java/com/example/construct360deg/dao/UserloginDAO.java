@@ -4,6 +4,7 @@ import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.Userlogin;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import javax.servlet.http.HttpSession;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
