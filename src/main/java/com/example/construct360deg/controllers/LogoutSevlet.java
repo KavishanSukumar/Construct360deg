@@ -6,16 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-@WebServlet("/login")
-public class HomeLoginServlet extends HttpServlet {
+@WebServlet("/Logout")
+public class LogoutSevlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
-        requestDispatcher.forward(req,resp);
+        HttpSession session=req.getSession();
+        session.removeAttribute("uname");
+        resp.sendRedirect(req.getContextPath()+"/login");
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
-        requestDispatcher.forward(req,resp);
+        HttpSession session=req.getSession();
+        session.removeAttribute("uname");
+        resp.sendRedirect(req.getContextPath()+"/login");
     }
 }

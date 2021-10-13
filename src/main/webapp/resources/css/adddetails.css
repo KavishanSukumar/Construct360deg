@@ -39,6 +39,7 @@ header{
     left: 0;
     height: 109px;
     opacity: 0.75;
+    /* z-index: 1; */
 }
 .hidden {
     display: none;
@@ -137,6 +138,7 @@ ul li a:hover,ul li i:hover{
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 1;
 }
 form.example input[type=text] {
     padding: 8px;
@@ -274,5 +276,17 @@ form.example::after {
     cursor: pointer;
     color: #5e5c5c;
 }
-
+.footer{
+    border-top: 1px solid #ebebeb;
+    margin-top: 150px;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
 

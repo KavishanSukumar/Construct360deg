@@ -277,3 +277,16 @@ form.example::after {
 .box4 h3{margin-left: 30px;}
 .box4 p{margin-left: 100px;}
 
+.footer{
+    border-top: 1px solid #ebebeb;
+    margin-top: 950px;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}

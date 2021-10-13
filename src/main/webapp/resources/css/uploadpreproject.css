@@ -239,9 +239,6 @@ form.example::after {
     background-color: #dad7d5;
 }
 .menu h4{margin-left: 15px;}
-.subbtn{margin-left: 37px;}
-.subbtn a.active{background-color: rgb(175, 170, 170);}
-.subbtn a:hover{background-color:rgb(175, 170, 170);}
 
 .form input[type=text]{
     width: 100%;
@@ -280,5 +277,19 @@ form.example::after {
     cursor: pointer;
     color: #5e5c5c;
 }
+.footer{
+    border-top: 1px solid #ebebeb;
+    margin-top: 120px;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
 
 
