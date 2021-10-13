@@ -1,4 +1,4 @@
-<%@ page import="com.example.construct360deg.model.ProductOrder" %>
+<%@ page import="com.example.construct360deg.model.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>

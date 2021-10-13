@@ -171,3 +171,7 @@ ul li a:hover,ul li i:hover{
     margin-top: 0%;
 
 }
+
+.nav-panel a:hover{
+    transform: scale(1.1);
+}
