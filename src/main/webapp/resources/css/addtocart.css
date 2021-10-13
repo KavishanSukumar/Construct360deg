@@ -12,15 +12,14 @@ html{
     grid-row-gap: 0px;
     grid-column-gap: 0px;
     grid-template-areas:
-                'navbar'
-                'container-2';
+                'container-2 subtotalcolumn';
 }
 
 .container-2{
     display: grid;
     grid-template-columns: 15% 5fr 2fr;
     grid-template-areas:
-            'sidebar container-3 subtotalcolumn';
+            'container-3 subtotalcolumn';
 }
 /*.container-2-1{*/
 /*    display: grid;*/
@@ -33,6 +32,7 @@ html{
     display: grid;
     grid-row-gap: 12px;
     padding: 5px;
+    margin-top: 125px;
     margin-left: 15px;
     grid-template-areas:
             'selectall'
@@ -46,7 +46,9 @@ html{
 
 .itemcolumn{
     grid-area: itemcolumn;
-    padding:10px;
+    padding-top:25px;
+    padding-left:10px;
+    padding-right:10px;
     justify-items: right;
     text-align: left;
     display: grid;
@@ -67,6 +69,7 @@ html{
 }
 .itemdes{
     grid-area: itemdes;
+    margin: 10px;
 }
 
 .subtotalcolumn{
@@ -76,7 +79,9 @@ html{
 }
 .subtotalsection{
     padding: 20px;
-    margin: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 125px;
     background-color: #D3D3D3;
     box-shadow:  0 1px 5px rgba(104, 104, 104, 0.8);
     font-size: 15px;
@@ -87,4 +92,8 @@ html{
     height: 100px;
     border: 1px solid;
 }
-
+img{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+}
