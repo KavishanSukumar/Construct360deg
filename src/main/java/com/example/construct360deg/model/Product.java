@@ -12,6 +12,15 @@ public class Product {
     private int productid;
     private InputStream productimage;
     private String productdes;
+    private byte[] imgBytes;
+
+    public byte[] getImgBytes() {
+        return imgBytes;
+    }
+
+    public void setImgBytes(byte[] imgBytes) {
+        this.imgBytes = imgBytes;
+    }
 
     public int getCompanyid() {
         return companyid;
