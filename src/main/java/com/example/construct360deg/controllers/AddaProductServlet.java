@@ -21,7 +21,7 @@ public class AddaProductServlet extends HttpServlet {
         ProductDAO productDAO=new ProductDAO();
         String uname=session.getAttribute("uname").toString();
 
-        Part filePart = req.getPart("productimg");
+        Part filePart = req.getPart("image");
         if(filePart!=null){
             product.setProductimage(filePart.getInputStream());
         }
