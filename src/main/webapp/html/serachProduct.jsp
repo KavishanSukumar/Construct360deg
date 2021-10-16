@@ -1,5 +1,3 @@
-
-</html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,17 +11,14 @@
 </head>
 
 <body>
-    <!-- <input type="checkbox" id="check"> -->
-    <!-- header area start -->
     <div class="container">+
     <header class="menu_bar">
         
         <div class="left_area">
-            <!--<h2 class="logoname">Construct360</h2>-->
+
             <img src="../resources/images/searchProducts/LoginLogo.png" id="logopic" sizes="100px">
         </div>
         <div class="right_area">
-            <!-- <a href="#" id="logout_btn">Logout</a> -->
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">SERVICES</a></li>
@@ -49,19 +44,11 @@
         </div>
     </header>
 
-   
 
-
-
-
-    <!-- header area end -->
-    <!-- sidebar start-->
 
     <div class="content">
         
         <div class="searchbar">
-            <!-- <i class="fas fa-search"></i>
-                <input type="text" id="myInput" placeholder="Search here..."> -->
                 <form class="example" action=" ">
                     <button type="submit"><i class="fa fa-search"></i></button>
                     <input type="text" placeholder="Search.." name="search">
@@ -132,36 +119,42 @@
                     </a>
                     <div class="desc"> Obeki construction measuring tape</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/412R1NfWTcL.jpg" >
                     </a>
                     <div class="desc">Grubbing Hoe 7.5 Inch X 8 Inch Head, with 54 Inch (4.5 Foot) Handle</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/Xtreme-Safety-Gloves-Grey-Nitrile-General-Purpose-Mechanical-Work-Gloves-12-pair-162449904545-7.jfif" >
                     </a>
                     <div class="desc">Xtreme Safety Nitrile Work Gloves 12 pair</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/Multipurpose-Aluminium-Ladder-5-x-4-1.jpg" >
                     </a>
                     <div class="desc">Supersaving Multipurpose Aluminium Ladder 5 x 4</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/71AIbRT1BxL._AC_SL1500_.jpg" >
                     </a>
                     <div class="desc">Taiwan Distance Measuring Wheel in Feet and Inches, Zozen Collapsible Measure Wheel Imperial Industrial Measuring Wheel</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/acerbis-gummistiefel-rubber-boots-00set-1.jpg" >
                     </a>
                     <div class="desc">Acerbis Rubber Boots 00SET Yellow</div>
                 </div>
+
                 <div class="gallery">
                     <a target="_blank" href="user4.jpg">
                       <img src="../resources/images/searchProducts/Heapro_LAL8276_830x.jpg" >
@@ -194,17 +187,10 @@
                     <div class="desc">China Concrete Wheel Barrow Wheelbarrow for Construction, Garden, Agricultural Tools - China Concrete Wheel Barrow</div>
                 </div>
             </div>
-            
-            
-            
         </div>
    
-   </div>
-
-    
-
-
-    </div> 
+        </div>
+    </div>
 
 </body>
 

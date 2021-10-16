@@ -16,14 +16,6 @@ public class AllUsers {
     private  boolean indivcontractflag;
     private byte[] imgbytes;
 
-    public byte[] getImgbytes() {
-        return imgbytes;
-    }
-
-    public void setImgbytes(byte[] imgbytes) {
-        this.imgbytes = imgbytes;
-    }
-
     public int getUserid() {
         return userid;
     }
@@ -110,5 +102,13 @@ public class AllUsers {
 
     public void setIndivcontractflag(boolean indivcontractflag) {
         this.indivcontractflag = indivcontractflag;
+    }
+
+    public byte[] getImgbytes() {
+        return imgbytes;
+    }
+
+    public void setImgbytes(byte[] imgbytes) {
+        this.imgbytes = imgbytes;
     }
 }
