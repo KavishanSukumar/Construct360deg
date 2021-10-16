@@ -31,7 +31,6 @@ body{
 }
 .nav-panel {
     background: #000000d6;
-    margin-top: 50px;
     padding: 0px;
     position: absolute;
     top: 100%;
@@ -146,7 +145,7 @@ ul li a:hover,ul li i:hover{
     padding: 20px;
     border-radius: 10px;
     margin-top:110px;
-    margin-left: 60px;
+    margin-left: -1400px;
 }
 .container-4{
     background-color: rgb(240, 232, 232);
@@ -156,15 +155,15 @@ ul li a:hover,ul li i:hover{
     padding: 20px;
     width: 810px;
     height: 450px;
-    margin-left: 70px;
-    margin-top: 70px;
+    margin-left: 500px;
+    margin-top: -470px;
     grid-template-areas: 'user2 user5 user6';
 }
 .content1{
     background-color: #e9e9e9;
     height: 50px;
-    width: 1350px;
-    position: fixed;
+    width: 1499px;
+    
 }
 form.example input[type=text] {
     padding: 8px;
