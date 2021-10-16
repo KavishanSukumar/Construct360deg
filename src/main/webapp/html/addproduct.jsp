@@ -1,4 +1,4 @@
-<%@page language="java" pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" %>
+<!-- <%@page language="java" pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" %> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add product</title>
-  <link rel="stylesheet" href="./resources/css/AddproductNavbar.css">
+  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./resources/css/AddProduct.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
     }
 %>
 <div class="Maxcontainer">
-  <div class="firstpart">
+  <!-- <div class="firstpart"> -->
     <header class="menu_bar">
 
       <div class="left_area">
@@ -52,13 +52,17 @@
         </ul>
       </div>
     </header>
-  </div>
+  <!-- </div> -->
+
   <div class="content">
     <div class="leftSide">
       <img src="./resources/images/Addproduct/addproductpagedec.png" id="leftsideimage" alt="" >
     </div>
+
+
     <div class="rightSide">
       <!-- /////////////////This is the leftside of rightside//////////////////// -->
+      <form action="<%=request.getContextPath()%>/AddaProduct" method="post" enctype="multipart/form-data" class="col4">
       <div class="leftrightSide">
         <div class="col-12">
           <h2 class="row3">Add Product</h2>
@@ -66,8 +70,7 @@
         <!-- ////////////////////////////// -->
         <div class="row4">
 
-          <!-- //////////////////////////////form starting////////////////////////////////// -->
-          <form action="<%=request.getContextPath()%>/AddaProduct" method="post" enctype="multipart/form-data" class="col4">
+          <!-- //////////////////////////////form starting////////////////////////////////// -->                   
             <div class="row5">
               <label for="name">Product Name</label>
               <input id="name" name="name" type="text" size = "59"class="form-control validate" required/>
@@ -92,14 +95,16 @@
               <div class="row10">
                 <label for="stock">Units In Stock
                 </label>
-                <input id="stock" name="stock" type="number" min="0" max="1000" class="form-control validate" required />
+                <input id="stock" name="stock" type="number" min="1" max="200" class="form-control validate" required />
               </div>
             </div>
-            
+        </div>
+
+      </div>
+
+            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
             <div class="rightrightside">
-              <div class="rightcol">
-                <!-- <form action="" class="col15">  -->
-                <div class="col10">
+              
                   <div class="row11">
                     <i class="fas fa-cloud-upload-alt tm-upload-icon" ></i>
                   </div>
@@ -107,24 +112,26 @@
                     <input id="fileInput" type="file" style="display:none;" />
                     <input type="file" class="btnfile" name="productimg"/>
                   </div>
-                </div>
+                
                 <div class="col-12">
                   <button type="submit" class="btnsub">Add Product Now</button>
                 </div>
-              </div> 
+              
             </div>
-          <!-- </div> -->
+            
           </form>
           <!-- //////////////////////////////////////////form ending//////////////////////////////////////////// -->
         </div>
+        <!-- rightside end -->
       </div>
-      <!-- /////////////////This is the rightside of rightside end//////////////////// -->
+      <!-- content end -->
+      <!-- //////////////////////////////////// -->
     </div>
-  </div>
+  
   <div class="footer">
     <p>All rights reserved � 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
   </div>
-</div>
+
 </body>
 
 
