@@ -1,4 +1,4 @@
-<!-- <%@page language="java" pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" %> -->
+<!-- <%@page language="java" pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" %>-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,11 +13,11 @@
 </head>
 
 <body>
-<!-- <%
-    if(session.getAttribute("uname")==null){
-      response.sendRedirect(request.getContextPath()+"/login");
-    }
-%> -->
+<!-- <%-->
+<!--    if(session.getAttribute("uname")==null){-->
+<!--      response.sendRedirect(request.getContextPath()+"/login");-->
+<!--    }-->
+<!--%>-->
 <div class="Maxcontainer">
   <!-- <div class="firstpart"> -->
     <header class="menu_bar">
@@ -104,18 +104,28 @@
 
             <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
             <div class="rightrightside">
-              
+                  <div class="brower_content" >
                   <div class="row11">
                     <i class="fas fa-cloud-upload-alt tm-upload-icon" ></i>
+                    <i class="close fas fa-times"></i>
+                    <div id="notfile">No file</div>
                   </div>
+                  
+                  <div class="productimg">
+                    <img src="" alt="">
+                  </div>
+                </div>
                   <div class="custom-fileUpload">
-                    <input id="fileInput" type="file" style="display:none;" />
-                    <input type="file" class="btnfile" name="productimg"/>
+                    <!-- <input id="fileInput" type="file" style="display:none;" /> -->
+                    <input type="file" accept="image/*" class="btnfile" name="image" id="imgfile" onchange="loadFile(event)"/>
+                    <label for="imgfile" class="upload">Browse</label>
                   </div>
+                
                 
                 <div class="col-12">
                   <button type="submit" class="btnsub">Add Product Now</button>
                 </div>
+              
               
             </div>
             
@@ -131,7 +141,7 @@
   <div class="footer">
     <p>All rights reserved � 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
   </div>
-
+  <script src="../resources/js/addproduct.js" ></script>
 </body>
 
 
