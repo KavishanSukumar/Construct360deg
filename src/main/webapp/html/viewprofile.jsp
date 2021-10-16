@@ -34,7 +34,7 @@
         <h2>Robert Johns</h2>
         <p>Expert Consultant:Upscale Commercial/Residential
         <br>Construction, Architectural Concreate, Masonry,Foundation
-        Award Winner<br>Colombo District, Western, Sri Lanka .<span>Contact info</span></p>
+        Award Winner<br>Colombo District, Western, Sri Lanka.</p>
         <a href="#" class="button">Message</a>
       </div>
       <div class="box2">
