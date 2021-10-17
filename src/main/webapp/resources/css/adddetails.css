@@ -92,7 +92,7 @@ form.example::after {
 .menu{
     display: flex;
     flex-direction: column;
-    height: 310px;
+    height: 350px;
     width: 230px;
     margin-left: 85px;
     margin-top: 70px;
