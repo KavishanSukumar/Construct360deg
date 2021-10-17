@@ -63,7 +63,7 @@
           <input type="text" id="address" name="address" value="No.22 boralasgamuwa road, Kaluthara North, Colombo.">
 
           <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="0763452789">
+          <input type="text" id="contactnum" name="contactnumber" value="0763452789">
 
           <input type="submit" id="submit" value="Save">
         </form>
