@@ -28,7 +28,7 @@
     <!-- header area start -->
     <div class="container">+
     <header class="menu_bar">
-        
+
         <div class="left_area">
             <!--<h2 class="logoname">Construct360</h2>-->
             <img src="./resources/images/searchProducts/LoginLogo.png" id="logopic" sizes="100px">
