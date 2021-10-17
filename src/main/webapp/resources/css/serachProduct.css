@@ -171,7 +171,7 @@ body{
             grid-template-columns: 17% auto;
             grid-template-rows: 52px auto;
             grid-template-areas: "search search"
-                                 "filter profile";
+                                 "filter profiles";
             grid-column-gap: 5px;
             grid-row-gap: 10px;                     
             
@@ -301,26 +301,23 @@ body{
             transform: rotate(45deg);
         }
 
-
-
-
-
-
-
-
-
-
-        .profile{
-            grid-area:profile;
+        .profiles{
+            grid-area:profiles;
             background-color: rgb(255, 255, 255);
+            display: grid;
+            grid-template-areas: "profile profile profile profile";
+        }
+        .profile{
+            display: flex;
+            flex-direction:column ;
         }
 
         .gallery{
-            margin: 20px;
+            margin: 20px 20px 0px 20px;
             float: left;
         }
         .gallery img{
-            box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+            box-shadow: 0 1px 5px rgb(104 104 104);
             width: 210px;
             height: 200px;
         }
@@ -328,6 +325,23 @@ body{
             text-align: center;
             width: 200px;
             font-size: 15px;
+        }
+
+        .addtocart{
+            display: flex;
+            flex-direction: row;
+        }
+        .addtocart>a{
+            margin: 10px;
+            padding: 10px;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 16px;
+            color: black;
+        }
+        a:hover {
+            background-color: #ff7200;
         }
 
 

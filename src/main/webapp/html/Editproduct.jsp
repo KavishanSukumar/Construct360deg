@@ -66,7 +66,7 @@
         </div>
         <div id="part2_2">
             <!-- part2_2 -->
-            <span id="edit1"><i class="fas fa-edit"></i></span>
+            <span id="edit2"><i class="fas fa-edit"></i></span>
             <div class="part2_2text">List price: Rs 1200.00<br>
                 You Save: Rs 100.00<br>
                 Now: Rs 1100.00
@@ -74,7 +74,7 @@
         </div>
         <div id="part2_3">
             <!-- part2_3 -->
-            <span id="edit1"><i class="fas fa-edit"></i></span>
+            <span id="edit3"><i class="fas fa-edit"></i></span>
             <div class="part2_2text">
                 Shipping: GBP 33.29 (approx. US $45.53) Expedited Shipping to Sri Lanka  | See details <br>
                 Ships to: United Kingdom and many other countries | See details <br>
@@ -86,7 +86,7 @@
         <!-- Content3 -->
         <div id="part3_1">
             <!-- part3_1 -->
-            <span id="edit3"><i class="fas fa-edit"></i></span>
+            <span id="edit4"><i class="fas fa-edit"></i></span>
             
         </div>
         <div id="part3_2">
