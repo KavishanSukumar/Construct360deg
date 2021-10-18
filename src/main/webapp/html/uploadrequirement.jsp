@@ -1,3 +1,4 @@
+<%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upload requirements</title>
-  <link rel="stylesheet" href="../resources/css/upload-req-final.css">
+  <link rel="stylesheet" href="./resources/css/upload-req-final.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -52,30 +53,37 @@
   <div class="content">
     
     <div class="filling">
-            <form class="details" action="">
+            <form class="details" action="<%=request.getContextPath()%>/uploadtherequirement" method="post" enctype="multipart/form-data">
+
                 <label for="description">Description</label><br>
-                <textarea id="description" name="description"></textarea><br><br>
+                <textarea id="description" name="description" rows="5" cols="10"></textarea><br><br>
                 <label for="type">Type</label>
                 <select name="type" id="type">
-                  <option >Select</option>
+                  <option value="none" disabled >Select</option>
                   <option value="cus_indiv">Building</option>
                   <option value="cus_com">Landscape design</option>
                   <option value="prof_indiv">both Building and Landscape design</option>
                 </select><br><br>
                 <label for="con-num">Contact Number</label>
-                <input type="tel" id="con-num" name="contact numer" pattern="[0-9]{10}" required><br><br><br>
+                <input type="tel" id="con-num" name="contactnum" pattern="[0-9]{10}" required><br><br><br>
                 <label for="reqfile">Requirement</label>
-                <input type="file" id="reqfile" ><br>
+                <input type="file" id="reqfile" name="reqfile" ><br>
                 <label id="filetype">(Choose pdf or zip file)</label>
                 <h4>Construction area</h4>
-                <label for="town">Town</label>
-                <input type="text" id="town" name="town"><br><br>
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street"><br><br>
                 <label for="city">City</label>
                 <input type="text" id="city" name="city"><br><br>
                 <label for="dis">District</label>
                 <input type="text" id="dis" name="district"><br><br>
+                <label for="provin">Province</label>
+                <input type="text" id="provin" name="province"><br><br>
                 <div class="uploadFile">
-                  <input type="submit" value="Uplaod">
+<<<<<<< HEAD:src/main/webapp/html/uploadrequirement.jsp
+                    <input type="submit" value="Upload">
+=======
+                  <input type="submit" value="Upload">
+>>>>>>> 715ce70c2388b232e629549b52712673aa15fd9d:src/main/webapp/html/upload-req-final.jsp
                   <!-- <input type="submit" value="Uplaod" style="float: right;"> -->
                 </div>
             </form>
@@ -84,10 +92,9 @@
   <input type="submit">
   
   <div class="footer">
-    <p>All rights reserved Â© 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
   </div>
-  <script src="../resources/js/upload-req.js"></script>
+  <script src="./resources/js/upload-req.js"></script>
 </div>
 </body>
-
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.AllUsers" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
@@ -6,6 +7,9 @@
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
 
 %>
+=======
+
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +18,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search for contractors</title>
+<<<<<<< HEAD
   <link rel="stylesheet" href="./resources/css/searchcontractor.css">
+=======
+  <link rel="stylesheet" href="../resources/css/searchcontractor.css">
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -22,7 +30,11 @@
 <div class="container">
   <header class="menu_bar">
     <div class="left_area">
+<<<<<<< HEAD
       <img src="./resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
+=======
+      <img src="../resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
     </div>
     <div class="right_area">
       <ul>
@@ -36,7 +48,11 @@
     <div class="nav-panel hidden" id="nav">
       <ul>
         <div>
+<<<<<<< HEAD
           <img src="./resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
+=======
+          <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
           <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
         </div>
         <a href="#"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
@@ -91,6 +107,7 @@
     </div>
     
     <div class="container-4">
+<<<<<<< HEAD
         <%for (AllUsers x:allprofs){%>
             <%
                 String base64Encoded=null;
@@ -132,11 +149,41 @@
                 </div>
             </div>
         <%}%>
+=======
+        <div class="gallery">
+            <a target="_blank" href="user4.png">
+              <img src="../resources/images/SearchProfile/user4.png" >
+            </a>
+            <div class="desc">Mr. Tharindu Dissanayaka</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="user2.png">
+              <img src="../resources/images/SearchProfile/user2.png" >
+            </a>
+            <div class="desc">Mr. Jayalath Bandara</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="user5.png">
+              <img src="../resources/images/SearchProfile/user5.png" >
+            </a>
+            <div class="desc">Mr. Kalum Wijesooriya</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="user6.png">
+              <img src="../resources/images/SearchProfile/user6.png">
+            </a>
+            <div class="desc">Mr. Sadun siriwardana</div>
+        </div>
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
     </div>
   </div>
 </div>
 <div class="footer">
+<<<<<<< HEAD
   <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+=======
+  <p>All rights reserved Â© 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+>>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
 </div>
 </body>
 
