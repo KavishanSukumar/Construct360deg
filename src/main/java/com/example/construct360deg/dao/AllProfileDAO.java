@@ -37,30 +37,30 @@ public class AllProfileDAO {
 
         return allUsers;
     }
-public ArrayList<AllUsers> getAllProfessionals() throws SQLException {
-        ArrayList<AllUsers> allUsers=new ArrayList<>();
-        Connection connection= Database.getConnection();
-        PreparedStatement preparedStatement=null;
-        String sql="SELECT * FROM alluserview";
-        ResultSet resultSet;
-        ServletOutputStream servletOutputStream=null;
-        preparedStatement=connection.prepareStatement(sql);
-        resultSet=preparedStatement.executeQuery();
-        while (resultSet.next()){
-            AllUsers allUsers1=new AllUsers();
-            allUsers1.setUserid(resultSet.getInt("userid"));
-            //allUsers1.setProfilepic();
-            byte[] bytes=resultSet.getBytes("profilepic");
-            allUsers1.setImgbytes(bytes);
-            allUsers1.setProfcompanyname(resultSet.getString("profcompanyname"));
-            allUsers1.setProffullname(resultSet.getString("Proffullname"));
-            allUsers1.setComlandflag(resultSet.getBoolean("comlandflag"));
-            allUsers1.setComcontractflag(resultSet.getBoolean("comcontractflag"));
-            allUsers1.setIndivlandflag(resultSet.getBoolean("indivlandflag"));
-            allUsers1.setIndivcontractflag(resultSet.getBoolean("indivcontractflag"));
-            allUsers.add(allUsers1);
-        }
+    public ArrayList<AllUsers> getAllProfessionals() throws SQLException {
+            ArrayList<AllUsers> allUsers=new ArrayList<>();
+            Connection connection= Database.getConnection();
+            PreparedStatement preparedStatement=null;
+            String sql="SELECT * FROM allprofsview";
+            ResultSet resultSet;
+            ServletOutputStream servletOutputStream=null;
+            preparedStatement=connection.prepareStatement(sql);
+            resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                AllUsers allUsers1=new AllUsers();
+                allUsers1.setUserid(resultSet.getInt("userid"));
+                //allUsers1.setProfilepic();
+                byte[] bytes=resultSet.getBytes("profilepic");
+                allUsers1.setImgbytes(bytes);
+                allUsers1.setProfcompanyname(resultSet.getString("profcompanyname"));
+                allUsers1.setProffullname(resultSet.getString("Proffullname"));
+                allUsers1.setComlandflag(resultSet.getBoolean("comlandflag"));
+                allUsers1.setComcontractflag(resultSet.getBoolean("comcontractflag"));
+                allUsers1.setIndivlandflag(resultSet.getBoolean("indivlandflag"));
+                allUsers1.setIndivcontractflag(resultSet.getBoolean("indivcontractflag"));
+                allUsers.add(allUsers1);
+            }
 
-        return allUsers;
+            return allUsers;
     }
 }

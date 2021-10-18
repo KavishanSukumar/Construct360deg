@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 @WebServlet("/uploadtherequirement")
 @MultipartConfig
-public class UploadTheRequirement extends HttpServlet {
+public class UploadTheRequirementServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Requirement requirement=new Requirement();
