@@ -79,7 +79,11 @@
                 <label for="provin">Province</label>
                 <input type="text" id="provin" name="province"><br><br>
                 <div class="uploadFile">
+<<<<<<< HEAD:src/main/webapp/html/uploadrequirement.jsp
                     <input type="submit" value="Upload">
+=======
+                  <input type="submit" value="Upload">
+>>>>>>> 715ce70c2388b232e629549b52712673aa15fd9d:src/main/webapp/html/upload-req-final.jsp
                   <!-- <input type="submit" value="Uplaod" style="float: right;"> -->
                 </div>
             </form>

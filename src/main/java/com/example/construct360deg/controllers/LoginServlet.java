@@ -18,7 +18,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserloginDAO userloginDAO=new  UserloginDAO();
-
+        int userid;
         String username=req.getParameter("username");
         String password=req.getParameter("password");
 
@@ -27,12 +27,13 @@ public class LoginServlet extends HttpServlet {
         userlogin.setPassword(password);
 
         try {
-            if(userloginDAO.verify(userlogin)){
+            userid=userloginDAO.verify(userlogin);
+            if(userid!=0){
                 HttpSession session=req.getSession();
                 session.setAttribute("uname",username);
+                session.setAttribute("userid",userid);
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewproject.html");
                 requestDispatcher.forward(req,resp);
-
             }else{
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
                 requestDispatcher.forward(req,resp);
