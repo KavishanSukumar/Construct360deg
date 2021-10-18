@@ -32,14 +32,15 @@
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
-        <div class="menu">
-          <h4>Account Settings</h4>
-          <a class="active" href="#">Account</a>
-          <a href="#">Emails</a>
-          <a href="#">Feedbacks</a>
-          <a href="#">Previous Projects</a>
-          <a href="#">Account Security</a>
-        </div>
+          <div class="menu">
+            <h4>Account Settings</h4>
+            <a class="active" href="#">Account</a>
+            <a href="#">Qualifications</a>
+            <a href="#">Emails</a>
+            <a href="#">Feedbacks</a>
+            <a href="#">Previous Projects</a>
+            <a href="#">Account Security</a>
+          </div>
       </div>
       <div class="form">
         <form action="/action_page.java">
@@ -62,7 +63,7 @@
           <input type="text" id="address" name="address" value="No.22 boralasgamuwa road, Kaluthara North, Colombo.">
 
           <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="0763452789">
+          <input type="text" id="contactnum" name="contactnumber" value="0763452789">
 
           <input type="submit" id="submit" value="Save">
         </form>
