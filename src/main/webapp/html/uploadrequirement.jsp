@@ -75,7 +75,7 @@
                 <label for="dis">District</label>
                 <input type="text" id="dis" name="district"><br><br>
                 <div class="uploadFile">
-                  <input type="submit" value="Uplaod">
+                  <input type="submit" value="Upload">
                   <!-- <input type="submit" value="Uplaod" style="float: right;"> -->
                 </div>
             </form>
