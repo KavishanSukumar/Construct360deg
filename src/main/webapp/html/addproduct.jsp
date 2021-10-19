@@ -46,7 +46,7 @@
             </div>
             <div class="col6">
               <label for="description">Description</label>
-              <textarea class="row6" rows="10" cols="56" id="description" name="desc" required></textarea>
+              <textarea class="row6" rows="10" cols="56" id="description" name="desc" required style="resize:none"></textarea>
             </div>
             <div class="col7">
               <label for="category">Category</label>
