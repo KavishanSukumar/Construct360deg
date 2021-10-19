@@ -11,9 +11,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SerachProfile</title>
-    <link rel="stylesheet" href="./resources/css/serachProduct.css">
+    <title>Products</title>
+    <link rel="stylesheet" href="./resources/css/searchProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="./resources/js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -150,15 +151,27 @@
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
                         <div class="addtocart">
-                            <a href="#">Order Now</a>
-                            <a href="#">Add to cart</a>
+                            <button href="#">Order Now</button>
+                            <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
                         </div>
+
                     </div>
                 <%}%>
             </div>
    </div>
 </div>
 
+<script>
+    function confirmation(ele){
+        var out=confirm("Do you want to add the product to the cart");
+        if(out==true){
+          var productid=ele.id;
+          var xhttp=new XMLHttpRequest();
+          xhttp.open("POST","<%=request.getContextPath()%>/addproducttocart?productid="+productid,true);
+          xhttp.send();
+        }
+    }
+</script>
 </body>
 
 </html>
