@@ -212,10 +212,10 @@ ul li a:hover,ul li i:hover{
        height: 30px;
        width: 308px;
    }
-   
-   .filling input[id=town]{
-       margin-left: 80px;
+   .filling input[id=street]{
+       margin-left:74px ;
    }
+
 
    .filling input[id=city]{
        margin-left: 90px;
@@ -223,9 +223,11 @@ ul li a:hover,ul li i:hover{
 
    .filling input[id=dis]{
        margin-left: 69px;
-   }   
-
-   .filling input,select{
+   }
+   .filling input[id=provin]{
+     margin-left: 56px;
+   }
+ .filling input,select{
         height: 25px;
         width: 300px;
    }

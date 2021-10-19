@@ -20,35 +20,7 @@
 </head>
 <body>
 <div class="container">+
-    <header class="menu_bar">
-
-        <div class="left_area">
-            <img src="./resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
-        </div>
-        <div class="right_area">
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">PROJECT</a></li>
-                <li><a href="#">CONTACT US</a></li>
-                <li> <i class="fas fa-bars" id="sidebar_btn" onclick="document.querySelector('#nav').classList.toggle('hidden')"></i></li>
-            </ul>
-        </div>
-        <div class="nav-panel hidden" id="nav">
-            <ul>
-                <div>
-                    <img src="./resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
-                    <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
-                </div>
-                <a href="#"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
-                <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><h4>Products</h4></a>
-                <a href="#"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
-                <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><h4>Report</h4></a>
-                <a href="#"><i class="fas fa-headset" id="head"></i><h4>Help and Support</h4></a>
-                <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
-            </ul>
-        </div>
-    </header>
+    <%@include file="sidebar.jsp"%>
 
     <div class="content">
 
@@ -70,7 +42,7 @@
             <div class="filter-table hidden" id="ft">
                 <h4>Professional :</h4>
                 <label class="filterby">Contractor
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" >
                     <span class="checkmark"></span>
                 </label>
                 <label class="filterby">Landscape Designers
@@ -79,7 +51,7 @@
                 </label>
                 <h4>Ranking :</h4>
                 <label class="filterby"><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" >
                     <span class="checkmark"></span>
                 </label>
                 <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -87,7 +59,7 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" >
                     <span class="checkmark"></span>
                 </label>
                 <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -100,11 +72,11 @@
                 </label>
                 <h4>Others :</h4>
                 <label class="filterby">Customer
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" >
                     <span class="checkmark"></span>
                 </label>
                 <label class="filterby">Product company
-                    <input type="checkbox" checked="checked">
+                    <input type="checkbox" >
                     <span class="checkmark"></span>
                 </label>
             </div>
