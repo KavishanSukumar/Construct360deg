@@ -6,9 +6,10 @@ body{
 }
 .container{
     display: grid;
-    grid-template-rows: 72px auto;
+    grid-template-rows: 70px 75vh 110px;
     grid-template-areas: "nav"
-                         "webpage";
+                         "webpage"
+                         "footer";
 }
 .menu_bar{
     position: fixed;
@@ -18,6 +19,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
+
 }
 
 #logopic{
@@ -124,6 +126,7 @@ body{
     margin: 0;
 }
 
+
 #check{
     display: none;
 }
@@ -169,11 +172,6 @@ ul li a:hover,ul li i:hover{
     margin-top: 0%;
 
 }
-
-.nav-panel a:hover{
-    transform: scale(1.1);
-}
-
 .footer{
     grid-area: footer;
     border-top: 1px solid #ebebeb;
@@ -186,4 +184,9 @@ ul li a:hover,ul li i:hover{
 .footer p{
     text-align: center;
     color: rgb(255, 255, 255);
+}
+.background-img{
+    width: 100%;
+    height: 70%;
+    border: 10px solid black;
 }

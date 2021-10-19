@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session=req.getSession();
                 session.setAttribute("uname",username);
                 session.setAttribute("userid",userid);
-                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewproject.html");
+                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/landingpage.jsp");
                 requestDispatcher.forward(req,resp);
             }else{
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
