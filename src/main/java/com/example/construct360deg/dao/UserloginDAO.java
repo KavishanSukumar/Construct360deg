@@ -15,8 +15,8 @@ import java.sql.SQLException;
 
 public class UserloginDAO {
 
-    public boolean verify(Userlogin userlogin) throws SQLException {
-        boolean status=false;
+    public int verify(Userlogin userlogin) throws SQLException {
+        int status=0;
         Connection connection= Database.getConnection();
         String sql="SELECT * FROM users where username=?";
         PreparedStatement statement;
@@ -27,7 +27,7 @@ public class UserloginDAO {
             if(resultSet.next()){
                 String password= DigestUtils.sha256Hex(userlogin.getPassword());
                 if(resultSet.getString("password").equals(password)){
-                    status=true;
+                    status=resultSet.getInt("userid");
                 }
             }
 

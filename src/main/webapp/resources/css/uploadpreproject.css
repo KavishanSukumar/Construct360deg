@@ -90,7 +90,7 @@ form.example::after {
 .menu{
     display: flex;
     flex-direction: column;
-    height: 310px;
+    height: 350px;
     width: 230px;
     margin-left: 85px;
     margin-top: 70px;
@@ -111,7 +111,6 @@ form.example::after {
     background-color: #dad7d5;
 }
 .menu h4{margin-left: 15px;}
-
 .form input[type=text]{
     width: 100%;
     padding: 12px 20px;
@@ -120,7 +119,7 @@ form.example::after {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
+}
 .form input[type=submit] {
     width: 100%;
     background-color: #abafac;
@@ -131,8 +130,8 @@ form.example::after {
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
-  } 
-.form input[type=submit]:hover {
+} 
+.form input[type=submit]:hover{
     background-color: #ff7200;
     color: #fff;
 }
@@ -142,8 +141,9 @@ form.example::after {
     border-radius: 10px;
     margin-top: 50px;
     padding: 30px;
-    height: 680px;
+    height: 660px;
 }
+.form h3{margin-top: 0px;}
 .form label{font-size: 15px;}
 .form i{
     cursor: pointer;

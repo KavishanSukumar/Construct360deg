@@ -1,4 +1,11 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.AllUsers" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
+<%
+    ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
 
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search for contractors</title>
-  <link rel="stylesheet" href="../resources/css/searchcontractor.css">
+  <link rel="stylesheet" href="./resources/css/searchcontractor.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -15,7 +22,7 @@
 <div class="container">
   <header class="menu_bar">
     <div class="left_area">
-      <img src="../resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
+      <img src="./resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
     </div>
     <div class="right_area">
       <ul>
@@ -29,7 +36,7 @@
     <div class="nav-panel hidden" id="nav">
       <ul>
         <div>
-          <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
+          <img src="./resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
           <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
         </div>
         <a href="#"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
@@ -84,35 +91,55 @@
     </div>
     
     <div class="container-4">
-        <div class="gallery">
-            <a target="_blank" href="user4.png">
-              <img src="../resources/images/SearchProfile/user4.png" >
-            </a>
-            <div class="desc">Mr. Tharindu Dissanayaka</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="user2.png">
-              <img src="../resources/images/SearchProfile/user2.png" >
-            </a>
-            <div class="desc">Mr. Jayalath Bandara</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="user5.png">
-              <img src="../resources/images/SearchProfile/user5.png" >
-            </a>
-            <div class="desc">Mr. Kalum Wijesooriya</div>
-        </div>
-        <div class="gallery">
-            <a target="_blank" href="user6.png">
-              <img src="../resources/images/SearchProfile/user6.png">
-            </a>
-            <div class="desc">Mr. Sadun siriwardana</div>
-        </div>
+        <%for (AllUsers x:allprofs){%>
+            <%
+                String base64Encoded=null;
+                if(x.getImgbytes()==null){
+
+                }else{
+                    byte[] bytes = x.getImgbytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded = new String(encodeBase64, "UTF-8");
+                }
+            %>
+            <div class="gallery">
+                <a target="_blank" href="user4.png">
+                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
+                </a>
+                <%
+                    String name=null;
+                    if(x.getProffullname()!=null)
+                        name=x.getProffullname();
+                    else if(x.getProfcompanyname()!=null)
+                        name=x.getProfcompanyname();
+                    else
+                        name="Not Mentioned";
+                %>
+                <%
+                    String post=null;
+                    if((x.isComlandflag()&&x.isComcontractflag())||(x.isIndivcontractflag()&&x.isIndivlandflag()))
+                        post="Contracting & Landscape Designing";
+                    else if(x.isComlandflag()||x.isIndivlandflag())
+                        post="Landscape Designing";
+                    else if(x.isComcontractflag()||x.isIndivcontractflag())
+                        post="Contracting";
+                    else
+                        post="Not Mentioned";
+                %>
+                <div class="desc">
+                    <p><%=name%></p>
+                    <p><%=post%></p>
+                </div>
+            </div>
+        <%}%>
     </div>
   </div>
 </div>
 <div class="footer">
-  <p>All rights reserved Â© 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+
+  <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+
+
 </div>
 </body>
 

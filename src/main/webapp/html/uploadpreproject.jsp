@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upload Previous Project</title>
-  <link rel="stylesheet" href="../resources/css/uploadpreproject.css">
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./resources/css/uploadpreproject.css">
+  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -16,7 +16,7 @@
     <header class="menu_bar"> 
     <div class="left_area">
       <!--<h2 class="logoname">Construct360</h2>-->
-      <img src="../resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
+      <img src="./resources/images/navbar/LoginLogo.png" id="logopic" sizes="100px">
     </div>
     <div class="right_area">
       <!-- <a href="#" id="logout_btn">Logout</a> -->
@@ -31,7 +31,7 @@
     <div class="nav-panel hidden" id="nav">
       <ul>
         <div>
-          <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
+          <img src="./resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="" onclick="click">
           <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
         </div>
         <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
@@ -57,7 +57,7 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="../resources/images/viewprofile/user2.png">
+        <img src="./resources/images/viewprofile/user2.png">
         <a href="#"><i class="fa fa-camera"></i></a>
           <h3>Robert Johns</h3>
           <p>Your personal account</p>
@@ -65,19 +65,20 @@
           <h4>Account Settings</h4>
           <a href="#">Account</a>
           <a href="#">Emails</a>
+          <a href="#">Appointments</a>
           <a href="#">Feedbacks</a>
           <a href="#" class="active">Previous Projects</a>
           <a href="#">Account security</a>
           </div>
       </div>
       <div class="form">
-        <form action="/action_page.java">
+        <form action="<%=request.getContextPath()%>/uploadapreviousproject" method="post" enctype="multipart/form-data">
           <h3>Upload Previous Project</h3><br>
           <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Homeno" name="HouseNumber">
 
-          <label for="area">Area: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="area" name="area">
+          <label for="street">Street: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="street" name="street">
 
           <label for="city">City: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="city" name="city">
@@ -91,8 +92,11 @@
           <label for="Rname">Reference Name: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Rname" name="Rname">
 
-          <label for="Rnum">Reference Number: <i class="fa fa-pencil-alt"></i></label>
+          <label for="Rnum">Reference Contact Number: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Rnum" name="Rnum">
+
+          <label for="Remail">Reference Email: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Remail" name="Remail">
 
           <label for="img">Upload images:</label>
           <input type="file" id="img" name="img">
