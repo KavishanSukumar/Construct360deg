@@ -1,7 +1,8 @@
-/* *{
+ *{
     margin: 0;
     padding: 0;
-} */
+    
+} 
 .Maxcontainer{
     display: grid;
     height: 100vh; 
@@ -11,6 +12,7 @@
         "firstpart" 
          "content";
     grid-gap: 0.2rem;
+    
 }
 
 
@@ -48,13 +50,15 @@
 #name{
     margin-left: 16px;
     margin-right: 20px;
-    border: 2px solid gray;
+    border: 1px solid gray;
     height: 35px;
+    border-radius: 6px;
 }
 .row6{
     margin-top: 20px;
     margin-left: 38px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 6px;
 }
 .custom-select{
     margin-top: 20px;
@@ -72,11 +76,15 @@
 }
 #Price{
     margin-left: 83px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 5.5px;
 }
 #stock{
     margin-left: 2px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 5.5px;
 }
 .row11{
     /* border: 2px solid black; */
@@ -94,7 +102,7 @@
     padding-top: 10%;
 }
 .custom-fileUpload{
-    padding-top: 5%;
+    padding-top: 0%;
 }
 .row3{
     padding-top: 10%;
@@ -121,19 +129,21 @@
     color: rgb(255, 255, 255);
 }
 #category{
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 6px;
 }
 
 .custom-fileUpload .btnfile{
     width: 44%;
-    background-color: rgb(248, 148, 66);
-    color: rgb(255, 255, 255);
+    /* background-color: rgb(248, 148, 66); */
+    color: rgb(0, 0, 0);
     padding: 13px 8px;
     margin: 11px 115px;
     margin-left: -5px;
     padding-left: 10px;
     border: none;
     cursor: pointer;
+    
     
 }
 
@@ -146,15 +156,21 @@
 }
 
 .col-12 .btnsub{
-    width: 87%;
-    background-color: rgb(248, 148, 66);
+    width: 49%;
+    background-color: rgb(248, 144, 59);
     color: rgb(255, 255, 255);
     padding: 13px 44px;
-    margin: 17px 12px;
+    margin: -20px 12px;
     margin-left: -5px;
     padding-left: 36px;
-    border: 1px solid black;
+    border: 1px solid ;
     cursor: pointer;
+    border-radius: 25px;
+}
+
+.col-12 .btnsub:hover{
+    background-color: rgb(245, 190, 138);
+    transition: 0.5s;    
 }
 
 .col15 .btnsub:hover {
@@ -164,7 +180,7 @@
  .rightrightside{
     float: left;
     margin: 11px;
-    padding-top: 200px;
+    padding-top: 166px;
 }
 
  .rightcol{  
@@ -173,7 +189,8 @@
 
 .brower_content{
     /* float: left; */
-    border: 2px solid black;    
+    border: 1px solid black; 
+       
 }
 
 .brower_content .productimg{
@@ -185,8 +202,8 @@
     height: 38%;
     /* object-fit: cover; */
     position: absolute;
-    top: 224px;
-    left: 1042px;
+    top: 191px;
+    left: 1033px;
     border-radius: 5px;
     transition: transform .5s ease;
     display: none;
@@ -201,11 +218,11 @@
 }
 
 .brower_content .row11 i.close{
-    font-size: 16px;
+    font-size: 15px;
     color: rgb(0, 0, 0);
     position: absolute;
-    right: 106px;
-    top: 235px;
+    right: 101px;
+    top: 199px;
     z-index: 1;
     display: none;
     cursor: pointer;
@@ -219,9 +236,40 @@
     display: block;
 }
 
+.DeleteandCloseButton .btndel{
+    width: 27%;
+    background-color: rgb(248, 148, 66);
+    color: rgb(255, 255, 255);
+    padding: 13px 44px;
+    margin: 70px 12px;
+    margin-left: 116px;
+    padding-left: 38px;
+    border: 1px solid ;
+    cursor: pointer;
+    border-radius: 25px;
+}
 
+.DeleteandCloseButton .btndel:hover{
+    background-color: rgb(245, 190, 138);
+    transition: 0.5s;
+}
 
+.DeleteandCloseButton .btnclo{
+    width: 27%;
+    background-color: rgb(248, 148, 66);
+    color: rgb(255, 255, 255);
+    padding: 13px 44px;
+    margin: 17px 12px;
+    margin-left: 47px;
+    padding-left: 36px;
+    border: 1px solid ;
+    cursor: pointer;
+    border-radius: 25px;}
 
+    .DeleteandCloseButton .btnclo:hover{
+        background-color: rgb(245, 190, 138);
+        transition: 0.5s;
+        }
 
 /* #notfile{
     margin: 0px 0px 0px 0px;
