@@ -1,8 +1,17 @@
-package com.example.construct360deg.dao;
+package com.example.construct360deg.model;
 
-public class Cart {
+public class Cart extends Product{
     private int productid;
     private int userid;
+    private int cartid;
+
+    public int getCartid() {
+        return cartid;
+    }
+
+    public void setCartid(int cartid) {
+        this.cartid = cartid;
+    }
 
     public int getProductid() {
         return productid;

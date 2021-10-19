@@ -1,7 +1,7 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.AddToCartDAO;
-import com.example.construct360deg.dao.Cart;
+import com.example.construct360deg.model.Cart;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
