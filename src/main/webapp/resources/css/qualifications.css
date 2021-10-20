@@ -1,7 +1,7 @@
 .container{
     grid-template-rows: 73px 50px 700px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     'menu_bar'
     'content1'
     'content2';
@@ -17,7 +17,7 @@ form.example input[type=text] {
     margin-top: 6px;
     width: 63%;
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-  }
+}
 form.example button {
     float: left;
     width: 3%;
@@ -29,10 +29,10 @@ form.example button {
     cursor: pointer;
     margin-left: 210px;
     margin-top: 6px;
-  }
+}
 form.example button:hover {
     background: #d1cfcd;
-  }
+}
 form.example::after {
     content: "";
     clear: both;
@@ -111,43 +111,40 @@ form.example::after {
     background-color: #dad7d5;
 }
 .menu h4{margin-left: 15px;}
-.form input[type=text]{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-.form input[type=submit]{
-    width: 100%;
-    background-color: #abafac;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-} 
-.form input[type=submit]:hover{
-    background-color: #ff7200;
-    color: #fff;
-}
+
 .form{
     background-color: rgb(230, 228, 228);
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 50px;
     padding: 30px;
     height: 730px;
 }
-.form h3{margin-top: 0px;}
-.form label{font-size: 15px;}
-.form i{
+.form .button {
+    background-color: #acabab;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    color: #5e5c5c;
+    border-radius: 20px;
+  }
+.form .button:hover{
+    background: #ff7200;
+    color: white;
+}
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
 }
 .footer{
     border-top: 1px solid #ebebeb;

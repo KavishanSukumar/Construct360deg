@@ -22,7 +22,6 @@
     if(session.getAttribute("uname")==null){
         response.sendRedirect(request.getContextPath()+"/login");
     }
-
 %>
 
     <!-- <input type="checkbox" id="check"> -->
