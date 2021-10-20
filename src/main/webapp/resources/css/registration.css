@@ -58,7 +58,6 @@ select{
     text-align: center;
     width: 365px;
     height: 40px;
-    padding-top: 10px;
     margin: 0px;
     border-radius: 10px;
 }
@@ -116,7 +115,9 @@ input:hover{
     padding-bottom: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    text-align: center;
+    margin-left: 255px;
+    text-align: left;
     color: red;
     font-size: 12px;
+    z-index: 1;
 }
