@@ -11,6 +11,47 @@ pageEncoding="ISO-8859-1"%>
     <link rel="stylesheet" href="./resources/css/registration.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Registration</title>
+    <script src="./resources/js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#email").keyup(function (){
+               var email=$("#email").val()
+               $.ajax({
+                   url:"<%=request.getContextPath()%>/GetEmailUsername",
+                   type:'POST',
+                   data:{"field":"email","data":email},
+                   success:function (data){
+                           if(data==true){
+                               $("#emailcheck").css("display","block");
+                               $(".submit").prop('disabled', true);
+                           }else{
+                               $("#emailcheck").css("display","none");
+                               $(".submit").prop('disabled', false);
+                           }
+                   }
+               })
+            })
+
+            $("#username").keyup(function (){
+                var username=$("#username").val();
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/GetEmailUsername",
+                    type:'POST',
+                    data:{"field":"username","data":username},
+                    success:function (data){
+                        if(data==true){
+                            console.log(typeof(data));
+                            $("#usernamecheck").css("display","block");
+                            $(".submit").prop('disabled', true);
+                        }else{
+                            $("#usernamecheck").css("display","none");
+                            $(".submit").prop('disabled', false);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
     <div class="container-1">
@@ -24,9 +65,11 @@ pageEncoding="ISO-8859-1"%>
                 <form action="<%=request.getContextPath()%>/UserRegistration" method="post">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email address">
+                    <p class="checkparagph" id="emailcheck">Email exist</p>
                     <br>
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Enter your username">
+                    <p class="checkparagph" id="usernamecheck">Username exist</p>
                     <br>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="**********************">
