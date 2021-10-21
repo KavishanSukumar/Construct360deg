@@ -58,7 +58,7 @@ form.example::after {
     grid-template-columns: 500px 700px;
     background-color: #fff;
     width: 100%;
-    height: 650px;
+    height: 820px;
     margin-top: 70px;
 }
 .setting{
@@ -91,7 +91,7 @@ form.example::after {
 .menu{
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 410px;
     width: 230px;
     margin-left: 85px;
     margin-top: 70px;
@@ -153,7 +153,6 @@ form.example::after {
 .middle-content #bio{height: 80px;}
 .footer{
     border-top: 1px solid #ebebeb;
-    margin-top: 150px;
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
@@ -164,12 +163,16 @@ form.example::after {
     text-align: center;
     color: rgb(255, 255, 255);
 }
-
-
 #account{
     display: block;
 }
+#qualification{
+    display: none;
+}
 #emails{
+    display: none;
+}
+#appointment{
     display: none;
 }
 #feedback{
@@ -178,7 +181,62 @@ form.example::after {
 #preproject{
     display: none;
 }
-#security{
+#preference{
     display: none;
 }
+#preproject .button {
+    background-color: #acabab;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+#preproject .button:hover{
+    background: #ff7200;
+    color: white;
+}
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
+}
+
+.btn a{
+    text-decoration: none;
+    text-align: center;
+    color: rgb(12, 11, 11);
+}
+.btn{
+    margin-top: 80px;
+}
+.left-btn{
+    background-color: rgb(194, 194, 191);
+    padding: 20px;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+.left-btn:hover{
+    background: #ff7200;
+    color: #fff;}
+.right-btn{
+    background-color: rgb(194, 194, 191);
+    padding: 20px;
+    margin-left: 200px;
+    border-radius: 25px;
+}
+.right-btn:hover{
+    background: #ff7200;
+    color: #fff;}
+
 

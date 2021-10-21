@@ -17,61 +17,113 @@
             $(this).addClass("active");
             $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
-            $("#security-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
+            $("#appointment").css("display","none");
+            $("#qualification").css("display","none");
             $("#emails").css("display","block");
             $("#feedback").css("display","none");
             $("#preproject").css("display","none");
-            $("#security").css("display","none");
+            $("#preference").css("display","none");
           });
           $("#feedback-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
-            $("#security-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
+            $("#appointment").css("display","none");
+            $("#qualification").css("display","none");
             $("#emails").css("display","none");
             $("#feedback").css("display","block");
             $("#preproject").css("display","none");
-            $("#security").css("display","none");
+            $("#preference").css("display","none");
           });
           $("#preproject-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#feedback-btn").removeClass("active");
-            $("#security-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
+            $("#appointment").css("display","none");
+            $("#qualification").css("display","none");
             $("#emails").css("display","none");
             $("#feedback").css("display","none");
             $("#preproject").css("display","block");
-            $("#security").css("display","none");
+            $("#preference").css("display","none");
           });
-          $("#security-btn").click(function (){
+          $("#preference-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
+            $("#appointment").css("display","none");
+            $("#qualification").css("display","none");
             $("#emails").css("display","none");
             $("#feedback").css("display","none");
             $("#preproject").css("display","none");
-            $("#security").css("display","block");
+            $("#preference").css("display","block");
           });
           $("#account-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
             $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
-            $("#security-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
             $("#account").css("display","block");
+            $("#appointment").css("display","none");
+            $("#qualification").css("display","none");
             $("#emails").css("display","none");
             $("#feedback").css("display","none");
             $("#preproject").css("display","none");
-            $("#security").css("display","none");
+            $("#preference").css("display","none");
+          });
+          $("#qualification-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
+            $("#qualification").css("display","block");
+            $("#appointment").css("display","none");
+            $("#account").css("display","none");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","none");
+            $("#preference").css("display","none");
+          });
+          $("#appointment-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#qualification-btn").removeClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
+            $("#appointment").css("display","block");
+            $("#account").css("display","none");
+            $("#qualification").css("display","none");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","none");
+            $("#preference").css("display","none");
           });
     });
   </script>
@@ -100,10 +152,12 @@
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
+          <a id="qualification-btn" href="#">Qualifications</a>
           <a id="email-btn" href="#">Emails</a>
+          <a id="appointment-btn" href="#">Appointments</a>
           <a id="feedback-btn" href="#">Feedbacks</a>
           <a id="preproject-btn" href="#">Previous Projects</a>
-          <a id="security-btn" href="#">Account Security</a>
+          <a id="preference-btn" href="#">Account preferences</a>
         </div>
 
       </div>
@@ -130,19 +184,30 @@
           <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="contactnum" name="contactnum" value="0763452789">
 
-          <input type="submit" id="submit" value="Save">
+          <input type="submit" id="submit" value="Save changes">
         </form>
+      </div>
+      <div class="middle-content" id="qualification">
+        <p>qualifications</p>
       </div>
       <div class="middle-content" id="emails">
         <p>emails</p>
+      </div>
+      <div class="middle-content" id="appointment">
+        <p>Appointments</p>
       </div>
       <div class="middle-content" id="feedback">
         <p>feedback</p>
       </div>
       <div class="middle-content" id="preproject">
-        <p>previous project</p>
+        <a href="./uploadpreviousproject" class="button">Add Project</a>
+        <div class="gallery">
+          <a target="_blank" href="user4.png">
+            <img src='./resources/images/Avatar.png;' >
+          </a>
+        </div>
       </div>
-      <div id="security">
+      <div id="preference">
         <div class="middle-content">
           <h1>Delete Your Account</h1>
           <h3>We are sorry to see you go.</h3>
@@ -152,7 +217,7 @@
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
           <div class="btn">
-            <a class="left-btn" href="#">
+            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">
               <span>Keep my account</span>
             </a>
             <a class="right-btn" href="#">
