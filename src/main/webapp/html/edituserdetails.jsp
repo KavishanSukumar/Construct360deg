@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
-=======
->>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +7,75 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Details</title>
-<<<<<<< HEAD
   <link rel="stylesheet" href="./resources/css/adddetails.css">
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
-=======
-  <link rel="stylesheet" href="../resources/css/adddetails.css">
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
->>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="./resources/js/jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function (){
+          $("#email-btn").click(function (){
+            $(this).addClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#security-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#account").css("display","none");
+            $("#emails").css("display","block");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","none");
+            $("#security").css("display","none");
+          });
+          $("#feedback-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#security-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#account").css("display","none");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","block");
+            $("#preproject").css("display","none");
+            $("#security").css("display","none");
+          });
+          $("#preproject-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#security-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#account").css("display","none");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","block");
+            $("#security").css("display","none");
+          });
+          $("#security-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#account").css("display","none");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","none");
+            $("#security").css("display","block");
+          });
+          $("#account-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#feedback-btn").removeClass("active");
+            $("#preproject-btn").removeClass("active");
+            $("#security-btn").removeClass("active");
+            $("#account").css("display","block");
+            $("#emails").css("display","none");
+            $("#feedback").css("display","none");
+            $("#preproject").css("display","none");
+            $("#security").css("display","none");
+          });
+    });
+  </script>
 </head>
-
 <body>
   <div class="container">
     <%@include file="sidebar.jsp"%>
@@ -37,36 +93,21 @@
     </div>
     <div class="content2">
       <div class="setting">
-<<<<<<< HEAD
         <img src="./resources/images/viewprofile/user2.png">
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
-          <a class="active" href="#">Account</a>
-          <a href="#">Emails</a>
-          <a href="#">Feedbacks</a>
-          <a href="#">Previous Projects</a>
-          <a href="#">Account Security</a>
+          <a id="account-btn" class="active" href="#">Account</a>
+          <a id="email-btn" href="#">Emails</a>
+          <a id="feedback-btn" href="#">Feedbacks</a>
+          <a id="preproject-btn" href="#">Previous Projects</a>
+          <a id="security-btn" href="#">Account Security</a>
         </div>
-=======
-        <img src="../resources/images/viewprofile/user2.png">
-        <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Robert Johns</h3>
-        <p>Your personal account</p>
-          <div class="menu">
-            <h4>Account Settings</h4>
-            <a class="active" href="#">Account</a>
-            <a href="#">Qualifications</a>
-            <a href="#">Emails</a>
-            <a href="#">Feedbacks</a>
-            <a href="#">Previous Projects</a>
-            <a href="#">Account Security</a>
-          </div>
->>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
+
       </div>
-      <div class="form">
+      <div class="middle-content" id="account">
         <form action="/action_page.java">
           <label for="fname">First Name: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="fname" name="firstname" value="Robert">
@@ -87,23 +128,28 @@
           <input type="text" id="address" name="address" value="No.22 boralasgamuwa road, Kaluthara North, Colombo.">
 
           <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-<<<<<<< HEAD
           <input type="text" id="contactnum" name="contactnum" value="0763452789">
-=======
-          <input type="text" id="contactnum" name="contactnumber" value="0763452789">
->>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
 
           <input type="submit" id="submit" value="Save">
         </form>
       </div>
+      <div class="middle-content" id="emails">
+        <p>emails</p>
+      </div>
+      <div class="middle-content" id="feedback">
+        <p>feedback</p>
+      </div>
+      <div class="middle-content" id="preproject">
+        <p>previous project</p>
+      </div>
+      <div class="middle-content" id="security">
+        <p>security</p>
+      </div>
     </div>
+
   </div>
   <div class="footer">
-<<<<<<< HEAD
     <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-=======
-    <p>All rights reserved Â© 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
->>>>>>> 94db6c246bb84b71e858e2c8a1cbd4b70e25277f
   </div>
 </body>
 

@@ -109,8 +109,9 @@ form.example::after {
 }
 .menu a:hover{background: #dad7d5;}
 .menu a.active{background-color: #dad7d5;}
+
 .menu h4{margin-left: 15px;}
-.form input[type=text]{
+.middle-content input[type=text]{
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -120,7 +121,7 @@ form.example::after {
     box-sizing: border-box;
     font-size: 15px;
   }
-.form input[type=submit] {
+.middle-content input[type=submit] {
     width: 100%;
     background-color: #abafac;
     color: black;
@@ -131,11 +132,11 @@ form.example::after {
     cursor: pointer;
     font-size: 15px;
   } 
-.form input[type=submit]:hover {
+.middle-content input[type=submit]:hover {
     background-color: #ff7200;
     color: #fff;
 }
-.form{
+.middle-content{
     background-color: rgb(230, 228, 228);
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
     border-radius: 10px;
@@ -143,13 +144,13 @@ form.example::after {
     padding: 30px;
     height: 660px;
 }
-.form label{font-size: 15px;}
-.form i{
+.middle-content label{font-size: 15px;}
+.middle-content i{
     cursor: pointer;
     color: #5e5c5c;
 }
-.form #submit{margin-top: 40px;}
-.form #bio{height: 80px;}
+.middle-content #submit{margin-top: 40px;}
+.middle-content #bio{height: 80px;}
 .footer{
     border-top: 1px solid #ebebeb;
     margin-top: 150px;
@@ -162,5 +163,22 @@ form.example::after {
 .footer p{
     text-align: center;
     color: rgb(255, 255, 255);
+}
+
+
+#account{
+    display: block;
+}
+#emails{
+    display: none;
+}
+#feedback{
+    display: none;
+}
+#preproject{
+    display: none;
+}
+#security{
+    display: none;
 }
 
