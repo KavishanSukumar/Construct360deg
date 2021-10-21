@@ -8,9 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Error Page</title>
+    <title>Error</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body{
+            text-align: center;
+            margin-top: 10%;
+        }
+    </style>
 </head>
 <body>
-
+<h1>Something Went Wrong! Sorry For the Inconvenience</h1>
+<h2>Please Contact the administrator</h2>
+<h3>Back To Homepage <a href="<%=request.getContextPath()%>/">back</a></h3>
 </body>
 </html>

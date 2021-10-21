@@ -20,8 +20,9 @@ public class UserloginDAO {
         Connection connection= Database.getConnection();
         String sql="SELECT * FROM users where username=?";
         PreparedStatement statement;
-
+        if(connection!=null){
             statement=connection.prepareStatement(sql);
+
             statement.setString(1,userlogin.getUsername());
             ResultSet resultSet=statement.executeQuery();
             if(resultSet.next()){
@@ -31,6 +32,10 @@ public class UserloginDAO {
                 }
             }
 
-        return status;
+            return status;
+        }else{
+            return -1;
+        }
+
     }
 }

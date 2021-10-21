@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet("/loginvalidate")
@@ -28,12 +29,16 @@ public class LoginServlet extends HttpServlet {
 
         try {
             userid=userloginDAO.verify(userlogin);
-            if(userid!=0){
+            if(userid>0){
                 HttpSession session=req.getSession();
                 session.setAttribute("uname",username);
                 session.setAttribute("userid",userid);
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/landingpage.jsp");
                 requestDispatcher.forward(req,resp);
+            }else if(userid==-1){
+//                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/error");
+//                requestDispatcher.forward(req,resp);
+                resp.sendRedirect(req.getContextPath()+"/error");
             }else{
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
                 requestDispatcher.forward(req,resp);
