@@ -142,8 +142,25 @@
       <div class="middle-content" id="preproject">
         <p>previous project</p>
       </div>
-      <div class="middle-content" id="security">
-        <p>security</p>
+      <div id="security">
+        <div class="middle-content">
+          <h1>Delete Your Account</h1>
+          <h3>We are sorry to see you go.</h3>
+          <br>
+          <h4>Before you go...</h4>
+          <p>* If you're sick of getting email notifications from us, you can disable them here.
+            <br><br>* If you want to change your username, you can do that here.
+            <br><br>* Account deletion is final. There will be no way to restore your account. </p>
+          <div class="btn">
+            <a class="left-btn" href="#">
+              <span>Keep my account</span>
+            </a>
+            <a class="right-btn" href="#">
+              <span>Delete my account</span>
+            </a>
+          </div>
+
+        </div>
       </div>
     </div>
 
