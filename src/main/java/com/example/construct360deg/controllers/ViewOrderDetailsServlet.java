@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -19,11 +20,12 @@ public class ViewOrderDetailsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         OrderDAO orderDAO=new OrderDAO();
-
         ArrayList<Product> orderlist=new ArrayList<>();
+        HttpSession session=req.getSession();
+        int userid= (int) session.getAttribute("userid");
         try {
-            orderlist=orderDAO.getOrderDetails(Integer.parseInt(req.getParameter("orderid")));
-        } catch (SQLException e) {
+            orderlist=orderDAO.getOrderDetails(Integer.parseInt(req.getParameter("orderid")),userid);
+        } catch (SQLException e){
             e.printStackTrace();
         }
         String orderlistString = new Gson().toJson(orderlist);

@@ -24,6 +24,8 @@
             var orderid=ele.id;
             var text=" ";
             var total=0;
+            $("#OrderNum").empty();
+            $("#OrderNum").append(orderid);
             $("#orderdetailsrows").empty();
             $.ajax({
                 url:"<%=request.getContextPath()%>/orderdetails",
@@ -49,27 +51,25 @@
         response.sendRedirect(request.getContextPath()+"/login");
     }
 %>
-<div class="container">
-
-    <%@include file="sidebar.jsp"%>
+<%@include file="sidebar-customer.jsp"%>
+<div class="container-1">
     <div class="content">
         <div class="container-2">
             <div class="container-3">
                 <div class="heading">
-                    <h4>Orders</h4>
+                    <h2>Orders</h2>
                 </div>
-
                 <div class="ordercolm">
                     <ul>
                         <%for (int i=0;i<productOrders.size();i++){%>
-                            <li class="order" onclick="getOrderDetails(this)" id="<%=productOrders.get(i)%>"><%=productOrders.get(i)%></li>
+                            <li class="order" onclick="getOrderDetails(this)" id="<%=productOrders.get(i)%>"><strong><%=productOrders.get(i)%></strong></li>
                         <%}%>
                     </ul>
                 </div>
             </div>
             <div class="container-4">
                 <div class="heading">
-                    <h4>Order Number</h4>
+                    <h2 id="OrderNum">Order Number</h2>
                 </div>
                 <div class="orderdetailscolm">
                     <table>
@@ -91,18 +91,13 @@
                     <div class="">
                         <button type="button" class="dwn-btn"><i class="fa fa-download" aria-hidden="true"></i>Download</button>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
-        <!-- </div> -->
-
-
     </div>
+    <br>
     <div class="footer">
-        <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+        <p>All rights reserved © 2020  Construct360deg.com<br>Design: Epic code</p>
     </div>
 
 </div>

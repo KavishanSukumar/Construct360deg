@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,8 +19,13 @@ public class ViewOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         OrderDAO orderDAO=new OrderDAO();
         ArrayList<Integer> productOrders=new ArrayList<>();
+        HttpSession session=req.getSession();
+        int userid= (int) session.getAttribute("userid");
+
+        System.out.println(userid);
+
         try {
-            productOrders=orderDAO.getOrderIDs();
+            productOrders=orderDAO.getOrderIDs(userid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
