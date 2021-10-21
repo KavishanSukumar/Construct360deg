@@ -35,10 +35,6 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("userid",userid);
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/landingpage.jsp");
                 requestDispatcher.forward(req,resp);
-            }else if(userid==-1){
-//                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/error");
-//                requestDispatcher.forward(req,resp);
-                resp.sendRedirect(req.getContextPath()+"/error");
             }else{
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
                 requestDispatcher.forward(req,resp);
