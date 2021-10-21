@@ -257,7 +257,6 @@ form.example::after {
     text-decoration: none;
     text-align: center;
     color: rgb(12, 11, 11);
-    /* background-color: rgb(187, 133, 171); */
 }
 .btn{
     margin-top: 80px;
