@@ -13,11 +13,11 @@
 </head>
 
 <body>
- <%
-   if(session.getAttribute("uname")==null){
-     response.sendRedirect(request.getContextPath()+"/login");
-   }
-%>
+<%-- <%--%>
+<%--   if(session.getAttribute("uname")==null){--%>
+<%--     response.sendRedirect(request.getContextPath()+"/login");--%>
+<%--   }--%>
+<%--%>--%>
 <div class="Maxcontainer">
   <!-- <div class="firstpart"> -->
   <%@include file="sidebar-customer.jsp"%>

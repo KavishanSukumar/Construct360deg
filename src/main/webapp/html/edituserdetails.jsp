@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Details</title>
+  <title>Edit User Details</title>
   <link rel="stylesheet" href="./resources/css/adddetails.css">
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -200,13 +200,14 @@
         <p>feedback</p>
       </div>
       <div class="middle-content" id="preproject">
-        <a href="./uploadpreviousproject" class="button">Add Project</a>
+        <a href="<%=request.getContextPath()%>/uploadpreviousproject" class="button">Add Project</a>
         <div class="gallery">
           <a target="_blank" href="user4.png">
             <img src='./resources/images/Avatar.png;' >
           </a>
         </div>
       </div>
+
       <div id="preference">
         <div class="middle-content">
           <h1>Delete Your Account</h1>
