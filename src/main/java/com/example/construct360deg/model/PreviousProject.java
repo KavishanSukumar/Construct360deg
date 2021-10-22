@@ -18,6 +18,15 @@ public class PreviousProject {
     private  String referancecontactno;
     private  String referenceemail;
     private  String referencename;
+    private byte[] imgBytes;
+
+    public byte[] getImgBytes() {
+        return imgBytes;
+    }
+
+    public void setImgBytes(byte[] imgBytes) {
+        this.imgBytes = imgBytes;
+    }
 
     public String getProjectid() {
         return projectid;
