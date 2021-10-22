@@ -14,6 +14,7 @@ pageEncoding="ISO-8859-1"%>
     <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function (){
+            console.log("hello");
             $("#email").keyup(function (){
                var email=$("#email").val()
                $.ajax({

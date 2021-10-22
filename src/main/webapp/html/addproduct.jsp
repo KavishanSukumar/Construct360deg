@@ -20,7 +20,7 @@
 <%--%>--%>
 <div class="Maxcontainer">
   <!-- <div class="firstpart"> -->
-  <%@include file="sidebar.jsp"%>
+  <%@include file="sidebar-customer.jsp"%>
   <!-- </div> -->
 
   <div class="content">

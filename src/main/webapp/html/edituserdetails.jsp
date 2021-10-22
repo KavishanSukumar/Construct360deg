@@ -130,7 +130,7 @@
 </head>
 <body>
   <div class="container">
-    <%@include file="sidebar.jsp"%>
+    <%@include file="sidebar-customer.jsp"%>
     
     <div class="content1">
       <form class="example" action="/action_page.java">
