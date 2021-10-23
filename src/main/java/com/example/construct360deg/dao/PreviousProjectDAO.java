@@ -4,9 +4,13 @@ import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.PreviousProject;
 
 import javax.servlet.http.HttpSession;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Year;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class PreviousProjectDAO {
@@ -52,4 +56,58 @@ public class PreviousProjectDAO {
             System.out.println("All queries successfully updated");
         }
     }
+
+    public ArrayList<PreviousProject> getAllPreviousProjects(int userid) throws SQLException {
+        ArrayList<PreviousProject> previousProjects=new ArrayList<>();
+        String sql="SELECT * FROM `allpreviousprojectsview` WHERE userid=?";
+        PreparedStatement preparedStatement=null;
+        Connection connection=Database.getConnection();
+        ResultSet resultSet=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            PreviousProject previousProject=new PreviousProject();
+            previousProject.setProjectid(resultSet.getString("projectid"));
+            previousProject.setUserid(userid);
+            previousProject.setCustomerfeedback(resultSet.getString("customerfeedback"));
+            previousProject.setProvince(resultSet.getString("province"));
+            previousProject.setDistrict(resultSet.getString("district"));
+            previousProject.setCity(resultSet.getString("city"));
+            previousProject.setStreet(resultSet.getString("street"));
+            previousProject.setHouseno(resultSet.getString("houseno"));
+            previousProject.setNoofstars(resultSet.getInt("noofstars"));
+            previousProject.setImageid(resultSet.getInt("imageid"));
+            previousProject.setReferancecontactno(resultSet.getString("referancecontactno"));
+            previousProject.setReferenceemail(resultSet.getString("referenceemail"));
+            previousProject.setReferencename(resultSet.getString("referencename"));
+            previousProject.setImgBytes(resultSet.getBytes("image"));
+            previousProject.setBuiltYear(resultSet.getString("builtyear"));
+            previousProjects.add(previousProject);
+        }
+        return previousProjects;
+    }
 }
+/*
+CREATE VIEW allpreviousprojects AS
+SELECT previousprojectdone.userid,
+previousprojectdone.projectid,
+previousprojectcontno.referancecontactno,
+previousprojectcontno.referenceemail,
+previousprojectcontno.referencename,
+previousproject.customerfeedback,
+previousproject.province,
+previousproject.district,
+previousproject.city,
+previousproject.street,
+previousproject.houseno,
+previousproject.noofstars,
+previousproject.builtyear,
+preprojectimage.imageid,
+preprojectimage.image
+FROM previousprojectdone, previousprojectcontno,previousproject,preprojectimage
+WHERE previousprojectdone.projectid=previousprojectcontno.projectid AND previousprojectdone.projectid=previousproject.projectid
+AND previousprojectdone.projectid=preprojectimage.projectid;
+ */

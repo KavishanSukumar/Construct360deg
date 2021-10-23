@@ -2,6 +2,7 @@ package com.example.construct360deg.model;
 
 import java.io.InputStream;
 import java.sql.Blob;
+import java.time.Year;
 
 public class PreviousProject {
     private  String projectid;
@@ -19,6 +20,15 @@ public class PreviousProject {
     private  String referenceemail;
     private  String referencename;
     private byte[] imgBytes;
+    private String builtYear;
+
+    public String getBuiltYear() {
+        return builtYear;
+    }
+
+    public void setBuiltYear(String builtYear) {
+        this.builtYear = builtYear;
+    }
 
     public byte[] getImgBytes() {
         return imgBytes;
