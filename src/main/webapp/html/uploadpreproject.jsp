@@ -69,6 +69,9 @@
           <label for="Remail">Reference Email: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Remail" name="Remail">
 
+          <label for="builtyear">Built Year: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="builtyear" name="builtyear">
+
           <label for="img">Upload images:</label>
           <input type="file" id="img" name="img">
           <input type="submit" value="Submit">

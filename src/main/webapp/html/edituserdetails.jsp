@@ -1,7 +1,14 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.PreviousProject" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%
+
+  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
+
+%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -200,12 +207,27 @@
         <p>feedback</p>
       </div>
       <div class="middle-content" id="preproject">
-        <a href="<%=request.getContextPath()%>/uploadpreviousproject" class="button">Add Project</a>
-        <div class="gallery">
-          <a target="_blank" href="user4.png">
-            <img src='./resources/images/Avatar.png;' >
+            <%for (PreviousProject x:previousProjects){%>
+              <%
+                String base64Encoded=null;
+                if(x.getImgBytes()==null){
+
+                }else{
+                  byte[] bytes = x.getImgBytes();
+                  byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                  base64Encoded = new String(encodeBase64, "UTF-8");
+                }
+              %>
+              <div class="gallery">
+                <a target="_blank" href="user4.png">
+                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
+                </a>
+                <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
+              </div>
+            <%}%>
+          <a class="gallery" href="<%=request.getContextPath()%>/uploadpreviousproject">
+              <img src='./resources/images/viewprofile/plus.png;' >
           </a>
-        </div>
       </div>
 
       <div id="preference">
