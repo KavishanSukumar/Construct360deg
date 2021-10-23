@@ -225,6 +225,7 @@
                 <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
               </div>
             <%}%>
+<%--        ---------------------------------%>
           <a class="gallery" href="<%=request.getContextPath()%>/uploadpreviousproject">
               <img src='./resources/images/viewprofile/plus.png;' >
           </a>
@@ -250,6 +251,7 @@
 
         </div>
       </div>
+<%--      ----------------------%>
     </div>
 
   </div>
