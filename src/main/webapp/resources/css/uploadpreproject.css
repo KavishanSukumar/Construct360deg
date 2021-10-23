@@ -57,7 +57,7 @@ form.example::after {
     grid-template-columns: 500px 700px;
     background-color: #fff;
     width: 100%;
-    height: 860px;
+    height: 960px;
     margin-top: 70px;
 }
 .setting{
@@ -141,7 +141,7 @@ form.example::after {
     border-radius: 5px;
     margin-top: 50px;
     padding: 30px;
-    height: 730px;
+    height: 810px;
 }
 .form h3{margin-top: 0px;}
 .form label{font-size: 15px;}
