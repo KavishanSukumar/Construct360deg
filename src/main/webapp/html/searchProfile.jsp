@@ -19,13 +19,10 @@
     <script src="./resources/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-<div class="container">
-    <%@include file="sidebar.jsp"%>
-=======
+
 <div class="container">+
-    <%@include file="sidebar-customer.jsp"%>
->>>>>>> d917d688f18ed23b63604083a09ff3ea1a2451c6
+    <%@include file="sidebar-admin.jsp"%>
+
 
     <div class="content">
 
