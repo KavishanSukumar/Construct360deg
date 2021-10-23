@@ -173,3 +173,17 @@ ul li a:hover,ul li i:hover{
 .nav-panel a:hover{
     transform: scale(1.1);
 }
+
+.footer{
+    grid-area: footer;
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}

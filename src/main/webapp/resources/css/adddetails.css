@@ -58,7 +58,7 @@ form.example::after {
     grid-template-columns: 500px 700px;
     background-color: #fff;
     width: 100%;
-    height: 650px;
+    height: 820px;
     margin-top: 70px;
 }
 .setting{
@@ -91,7 +91,7 @@ form.example::after {
 .menu{
     display: flex;
     flex-direction: column;
-    height: 350px;
+    height: 410px;
     width: 230px;
     margin-left: 85px;
     margin-top: 70px;
@@ -109,8 +109,9 @@ form.example::after {
 }
 .menu a:hover{background: #dad7d5;}
 .menu a.active{background-color: #dad7d5;}
+
 .menu h4{margin-left: 15px;}
-.form input[type=text]{
+.middle-content input[type=text]{
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -120,7 +121,7 @@ form.example::after {
     box-sizing: border-box;
     font-size: 15px;
   }
-.form input[type=submit] {
+.middle-content input[type=submit] {
     width: 100%;
     background-color: #abafac;
     color: black;
@@ -131,11 +132,11 @@ form.example::after {
     cursor: pointer;
     font-size: 15px;
   } 
-.form input[type=submit]:hover {
+.middle-content input[type=submit]:hover {
     background-color: #ff7200;
     color: #fff;
 }
-.form{
+.middle-content{
     background-color: rgb(230, 228, 228);
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
     border-radius: 10px;
@@ -143,16 +144,15 @@ form.example::after {
     padding: 30px;
     height: 660px;
 }
-.form label{font-size: 15px;}
-.form i{
+.middle-content label{font-size: 15px;}
+.middle-content i{
     cursor: pointer;
     color: #5e5c5c;
 }
-.form #submit{margin-top: 40px;}
-.form #bio{height: 80px;}
+.middle-content #submit{margin-top: 40px;}
+.middle-content #bio{height: 80px;}
 .footer{
     border-top: 1px solid #ebebeb;
-    margin-top: 150px;
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
@@ -163,4 +163,80 @@ form.example::after {
     text-align: center;
     color: rgb(255, 255, 255);
 }
+#account{
+    display: block;
+}
+#qualification{
+    display: none;
+}
+#emails{
+    display: none;
+}
+#appointment{
+    display: none;
+}
+#feedback{
+    display: none;
+}
+#preproject{
+    display: none;
+}
+#preference{
+    display: none;
+}
+#preproject .button {
+    background-color: #acabab;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+#preproject .button:hover{
+    background: #ff7200;
+    color: white;
+}
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
+}
+
+.btn a{
+    text-decoration: none;
+    text-align: center;
+    color: rgb(12, 11, 11);
+}
+.btn{
+    margin-top: 80px;
+}
+.left-btn{
+    background-color: rgb(194, 194, 191);
+    padding: 20px;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+.left-btn:hover{
+    background: #ff7200;
+    color: #fff;}
+.right-btn{
+    background-color: rgb(194, 194, 191);
+    padding: 20px;
+    margin-left: 200px;
+    border-radius: 25px;
+}
+.right-btn:hover{
+    background: #ff7200;
+    color: #fff;}
+
 

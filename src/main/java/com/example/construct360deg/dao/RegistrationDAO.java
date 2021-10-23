@@ -23,6 +23,7 @@ public class RegistrationDAO {
         preparedStatement1=connection.prepareStatement(sql2);
         preparedStatement1.setString(1,userRegistration.getUsername());
         ResultSet resultSet=preparedStatement1.executeQuery();
+
         if(resultSet.next()){
             int userid=resultSet.getInt("userid");
             String sql3="INSERT INTO `usercontactno`(`userid`, `contactno`, `email`) VALUES (?,?,?)";
@@ -67,6 +68,32 @@ public class RegistrationDAO {
         if (row!=0){
             status=true;
         }
+        return status;
+    }
+    public boolean getEmail(String data,String field) throws SQLException {
+        boolean status=false;
+        data=data.trim();
+
+        String sql;
+        if(field.equals("email")){
+            sql="SELECT COUNT(email) AS count FROM `usercontactno` WHERE usercontactno.email=?";
+        }else{
+            sql="SELECT COUNT(username) AS count FROM `users` WHERE username=?";
+        }
+
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setString(1,data);
+
+        resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            if(resultSet.getInt("count")!=0){
+             status=true;
+            }
+        }
+
         return status;
     }
 }

@@ -10,17 +10,20 @@
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./resources/css/AddProduct.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
- <%
-   if(session.getAttribute("uname")==null){
-     response.sendRedirect(request.getContextPath()+"/login");
-   }
-%>
+<%-- <%--%>
+<%--   if(session.getAttribute("uname")==null){--%>
+<%--     response.sendRedirect(request.getContextPath()+"/login");--%>
+<%--   }--%>
+<%--%>--%>
 <div class="Maxcontainer">
   <!-- <div class="firstpart"> -->
-  <%@include file="sidebar.jsp"%>
+  <%@include file="sidebar-customer.jsp"%>
   <!-- </div> -->
 
   <div class="content">
@@ -46,7 +49,7 @@
             </div>
             <div class="col6">
               <label for="description">Description</label>
-              <textarea class="row6" rows="10" cols="56" id="description" name="desc" required></textarea>
+              <textarea class="row6" rows="10" cols="56" id="description" name="desc" required style="resize:none"></textarea>
             </div>
             <div class="col7">
               <label for="category">Category</label>

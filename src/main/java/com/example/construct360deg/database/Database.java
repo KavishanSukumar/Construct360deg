@@ -1,5 +1,6 @@
 package com.example.construct360deg.database;
 
+import javax.servlet.RequestDispatcher;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -19,7 +20,7 @@ public class Database {
         }catch (ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }
+
         return connection;
     }
-
 }

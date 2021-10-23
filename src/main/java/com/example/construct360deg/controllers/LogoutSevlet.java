@@ -14,11 +14,13 @@ public class LogoutSevlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         session.removeAttribute("uname");
+        session.removeAttribute("userid");
         resp.sendRedirect(req.getContextPath()+"/login");
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         session.removeAttribute("uname");
+        session.removeAttribute("userid");
         resp.sendRedirect(req.getContextPath()+"/login");
     }
 }
