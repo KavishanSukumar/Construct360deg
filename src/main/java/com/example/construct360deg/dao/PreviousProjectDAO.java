@@ -21,7 +21,7 @@ public class PreviousProjectDAO {
         int row=0;
         String sql1="INSERT INTO `previousprojectdone`(`userid`, `projectid`) VALUES (?,?)";
         String sql2="INSERT INTO `preprojectimage`(`projectid`, `image`) VALUES (?,?)";
-        String sql3="INSERT INTO `previousproject`(`projectid`, `customerfeedback`, `province`, `district`, `city`, `street`, `houseno`, `noofstars`) VALUES (?,?,?,?,?,?,?,?)";
+        String sql3="INSERT INTO `previousproject`(`projectid`, `customerfeedback`, `province`, `district`, `city`, `street`, `houseno`, `noofstars`,`builtyear`) VALUES (?,?,?,?,?,?,?,?,?)";
         String sql4="INSERT INTO `previousprojectcontno`(`projectid`, `referancecontactno`, `referenceemail`, `referencename`) VALUES (?,?,?,?)";
 
         preparedStatement=connection.prepareStatement(sql1);
@@ -44,6 +44,7 @@ public class PreviousProjectDAO {
         preparedStatement.setString(6,previousProject.getStreet());
         preparedStatement.setString(7,previousProject.getHouseno());
         preparedStatement.setInt(8,previousProject.getNoofstars());
+        preparedStatement.setString(9,previousProject.getBuiltYear());
         row+=preparedStatement.executeUpdate();
 
         preparedStatement=connection.prepareStatement(sql4);

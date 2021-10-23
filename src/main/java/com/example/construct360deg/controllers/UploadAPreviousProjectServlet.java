@@ -36,12 +36,11 @@ public class UploadAPreviousProjectServlet extends HttpServlet {
         previousProject.setReferancecontactno(req.getParameter("Rnum"));
         previousProject.setReferenceemail(req.getParameter("Remail"));
         previousProject.setReferencename(req.getParameter("Rname"));
-
+        previousProject.setBuiltYear(req.getParameter("builtyear"));
         Part filePart = req.getPart("img");
         if(filePart!=null){
             previousProject.setImage(filePart.getInputStream());
         }
-
         try {
             previousProjectDAO.uploadPreviousProject(previousProject);
         } catch (SQLException e) {
