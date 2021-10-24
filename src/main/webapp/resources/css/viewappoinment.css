@@ -16,3 +16,18 @@ body{
     text-align: center;
     color: rgb(255, 255, 255);
 }
+
+/* .Maxcontainer{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.68fr 0.12fr;
+    grid-template-areas: 
+    "firstpart"
+    "content"
+    "footer";
+} */
+
+.buttons {
+    /* margin-top: 20px; */
+}
