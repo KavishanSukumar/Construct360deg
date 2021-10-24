@@ -1,0 +1,152 @@
+
+header{
+    padding: 1px;
+    display: grid;
+    grid-template-areas:
+            'left_area right_area';
+}
+
+.navbar{
+    margin: 0px;
+    background: #22242A;
+    padding: 20px;
+    height: 30px;
+}
+
+.sidebar{
+    background: #22242A;
+    margin: 0px;
+}
+
+#logopic{
+    width: 100px;
+    float: left;
+    height: 70px;
+    margin-top: -15px;
+    cursor: pointer;
+    padding-right: 0%;
+
+}
+
+.left_area {
+    color: #fff;
+    margin-left:38px;
+    text-transform: uppercase;
+    font-size: 24px;
+
+}
+.right_area{
+    text-align: right;
+    margin: -7px;
+    padding: 0px;
+}
+
+
+#profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    /* margin-bottom: 10px; */
+}
+
+#profile_name{
+    color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar a{
+    color: rgb(255, 255, 255);
+    display: block;
+    width: 100%;
+    line-height: 58px;
+    text-decoration: none;
+    padding-left: 20%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property:back;
+}
+
+.sidebar a:hover{
+    background: #ff7200;
+}
+
+.sidebar i{
+    padding-right:4px ;
+}
+
+label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.5s;
+    transition-property: color;
+    margin-left: 10px;
+}
+
+label #sidebar_btn:hover{
+    color: #ff7200;
+}
+
+label #sidebar_btn{
+    font-size: 27px;
+}
+#check:checked ~ .sidebar{
+    left: -190px;
+}
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+#check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 160px;
+    width: 90px;
+}
+#check{
+    display: none;
+} 
+ul{
+    /* float: left; */
+    right: -10px;
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    float: inherit;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 40px;
+    margin-top: -3px;
+    font-size: 15px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family:  'Roboto', sans-serif;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
+}
+.userdesc{
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+}
+.focus{
+    background: #ff7200;
+}
+
+.sidebutton{
+    text-align: right;
+    color: white;
+    background-color:#22242A ;
+    padding-right: 5px;
+}
+.fa-bars:hover{
+    color: #ff7200;
+}
