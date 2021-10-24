@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="../resources/css/viewproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
   <div class="container">
     <%@include file="sidebar-customer.jsp"%>

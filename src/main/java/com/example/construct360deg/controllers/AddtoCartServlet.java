@@ -21,19 +21,18 @@ import java.util.ArrayList;
 public class AddtoCartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Cart cart=new Cart();
+        AddToCartDAO addToCartDAO=new AddToCartDAO();
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
-        AddToCartDAO addToCartDAO=new AddToCartDAO();
-        ArrayList<Cart> products=new ArrayList<>();
-
+        int productid=Integer.parseInt(req.getParameter("productid"));
+        cart.setProductid(productid);
+        cart.setUserid(userid);
         try {
-            products=addToCartDAO.getAllItemsInCart(userid);
+            addToCartDAO.insertToCart(cart);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        req.setAttribute("cartproducts",products);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/addtocart.jsp");
-        requestDispatcher.forward(req,resp);
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();

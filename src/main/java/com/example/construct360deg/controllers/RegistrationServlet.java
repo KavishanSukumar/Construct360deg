@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
-@WebServlet("/UserRegistration")
+@WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -47,5 +47,9 @@ public class RegistrationServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/registration.jsp");
+        requestDispatcher.forward(req,resp);
     }
 }

@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="./resources/css/searchProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            $(".order-btn").click(function (){
+                console.log($(this).val());
+            })
+
+        })
+    </script>
 </head>
 
 <body>
@@ -119,7 +127,7 @@
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
                         <div class="addtocart">
-                            <button href="#">Order Now</button>
+                            <button href="#" value="<%=x.getProductid()%>" class="order-btn">Order Now</button>
                             <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
                         </div>
 
@@ -135,7 +143,7 @@
         if(out==true){
           var productid=ele.id;
           var xhttp=new XMLHttpRequest();
-          xhttp.open("POST","<%=request.getContextPath()%>/addproducttocart?productid="+productid,true);
+          xhttp.open("POST","<%=request.getContextPath()%>/addtocart?productid="+productid,true);
           xhttp.send();
         }
     }

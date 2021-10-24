@@ -74,7 +74,7 @@ pageEncoding="ISO-8859-1"%>
         <div class="container-3">
             <h1>Registration</h1>
             <div class="container-4">
-                <form action="<%=request.getContextPath()%>/UserRegistration" method="post">
+                <form action="<%=request.getContextPath()%>/registration" method="post">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                     <p class="checkparagph" id="emailcheck">Email exist</p>

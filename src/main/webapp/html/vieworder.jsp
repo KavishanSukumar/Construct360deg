@@ -28,7 +28,7 @@
             $("#OrderNum").append(orderid);
             $("#orderdetailsrows").empty();
             $.ajax({
-                url:"<%=request.getContextPath()%>/orderdetails",
+                url:"<%=request.getContextPath()%>/vieworders",
                 type: 'POST',
                 data:{"orderid":orderid},
                 success: function (data){
