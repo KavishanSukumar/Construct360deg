@@ -23,8 +23,8 @@
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
             <a href="#"><i class="fab fa-product-hunt" id="hat"></i><h4>Products</h4></a>
             <a href="<%=request.getContextPath()%>/searchproduct"><i class="fas fa-cart-arrow-down" id="hunt"></i><h4>Orders</h4></a>
-            <a href="<%=request.getContextPath()%>/searchprofessionals"><i class="fas fa-ad" id="user"></i><h4>Advertise</h4></a>
-            <a href="#"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
+            <a href="<%=request.getContextPath()%>/"><i class="fas fa-ad" id="user"></i><h4>Advertise</h4></a>
+            <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
             <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><h4>Report</h4></a>
             <a href="#"><i class="fas fa-hands-helping" id="head"></i><h4>Help and Support</h4></a>
             <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
