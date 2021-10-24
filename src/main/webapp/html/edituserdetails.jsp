@@ -183,7 +183,14 @@
                 <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
               </div>
             <%}%>
+<<<<<<< HEAD
             <button id="addproject-btn" onclick="myfunction()">Add Project</button>
+=======
+<%--        ---------------------------------%>
+          <a class="gallery" href="<%=request.getContextPath()%>/uploadpreviousproject">
+              <img src='./resources/images/viewprofile/plus.png;' >
+          </a>
+>>>>>>> 01cadff56e79367359697943b87246d51ad89548
       </div>
 
       <div class="middle-content" id="uploadproject">
@@ -242,6 +249,7 @@
 
         </div>
       </div>
+<%--      ----------------------%>
     </div>
 
   </div>

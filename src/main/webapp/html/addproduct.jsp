@@ -34,7 +34,7 @@
 
     <div class="rightSide">
       <!-- /////////////////This is the leftside of rightside//////////////////// -->
-      <form action="<%=request.getContextPath()%>/AddaProduct" method="post" enctype="multipart/form-data" class="col4">
+      <form action="<%=request.getContextPath()%>/addproduct" method="post" enctype="multipart/form-data" class="col4">
       <div class="leftrightSide">
         <div class="col-12">
           <h2 class="row3">Add Product</h2>
