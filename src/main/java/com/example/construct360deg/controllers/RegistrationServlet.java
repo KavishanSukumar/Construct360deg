@@ -41,6 +41,8 @@ public class RegistrationServlet extends HttpServlet {
                 requestDispatcher.forward(req,resp);
                 System.out.println("Successful");
             }else{
+                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/registration.jsp");
+                requestDispatcher.forward(req,resp);
                 System.out.println("Error");
             }
         } catch (SQLException e) {

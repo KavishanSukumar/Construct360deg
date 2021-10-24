@@ -100,6 +100,7 @@ pageEncoding="ISO-8859-1"%>
                         <option value="cus_com">Customer Company</option>
                         <option value="prof_indiv">Professional Individual</option>
                         <option value="prof_com">Professional Company</option>
+                        <option value="prod_com">Product Company</option>
                     </select>
                     <div class="terms">
                         <input type="checkbox" required >

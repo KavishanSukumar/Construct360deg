@@ -9,26 +9,34 @@ public class RegistrationDAO {
     public boolean userRegistration(UserRegistration userRegistration) throws SQLException {
         boolean status=false;
         int row;
-        String sql="INSERT INTO `users`( `username`, `password`) VALUES (?,?);";
+        String sql="INSERT INTO `login`( `username`, `password`,`user_role`) VALUES (?,?,?);";
         Connection connection=Database.getConnection();
         PreparedStatement preparedStatement;
 
         preparedStatement=connection.prepareStatement(sql);
         preparedStatement.setString(1,userRegistration.getUsername());
         preparedStatement.setString(2,userRegistration.getPassword());
+        preparedStatement.setString(3,userRegistration.getProfessionalrole());
         row=preparedStatement.executeUpdate();
 
-        String sql2="SELECT userid FROM users where username=?";
+        String sql2="SELECT userid FROM login where username=?";
         PreparedStatement preparedStatement1;
         preparedStatement1=connection.prepareStatement(sql2);
         preparedStatement1.setString(1,userRegistration.getUsername());
         ResultSet resultSet=preparedStatement1.executeQuery();
 
         if(resultSet.next()){
+
             int userid=resultSet.getInt("userid");
+            String sql5="INSERT INTO `users`(`userid`) VALUES (?)";
+            PreparedStatement preparedStatement2;
+            preparedStatement2=connection.prepareStatement(sql5);
+            preparedStatement2.setInt(1,userid);
+            preparedStatement2.executeUpdate();
+
+
             String sql3="INSERT INTO `usercontactno`(`userid`, `contactno`, `email`) VALUES (?,?,?)";
             PreparedStatement preparedStatement3;
-
             preparedStatement3=connection.prepareStatement(sql3);
             preparedStatement3.setInt(1,userid);
             preparedStatement3.setString(2,userRegistration.getContactno());
@@ -61,6 +69,12 @@ public class RegistrationDAO {
                 preparedStatement4.setInt(1,userid);
                 row+=preparedStatement4.executeUpdate();
             }
+            else if (userRegistration.getProfessionalrole().equals("prod_com")){
+                String sql4="INSERT INTO productcompany (`userid`) VALUES (?)";
+                preparedStatement4=connection.prepareStatement(sql4);
+                preparedStatement4.setInt(1,userid);
+                row+=preparedStatement4.executeUpdate();
+            }
         }else{
             System.out.println("Failed to get the data");
         }
@@ -78,7 +92,7 @@ public class RegistrationDAO {
         if(field.equals("email")){
             sql="SELECT COUNT(email) AS count FROM `usercontactno` WHERE usercontactno.email=?";
         }else{
-            sql="SELECT COUNT(username) AS count FROM `users` WHERE username=?";
+            sql="SELECT COUNT(username) AS count FROM `login` WHERE username=?";
         }
 
         Connection connection=Database.getConnection();
