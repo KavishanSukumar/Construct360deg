@@ -1,4 +1,4 @@
-
+<%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign documents</title>
-    <link rel="stylesheet" href="../resources/css/sign-doc.css">
+    <title>Landing page</title>
+    <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./resources/css/landingpage.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -17,17 +19,11 @@
 <div class="container">
     <%@include file="sidebar-customer.jsp"%>
 
-
     <div class="content">
-        <!--            <img src="../resources/images/navbar/sidebarpro.jpg"-->
-        <!--                 alt="" >-->
-
-        <p>this is sign document ui</p>
+        <img src="./resources/images/landingpage/wallpaperflare.com_wallpaper.jpg" class="background-img">
     </div>
 
-    <div class="footer">
-        <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-    </div>
+    <%@include file="../../footer.jsp"%>
 </div>
 </body>
 

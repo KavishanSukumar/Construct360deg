@@ -17,13 +17,13 @@
 <!-- <input type="checkbox" id="check"> -->
 <!-- header area start -->
 <div class="container">
-    <%@include file="sidebar-customer.jsp"%>
+    <%@include file="sidebar-professional.jsp"%>
 
     <div class="content">
         <img src="./resources/images/landingpage/wallpaperflare.com_wallpaper.jpg" class="background-img">
     </div>
 
-    <%@include file="footer.jsp"%>
+    <%@include file="../../footer.jsp"%>
 </div>
 </body>
 

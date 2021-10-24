@@ -13,13 +13,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Map;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         UserloginDAO userloginDAO=new  UserloginDAO();
-        int userid;
         String username=req.getParameter("username");
         String password=req.getParameter("password");
 
@@ -28,18 +28,48 @@ public class LoginServlet extends HttpServlet {
         userlogin.setPassword(password);
 
         try {
-            userid=userloginDAO.verify(userlogin);
-            if(userid>0){
+            userlogin=userloginDAO.verify(userlogin);
+            if(userlogin.getUserrole()!=null){
                 HttpSession session=req.getSession();
                 session.setAttribute("uname",username);
-                session.setAttribute("userid",userid);
-                RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professional/landingpage.jsp");
-                requestDispatcher.forward(req,resp);
+                session.setAttribute("userid",userlogin.getUserid());
+                session.setAttribute("userrole",userlogin.getUserrole());
+
+//                System.out.println(userlogin.getUserid());
+//                System.out.println(userlogin.getUserrole());
+
+                if(userlogin.getUserrole().equals("admin")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Admin");
+                }else if (userlogin.getUserrole().equals("cus_indiv")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Customer");
+                }else if (userlogin.getUserrole().equals("cus_com")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Customer");
+                }else if(userlogin.getUserrole().equals("prof_com")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Professional");
+                }else if (userlogin.getUserrole().equals("prof_indiv")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Professional");
+                }else if (userlogin.getUserrole().equals("prod_com")){
+                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
+                    requestDispatcher.forward(req,resp);
+                    System.out.println("Product company");
+                }
             }else{
+//                System.out.println(userlogin.getUserid());
+//                System.out.println(userlogin.getUserrole());
                 RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
                 requestDispatcher.forward(req,resp);
             }
-        } catch (SQLException e) {
+        } catch (SQLException e){
             e.printStackTrace();
         }
 

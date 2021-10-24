@@ -4,6 +4,15 @@ public class Userlogin {
     private String username;
     private String password;
     private int userid;
+    private String userrole;
+
+    public String getUserrole() {
+        return userrole;
+    }
+
+    public void setUserrole(String userrole) {
+        this.userrole = userrole;
+    }
 
     public String getUsername() {
         return username;
