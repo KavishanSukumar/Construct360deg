@@ -1,0 +1,123 @@
+html{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    color: #ff7200;
+}
+body{
+    background-image: url("../images/registrationform2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover ;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.container-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.container-2{
+    text-align: center;
+    width: 50%;
+}
+.container-3{
+    display: flex;
+    background-color: black;
+    width: 45%;
+    margin: 4% auto;
+    color: white;
+    opacity: 0.9;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+label{
+    width: 145px;
+    display: inline-block;
+    text-align: left;
+    margin: 5px;
+    padding: 15px;
+}
+
+.terms>label{
+    text-align: left;
+    width: 285px;
+    height: 20px;
+    padding-top: 10px;
+    margin: 0px;
+}
+
+select{
+    text-align: center;
+    width: 365px;
+    height: 40px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+input {
+    display: inline-block;
+    padding: 10px 100px;
+    border-radius: 10px;
+    text-align: center;
+}
+input:hover{
+    border-color: #ff7200;
+}
+.submit{
+    padding: 10px 50px ;
+    margin: 0px 60px 20px 0px;
+    text-align: right;
+}
+.terms{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-right: 184px;
+}
+#terms2{
+    color: #FF3D00;
+}
+.submit:hover{
+    background-color: #ff7200;
+}
+
+.sidepic{
+    width: 60%;
+    height: 47%;
+    margin-top: 23%;
+    border: 12px solid black;
+    box-shadow: 8px 8px 0px black;
+}
+.sbt-btn{
+    text-align: right;
+}
+
+.container-2 > .par{
+    font-family:  'Roboto', sans-serif;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    line-height: 30px;
+    letter-spacing: 1.2px;
+    color: white;
+    text-align: right;
+
+}
+.checkparagph{
+    display:none ;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 255px;
+    text-align: left;
+    color: red;
+    font-size: 12px;
+    z-index: 1;
+}
