@@ -143,7 +143,7 @@
         if(out==true){
           var productid=ele.id;
           var xhttp=new XMLHttpRequest();
-          xhttp.open("POST","<%=request.getContextPath()%>/addproducttocart?productid="+productid,true);
+          xhttp.open("POST","<%=request.getContextPath()%>/addtocart?productid="+productid,true);
           xhttp.send();
         }
     }

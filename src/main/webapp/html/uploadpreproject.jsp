@@ -43,7 +43,7 @@
           </div>
       </div>
       <div class="form">
-        <form action="<%=request.getContextPath()%>/uploadapreviousproject" method="post" enctype="multipart/form-data">
+        <form action="<%=request.getContextPath()%>/uploadpreviousproject" method="post" enctype="multipart/form-data">
           <h3>Upload Previous Project</h3><br>
           <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Homeno" name="HouseNumber">

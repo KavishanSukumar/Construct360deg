@@ -53,16 +53,16 @@
   <div class="content">
     
     <div class="filling">
-            <form class="details" action="<%=request.getContextPath()%>/uploadtherequirement" method="post" enctype="multipart/form-data">
+            <form class="details" action="<%=request.getContextPath()%>/uploadrequirement" method="post" enctype="multipart/form-data">
 
                 <label for="description">Description</label><br>
                 <textarea id="description" name="description" rows="5" cols="10"></textarea><br><br>
                 <label for="type">Type</label>
                 <select name="type" id="type">
                   <option value="none" disabled >Select</option>
-                  <option value="cus_indiv">Building</option>
-                  <option value="cus_com">Landscape design</option>
-                  <option value="prof_indiv">both Building and Landscape design</option>
+                  <option value="building">Building</option>
+                  <option value="landscapeDesigning">Landscape design</option>
+                  <option value="Both">Both Building and Landscape design</option>
                 </select><br><br>
                 <label for="con-num">Contact Number</label>
                 <input type="tel" id="con-num" name="contactnum" pattern="[0-9]{10}" required><br><br><br>

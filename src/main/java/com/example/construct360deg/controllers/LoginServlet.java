@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet("/loginvalidate")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,5 +43,9 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+    }
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/login.jsp");
+        requestDispatcher.forward(req,resp);
     }
 }
