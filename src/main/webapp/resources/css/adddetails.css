@@ -58,14 +58,16 @@ form.example::after {
     grid-template-columns: 500px 700px;
     background-color: #fff;
     width: 100%;
-    height: 820px;
+    height: 960px;
     margin-top: 70px;
 }
 .setting{
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left: 20px;
-    height: 640px;
+    border-radius: 8px;
+    margin-top: 48px;
+    margin-left: 60px;
+    height: 462px;
+    width: 300px;
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
 }
 .setting i{
     margin-left: -30px;
@@ -76,27 +78,25 @@ form.example::after {
     width: 100px;
     border-radius: 50%;
     margin-top: 20px;
-    margin-left: 80px;
-    border: 1px solid rgb(177, 175, 175);
+    margin-left: 10px;
+    /*border-radius: 8px;*/
 }
 .setting h3{
-    margin-left: 200px;
+    margin-left: 140px;
     margin-top: -90px;
 }
 .setting p{
-    margin-left: 200px;
+    margin-left: 140px;
     margin-top: -15px;
     font-size: 15px;
 }
 .menu{
     display: flex;
     flex-direction: column;
-    height: 410px;
-    width: 230px;
-    margin-left: 85px;
-    margin-top: 70px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    border-radius: 8px;
+    height: 310px;
+    width: 300px;
+    margin-left: 0px;
+    margin-top: 73px;
 }
 .menu a{
     text-decoration: none;
@@ -139,7 +139,7 @@ form.example::after {
 .middle-content{
     background-color: rgb(230, 228, 228);
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 50px;
     padding: 30px;
     height: 660px;
@@ -172,10 +172,7 @@ form.example::after {
 #emails{
     display: none;
 }
-#appointment{
-    display: none;
-}
-#feedback{
+#uploadproject{
     display: none;
 }
 #preproject{
@@ -184,7 +181,7 @@ form.example::after {
 #preference{
     display: none;
 }
-#preproject .button {
+#preproject button {
     background-color: #acabab;
     border: none;
     color: black;
@@ -197,7 +194,26 @@ form.example::after {
     cursor: pointer;
     border-radius: 20px;
 }
-#preproject .button:hover{
+#preproject button:hover{
+    background: #ff7200;
+    color: white;
+}
+
+#preproject{height: 830px}
+#uploadproject button {
+    background-color: #acabab;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+#uploadproject button:hover{
     background: #ff7200;
     color: white;
 }
