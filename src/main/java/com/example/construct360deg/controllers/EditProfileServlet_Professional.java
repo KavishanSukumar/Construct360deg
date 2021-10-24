@@ -14,14 +14,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-@WebServlet("/editprofile")
-public class EditProfileServlet extends HttpServlet {
+@WebServlet("/editprofileprof")
+public class EditProfileServlet_Professional extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
         System.out.println(userid);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/edituserdetails.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/edituserdetails.jsp");
         requestDispatcher.forward(req,resp);
     }
     @Override
@@ -37,7 +37,7 @@ public class EditProfileServlet extends HttpServlet {
         }
 
         req.setAttribute("previousProjects",previousProjects);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/edituserdetails.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/edituserdetails.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
