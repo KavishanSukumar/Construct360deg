@@ -22,123 +22,88 @@
     $(document).ready(function (){
           $("#email-btn").click(function (){
             $(this).addClass("active");
-            $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
-            $("#appointment").css("display","none");
             $("#qualification").css("display","none");
             $("#emails").css("display","block");
-            $("#feedback").css("display","none");
-            $("#preproject").css("display","none");
-            $("#preference").css("display","none");
-          });
-          $("#feedback-btn").click(function (){
-            $(this).addClass("active");
-            $("#email-btn").removeClass("active");
-            $("#preproject-btn").removeClass("active");
-            $("#preference-btn").removeClass("active");
-            $("#account-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
-            $("#qualification-btn").removeClass("active");
-            $("#account").css("display","none");
-            $("#appointment").css("display","none");
-            $("#qualification").css("display","none");
-            $("#emails").css("display","none");
-            $("#feedback").css("display","block");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
           });
           $("#preproject-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
-            $("#feedback-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
-            $("#appointment").css("display","none");
             $("#qualification").css("display","none");
             $("#emails").css("display","none");
-            $("#feedback").css("display","none");
             $("#preproject").css("display","block");
             $("#preference").css("display","none");
           });
           $("#preference-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
-            $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#account-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
-            $("#appointment").css("display","none");
             $("#qualification").css("display","none");
             $("#emails").css("display","none");
-            $("#feedback").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","block");
           });
           $("#account-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
-            $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account").css("display","block");
-            $("#appointment").css("display","none");
             $("#qualification").css("display","none");
             $("#emails").css("display","none");
-            $("#feedback").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
           });
           $("#qualification-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
-            $("#appointment-btn").removeClass("active");
             $("#account-btn").removeClass("active");
-            $("#feedback-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#qualification").css("display","block");
-            $("#appointment").css("display","none");
             $("#account").css("display","none");
             $("#emails").css("display","none");
-            $("#feedback").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
           });
-          $("#appointment-btn").click(function (){
+          $("#addproject-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
-            $("#feedback-btn").removeClass("active");
-            $("#preproject-btn").removeClass("active");
+            $("#preproject-btn").addClass("active");
             $("#preference-btn").removeClass("active");
-            $("#appointment").css("display","block");
             $("#account").css("display","none");
-            $("#qualification").css("display","none");
             $("#emails").css("display","none");
-            $("#feedback").css("display","none");
-            $("#preproject").css("display","none");
+            $("#preproject").css("display","block");
             $("#preference").css("display","none");
           });
     });
+
+    function myfunction(){
+      var x = document.getElementById("uploadproject").innerHTML;
+      document.getElementById("preproject").innerHTML = x;
+    }
   </script>
 </head>
 <body>
   <div class="container">
     <%@include file="sidebar-customer.jsp"%>
-    
+
     <div class="content1">
       <form class="example" action="/action_page.java">
         <button type="submit"><i class="fa fa-search"></i></button>
@@ -161,8 +126,6 @@
           <a id="account-btn" class="active" href="#">Account</a>
           <a id="qualification-btn" href="#">Qualifications</a>
           <a id="email-btn" href="#">Emails</a>
-          <a id="appointment-btn" href="#">Appointments</a>
-          <a id="feedback-btn" href="#">Feedbacks</a>
           <a id="preproject-btn" href="#">Previous Projects</a>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>
@@ -195,17 +158,12 @@
         </form>
       </div>
       <div class="middle-content" id="qualification">
-        <p>qualifications</p>
+        <h3>Qualifications</h3>
       </div>
       <div class="middle-content" id="emails">
-        <p>emails</p>
+        <h3>Emails</h3>
       </div>
-      <div class="middle-content" id="appointment">
-        <p>Appointments</p>
-      </div>
-      <div class="middle-content" id="feedback">
-        <p>feedback</p>
-      </div>
+
       <div class="middle-content" id="preproject">
             <%for (PreviousProject x:previousProjects){%>
               <%
@@ -225,15 +183,55 @@
                 <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
               </div>
             <%}%>
+<<<<<<< HEAD
+            <button id="addproject-btn" onclick="myfunction()">Add Project</button>
+=======
 <%--        ---------------------------------%>
           <a class="gallery" href="<%=request.getContextPath()%>/uploadpreviousproject">
               <img src='./resources/images/viewprofile/plus.png;' >
           </a>
+>>>>>>> 01cadff56e79367359697943b87246d51ad89548
       </div>
+
+      <div class="middle-content" id="uploadproject">
+        <form action="<%=request.getContextPath()%>/uploadapreviousproject" method="post" enctype="multipart/form-data">
+          <h3>Upload Previous Project</h3><br>
+          <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Homeno" name="HouseNumber">
+
+          <label for="street">Street: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="street" name="street">
+
+          <label for="city">City: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="city" name="city">
+
+          <label for="district">District: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="district" name="district">
+
+          <label for="province">Province: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="province" name="province">
+
+          <label for="Rname">Reference Name: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Rname" name="Rname">
+
+          <label for="Rnum">Reference Contact Number: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Rnum" name="Rnum">
+
+          <label for="Remail">Reference Email: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="Remail" name="Remail">
+
+          <label for="builtyear">Built Year: <i class="fa fa-pencil-alt"></i></label>
+          <input type="text" id="builtyear" name="builtyear">
+
+          <label for="img">Upload images:</label>
+          <input type="file" id="img" name="img">
+          <input type="submit" value="Submit">
+        </form>
+        </div>
 
       <div id="preference">
         <div class="middle-content">
-          <h1>Delete Your Account</h1>
+          <h2>Delete Your Account</h2>
           <h3>We are sorry to see you go.</h3>
           <br>
           <h4>Before you go...</h4>
