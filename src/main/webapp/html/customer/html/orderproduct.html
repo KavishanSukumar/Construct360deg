@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>order product</title>
+  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="../resources/css/orderproduct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- header area start -->
+<div class="Maxcontainer">
+  <div class="firstpart">
+<!-- <%----%> <%@include file="sidebar-customer.jsp"%> -->
+<header class="menu_bar">
+
+  <div class="left_area">
+      <!--<h2 class="logoname">Construct360</h2>-->
+      <img src="../resources/images/Logo.png" id="logopic" sizes="100px">
+  </div>
+  <div class="right_area">
+      <!-- <a href="#" id="logout_btn">Logout</a> -->
+      <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">SERVICES</a></li>
+          <li><a href="#">PROJECT</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li> <i class="fas fa-bars" id="sidebar_btn" onclick="document.querySelector('#nav').classList.toggle('hidden')"></i></li>
+      </ul>
+  </div>
+  <div class="nav-panel hidden" id="nav">
+      <ul>
+          <div>
+              <a href="<%=request.getContextPath()%>/viewprofile"><img src="./resources/images/Addproduct/sidebarpro.jpg" id="profile_image" alt="" ></a>
+              <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
+          </div>
+          <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
+          <a href="#"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
+          <a href="<%=request.getContextPath()%>/searchproduct"><i class="fab fa-product-hunt" id="hunt"></i><h4>Products</h4></a>
+          <a href="<%=request.getContextPath()%>/searchprofessionals"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
+          <a href="#"><i class="fas fa-headset" id="payment"></i><h4>Payment & Pricing</h4></a>
+          <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><h4>Report</h4></a>
+          <a href="#"><i class="fas fa-headset" id="help"></i><h4>Help and Support</h4></a>
+          <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
+      </ul>
+  </div>
+</header>
+</div>
+<div class="content">
+  <!-- ///////////////////////////////////////////////////////////////////////////// -->
+  <div class="container">
+    <div class="title">
+        <h2>Product Order Form</h2>
+    </div>
+  <div class="d-flex">
+    <form action="" method="">
+      
+      <label>
+        <span>District <span class="required">*</span></span>
+        <select name="selection">
+          <option value="select">Select a District...</option>
+          <option value="COL">Colombo</option>
+          <option value="GAM">Gampaha</option>
+          <option value="KAL">Kaluthara</option>
+          <option value="KAN">Kandy</option>
+          <option value="MAT">Matale</option>
+          <option value="NUW">Nuwera Eliya</option>
+          <option value="GAL">Galle</option>
+          <option value="MAT">Matara</option>
+          <option value="HAM">Hambanthota</option>
+          <option value="RAT">Rathnapura </option>
+          <option value="POL">Polonnaruwa</option>
+          <option value="ANU">Anuradhapura</option>
+          <option value="KEL">Kegalle </option>
+          
+        </select>
+      </label>
+      <label>
+        <span>Street Address <span class="required">*</span></span>
+        <input type="text" name="houseadd" placeholder="House number and street name" required>
+      </label>
+      <label>
+        <span>&nbsp;</span>
+        <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
+      </label>
+      <label>
+        <span>Town / City <span class="required">*</span></span>
+        <input type="text" name="city" placeholder="Your city"> 
+      </label>
+      <label>
+        <span>Phone <span class="required">*</span></span>
+        <!-- <input type="tel" name="city">  -->
+        <input type="tel" id="phone" name="phone" placeholder="xxx-xxxxxxx" pattern="[0-9]{3}-[0-9]{7}" required>
+      </label>
+      <label>
+        <span>Email Address <span class="required">*</span></span>
+        <input type="email" name="email" placeholder="Your Email"> 
+      </label>
+    </form>
+    <div class="rightside">
+      <table>
+        <tr>
+          <th colspan="2">Your order</th>
+        </tr>
+        <tr>
+          <td>Product Name x 2(Qty)</td>
+          <td>$88.00</td>
+        </tr>
+        <tr>
+          <td>Subtotal</td>
+          <td>$88.00</td>
+        </tr><br><br>
+        <!-- <tr>
+          <td>Shipping</td>
+          <td>Free shipping</td>
+        </tr> -->
+      </table><br>
+      <div>
+        <input type="radio" name="dbt" value="dbt" checked> Pick Up
+      </div>
+      <p>
+          Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+      </p>
+      <div>
+        <input type="radio" name="dbt" value="cd"> Home Delivery
+      </div>
+      
+      <button type="button">Place Order</button>
+    </div><!-- rightside -->
+   </div>
+  </div>
+</div>
+  <div class="footer">
+    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+  </div>
+</div>
+</body>
+
+
+</html>

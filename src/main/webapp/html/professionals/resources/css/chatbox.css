@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    /* background-color: #c4c4c4; */
+}
+.container{
+margin-bottom: 170px;
+}
+#content{
+    display: flex;
+    flex-direction: row;
+}
+.users,.chat{
+    margin: 10px 10px 10px 10px;
+    box-shadow:2px 2px 2px 2px #cccccc ;
+    height: 530px;
+    border-radius: 5px;
+}
+.users:hover,.chat:hover{
+    box-shadow:5px 5px 5px 5px #cccccc ;
+}
+.users{
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+}
+.chat{
+    width: 770px;
+}
+
+.searchbar{
+    margin: 10px 10px ;
+    padding: 5px 0px;
+    width: 310px;
+    border-radius: 5px;
+}
+#search {
+    margin: 10px 10px;
+    padding: 5px 0px;
+}
+#search:hover{
+    color: #ff7200;
+}
+.chatuser{
+    margin: 10px 10px;
+    border-style: inset;
+}
+.chatuser:hover{
+    box-shadow:5px 5px 3px 3px #cccccc ;
+}
+.chatuser>h4, .chatuser>p{
+    margin: 10px 5px;
+}
+
+.currentchatuser{
+    box-shadow:2px 2px 2px 2px #cccccc ;
+    margin: 10px 10px;
+    width: auto;
+    height: 50px;
+    border-radius: 5px;
+
+}
+.currentchatuser>h4{
+    padding: 14px 10px;
+    margin: 10px 10px;
+}
+.currentchat{
+    box-shadow:2px 2px 2px 2px #cccccc ;
+    margin: 10px 10px;
+    width: auto;
+    height: 385px;
+}
+.currentchattextbox{
+    box-shadow:2px 2px 2px 2px #cccccc ;
+    margin: 10px 10px;
+    width: auto;
+    height: 40px;
+}
+.chatbar{
+    width: 695px;
+    margin: 0px 10px;
+    height: 25px ;
+    border-radius:5px ;
+}
+#send-btn{
+    margin: 5px 5px;
+    padding: 5px 0px;
+}
+#send-btn:hover{
+    color: #ff7200;
+}
