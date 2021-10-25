@@ -9,21 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductDAO {
-    public boolean addProduct(Product product,String uname) throws SQLException {
+    public boolean addProduct(Product product) throws SQLException {
         Boolean status=false;
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
-        String sql1="SELECT * FROM `users` WHERE username= ?";
-
-        preparedStatement=connection.prepareStatement(sql1);
-
-        preparedStatement.setString(1,uname);
-
-        ResultSet resultSet=preparedStatement.executeQuery();
-
-        while (resultSet.next()){
-            product.setCompanyid(resultSet.getInt("userid"));
-        }
 
         String sql2="INSERT INTO `product`(`companyid`, `productname`, `quantity`, `productimage`, `productdes`, `productprice`) VALUES(?,?,?,?,?,?)";
         PreparedStatement preparedStatement1;
