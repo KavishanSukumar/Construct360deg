@@ -14,7 +14,7 @@
 </head>
 <div class="container">
     <nav>
-        <%@include file="sidebar-customer.jsp"%>
+        <%@include file="sidebar-productcompany.jsp"%>
         <!-- Navbar -->
         <!-- <div class="navdivided">
         <div class="left_area"> -->

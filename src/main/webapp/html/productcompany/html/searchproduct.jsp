@@ -35,7 +35,7 @@
     <!-- <input type="checkbox" id="check"> -->
     <!-- header area start -->
     <div class="container">+
-        <%@include file="sidebar-customer.jsp"%>
+        <%@include file="sidebar-productcompany.jsp"%>
     <!-- header area end -->
     <!-- sidebar start-->
 

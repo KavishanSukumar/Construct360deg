@@ -14,7 +14,7 @@
 <body>
     <div class="container-1">
         <div class="x">
-            <%@include file="sidebar-customer.jsp"%>
+            <%@include file="sidebar-productcompany.jsp"%>
 
         </div>
         <div class="container-2">
