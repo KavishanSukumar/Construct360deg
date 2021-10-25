@@ -12,13 +12,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.Map;
 
 public class UserloginDAO {
 
-    public int verify(Userlogin userlogin) throws SQLException {
-        int status=0;
+    public Userlogin verify(Userlogin userlogin) throws SQLException {
         Connection connection= Database.getConnection();
-        String sql="SELECT * FROM users where username=?";
+        String sql="SELECT * FROM login where username=?";
         PreparedStatement statement;
             statement=connection.prepareStatement(sql);
 
@@ -27,10 +29,13 @@ public class UserloginDAO {
             if(resultSet.next()){
                 String password= DigestUtils.sha256Hex(userlogin.getPassword());
                 if(resultSet.getString("password").equals(password)){
-                    status=resultSet.getInt("userid");
+                   userlogin.setUserid(resultSet.getInt("userid"));
+                   userlogin.setUserrole(resultSet.getString("user_role"));
+                }else{
+
                 }
             }
 
-            return status;
+            return userlogin;
     }
 }
