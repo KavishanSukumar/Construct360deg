@@ -33,7 +33,7 @@ public class OrderProductServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("checkorderservlet");
+
         PrintWriter out=resp.getWriter();
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");

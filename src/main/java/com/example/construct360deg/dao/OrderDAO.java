@@ -43,10 +43,10 @@ public class OrderDAO {
         return orderlist;
     }
     public boolean lodgeOrders(Order order) throws SQLException {
-        System.out.println("lodgeorder");
+
         boolean status=false;
         int row=0;
-        System.out.println("DAO");
+
         String sql="INSERT INTO `orders`( `productid`, `userid`, `quantity`, `district`, `houseno`, `street`, `city`, `Phone`, `email`, `deliverytype`) VALUES (?,?,?,?,?,?,?,?,?,?)";
         Connection connection=Database.getConnection();
         PreparedStatement preparedStatement;
