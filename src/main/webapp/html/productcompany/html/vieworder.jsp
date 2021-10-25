@@ -51,7 +51,7 @@
         response.sendRedirect(request.getContextPath()+"/login");
     }
 %>
-<%@include file="sidebar-customer.jsp"%>
+<%@include file="sidebar-productcompany.jsp"%>
 <div class="container-1">
     <div class="content">
         <div class="container-2">
