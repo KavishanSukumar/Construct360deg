@@ -65,7 +65,7 @@ form.example::after {
     border-radius: 8px;
     margin-top: 48px;
     margin-left: 60px;
-    height: 462px;
+    height: 362px;
     width: 300px;
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
 }
@@ -157,76 +157,23 @@ form.example::after {
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
+    height: 50px;
     background: rgb(0, 0, 0);
 }
 .footer p{
+    margin-top: -5px;
     text-align: center;
     color: rgb(255, 255, 255);
 }
 #account{
     display: block;
 }
-#qualification{
-    display: none;
-}
 #emails{
-    display: none;
-}
-#uploadproject{
-    display: none;
-}
-#preproject{
     display: none;
 }
 #preference{
     display: none;
 }
-#preproject button {
-    background-color: #acabab;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
-}
-#preproject button:hover{
-    background: #ff7200;
-    color: white;
-}
-
-#preproject{height: 830px}
-#uploadproject button {
-    background-color: #acabab;
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 20px;
-}
-#uploadproject button:hover{
-    background: #ff7200;
-    color: white;
-}
-.gallery{
-    margin: 17px;
-    float: left;
-}
-.gallery img{
-    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
-    width: 210px;
-    height: 200px;
-}
-
 .btn a{
     text-decoration: none;
     text-align: center;
