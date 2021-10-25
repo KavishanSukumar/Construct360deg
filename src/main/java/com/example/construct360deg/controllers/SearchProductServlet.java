@@ -1,6 +1,6 @@
 package com.example.construct360deg.controllers;
 
-import com.example.construct360deg.dao.SearchProductDAO;
+import com.example.construct360deg.dao.ProductDAO;
 import com.example.construct360deg.model.Product;
 
 import javax.servlet.RequestDispatcher;
@@ -17,29 +17,20 @@ import java.util.ArrayList;
 public class SearchProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        SearchProductDAO searchProductDAO=new SearchProductDAO();
-        ArrayList<Product> products=new ArrayList<>();
-        try {
-            products=searchProductDAO.getProductDetails();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        req.setAttribute("products",products);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchproduct.jsp");
-        requestDispatcher.forward(req,resp);
+
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        SearchProductDAO searchProductDAO=new SearchProductDAO();
+        ProductDAO productDAO=new ProductDAO();
         ArrayList<Product> products=new ArrayList<>();
         try {
-            products=searchProductDAO.getProductDetails();
+            products=productDAO.getProductDetails();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         req.setAttribute("products",products);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchproduct.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/searchproduct.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

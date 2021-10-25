@@ -149,4 +149,7 @@ button:hover{
   cursor: pointer;
   background: #ffa256;
 }
-
+#my-form{
+  display: flex;
+  flex-direction: row;
+}

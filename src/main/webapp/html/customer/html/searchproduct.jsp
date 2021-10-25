@@ -34,7 +34,7 @@
 
     <!-- <input type="checkbox" id="check"> -->
     <!-- header area start -->
-    <div class="container">+
+    <div class="container">
         <%@include file="sidebar-customer.jsp"%>
     <!-- header area end -->
     <!-- sidebar start-->
@@ -53,9 +53,8 @@
             <ul>
                 <li><h2>Filter By</h2></li>
                 <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
-                 
             </ul>
-           
+
             <div class="filter-table hidden" id="ft">
                 <h4>Type :</h4>
                 <label class="filterby">Branded
@@ -127,8 +126,15 @@
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
                         <div class="addtocart">
-                            <button href="#" value="<%=x.getProductid()%>" class="order-btn">Order Now</button>
-                            <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
+<%--                          <button onclick="orderproduct(this);" value="<%=x.getProductid()%>" id="<%=x.getProductid()%>" class="order-btn">Order Now</button>--%>
+                            <form action="<%=request.getContextPath()%>/orderproduct" method="get">
+                                <input type="text" hidden value="<%=x.getProductid()%>" name="productid">
+                                <input type="text" hidden value="<%=x.getPrice()%>" name="productprice">
+                                <input type="text" hidden value="<%=x.getProductName()%>" name="productname">
+                                <input type="text" hidden value="<%=x.getQuantity()%>" name="productquantity">
+                                <input type="submit" value="Order Product" class="order-btn">
+                            </form>
+                            <button onclick="addtocart(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
                         </div>
 
                     </div>
@@ -138,7 +144,7 @@
 </div>
 
 <script>
-    function confirmation(ele){
+    function addtocart(ele){
         var out=confirm("Do you want to add the product to the cart");
         if(out==true){
           var productid=ele.id;

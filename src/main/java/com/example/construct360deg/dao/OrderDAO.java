@@ -1,6 +1,7 @@
 package com.example.construct360deg.dao;
 
 import com.example.construct360deg.database.Database;
+import com.example.construct360deg.model.Order;
 import com.example.construct360deg.model.Product;
 
 import java.sql.Connection;
@@ -40,5 +41,31 @@ public class OrderDAO {
             orderlist.add(product);
         }
         return orderlist;
+    }
+    public boolean lodgeOrders(Order order) throws SQLException {
+        System.out.println("lodgeorder");
+        boolean status=false;
+        int row=0;
+        System.out.println("DAO");
+        String sql="INSERT INTO `orders`( `productid`, `userid`, `quantity`, `district`, `houseno`, `street`, `city`, `Phone`, `email`, `deliverytype`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,order.getProductid());
+        preparedStatement.setInt(2,order.getUserid());
+        preparedStatement.setFloat(3,order.getQuantity());
+        preparedStatement.setString(4,order.getDistrict());
+        preparedStatement.setString(5,order.getHouseno());
+        preparedStatement.setString(6,order.getStreet());
+        preparedStatement.setString(7,order.getCity());
+        preparedStatement.setString(8,order.getPhone());
+        preparedStatement.setString(9,order.getEmail());
+        preparedStatement.setString(10,order.getDeliverytype());
+        row=preparedStatement.executeUpdate();
+        if(row>0){
+            status=true;
+        }
+        return status;
     }
 }
