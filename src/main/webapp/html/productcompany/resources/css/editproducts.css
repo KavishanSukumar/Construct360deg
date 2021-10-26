@@ -3,17 +3,17 @@
     padding: 0;
     
 } 
-.Maxcontainer{
-    display: grid;
-    height: 100vh; 
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 0.2fr;
-    grid-template-areas:
-        "firstpart" 
-         "content";
-    grid-gap: 0.2rem;
-    
-}
+/*.Maxcontainer{*/
+/*    display: grid;*/
+/*    height: 100vh; */
+/*    grid-template-columns: 1fr;*/
+/*    grid-template-rows: 0.2fr 0.2fr;*/
+/*    grid-template-areas:*/
+/*        "firstpart" */
+/*         "content";*/
+/*    grid-gap: 0.2rem;*/
+/*    */
+/*}*/
 
 
 
