@@ -41,11 +41,11 @@ public class UploadRequirementServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/uploadrequirement.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");
         requestDispatcher.forward(req,resp);
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/uploadrequirement.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

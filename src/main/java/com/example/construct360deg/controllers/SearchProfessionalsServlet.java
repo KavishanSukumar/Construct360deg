@@ -27,7 +27,7 @@ public class SearchProfessionalsServlet extends HttpServlet {
         }
 
         req.setAttribute("allprofs",allprofs);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchprofessionals.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/searchprofessionals.jsp");
         requestDispatcher.forward(req,resp);
 
     }
@@ -42,7 +42,7 @@ public class SearchProfessionalsServlet extends HttpServlet {
         }
 
         req.setAttribute("allprofs",allUsers);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchprofessionals.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/searchprofessionals.jsp");
         requestDispatcher.forward(req,resp);
 
     }

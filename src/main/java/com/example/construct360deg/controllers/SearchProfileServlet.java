@@ -25,7 +25,7 @@ public class SearchProfileServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("allviews",allUsers);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchProfile.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/searchProfile.jsp");
         requestDispatcher.forward(req,resp);
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -38,7 +38,7 @@ public class SearchProfileServlet extends HttpServlet {
         }
 
         req.setAttribute("allviews",allUsers);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/searchProfile.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/searchProfile.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

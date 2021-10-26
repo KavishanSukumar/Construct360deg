@@ -33,7 +33,7 @@ public class ViewOrderServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("orderids",productOrders);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/vieworder.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/vieworder.jsp");
         requestDispatcher.forward(req,resp);
     }
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
