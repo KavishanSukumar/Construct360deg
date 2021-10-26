@@ -15,15 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SerachProfile</title>
     <link rel="stylesheet" href="./html/admin/resources/css/search-Profile.css">
+    <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
 </head>
 <body>
-
+<%@include file="sidebar-admin.jsp"%>
 <div class="container">+
-    <%@include file="sidebar-admin.jsp"%>
-
-
     <div class="content">
 
         <div class="searchbar">
@@ -104,21 +102,23 @@
                             String name=null;
                             if(x.getProffullname()!=null)
                                 name=x.getProffullname();
-                            else if(x.getCustcompanyname()!=null)
-                                name=x.getCustcompanyname();
+                            else if(x.getCuscompanyname()!=null)
+                                name=x.getCuscompanyname();
                             else if(x.getProfcompanyname()!=null)
                                 name=x.getProfcompanyname();
-                            else  if(x.getCusfullname()!=null)
+                            else  if(x.getCusindfullname()!=null)
                                 name=x.getProfcompanyname();
                             else
                                 name="Not Mentioned";
                         %>
                         <p><%=name%></p>
                         <%
-                            String post=null;
-                            if(x.isProductcompflag())
-                                post="Product Company";
-                            else if((x.isComlandflag()&&x.isComcontractflag())||(x.isIndivcontractflag()&&x.isIndivlandflag()))
+                            String post="";
+//                            if(!x.getProductcomname().equals(null))
+//                                post="Product Company";
+//                            if(!x.getCusindfullname().equals(null)||!x.getCuscompanyname().equals(null))
+//                                post="Product Company";
+                            if((x.isComlandflag()&&x.isComcontractflag())||(x.isIndivcontractflag()&&x.isIndivlandflag()))
                                 post="Contracting & Landscape Designing";
                             else if(x.isComlandflag()||x.isIndivlandflag())
                                 post="Landscape Designing";
@@ -137,7 +137,7 @@
     </div>
 
 </div>
-
+<%@include file="../../footer.jsp"%>
 </body>
 
 </html>

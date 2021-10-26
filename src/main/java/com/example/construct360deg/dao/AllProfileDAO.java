@@ -25,11 +25,11 @@ public class AllProfileDAO {
              allUsers1.setImgbytes(bytes);
              allUsers1.setProfcompanyname(resultSet.getString("profcompanyname"));
              allUsers1.setProffullname(resultSet.getString("Proffullname"));
-             allUsers1.setCustcompanyname(resultSet.getString("custcompanyname"));
-             allUsers1.setCusfullname(resultSet.getString("cusfullname"));
+             allUsers1.setCuscompanyname(resultSet.getString("cuscompanyname"));
+             allUsers1.setCusindfullname(resultSet.getString("cusindfullname"));
              allUsers1.setComlandflag(resultSet.getBoolean("comlandflag"));
              allUsers1.setComcontractflag(resultSet.getBoolean("comcontractflag"));
-             allUsers1.setProductcompflag(resultSet.getBoolean("productcompflag"));
+             allUsers1.setProductcomname(resultSet.getString("productcomname"));
              allUsers1.setIndivlandflag(resultSet.getBoolean("indivlandflag"));
              allUsers1.setIndivcontractflag(resultSet.getBoolean("indivcontractflag"));
              allUsers.add(allUsers1);

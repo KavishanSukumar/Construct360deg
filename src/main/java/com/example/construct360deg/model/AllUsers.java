@@ -3,17 +3,17 @@ package com.example.construct360deg.model;
 import java.sql.Blob;
 
 public class AllUsers {
-    private  int userid;
-    private  Blob profilepic;
-    private  String profcompanyname;
-    private  String Proffullname;
-    private  String custcompanyname;
-    private  String cusfullname;
-    private  boolean comlandflag;
-    private  boolean comcontractflag;
-    private  boolean productcompflag;
-    private  boolean indivlandflag;
-    private  boolean indivcontractflag;
+    private int userid;
+    private Blob profilepic;
+    private String profcompanyname;
+    private boolean comlandflag;
+    private boolean comcontractflag;
+    private String Proffullname;
+    private boolean indivlandflag;
+    private boolean indivcontractflag;
+    private String productcomname;
+    private String cuscompanyname;
+    private String cusindfullname;
     private byte[] imgbytes;
 
     public int getUserid() {
@@ -40,30 +40,6 @@ public class AllUsers {
         this.profcompanyname = profcompanyname;
     }
 
-    public String getProffullname() {
-        return Proffullname;
-    }
-
-    public void setProffullname(String proffullname) {
-        Proffullname = proffullname;
-    }
-
-    public String getCustcompanyname() {
-        return custcompanyname;
-    }
-
-    public void setCustcompanyname(String custcompanyname) {
-        this.custcompanyname = custcompanyname;
-    }
-
-    public String getCusfullname() {
-        return cusfullname;
-    }
-
-    public void setCusfullname(String cusfullname) {
-        this.cusfullname = cusfullname;
-    }
-
     public boolean isComlandflag() {
         return comlandflag;
     }
@@ -80,12 +56,12 @@ public class AllUsers {
         this.comcontractflag = comcontractflag;
     }
 
-    public boolean isProductcompflag() {
-        return productcompflag;
+    public String getProffullname() {
+        return Proffullname;
     }
 
-    public void setProductcompflag(boolean productcompflag) {
-        this.productcompflag = productcompflag;
+    public void setProffullname(String proffullname) {
+        Proffullname = proffullname;
     }
 
     public boolean isIndivlandflag() {
@@ -102,6 +78,30 @@ public class AllUsers {
 
     public void setIndivcontractflag(boolean indivcontractflag) {
         this.indivcontractflag = indivcontractflag;
+    }
+
+    public String getProductcomname() {
+        return productcomname;
+    }
+
+    public void setProductcomname(String productcomname) {
+        this.productcomname = productcomname;
+    }
+
+    public String getCuscompanyname() {
+        return cuscompanyname;
+    }
+
+    public void setCuscompanyname(String cuscompanyname) {
+        this.cuscompanyname = cuscompanyname;
+    }
+
+    public String getCusindfullname() {
+        return cusindfullname;
+    }
+
+    public void setCusindfullname(String cusindfullname) {
+        this.cusindfullname = cusindfullname;
     }
 
     public byte[] getImgbytes() {
