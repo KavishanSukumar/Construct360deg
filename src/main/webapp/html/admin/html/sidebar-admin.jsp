@@ -21,6 +21,7 @@
                 <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
             </div>
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
+            <a href="#"><i class="fas fa-users" id="folder"></i><h4>All Users</h4></a>
             <a href="<%=request.getContextPath()%>/userdocument"><i class="fas fa-folder-minus" id="folder"></i><h4>User Document</h4></a>
             <a href="<%=request.getContextPath()%>/report"><i class="fas fa-flag-checkered" id="flag"></i><h4>Reports</h4></a>
             <a href="<%=request.getContextPath()%>/allpayments"><i class="fas fa-file-invoice-dollar" id="payment"></i><h4>Payment Details</h4></a>
