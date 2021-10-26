@@ -14,7 +14,7 @@
 
 <body>
 <div class="container">
-    <%@include file="../../customer/html/sidebar-customer.jsp"%>
+    <%@include file="../../admin/html/sidebar-admin.jsp"%>
     <div class="content1">
         <form class="example" action="/action_page.java">
             <button type="submit"><i class="fa fa-search"></i></button>

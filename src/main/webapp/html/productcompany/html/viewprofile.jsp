@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Profile_ProductCompany</title>
-    <link rel="stylesheet" href="../resources/css/viewprofile-productcompany.css">
+    <link rel="stylesheet" href="./resources/css/viewprofile-productcompany.css">
     <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
 <div class="container">
-    <%@include file="../../customer/html/sidebar-customer.jsp"%>
+    <%@include file="../../productcompany/html/sidebar-productcompany.jsp"%>
 
     <div class="content1">
         <form class="example" action="/action_page.java">
