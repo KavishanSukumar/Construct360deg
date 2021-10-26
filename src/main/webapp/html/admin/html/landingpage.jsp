@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing page</title>
-    <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
-    <link rel="stylesheet" href="./resources/css/landingpage.css">
+    <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./html/admin/resources/css/landingpage.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -23,7 +23,7 @@
         <img src="./resources/images/landingpage/wallpaperflare.com_wallpaper.jpg" class="background-img">
     </div>
 
-    <%@include file="footer.jsp"%>
+    <%@include file="../../footer.jsp"%>
 </div>
 </body>
 

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ManageReportServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/reviewreason.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/manageinquires.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

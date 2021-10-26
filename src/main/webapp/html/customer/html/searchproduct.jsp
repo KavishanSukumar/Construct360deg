@@ -12,10 +12,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+=======
+>>>>>>> 6f9891838803f4dcda8e1f3e9ef25f15421e2aab
     <link rel="stylesheet" href="./html/customer/resources/css/searchProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
@@ -35,11 +38,11 @@
 <%--        response.sendRedirect(request.getContextPath()+"/login");--%>
 <%--    }--%>
 <%--%>--%>
-
+<%@include file="sidebar-customer.jsp"%>
     <!-- <input type="checkbox" id="check"> -->
     <!-- header area start -->
     <div class="container">
-        <%@include file="sidebar-customer.jsp"%>
+
     <!-- header area end -->
     <!-- sidebar start-->
 
@@ -127,7 +130,7 @@
                     <div class="profile">
                         <div class="gallery">
                             <a target="_blank" href="user4.jpg">
-                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'">
+                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/customer/resources/images/Avatar.png;'">
                             </a>
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
@@ -148,7 +151,7 @@
             </div>
    </div>
 </div>
-
+<%@include file="../../footer.jsp"%>
 <script>
     function addtocart(ele){
         var out=confirm("Do you want to add the product to the cart");
@@ -161,5 +164,4 @@
     }
 </script>
 </body>
-
 </html>

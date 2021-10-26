@@ -14,7 +14,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit User Details</title>
-  <link rel="stylesheet" href="./resources/css/adddetails.css">
+  <link rel="stylesheet" href="../resources/css/adddetails.css">
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
@@ -187,7 +187,7 @@
       </div>
 
       <div class="middle-content" id="uploadproject">
-        <form action="<%=request.getContextPath()%>/uploadapreviousproject" method="post" enctype="multipart/form-data">
+        <form action="<%=request.getContextPath()%>/uploadpreviousproject" method="post" enctype="multipart/form-data">
           <h3>Upload Previous Project</h3><br>
           <label for="Homeno">House Number: <i class="fa fa-pencil-alt"></i></label>
           <input type="text" id="Homeno" name="HouseNumber">

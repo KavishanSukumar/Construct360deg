@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<%@include file="sidebar-customer.jsp"%>
+<%@include file="sidebar-productcompany.jsp"%>
     <div class="container" id="container">
 
       <div class="content" id="content">
@@ -34,7 +34,7 @@
         </div>
         <div id="monthly" class="monthly">
             <div class="ammount">
-              <h1>500/<span style="font-size: 30px">Mo</span></h1>
+              <h1>800/<span style="font-size: 30px">Mo</span></h1>
             </div>
             <div class="facilities">
               <ul class="facilities-list">
@@ -50,7 +50,7 @@
         </div>
         <div id="annual" class="annual">
           <div class="ammount">
-            <h1>5000/<span style="font-size: 30px">Yr</span></h1>
+            <h1>8000/<span style="font-size: 30px">Yr</span></h1>
           </div>
           <div class="facilities">
             <ul class="facilities-list">

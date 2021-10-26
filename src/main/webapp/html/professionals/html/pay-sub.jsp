@@ -33,7 +33,7 @@
         </div>
         <div id="monthly" class="monthly">
             <div class="ammount">
-              <h1>500/<span style="font-size: 30px">Mo</span></h1>
+              <h1>900/<span style="font-size: 30px">Mo</span></h1>
             </div>
             <div class="facilities">
               <ul class="facilities-list">
@@ -49,7 +49,7 @@
         </div>
         <div id="annual" class="annual">
           <div class="ammount">
-            <h1>5000/<span style="font-size: 30px">Yr</span></h1>
+            <h1>10000/<span style="font-size: 30px">Yr</span></h1>
           </div>
           <div class="facilities">
             <ul class="facilities-list">

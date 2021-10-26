@@ -2,14 +2,13 @@ body{
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    /* background-color: #c4c4c4; */
 }
 .container{
     display: grid;
-    grid-template-rows: 70px 75vh 110px;
-    grid-template-areas: "nav"
-                         "webpage"
-                         "footer";
+    grid-template-rows: 73px 600px;
+    grid-template-areas:
+    'menu_bar'
+    'content';
 }
 .menu_bar{
     position: fixed;
@@ -19,9 +18,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
-
 }
-
 #logopic{
     width: 100px;
     float: left;
@@ -31,7 +28,6 @@ body{
     padding-right: 0%;
 
 }
-
 .left_area {
     color: #fff;
     margin: 0;
@@ -42,8 +38,6 @@ body{
     float: right;
     margin-top: 15px;
 }
-
-
 .nav-panel {
     background:#000000d4;
     padding: 0px;
@@ -53,11 +47,9 @@ body{
     left: 0;
     height: 109px;
 }
-
 .hidden {
     display: none;
 }
-
 .nav-panel a{
     color: rgb(255, 255, 255);
     display: block;
@@ -68,10 +60,7 @@ body{
     transition: 0.5s;
     transition-property:back;
     justify-content: center;
-    /* border: 1px dashed rgb(245, 241, 241);
-    padding-bottom: 10px; */
 }
-
 #profile_image{
     display: flex;
     width: 75px;
@@ -85,15 +74,12 @@ body{
     margin-top: 18px;
     cursor: pointer;
 }
-
 #profile_name{
     color: rgb(255, 255, 255);
     margin-top: 0;
     margin-bottom: 20px;
     cursor: pointer;
-
 }
-
 .fa-bars {
     z-index: 1;
     color: #fff;
@@ -103,7 +89,6 @@ body{
     transition: 0.5s;
     transition-property: color;
 }
-
 .nav-panel a:hover{
     color: #FF7200;
     transition: 0.4s ease-in-out;
@@ -120,62 +105,44 @@ body{
     justify-content: center;
     margin-top: 29px;
 }
-
 .nav-panel h4{
     text-align: center;
     margin: 0;
 }
-
-
 #check{
     display: none;
 }
-
-
 ul{
-    /* float: left; */
     margin-top: -0.8%;
     display: flex;
     margin-left: -3.5%;
     justify-content: center;
-
 }
-
 ul li{
     list-style: none;
     margin-left: 40px;
     margin-top: -3px;
     font-size: 14px;
 }
-
 ul li a{
     text-decoration: none;
     color: #fff;
     font-family:  'Roboto', sans-serif;
-    /* font-weight: bold; */
     transition: 0.4s ease-in-out;
 }
-
 ul li a:hover,ul li i:hover{
     color: #FF7200;
 }
-
-
-/* Start your style of the web page here */
+.nav-panel a:hover{
+    transform: scale(1.1);
+}
 .content{
-    grid-area: webpage;
+    grid-area: content;
     display: grid;
-    grid-row-gap:2px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 0%;
-
 }
 .footer{
-    grid-area: footer;
     border-top: 1px solid #ebebeb;
-    padding-bottom: 2%;
+    padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
