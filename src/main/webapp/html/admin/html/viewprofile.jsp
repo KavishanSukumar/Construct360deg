@@ -7,18 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Profile_Admin</title>
-    <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
-    <link rel="stylesheet" href="./resources/css/viewprofile.css">
+    <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./html/admin/resources/css/viewprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
 <%@include file="sidebar-admin.jsp"%>
 <div class="container">
-<<<<<<< HEAD
-    <%@include file="../../admin/html/sidebar-admin.jsp"%>
-=======
->>>>>>> 476a775152af17b88f54abb979444e4a93482763
     <div class="content1">
         <form class="example" action="/action_page.java">
             <button type="submit"><i class="fa fa-search"></i></button>
@@ -32,8 +28,8 @@
     </div>
     <div class="content2">
         <div class="box1">
-            <img src="./resources/images/viewprofile/cover.png">
-            <img src="./resources/images/viewprofile/user2.png" class="user">
+            <img src="./html/admin/resources/images/viewprofile/cover.png">
+            <img src="./html/admin/resources/images/viewprofile/user2.png" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2>Pathum Wijewardhana</h2>
             <p>Admin<br>Colombo District, Western, Sri Lanka.</p>

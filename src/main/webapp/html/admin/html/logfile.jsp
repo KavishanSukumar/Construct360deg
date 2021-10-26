@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>log interface</title>
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
-  <link rel="stylesheet" href="../resources/css/loginfile.css">
+  <title>logs</title>
+  <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./html/admin/resources/css/loginfile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -157,27 +157,6 @@
                     <td class="4thEvent">root/test/child</td>
                     <td class="4thActivity">configaration was added</td>
                 </tr>
-                <tr class="5thline">
-                    <td class="5thDate">01-08-2022</td>
-                    <td class="5thtime">16:00:09</td>
-                    <td class="5thUser">@Nimal</td>
-                    <td class="5thEvent">root/test/child</td>
-                    <td class="5thActivity">configaration was added</td>
-                </tr>
-                <tr class="6thline">
-                    <td class="6thDate">01-08-2022</td>
-                    <td class="6thtime">16:00:09</td>
-                    <td class="6thUser">@Nimal</td>
-                    <td class="6thEvent">root/test/child</td>
-                    <td class="6thActivity">configaration was added</td>
-                </tr>
-                <tr class="7thline">
-                    <td class="7thDate">01-08-2022</td>
-                    <td class="7thtime">16:00:09</td>
-                    <td class="7thUser">@Nimal</td>
-                    <td class="7thEvent">root/test/child</td>
-                    <td class="7thActivity">configaration was added</td>
-                </tr>
                 
             </tbody>
 
@@ -187,10 +166,8 @@
 </div>
   
 </div>
-<div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-  </div>
 </div>
+<%@include file="../../footer.jsp"%>
 </body>
 
 

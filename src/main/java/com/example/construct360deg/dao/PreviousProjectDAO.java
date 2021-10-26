@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class PreviousProjectDAO {
-    public void uploadPreviousProject(PreviousProject previousProject) throws SQLException {
+    public boolean uploadPreviousProject(PreviousProject previousProject) throws SQLException {
+        Boolean status=false;
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
         String projectid=previousProject.getProjectid();
@@ -54,8 +55,10 @@ public class PreviousProjectDAO {
         preparedStatement.setString(4,previousProject.getReferencename());
         row+=preparedStatement.executeUpdate();
         if (row>=4){
+            status=true;
             System.out.println("All queries successfully updated");
         }
+        return status;
     }
 
     public ArrayList<PreviousProject> getAllPreviousProjects(int userid) throws SQLException {

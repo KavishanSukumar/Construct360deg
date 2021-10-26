@@ -9,6 +9,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -23,6 +24,7 @@ public class UploadPreviousProjectServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out=resp.getWriter();
         PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
         PreviousProject previousProject=new PreviousProject();
         HttpSession session=req.getSession();
@@ -48,7 +50,20 @@ public class UploadPreviousProjectServlet extends HttpServlet {
             previousProject.setImage(filePart.getInputStream());
         }
         try {
-            previousProjectDAO.uploadPreviousProject(previousProject);
+            if(previousProjectDAO.uploadPreviousProject(previousProject)){
+                System.out.println("Product adding is successfull");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Insert successful');");
+                out.println("location='"+req.getContextPath()+"/editprofile';");
+                out.println("</script>");
+            }else {
+                System.out.println("Product adding is successfull");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Insert unsuccessful');");
+                out.println("location='"+req.getContextPath()+"/editprofile';");
+                out.println("</script>");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

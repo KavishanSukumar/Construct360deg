@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="./resources/css/editdetails.css">
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="../resources/js/jquery-3.6.0.js"></script>
+  <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
           $("#email-btn").click(function (){
