@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Profile</title>
-  <link rel="stylesheet" href="./resources/css/viewprofile.css">
-  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./html/professionals/resources/css/viewprofile.css">
+  <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -29,8 +29,8 @@
     </div>
     <div class="content2">
       <div class="box1">
-        <img src="./resources/images/viewprofile/cover.png">
-        <img src="./resources/images/viewprofile/user2.png" class="user">
+        <img src="./html/professionals/resources/images/viewprofile/cover.png">
+        <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
         <h2>Robert Johns</h2>
         <p>Expert Consultant:Upscale Commercial/Residential
@@ -65,9 +65,7 @@
       </div>
     </div>
   </div><br><br>
-  <div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-  </div>
+  <%@include file="../../footer.jsp"%>
 </body>
 
 </html>
