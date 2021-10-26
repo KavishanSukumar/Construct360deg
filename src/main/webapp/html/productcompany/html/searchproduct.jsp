@@ -12,7 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="./html/productcompany/resources/css/Searchproductcompany.css">
+=======
+    <link rel="stylesheet" href="./html/productcompany/resources/css/searchProduct.css">
+>>>>>>> 880ef9a7dd37b66106ec1a4158bb0cfe68fa7621
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
@@ -124,7 +128,7 @@
                     <div class="profile">
                         <div class="gallery">
                             <a target="_blank" href="user4.jpg">
-                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'">
+                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/productcompany/resources/images/Avatar.png;'">
                             </a>
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>

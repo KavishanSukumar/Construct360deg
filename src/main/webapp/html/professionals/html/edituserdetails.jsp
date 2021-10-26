@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit User Details</title>
-  <link rel="stylesheet" href="../resources/css/adddetails.css">
-  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./html/professionals/resources/css/adddetails.css">
+  <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -117,7 +117,7 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./resources/images/viewprofile/user2.png">
+        <img src="./html/professionals/resources/images/viewprofile/user2.png">
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
@@ -178,7 +178,7 @@
               %>
               <div class="gallery">
                 <a target="_blank" href="user4.png">
-                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
+                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >
                 </a>
                 <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
               </div>
@@ -246,9 +246,7 @@
     </div>
 
   </div>
-  <div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-  </div>
+  <%@include file="../../footer.jsp"%>
 </body>
 
 </html>

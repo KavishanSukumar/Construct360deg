@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>viewproduct</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/viewproduct.css">
-    <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/viewproduct.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/nav-bar-updated.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
         <!-- <div class="container-01"> -->
             <div id="part_1">
                 <!-- part_1 -->
-                <img src="../resources/images/edit product/shovel.jpg" id="productpic">
+                <img src="./html/productcompany/resources/images/edit product/shovel.jpg" id="productpic">
             </div>
             <div class="part_2">
                 <!-- part_2 -->

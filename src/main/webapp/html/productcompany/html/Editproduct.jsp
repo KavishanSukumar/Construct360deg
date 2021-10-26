@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit product</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/editproduct.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/editproduct.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
         <div class="navdivided">
         <div class="left_area">
             <!--<h2 class="logoname">Construct360</h2>-->
-            <img src="../resources/images/Logo.png" id="logopic">
+            <img src="./html/productcompany/resources/images/Logo.png" id="logopic">
         </div>
         <div class="right_area">
             <!-- <a href="#" id="logout_btn">Logout</a> -->
@@ -41,7 +41,7 @@
         <!-- <div class="container-01"> -->
             <div id="part_1">
                 <!-- part_1 -->
-                <img src="../resources/images/edit product/shovel.jpg" id="productpic">
+                <img src="./html/productcompany/resources/images/edit product/shovel.jpg" id="productpic">
             </div>
             <div class="part_2">
                 <!-- part_2 -->
@@ -95,6 +95,7 @@
     </div>
     <!-- <footer>Footer</footer> -->
 </div>
+<%@include file="../../footer.jsp"%>
 <body>
     
 </body>
