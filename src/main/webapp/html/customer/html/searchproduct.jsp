@@ -12,7 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="./resources/css/searchProduct.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./html/customer/resources/css/searchProduct.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
@@ -49,7 +53,9 @@
                     <input type="text" placeholder="Search.." name="search">
                 </form> 
         </div>
-        <div class="filter"> 
+        <div class="filter">
+            <button class="buttonCart">My Cart</button>
+            <button class="buttonOrders">My Orders</button>
             <ul>
                 <li><h2>Filter By</h2></li>
                 <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
