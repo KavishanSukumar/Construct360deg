@@ -18,30 +18,27 @@ public class ViewProfileServlet extends HttpServlet {
         if(userrole.equals("admin")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Admin viewprofile");
+            System.out.println(userrole);
         }else if (userrole.equals("cus_indiv")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Customer viewprofile");
+            System.out.println(userrole);
         }else if (userrole.equals("cus_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Customer viewprofile");
+            System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Professional viewprofile");
+            System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Professional viewprofile");
+            System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println("Product company viewprofile");
+            System.out.println(userrole);
         }
-
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewprofile.jsp");
-        requestDispatcher.forward(req,resp);
     }
 }

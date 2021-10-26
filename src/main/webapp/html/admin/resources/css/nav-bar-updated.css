@@ -17,7 +17,7 @@ body{
     width: 100% ;
     height: 73px;
     box-sizing: border-box;
-    grid-area:navbar;
+    grid-area:nav;
 }
 
 #logopic{
