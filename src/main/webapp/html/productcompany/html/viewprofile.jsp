@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Profile_ProductCompany</title>
 <<<<<<< HEAD
-    <link rel="stylesheet" href="./resources/css/viewprofile-productcompany.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/viewprofile-productcompany.css">
 =======
-    <link rel="stylesheet" href="./resources/css/viewprofile.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/viewprofile.css">
 >>>>>>> 476a775152af17b88f54abb979444e4a93482763
-    <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./html/productcompany/resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -37,8 +37,8 @@
     </div>
     <div class="content2">
         <div class="box1">
-            <img src="./resources/images/viewprofile/cover.png">
-            <img src="./resources/images/viewprofile/user2.png" class="user">
+            <img src="./html/productcompany/resources/images/viewprofile/cover.png">
+            <img src="./html/productcompany/resources/images/viewprofile/user2.png" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2>UpWork</h2>
             <p>Product Company<br>Colombo District, Western, Sri Lanka.</p>
