@@ -152,7 +152,7 @@ ul li a:hover,ul li i:hover{
 .name p{margin-top: -12px;}
 
 form.example input[type=text] {
-    background-color: #e7e8e9;
+    background: #e6e4e3;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -163,7 +163,7 @@ form.example button {
     float: left;
     width: 5%;
     padding: 10px;
-    background: #b6b7b8;
+    background: #aaabac;
     color: black;
     font-size: 16px;
     border: none;
@@ -193,13 +193,15 @@ form.example::after {
     margin-top: -10px;
 }
 .content2{
-    height: 660px;
+    height: 670px;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
     margin-top: 80px;
+    /* background-color:#d1cfcd; */
 }
 .home{
+    /* background-color: #d1cfcd; */
     display: flex;
     flex-direction: column;
     margin-top: 70px;
@@ -224,102 +226,32 @@ form.example::after {
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
-#viewproject{
+.project{
+    /* background-color: #fff; */
     background-color:#e6e4e3;
     border-radius: 30px;
     margin-right: 120px;
     margin-bottom: 20px;
     display: grid;
-    grid-column-gap: 60px;
-    grid-template-columns: 520px 500px;
-    grid-template-areas: 'grid-item1  grid-item2';
+    grid-template-rows: 300px 350px;
 }
-.grid-item1{
-    padding: 20px;
-    border-radius: 30px;
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px 120px 120px 120px;
-    grid-template-areas: 
-    'heading'
-    'project1'
-    'project2'
-    'project3'
-    'project4';
+.item1{
+  padding:20px; 
+  border-radius: 30px;
+  
+  box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
 }
-.grid-item1 .project1{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+.item1 form{
+    margin-top: 20px;
 }
-.grid-item1 .project2{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+.item2{
+   display: grid;
+   padding: 20px;
+   grid-template-columns: 530px 525px;
+   grid-column-gap: 30px;
 }
-.grid-item1 .project3{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-}
-.grid-item1 .project4{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-}
-.grid-item2{
-    padding: 20px;
-    border-radius: 30px;
-    display: grid;
-    grid-template-rows: 300px 300px;
-    grid-template-areas: 
-    'box1'
-    'box2';
-    grid-row-gap: 10px;
-}
-.box1{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-}
-.box2{
-    background-color: #f5f3f3;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-}
-.box2 p{font-size: 18px;}
-
-#chatbox{
-    background-color:#e6e4e3;
-    border-radius: 30px;
-    margin-right: 120px;
-    margin-bottom: 20px;}
-#task{
-    background-color:#e6e4e3;
-    border-radius: 30px;
-    margin-right: 120px;
-    margin-bottom: 20px;}
-
-.btn{
-    display: block;
-    padding: 15px;
-    margin-top: 40px;
-    margin-left: 150px;
-    margin-right: 150px;
-    border-radius: 30px;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-    background-color: #f5f3f3;
-    text-decoration: none;
-    text-align: center;
-    font-size: 18px;
-}
-.btn:hover{
-    background: #FF7200;
-    color: white;
-}
-#viewproject{
-    display: grid;
-}
-#task{
-    display: none;
-}
-#chatbox{
-    display: none;
-}
+.chart1{box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);}
+.chart2{box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);}
 .footer{
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;

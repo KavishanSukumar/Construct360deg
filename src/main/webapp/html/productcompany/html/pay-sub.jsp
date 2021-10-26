@@ -6,14 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paying subscription</title>
-  <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
-  <link rel="stylesheet" href="./html/professionals/resources/css/pay-sub.css">
+  <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./html/customer/resources/css/pay-sub.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-<%@include file="sidebar-professional.jsp"%>
+<%@include file="sidebar-productcompany.jsp"%>
     <div class="container" id="container">
+
       <div class="content" id="content">
         <div id="free" class="free">
           <div class="ammount">
@@ -33,7 +34,7 @@
         </div>
         <div id="monthly" class="monthly">
             <div class="ammount">
-              <h1>900/<span style="font-size: 30px">Mo</span></h1>
+              <h1>800/<span style="font-size: 30px">Mo</span></h1>
             </div>
             <div class="facilities">
               <ul class="facilities-list">
@@ -49,7 +50,7 @@
         </div>
         <div id="annual" class="annual">
           <div class="ammount">
-            <h1>10000/<span style="font-size: 30px">Yr</span></h1>
+            <h1>8000/<span style="font-size: 30px">Yr</span></h1>
           </div>
           <div class="facilities">
             <ul class="facilities-list">

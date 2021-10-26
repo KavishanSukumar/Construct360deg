@@ -131,9 +131,9 @@ ul li a:hover,ul li i:hover{
     transform: scale(1.1);
 }
 .container{
-    grid-template-rows: 73px 80px 670px;
+    grid-template-rows: 73px 80px 660px;
     display: grid;
-    grid-template-areas:
+    grid-template-areas: 
     'menu_bar'
     'content1'
     'content2';
@@ -144,7 +144,7 @@ ul li a:hover,ul li i:hover{
     grid-template-columns: 250px 1fr 240px;
     grid-template-areas:'name search img' ;
     height: 80px;
-    background-color:#d1cfcd;
+    /* background-color:#d1cfcd; */
 }
 .name{
     height: 80px;
@@ -152,12 +152,13 @@ ul li a:hover,ul li i:hover{
 .name p{margin-top: -12px;}
 
 form.example input[type=text] {
+    background: #e7e8e9;
     padding: 10px;
     font-size: 16px;
     border: none;
     margin-top: 20px;
     width: 40%;
-}
+  }
 form.example button {
     float: left;
     width: 5%;
@@ -167,9 +168,9 @@ form.example button {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin-left: -40px;
+    /* margin-left: 0px; */
     margin-top: 20px;
-}
+  }
 form.example button:hover {
     background: #a7a4a2;
 }
@@ -192,15 +193,15 @@ form.example::after {
     margin-top: -10px;
 }
 .content2{
-    height: 670px;
+    height: 660px;
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
     margin-top: 80px;
-    background-color:#d1cfcd;
+    /* background-color:#d1cfcd; */
 }
 .home{
-    background-color: #d1cfcd;
+    /* background-color: #d1cfcd; */
     display: flex;
     flex-direction: column;
     margin-top: 70px;
@@ -212,61 +213,67 @@ form.example::after {
     display: inline-block;
     font-size: 15px;
     transition-duration: 0.3s;
-    padding: 16px;
+    padding: 20px;
     margin-left: 20px;
 }
 .home a:hover{
-    background: #fff;
+    /* background: #fff; */
+    background-color:#e6e4e3;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-}
+    }
 .home a.active{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color:#e6e4e3;
 }
 .project{
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color:#e6e4e3;
     border-radius: 30px;
-    margin-right: 20px;
+    margin-right: 120px;
     margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 680px 600px;
-    grid-template-areas: 'grid-item1  grid-item2';
 }
-.grid-item1{
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 30px;
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px 120px 120px 120px;
-    grid-template-areas:
-    'heading'
-    'project1'
-    'project2'
-    'project3'
-    'project4';
+.project h2{
+  margin-left: 50px;
+  margin-top: 30px;
 }
-.project1{
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);}
-.project2{
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    border-radius: 20px;}
-.project3{
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    border-radius: 20px;}
-.project4{
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+.form{
+  /* border-radius: 5px; */
+  /* background-color: #f2f2f2; */
+  padding: 60px;
+  width: 50%;
 }
-.grid-item2{
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    border-radius: 30px;
-    text-align: center;
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+input[type=submit] {
+    width: 100%;
+    background-color: #bdbebd;
+    color: black;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background: #FF7200;
+    color: white;
+}
+textarea{
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 .footer{
     border-top: 1px solid #ebebeb;

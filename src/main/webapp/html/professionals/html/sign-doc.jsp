@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign documents</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href=".html/professional/resources/css/sign-doc.css">
+=======
+    <link rel="stylesheet" href="./html/professionals/resources/css/sign-doc.css">
+>>>>>>> bc0f40576523150cfd6bd8241f182e3872e07b70
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -103,8 +107,7 @@
         </div>
     </div>
 
-    <div class="footer">
-        <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-    </div>
+
 </div>
+<%@include file="../../footer.jsp"%>
 </body>

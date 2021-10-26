@@ -12,7 +12,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="./resources/css/searchProduct.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="./html/productcompany/resources/css/Searchproductcompany.css">
+=======
+    <link rel="stylesheet" href="./html/productcompany/resources/css/searchProduct.css">
+>>>>>>> 880ef9a7dd37b66106ec1a4158bb0cfe68fa7621
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
@@ -49,7 +53,9 @@
                     <input type="text" placeholder="Search.." name="search">
                 </form> 
         </div>
-        <div class="filter"> 
+        <div class="filter">
+            <button class="buttonCart">Add Product</button>
+
             <ul>
                 <li><h2>Filter By</h2></li>
                 <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
@@ -58,11 +64,11 @@
            
             <div class="filter-table hidden" id="ft">
                 <h4>Type :</h4>
-                <label class="filterby">Branded
+                <label class="filterby">Landscape
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
                   </label>
-                <label class="filterby">Unbranded
+                <label class="filterby">Ordinary
                     <input type="checkbox">
                     <span class="checkmark"></span>
                 </label>
@@ -122,13 +128,13 @@
                     <div class="profile">
                         <div class="gallery">
                             <a target="_blank" href="user4.jpg">
-                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'">
+                                <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/productcompany/resources/images/Avatar.png;'">
                             </a>
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
                         <div class="addtocart">
-                            <button href="#" value="<%=x.getProductid()%>" class="order-btn">Order Now</button>
-                            <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
+                            <button href="#" value="<%=x.getProductid()%>" class="order-btn">Edit</button>
+                            <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Delete</button>
                         </div>
 
                     </div>

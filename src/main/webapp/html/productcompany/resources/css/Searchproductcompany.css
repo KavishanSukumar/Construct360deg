@@ -376,7 +376,7 @@ body{
         /*    background-color: #ff7200;*/
         /*}*/
         .addtocart{
-            margin-left: 21px;
+            margin-left: 4px;
             margin-top: 10px;
 
         }
@@ -393,19 +393,8 @@ body{
             cursor: pointer;
             border-radius: 5px;
             margin-left: -21px;
-            width: 82px;
+            width: 168px;
         }
 
-        .buttonOrders{
-            background-color: #ff7200; /* Green */
-            border: none;
-            color: white;
-            padding: 11px 7px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 80px;
-        }
+
       

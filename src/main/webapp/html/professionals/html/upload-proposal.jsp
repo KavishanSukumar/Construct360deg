@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>upload-proposal</title>
-    <link rel="stylesheet" href="../resources/css/upload-proposal.css">
+    <link rel="stylesheet" href="./html/professionals/resources/css/upload-proposal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 <body>
@@ -30,11 +30,10 @@
              </div>
         </div>
     </div>
-    <script src="../resources/js/upload-proposal.js"></script>
+    <script src="./html/professionals/resources/js/upload-proposal.js"></script>
 
 
-
-
+    <%@include file="../../footer.jsp"%>
 </body>
 
 </html>
