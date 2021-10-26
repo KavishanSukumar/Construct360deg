@@ -46,7 +46,7 @@ public class AddtoCartServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("cartproducts",products);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/addtocart.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/addtocart.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
