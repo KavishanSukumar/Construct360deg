@@ -7,14 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Profile_ProductCompany</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="./resources/css/viewprofile-productcompany.css">
+=======
+    <link rel="stylesheet" href="./resources/css/viewprofile.css">
+>>>>>>> 476a775152af17b88f54abb979444e4a93482763
     <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
 <div class="container">
+<<<<<<< HEAD
     <%@include file="../../productcompany/html/sidebar-productcompany.jsp"%>
+=======
+    <%@include file="sidebar-productcompany.jsp"%>
+>>>>>>> 476a775152af17b88f54abb979444e4a93482763
 
     <div class="content1">
         <form class="example" action="/action_page.java">
@@ -48,10 +56,7 @@
             <p>LinkedIn - <a href="htttps://www.linkedin.com/in/UpWork-466278a1a5">htttps://www.linkedin.com/in/Upwork-466278a1a5</a></p>
         </div>
     </div>
-</div><br><br>
-<div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
 </div>
 </body>
-
+<%@include file="../../footer.jsp"%>
 </html>

@@ -1,12 +1,12 @@
-<%--<%@ page import="java.util.ArrayList" %>--%>
-<%--<%@ page import="com.example.construct360deg.model.PreviousProject" %>--%>
-<%--<%@ page import="org.apache.commons.codec.binary.Base64" %>--%>
-<%--<%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>--%>
-<%--<%--%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.PreviousProject" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%
 
-<%--  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");--%>
+  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
 
-<%--%> --%>
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Details ProductCompany</title>
-  <link rel="stylesheet" href="../resources/css/editdetails-productcompany.css">
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./resources/css/editdetails-productcompany.css">
+  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="../resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -49,7 +49,7 @@
 </head>
 <body>
   <div class="container">
-     <%@include file="sidebar-customer.jsp"%>
+     <%@include file="sidebar-productcompany.jsp"%>
 
     <div class="content1">
       <form class="example" action="/action_page.java">
@@ -130,7 +130,7 @@
 
   </div>
   <div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+    <p>All rights reserved ï¿½ 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
   </div>
 </body>
 

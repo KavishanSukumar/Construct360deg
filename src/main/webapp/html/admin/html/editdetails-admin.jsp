@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Details Admin</title>
-  <link rel="stylesheet" href="../resources/css/editdetails-admin.css">
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./resources/css/editdetails-admin.css">
+  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="../resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -64,7 +64,7 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="../resources/images/viewprofile/user2.png">
+        <img src="./resources/images/viewprofile/user2.png">
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
@@ -129,9 +129,6 @@
     </div>
 
   </div>
-  <div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-  </div>
 </body>
-
+<%@include file="../../footer.jsp"%>
 </html>
