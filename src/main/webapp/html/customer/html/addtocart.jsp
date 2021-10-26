@@ -14,8 +14,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Add to cart</title>
-    <link rel="stylesheet" href="./resources/css/addtocart.css">
-    <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="./html/customer/resources/css/addtocart.css">
+    <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
@@ -116,6 +116,6 @@
             </div>
         </div>
     </div>
-
+<%@include file="../../footer.jsp"%>
 </body>
 </html>

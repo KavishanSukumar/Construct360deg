@@ -6,15 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Project</title>
-  <link rel="stylesheet" href="../resources/css/viewproject.css">
+  <link rel="stylesheet" href="./html/customer/resources/css/viewproject.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
+<%@include file="sidebar-customer.jsp"%>
 <div class="container">
-      <%@include file="sidebar-customer.jsp"%>
-
   <div class="content1">
     <div class="name">
       <h3>Hi, Johns</h3>
@@ -26,7 +25,7 @@
       <input type="text" placeholder="Search your project..." name="search">
     </form>
     <div class="img">
-      <img src="../resources/images/viewprofile/user2.png" class="user">
+      <img src="./html/customer/resources/images/viewprofile/user2.png" class="user">
       <h3>Johns Robert</h3>
       <p>Contractor</p>
     </div>
@@ -49,9 +48,6 @@
     </div>
   </div>
 </div>
-<div class="footer">
-  <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-</div>
+<%@include file="../../footer.jsp"%>
 </body>
-
 </html>
