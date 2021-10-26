@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Project</title>
-  <link rel="stylesheet" href="../resources/css/viewproject.css">
+  <title>View Project-Customer</title>
+  <link rel="stylesheet" href="../resources/css/viewproject-customer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="../resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -40,12 +40,12 @@
 </head>
 
 <body>
-    <%@include file="sidebar-professional.jsp"%>
+    <%@include file="sidebar-customer.jsp"%>
     <div class="container">
-    
+
         <div class="content1">
         <div class="name">
-            <h3>Hi, Johns</h3>
+            <h3>Hi, Kalum</h3>
             <p>Keep up the good work!</p>
         </div>
         
@@ -55,8 +55,8 @@
         </form>
         <div class="img">
             <img src="../resources/images/viewprofile/user2.png" class="user">
-            <h3>Johns Robert</h3>
-            <p>Contractor</p>
+            <h3>Kalum Perera</h3>
+            <p>Customer</p>
         </div>
         </div>
         <div class="content2">
@@ -79,13 +79,13 @@
                     </div>
                     <div class="box2">
                         <h2>Project Members</h2>
-                        <p>* You<br> * Kalum Perera ( Customer )<br> * Predeep Bandara ( Landscape Designer )</p>
+                        <p>* You<br> * Johns Robert ( Contractor )<br> * Predeep Bandara ( Landscape Designer )</p>
                     </div>
                 </div>
             </div>
 
             <div class="project" id="task">
-                <a href="updateonproject-professional.jsp" class="btn">Update Ongoing Projects</a>
+                <a href="#" class="btn">Upload Requirements</a>
                 <a href="#" class="btn">Update Payment Details</a>
                 <a href="closeproject-professional.jsp" class="btn">Close Project</a>
                 <a href="#" class="btn">Delete Project</a>

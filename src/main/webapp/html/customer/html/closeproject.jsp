@@ -5,22 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification</title>
-  <link rel="stylesheet" href="./html/customer/resources/css/verification.css">
+  <title>Close Project</title>
+  <link rel="stylesheet" href="./html/customer/resources/css/closeproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
 <%@include file="sidebar-customer.jsp"%>
-    <div class="container">
+  <div class="container">
 
-
-        <div class="content">
-
-        </div>
-
+    <div class="content">
     </div>
-<%@include file="../../footer.jsp"%>
+  </div>
+  <%@include file="../../footer.jsp"%>
 </body>
 
 </html>

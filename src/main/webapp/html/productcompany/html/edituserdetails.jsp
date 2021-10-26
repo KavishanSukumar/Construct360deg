@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit User Details</title>
-  <link rel="stylesheet" href="./resources/css/adddetails.css">
-  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./html/productcompany/resources/css/adddetails.css">
+  <link rel="stylesheet" href="./html/productcompany/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -117,7 +117,7 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./resources/images/viewprofile/user2.png">
+        <img src="./html/productcompany/resources/images/viewprofile/user2.png">
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
@@ -183,14 +183,7 @@
                 <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
               </div>
             <%}%>
-<<<<<<< HEAD
             <button id="addproject-btn" onclick="myfunction()">Add Project</button>
-=======
-<%--        ---------------------------------%>
-          <a class="gallery" href="<%=request.getContextPath()%>/uploadpreviousproject">
-              <img src='./resources/images/viewprofile/plus.png;' >
-          </a>
->>>>>>> 01cadff56e79367359697943b87246d51ad89548
       </div>
 
       <div class="middle-content" id="uploadproject">

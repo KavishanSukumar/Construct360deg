@@ -27,7 +27,7 @@ body{
     margin-top: -15px;
     cursor: pointer;
     padding-right: 0%;
-    
+
 }
 
 .left_area {
@@ -43,14 +43,14 @@ body{
 
 
         .nav-panel {
-            background:#000000b3;
+            background:#000000d4;
             padding: 0px;
             position: absolute;
             top: 100%;
             width: 100%;
             left: 0;
             height: 109px;
-          
+
         }
 
         .hidden {
@@ -65,12 +65,12 @@ body{
            text-decoration: none;
            box-sizing: border-box;
            transition: 0.5s;
-           transition-property:back; 
+           transition-property:back;
            justify-content: center;
            /* border: 1px dashed rgb(245, 241, 241);
            padding-bottom: 10px; */
         }
-       
+
         #profile_image{
            display: flex;
            width: 75px;
@@ -91,7 +91,7 @@ body{
            margin-top: 0;
            margin-bottom: 20px;
            cursor: pointer;
-           
+
         }
 
         .fa-bars {
@@ -105,10 +105,10 @@ body{
         }
 
         .nav-panel a:hover{
-            color: #FF7200;
+            /*color: #FF7200;*/
             transition: 0.4s ease-in-out;
             height: 107px;
-            
+
         }
         .nav-panel i{
              padding-right:10px ;
@@ -120,16 +120,16 @@ body{
             justify-content: center;
             margin-top: 29px;
         }
-        
+
         .nav-panel h4{
             text-align: center;
             margin: 0;
         }
-     
+
 
         #check{
             display: none;
-        } 
+        }
 
 
         ul{
@@ -138,16 +138,16 @@ body{
             display: flex;
             margin-left: -3.5%;
             justify-content: center;
-            
+
         }
-        
+
         ul li{
             list-style: none;
             margin-left: 40px;
             margin-top: -3px;
             font-size: 14px;
         }
-        
+
         ul li a{
             text-decoration: none;
             color: #fff;
@@ -155,11 +155,11 @@ body{
             /* font-weight: bold; */
             transition: 0.4s ease-in-out;
         }
-        
+
         ul li a:hover,ul li i:hover{
             color: #FF7200;
         }
-        
+
 
         /* Search profile CSS */
         .content{
@@ -186,6 +186,15 @@ body{
             height: 50px;
             width: auto;
             
+        }
+        .nav-panel a:hover{
+            transform: scale(1.1);
+        }
+        .nav-panel a:hover{
+            color: #FF7200;
+            transition: 0.4s ease-in-out;
+            height: 107px;
+
         }
         form.example input[type=text] {
             padding: 8px;
@@ -332,18 +341,71 @@ body{
             flex-direction: row;
         }
         .addtocart>button{
-            margin: 10px;
-            padding: 10px;
-            justify-content: center;
+            margin: 0px 0px 0px 16px;
+            background-color: #ff7200; /* Green */
+            border: none;
+            width: 96px;
+            color: white;
+            padding: 11px 7px;
+            text-align: center;
             text-decoration: none;
-            border-radius: 20px;
-            font-size: 16px;
-            color: black;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            /*padding: 10px;*/
+            /*justify-content: center;*/
+            /*text-decoration: none;*/
+            /*border-radius: 20px;*/
+            /*font-size: 16px;*/
+            /*color: black;*/
         }
-        a:hover {
-            background-color: #ff7200;
+        .order-btn
+         {
+            background-color: #ff7200; /* Green */
+            border: none;
+            color: white;
+            padding: 11px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
+        /*a:hover {*/
+        /*    background-color: #ff7200;*/
+        /*}*/
+        .addtocart{
+            margin-left: 21px;
+            margin-top: 10px;
 
+        }
 
+        .buttonCart{
+            /*margin: 0px 0px 0px 29px;*/
+            background-color: #ff7200; /* Green */
+            border: none;
+            color: white;
+            padding: 11px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: -21px;
+            width: 82px;
+        }
+
+        .buttonOrders{
+            background-color: #ff7200; /* Green */
+            border: none;
+            color: white;
+            padding: 11px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 80px;
+        }
       
