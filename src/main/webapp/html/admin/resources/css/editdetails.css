@@ -1,7 +1,7 @@
 .container{
     grid-template-rows: 73px 50px 600px;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     'menu_bar'
     'content1'
     'content2';
@@ -18,7 +18,7 @@ form.example input[type=text] {
     margin-top: 6px;
     width: 63%;
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-  }
+}
 form.example button {
     float: left;
     width: 3%;
@@ -30,10 +30,10 @@ form.example button {
     cursor: pointer;
     margin-left: 210px;
     margin-top: 6px;
-  }
+}
 form.example button:hover {
     background: #d1cfcd;
-  }
+}
 form.example::after {
     content: "";
     clear: both;
@@ -120,7 +120,7 @@ form.example::after {
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 15px;
-  }
+}
 .middle-content input[type=submit] {
     width: 100%;
     background-color: #abafac;
@@ -131,7 +131,7 @@ form.example::after {
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
-  } 
+}
 .middle-content input[type=submit]:hover {
     background-color: #ff7200;
     color: #fff;

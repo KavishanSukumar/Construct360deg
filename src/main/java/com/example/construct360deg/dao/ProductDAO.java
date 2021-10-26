@@ -58,4 +58,30 @@ public class ProductDAO {
         return products;
 
     }
+    public ArrayList<Product> getProductDetailsCom(int userid) throws SQLException {
+        ArrayList<Product> products=new ArrayList<>();
+        PreparedStatement preparedStatement=null;
+        Connection connection= Database.getConnection();
+        String sql="SELECT * FROM `product` WHERE companyid =?";
+        ResultSet resultSet=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Product product=new Product();
+            product.setProductName(resultSet.getString("productname"));
+            product.setQuantity(resultSet.getFloat("quantity"));
+            product.setPrice(resultSet.getFloat("productprice"));
+            product.setCompanyid(resultSet.getInt("companyid"));
+            product.setProductid(resultSet.getInt("productid"));
+            byte[] bytes=resultSet.getBytes("productimage");
+            product.setImgBytes(bytes);
+            product.setProductdes(resultSet.getString("productdes"));
+            products.add(product);
+        }
+        return products;
+
+    }
 }

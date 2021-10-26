@@ -1,4 +1,4 @@
-<!-- <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
@@ -6,7 +6,7 @@
 
   ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
 
-%> -->
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Details Admin</title>
-  <link rel="stylesheet" href="./resources/css/editdetails-admin.css">
   <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./resources/css/loginfile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="../resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -48,9 +48,8 @@
   </script>
 </head>
 <body>
+<%@include file="sidebar-admin.jsp"%>
   <div class="container">
-     <%@include file="sidebar-admin.jsp"%>
-
     <div class="content1">
       <form class="example" action="/action_page.java">
         <button type="submit"><i class="fa fa-search"></i></button>

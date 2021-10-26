@@ -1,3 +1,4 @@
+<%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,14 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>log interface</title>
-  <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
-  <link rel="stylesheet" href="../resources/css/loginfile.css">
+  <link rel="stylesheet" href="./resources/css/nav-bar-updated.css">
+  <link rel="stylesheet" href="./resources/css/loginfile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-<!-- <input type="checkbox" id="check"> -->
-<!-- header area start -->
+
 <%@include file="sidebar-admin.jsp"%>
 <div class="container">
 
@@ -187,10 +187,8 @@
 </div>
   
 </div>
-<div class="footer">
-    <p>All rights reserved © 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
-  </div>
 </div>
+<%@include file="../../footer.jsp"%>
 </body>
 
 

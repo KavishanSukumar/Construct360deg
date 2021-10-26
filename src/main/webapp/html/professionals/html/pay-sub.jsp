@@ -12,8 +12,8 @@
 </head>
 
 <body>
+<%@include file="sidebar-professional.jsp"%>
     <div class="container" id="container">
-      <%@include file="sidebar-professional.jsp"%>
       <div class="content" id="content">
         <div id="free" class="free">
           <div class="ammount">
