@@ -30,9 +30,9 @@
     <div class="content2">
         <div class="box1">
             <img src="./html/productcompany/resources/images/viewprofile/cover.png">
-            <img src="./html/productcompany/resources/images/viewprofile/user2.png" class="user">
+            <img src="./html/productcompany/resources/images/Addproduct/companyLogo.jpg" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
-            <h2>UpWork</h2>
+            <h2>Square angle</h2>
             <p>Product Company<br>Colombo District, Western, Sri Lanka.</p>
             <a href="#" class="button">Message</a>
         </div>

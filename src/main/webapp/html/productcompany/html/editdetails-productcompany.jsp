@@ -57,10 +57,10 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./html/productcompany/resources/images/viewprofile/user2.png">
+        <img src="./html/productcompany/resources/images/Addproduct/companyLogo.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Robert Johns</h3>
-        <p>Your personal account</p>
+        <h3>Square angle</h3>
+        <p>Your account</p>
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
