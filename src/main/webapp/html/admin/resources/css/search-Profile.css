@@ -162,7 +162,7 @@ ul li a:hover,ul li i:hover{
 
 
 /* Search profile CSS */
-.content{
+#content{
     grid-area:webpage;
     display: grid;
     margin-top: 5px;
@@ -171,9 +171,11 @@ ul li a:hover,ul li i:hover{
     grid-template-columns: 17% auto;
     grid-template-rows: 52px auto;
     grid-template-areas: "search search"
-                                 "filter profile";
+    "filter profile";
     grid-column-gap: 5px;
     grid-row-gap: 10px;
+    align-items: normal;
+    justify-content: unset;
 
 }
 

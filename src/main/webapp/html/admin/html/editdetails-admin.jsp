@@ -14,8 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Details Admin</title>
-  <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/admin/resources/css/editdetails-admin.css">
+  <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
@@ -126,8 +126,7 @@
         </div>
       </div>
     </div>
-
   </div>
-</body>
 <%@include file="../../footer.jsp"%>
+</body>
 </html>

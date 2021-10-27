@@ -22,7 +22,7 @@
 <body>
 <%@include file="sidebar-admin.jsp"%>
 <div class="container">+
-    <div class="content">
+    <div class="content" id="content">
 
         <div class="searchbar">
             <!-- <i class="fas fa-search"></i>
@@ -99,17 +99,18 @@
                     </a>
                     <div class="desc">
                         <%
-                            String name=null;
+                            String name="Not Mentioned";
                             if(x.getProffullname()!=null)
                                 name=x.getProffullname();
                             else if(x.getCuscompanyname()!=null)
                                 name=x.getCuscompanyname();
+                            else if(x.getCusindfullname()!=null)
+                                name=x.getCusindfullname();
                             else if(x.getProfcompanyname()!=null)
                                 name=x.getProfcompanyname();
                             else  if(x.getCusindfullname()!=null)
                                 name=x.getProfcompanyname();
-                            else
-                                name="Not Mentioned";
+
                         %>
                         <p><%=name%></p>
                         <%
