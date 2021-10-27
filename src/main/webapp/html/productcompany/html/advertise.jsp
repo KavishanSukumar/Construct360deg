@@ -27,8 +27,8 @@
                 <label for="url">Your web page's url (Optional) :</label>
                     <input type="text" id="url" name="weburl" ><br><br>
                 
-                <label for="headline">Headline:</label>
-                    <input type="text" id="headline" name="head"  required><br><br>
+                <label for="head">Headline:</label>
+                    <input type="text" id="head" name="head"  required><br><br>
                 
                 <label for="descrip">Description :</label><br>
                     <textarea id="descrip" name="description" required></textarea><br><br>
@@ -66,7 +66,6 @@
 </div>
 <%@include file="../../footer.jsp"%>
 </body>
-
 </html>
  <!-- <p>Date/Time: <span id="datetime"></span></p>
 

@@ -12,33 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-@WebServlet("/searchprofile")
-public class SearchProfileServlet extends HttpServlet {
+@WebServlet("/customer")
+public class SearchCustomerServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AllProfileDAO allProfileDAO=new AllProfileDAO();
-        ArrayList<AllUsers> allUsers=new ArrayList<>();
-        try {
-            allUsers=allProfileDAO.getUserdetails();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        req.setAttribute("allviews",allUsers);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/searchallusers.jsp");
-        requestDispatcher.forward(req,resp);
-    }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AllProfileDAO allProfileDAO=new AllProfileDAO();
         ArrayList<AllUsers> allUsers=new ArrayList<>();
+
         try {
-            allUsers=allProfileDAO.getUserdetails();
+            allUsers=allProfileDAO.getAllCustomers();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        req.setAttribute("allviews",allUsers);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/searchallusers.jsp");
+        req.setAttribute("allcus",allUsers);
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/searchcustomer.jsp");
         requestDispatcher.forward(req,resp);
     }
 }

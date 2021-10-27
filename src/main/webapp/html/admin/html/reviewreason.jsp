@@ -57,22 +57,10 @@
             </thead>
             <tbody>
                 <tr class="1stline">
-                    <td class="1stDate">01-08-2022</td>
-                    <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">@Thilak</td>
-                    <td class="1stEvent">root/test/child</td>
-                </tr>
-                <tr class="2ndline">
-                    <td class="2ndDate">01-08-2022</td>
-                    <td class="2ndtime">16:00:09</td>
-                    <td class="2ndUser">@Thilak</td>
-                    <td class="2ndEvent">root/test/child</td>
-                </tr>
-                <tr class="3rdline">
-                    <td class="3rdDate">01-08-2022</td>
-                    <td class="3rdtime">16:00:09</td>
-                    <td class="3rdUser">@Thilak</td>
-                    <td class="3rdEvent">root/test/child</td>
+                    <td class="1stDate">06-08-2035</td>
+                    <td class="1sttime">18:39:12</td>
+                    <td class="1stUser">Thilak</td>
+                    <td class="1stEvent">log-2008</td>
                 </tr>
                 
             </tbody>

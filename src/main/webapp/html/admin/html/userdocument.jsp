@@ -58,88 +58,10 @@
                 <tr class="1stline">
                     <td class="1stDate">01-08-2022</td>
                     <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">@Nimal</td>
-                    <td class="1stActivity">Registration.pdf</td>
-                </tr>
-                <tr class="2ndline">
-                    <td class="2ndDate">01-08-2022</td>
-                    <td class="2ndtime">16:00:09</td>
-                    <td class="2ndUser">@Nimal</td>
-                    <td class="2ndActivity">Registration.pdf</td>
-                </tr>
-                <tr class="3rdline">
-                    <td class="3rdDate">01-08-2022</td>
-                    <td class="3rdtime">16:00:09</td>
-                    <td class="3rdUser">@Nimal</td>
-                    <td class="3rdActivity">Registration.pdf</td>
-                </tr>
-                <tr class="4thline">
-                    <td class="4thDate">01-08-2022</td>
-                    <td class="4thtime">16:00:09</td>
-                    <td class="4thUser">@Nimal</td>
-                    <td class="4thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="5thline">
-                    <td class="5thDate">01-08-2022</td>
-                    <td class="5thtime">16:00:09</td>
-                    <td class="5thUser">@Nimal</td>
-                    <td class="5thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="6thline">
-                    <td class="6thDate">01-08-2022</td>
-                    <td class="6thtime">16:00:09</td>
-                    <td class="6thUser">@Nimal</td>
-                    <td class="6thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="7thline">
-                    <td class="7thDate">01-08-2022</td>
-                    <td class="7thtime">16:00:09</td>
-                    <td class="7thUser">@Nimal</td>
-                    <td class="7thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="8thline">
-                    <td class="8thDate">01-08-2022</td>
-                    <td class="8thtime">16:00:09</td>
-                    <td class="8thUser">@Nimal</td>
-                    <td class="8thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="9thline">
-                    <td class="9thDate">01-08-2022</td>
-                    <td class="9thtime">16:00:09</td>
-                    <td class="9thUser">@Nimal</td>
-                    <td class="9thActivity">Registration.pdf</td>
-                </tr>
-                <tr class="10thline">
-                    <td class="10thDate">01-08-2022</td>
-                    <td class="10thtime">16:00:09</td>
-                    <td class="10thUser">@Nimal</td>
-                    <td class="10thActivity">Registration.pdf</td>
+                    <td class="1stUser">Nimal</td>
+                    <td class="1stActivity">Registrationfile-2005.pdf</td>
                 </tr>
 
-                <tr class="1stline">
-                    <td class="1stDate">01-08-2022</td>
-                    <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">@Nimal</td>
-                    <td class="1stActivity">Registration.pdf</td>
-                </tr>
-                <tr class="2ndline">
-                    <td class="2ndDate">01-08-2022</td>
-                    <td class="2ndtime">16:00:09</td>
-                    <td class="2ndUser">@Nimal</td>
-                    <td class="2ndActivity">Registration.pdf</td>
-                </tr>
-                <tr class="3rdline">
-                    <td class="3rdDate">01-08-2022</td>
-                    <td class="3rdtime">16:00:09</td>
-                    <td class="3rdUser">@Nimal</td>
-                    <td class="3rdActivity">Registration.pdf</td>
-                </tr>
-                <tr class="4thline">
-                    <td class="4thDate">01-08-2022</td>
-                    <td class="4thtime">16:00:09</td>
-                    <td class="4thUser">@Nimal</td>
-                    <td class="4thActivity">Registration.pdf</td>
-                </tr>
                 
             </tbody>
 
