@@ -88,6 +88,7 @@ public class AllProfileDAO {
             byte[] bytes=resultSet.getBytes("profilepic");
             allUsers1.setImgbytes(bytes);
             allUsers1.setCuscompanyname(resultSet.getString("companyname"));
+            allUsers1.setCustomercomflag(true);
             allUsers.add(allUsers1);
         }
         String sql2="SELECT * FROM `allcusindivview`";
@@ -99,6 +100,7 @@ public class AllProfileDAO {
             allUsers1.setUserid(resultSet.getInt("userid"));
             byte[] bytes=resultSet.getBytes("profilepic");
             allUsers1.setImgbytes(bytes);
+            allUsers1.setCustomerindivflag(true);
             allUsers1.setCusindfullname(resultSet.getString("customerindivname"));
             allUsers.add(allUsers1);
         }

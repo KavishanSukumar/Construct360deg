@@ -15,7 +15,33 @@ public class AllUsers {
     private String cuscompanyname;
     private String cusindfullname;
     private byte[] imgbytes;
+    private boolean customercomflag;
+    private boolean customerindivflag;
+    private boolean productcomflag;
 
+    public boolean isCustomercomflag() {
+        return customercomflag;
+    }
+
+    public void setCustomercomflag(boolean customercomflag) {
+        this.customercomflag = customercomflag;
+    }
+
+    public boolean isCustomerindivflag() {
+        return customerindivflag;
+    }
+
+    public void setCustomerindivflag(boolean customerindivflag) {
+        this.customerindivflag = customerindivflag;
+    }
+
+    public boolean isProductcomflag() {
+        return productcomflag;
+    }
+
+    public void setProductcomflag(boolean productcomflag) {
+        this.productcomflag = productcomflag;
+    }
 
     public int getUserid() {
         return userid;

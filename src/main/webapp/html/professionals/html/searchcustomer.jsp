@@ -88,12 +88,13 @@
                             name="Not Mentioned";
                     %>
                     <%
-                        String post="Customer";
-//                        if(x.getCusindfullname().length()!=0)
-//                            post="Individuals";
-//                        else if(x.getCusindfullname().length()!=0)
-//                            post="Company";
-//                        post="Not Mentioned";
+                        String post=null;
+                        if(x.isCustomerindivflag())
+                            post="Individuals Customer";
+                        else if(x.isCustomercomflag())
+                            post="Company Customer";
+                        else
+                        post="Not Mentioned";
                     %>
                     <div class="desc">
                         <p><%=name%></p>
