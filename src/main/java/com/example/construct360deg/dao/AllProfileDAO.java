@@ -72,4 +72,37 @@ public class AllProfileDAO {
 
             return allUsers;
     }
+
+
+    public ArrayList<AllUsers> getAllCustomers() throws SQLException {
+        ArrayList<AllUsers> allUsers=new ArrayList<>();
+        Connection connection= Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        String sql="SELECT * FROM allcuscompview";
+        ResultSet resultSet;
+        preparedStatement=connection.prepareStatement(sql);
+        resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            AllUsers allUsers1=new AllUsers();
+            allUsers1.setUserid(resultSet.getInt("userid"));
+            byte[] bytes=resultSet.getBytes("profilepic");
+            allUsers1.setImgbytes(bytes);
+            allUsers1.setCuscompanyname(resultSet.getString("companyname"));
+            allUsers.add(allUsers1);
+        }
+        String sql2="SELECT * FROM `allcusindivview`";
+        preparedStatement=connection.prepareStatement(sql2);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            AllUsers allUsers1=new AllUsers();
+            allUsers1.setUserid(resultSet.getInt("userid"));
+            byte[] bytes=resultSet.getBytes("profilepic");
+            allUsers1.setImgbytes(bytes);
+            allUsers1.setCusindfullname(resultSet.getString("customerindivname"));
+            allUsers.add(allUsers1);
+        }
+
+        return allUsers;
+    }
 }

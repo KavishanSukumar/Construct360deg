@@ -50,6 +50,9 @@ h1{
 .sub-btn{
     padding: 10px 50px;
     border-radius: 25px;
-    background-color: #0000FF;
-    color: white;
+    background-color: #cccccc;
+    color: black;
+}
+.sub-btn:hover{
+    background-color: #ff7200;
 }

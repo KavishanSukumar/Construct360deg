@@ -1,0 +1,276 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+.menu_bar{
+    position: fixed;
+    background: black;
+    padding: 20px;
+    width: 100% ;
+    height: 65px;
+    box-sizing: border-box;
+}
+#logopic{
+    width: 100px;
+    float: left;
+    height: 74px;
+    margin-top: -15px;
+    cursor: pointer;
+    padding-right: 0%;
+}
+.left_area {
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.right_area{
+    float: right;
+    margin-top: 15px;
+}
+.nav-panel {
+    background: #000000d6;
+    padding: 0px;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 109px;
+    opacity: 0.75;
+}
+.hidden {
+    display: none;
+}
+.nav-panel a{
+    color: rgb(255, 255, 255);
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property:back;
+    justify-content: center;
+}
+#profile_image{
+    display: flex;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    position: relative;
+    flex-basis: 100px;
+    margin-left: 44px;
+    margin-right: 44px;
+    margin-top: 18px;
+    cursor: pointer;
+}
+#profile_name{
+    color: rgb(255, 255, 255);
+    margin-top: 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.fa-bars {
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+    left:20px ;
+    font-size: 20px;
+    transition: 0.5s;
+    transition-property: color;
+}
+.nav-panel a:hover{
+    color: #FF7200;
+    transition: 0.4s ease-in-out;
+    height: 107px;
+}
+.nav-panel i{
+    padding-right:10px ;
+}
+.nav-panel .fas, .nav-panel .fab{
+    display: flex;
+    font-size: 270%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 29px;
+}
+.nav-panel h4{
+    text-align: center;
+    margin: 0;
+}
+#check{
+    display: none;
+}
+ul{
+    margin-top: -0.8%;
+    display: flex;
+    margin-left: -3.5%;
+    justify-content: center;
+}
+ul li{
+    list-style: none;
+    margin-left: 40px;
+    margin-top: -3px;
+    font-size: 14px;
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family:  'Roboto', sans-serif;
+    transition: 0.4s ease-in-out;
+}
+ul li a:hover,ul li i:hover{
+    color: #FF7200;
+}
+.container{
+    display: grid;
+    grid-template-rows: 65px 600px;
+    grid-template-areas: 
+    'menu_bar'
+    'content';
+}
+.content{
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:'container-3 container-4';
+}
+.container-3{
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    background-color: #e9e9e9;
+    width: 270px;
+    height: 380px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top:110px;
+    margin-left: -1400px;
+}
+.container-4{
+    background-color: #e9e9e9;
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    display: grid;
+    border-radius: 5px;
+    padding: 20px;
+    width: 810px;
+    height: 450px;
+    margin-left: 500px;
+    margin-top: -470px;
+    grid-template-areas: 'user2 user5 user6';
+}
+.content1{
+    background-color: #e9e9e9;
+    height: 50px;
+    width: 1499px;
+    
+}
+form.example input[type=text] {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    margin-top: 6px;
+    width: 63%;
+    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
+  }
+form.example button {
+    float: left;
+    width: 3%;
+    padding: 8px;
+    background: #bbbfc2;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 210px;
+    margin-top: 6px;
+  }
+form.example button:hover {
+    background: #d1cfcd;
+  }
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.box{
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+/* Hide the browser's default checkbox */
+.box input{
+    height: 0px;
+    width: 0px;
+}
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: 1px solid rgb(161, 155, 155);
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  /* Show the checkmark when checked */
+.box input:checked ~ .checkmark:after {
+    display: block;
+}
+  /* Style the checkmark/indicator */
+.box .checkmark:after {
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.container-3 i{
+      color: rgb(217, 219, 92);
+}
+.gallery{
+    margin: 5px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
+}
+.gallery .desc{
+    text-align: center;
+    width: 200px;
+    font-size: 15px;
+}
+.footer{
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    height: 50px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    margin-top: -5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+

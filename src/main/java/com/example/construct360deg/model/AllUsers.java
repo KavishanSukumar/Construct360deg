@@ -16,6 +16,7 @@ public class AllUsers {
     private String cusindfullname;
     private byte[] imgbytes;
 
+
     public int getUserid() {
         return userid;
     }

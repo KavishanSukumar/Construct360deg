@@ -1,12 +1,5 @@
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.PreviousProject" %>
-<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%
 
-  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
-
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,7 +123,7 @@
 
   </div>
   <div class="footer">
-    <p>All rights reserved � 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+    <p>All rights reserved &copy; 2020  Construct360deg.com<br>Design: Epic code</p>
   </div>
 </body>
 

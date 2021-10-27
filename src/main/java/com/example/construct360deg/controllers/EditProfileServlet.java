@@ -17,14 +17,6 @@ import java.util.ArrayList;
 @WebServlet("/editprofile")
 public class EditProfileServlet extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session=req.getSession();
-        int userid= (int) session.getAttribute("userid");
-        System.out.println(userid);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/edituserdetails.jsp");
-        requestDispatcher.forward(req,resp);
-    }
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
@@ -70,9 +62,9 @@ public class EditProfileServlet extends HttpServlet {
 
             System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
-            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/edituserdetails.jsp");
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/editdetails-productcompany.jsp");
             requestDispatcher.forward(req,resp);
-            System.out.println(userrole);
+            System.out.println("hello"+userrole);
         }
     }
 }
