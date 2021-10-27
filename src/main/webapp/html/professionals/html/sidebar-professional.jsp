@@ -17,8 +17,8 @@
     <div class="nav-panel hidden" id="nav">
         <ul>
             <div>
-                <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/professionals/resources/images/sidebarpro.jpg" id="profile_image" alt="" ></a>
-                <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
+                <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/professionals/resources/images/user2.png" id="profile_image" alt="" ></a>
+                <h4 id="profile_name" style="margin-top: -5px;">Johns</h4>
             </div>
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
