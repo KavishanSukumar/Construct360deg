@@ -87,6 +87,12 @@
                             name=x.getProffullname();
                         else if(x.getProfcompanyname()!=null)
                             name=x.getProfcompanyname();
+                        else if(x.getCusindfullname()!=null)
+                            name=x.getCusindfullname();
+                        else if(x.getCuscompanyname()!=null)
+                            name=x.getCuscompanyname();
+                        else if(x.getProductcomname()!=null)
+                            name=x.getProductcomname();
                         else
                             name="Not Mentioned";
                     %>
@@ -98,6 +104,14 @@
                             post="Landscape Designing";
                         else if(x.isComcontractflag()||x.isIndivcontractflag())
                             post="Contracting";
+                        else if(x.getCuscompanyname()!=null)
+                            post="Company Customer";
+                        else if(x.getCusindfullname()!=null)
+                            post="Individual Customer";
+                        else if(x.getCuscompanyname()!=null)
+                            post="Company Customer";
+                        else if(x.getProductcomname()!=null)
+                            post="Product Company";
                         else
                             post="Not Mentioned";
                     %>
