@@ -158,7 +158,7 @@ ul li a{
 ul li a:hover,ul li i:hover{
     color: #FF7200;
 }
- 
+
 
 
 .content{
@@ -166,7 +166,7 @@ ul li a:hover,ul li i:hover{
     display: grid;
     width: 100%;
     height: 100vh;
-   
+    align-items:normal;
     grid-template-columns: 60% 40%;
     grid-template-areas: "add preview";
     grid-column-gap: 5px;
@@ -189,10 +189,10 @@ ul li a:hover,ul li i:hover{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color:#000000d6;
+    /*background-color:#c4c4c4;*/
     height:700px;
     border-radius: 2%;
-    color:white;
+    color:black;
     font-weight:700;
   }
  .filling form{
@@ -202,7 +202,7 @@ ul li a:hover,ul li i:hover{
   margin-left: 54px;
  }
 
- label[for=head]{
+ label[for=headline]{
     margin-left: 222px;
    }
 
