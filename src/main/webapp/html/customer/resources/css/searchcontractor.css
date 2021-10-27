@@ -139,7 +139,7 @@ ul li a:hover,ul li i:hover{
 }
 .container-3{
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    background-color: rgb(240, 232, 232);
+    background-color: #e9e9e9;
     width: 270px;
     height: 380px;
     padding: 20px;
@@ -148,7 +148,7 @@ ul li a:hover,ul li i:hover{
     margin-left: -1400px;
 }
 .container-4{
-    background-color: rgb(240, 232, 232);
+    background-color: #e9e9e9;
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
     display: grid;
     border-radius: 5px;
@@ -259,9 +259,11 @@ form.example::after {
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
+    height: 50px;
     background: rgb(0, 0, 0);
 }
 .footer p{
+    margin-top: -5px;
     text-align: center;
     color: rgb(255, 255, 255);
 }
