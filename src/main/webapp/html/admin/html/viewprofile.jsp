@@ -29,7 +29,7 @@
     <div class="content2">
         <div class="box1">
             <img src="./html/admin/resources/images/viewprofile/cover.png">
-            <img src="./html/admin/resources/images/viewprofile/user2.png" class="user">
+            <img src="./html/admin/resources/images/adminpic.jpg" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2>Pathum Wijewardhana</h2>
             <p>Admin<br>Colombo District, Western, Sri Lanka.</p>

@@ -63,9 +63,9 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./resources/images/viewprofile/user2.png">
+        <img src="./html/admin/resources/images/adminpic.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Robert Johns</h3>
+        <h3>Pathum Wijewardhana</h3>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
