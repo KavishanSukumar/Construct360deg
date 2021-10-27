@@ -90,4 +90,6 @@ margin-bottom: 170px;
 #send-btn:hover{
     color: #ff7200;
 }
-
+#chat-box-container{
+    display: flex;
+}

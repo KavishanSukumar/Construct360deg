@@ -334,3 +334,6 @@ form.example::after {
     text-align: center;
     color: rgb(255, 255, 255);
 }
+#chat-box-container{
+    display: flex;
+}
