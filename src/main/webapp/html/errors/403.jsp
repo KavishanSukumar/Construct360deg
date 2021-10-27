@@ -11,6 +11,7 @@
     </style>
 </head>
 <body>
+<h1>403 ERROR!</h1>
 <h1><strong>PAGE NOT FOUND!</strong></h1>
 <h2>Something Went Wrong! Sorry For the Inconvenience</h2>
 <h3>Please Contact the administrator</h3>

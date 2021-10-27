@@ -1,5 +1,9 @@
 <header class="menu_bar">
-
+    <%
+        if(session.getAttribute("uname")==null){
+            response.sendRedirect(request.getContextPath()+"/login");
+        }
+    %>
     <div class="left_area">
         <!--<h2 class="logoname">Construct360</h2>-->
         <img src="./html/productcompany/resources/images/Logo.png" id="logopic" sizes="100px">
