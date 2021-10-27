@@ -30,7 +30,7 @@
     <div class="content2">
         <div class="box1">
             <img src="./html/customer/resources/images/viewprofile/cover.png">
-            <img src="./html/customer/resources/images/viewprofile/user2.png" class="user">
+            <img src="./html/customer/resources/images/viewprofile/user3.jpg" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2>Kalum Perera</h2>
             <p>Customer<br>Colombo District, Western, Sri Lanka.</p>

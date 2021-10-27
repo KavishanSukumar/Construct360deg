@@ -63,7 +63,7 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./resources/images/viewprofile/user2.png">
+        <img src="./html/customer/resources/images/viewprofile/user3.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
