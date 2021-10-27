@@ -50,7 +50,7 @@
                 </form> 
         </div>
         <div class="filter">
-            <button class="buttonCart">Add Product</button>
+            <a href="<%=request.getContextPath()%>/addproduct"><button class="buttonCart">Add Product</button></a>
 
             <ul>
                 <li><h2>Filter By</h2></li>

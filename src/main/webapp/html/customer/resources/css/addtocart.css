@@ -11,6 +11,7 @@ html{
     display: grid;
     grid-row-gap: 0px;
     grid-column-gap: 0px;
+    margin-bottom: 300px;
     grid-template-areas:
                 'container-2 subtotalcolumn';
 }
@@ -97,4 +98,10 @@ img{
     width: 300px;
     height: 300px;
     padding: 10px;
+}
+.Order-btn-cart{
+    background-color: #ff7200;
+    width: 120px;
+    height: 45px;
+    margin: 15px 50px;
 }

@@ -86,6 +86,8 @@
                                     </div>
                                     <div class="itemdes">
                                         <p><%=x.getProductdes()%></p>
+                                        <p>Quantity Available:<%=x.getQuantity()%></p>
+                                        <p>Product Price:<%=x.getPrice()%></p>
                                     </div>
                                 </li>
                             <%}%>
@@ -112,6 +114,9 @@
                             </tr>
                         </table>
                     </div>
+                </div>
+                <div>
+                    <a><button class="Order-btn-cart">Order Product</button></a>
                 </div>
             </div>
         </div>

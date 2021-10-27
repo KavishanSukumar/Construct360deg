@@ -86,7 +86,7 @@
             </div>
 
             <div class="project" id="task">
-                <a href="#" class="btn">Upload Requirements</a>
+                <a href="<%=request.getContextPath()%>/uploadrequirement" class="btn">Upload Requirements</a>
                 <a href="#" class="btn">Update Payment Details</a>
                 <a href="closeproject-professional.jsp" class="btn">Close Project</a>
                 <a href="#" class="btn">Delete Project</a>

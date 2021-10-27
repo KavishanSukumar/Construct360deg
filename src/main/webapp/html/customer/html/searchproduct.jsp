@@ -53,8 +53,8 @@
                 </form> 
         </div>
         <div class="filter">
-            <button class="buttonCart">My Cart</button>
-            <button class="buttonOrders">My Orders</button>
+            <a href="<%=request.getContextPath()%>/addtocart"><button class="buttonCart">My Cart</button></a>
+            <a href="<%=request.getContextPath()%>/vieworders"><button class="buttonOrders">My Orders</button></a>
             <ul>
                 <li><h2>Filter By</h2></li>
                 <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
