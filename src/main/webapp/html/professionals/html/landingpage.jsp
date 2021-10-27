@@ -20,7 +20,7 @@
     <%@include file="sidebar-professional.jsp"%>
 
     <div class="content">
-        <img src="./html/professionals/resources/images/landingpage/wallpaperflare.com_wallpaper.jpg" class="background-img">
+        <img src="./html/professionals/resources/images/landingpage/building.jpg" class="background-img">
     </div>
 
 

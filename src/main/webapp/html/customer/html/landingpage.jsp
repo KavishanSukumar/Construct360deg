@@ -19,7 +19,7 @@
 
 
     <div class="content">
-        <img src="./html/customer/resources/images/landingpage/wallpaperflare.com_wallpaper.jpg" class="background-img">
+        <img src="./html/customer/resources/images/landingpage/home.jpg" class="background-img">
     </div>
 
 </div>
