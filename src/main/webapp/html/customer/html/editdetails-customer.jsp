@@ -65,7 +65,7 @@
       <div class="setting">
         <img src="./html/customer/resources/images/viewprofile/user3.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Robert Johns</h3>
+        <h3>Kalum Perera</h3>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>

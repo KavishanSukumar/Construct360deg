@@ -18,7 +18,7 @@
         <ul>
             <div>
                 <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/customer/resources/images/dp.jpg" id="profile_image" alt="" ></a>
-                <h4 id="profile_name" style="margin-top: -5px;">Reena</h4>
+                <h4 id="profile_name" style="margin-top: -5px;">Kalum Perera</h4>
             </div>
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="project"></i><h4>Projects</h4></a>
