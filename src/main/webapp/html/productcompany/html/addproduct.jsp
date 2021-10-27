@@ -112,7 +112,7 @@
     </div>
   
   <div class="footer">
-    <p>All rights reserved 	&copy; 2020  Construct360<sup>0</sup>.com<br>Design: Epic code</p>
+    <p>All rights reserved &copy; 2020  Construct360deg.com<br>Design: Epic code</p>
   </div>
   <script src="./resources/js/addproduct.js" ></script>
 </body>
