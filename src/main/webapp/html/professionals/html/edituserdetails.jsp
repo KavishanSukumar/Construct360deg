@@ -125,7 +125,6 @@
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
           <a id="qualification-btn" href="#">Qualifications</a>
-          <a id="email-btn" href="#">Emails</a>
           <a id="preproject-btn" href="#">Previous Projects</a>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>

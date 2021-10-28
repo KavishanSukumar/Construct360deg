@@ -69,14 +69,15 @@
             <div class="project" id="viewproject">
                 <div class="grid-item1">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1"><h3>Project 1 </h3></div>
-                    <div class="project2"><h3>Project 2 </h3></div>
-                    <div class="project3"><h3>Project 3 </h3></div>
-                    <div class="project4"><h3>Project 4 </h3></div>
+                    <div class="project1"><h3>Maharagama project two floors </h3></div>
                 </div>
                 <div class="grid-item2">
                     <div class="box1">
                         <h2>Upcoming Events</h2>
+                        <h3>Building</h3>
+                        <p>Building Walls<br>Drainage System<br></p>
+                        <h3>Landscaping</h3>
+                        <p>Garden desingning<br>Sculpture implement<br></p>
                     </div>
                     <div class="box2">
                         <h2>Project Members</h2>

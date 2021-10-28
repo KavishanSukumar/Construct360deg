@@ -70,7 +70,6 @@
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
-          <a id="email-btn" href="#">Emails</a>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>
 
