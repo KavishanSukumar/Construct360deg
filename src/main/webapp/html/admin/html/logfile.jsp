@@ -53,17 +53,15 @@
                     <th class="Date"><span>Date</span></th>
                     <th class="Time"><span>Time</span></th>
                     <th class="User"><span>User</span></th>
-                    <th class="EventSource"><span>EventSource</span></th>
                     <th class="Activity"><span>Activity</span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="1stline">
-                    <td class="1stDate">01-08-2022</td>
+                    <td class="1stDate">01-08-2020</td>
                     <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">@Nimal</td>
-                    <td class="1stEvent">root/test/child</td>
-                    <td class="1stActivity">configaration was added</td>
+                    <td class="1stUser">Nimal</td>
+                    <td class="1stActivity">configuration was added</td>
                 </tr>
             </tbody>
 

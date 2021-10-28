@@ -51,17 +51,28 @@
                     <th class="Date"><span>Date</span></th>
                     <th class="Time"><span>Time</span></th>
                     <th class="User"><span>User</span></th>
-                    <th class="Activity"><span>User Files</span></th>
+                    <th class="Userrole"><span>User role</span></th>
+                    <th class="filetype"><span>File type</span></th>
+                    <th class="Activity"><span>File name</span></th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="1stline">
-                    <td class="1stDate">01-08-2022</td>
+                    <td class="1stDate">01-08-2020</td>
                     <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">Nimal</td>
-                    <td class="1stActivity">Registrationfile-2005.pdf</td>
+                    <td class="1stUser">Nimali</td>
+                    <td class="1stUserrole">Customer-individual</td>
+                    <td class="1stfiletype">Address proof</td>
+                    <td class="1stActivity">Addressproof-2005.pdf</td>
                 </tr>
-
+                <tr class="2ndline">
+                    <td class="2ndDate">01-07-2021</td>
+                    <td class="2ndtime">13:10:09</td>
+                    <td class="2ndUser">Abans</td>
+                    <td class="2ndUserrole">Product company</td>
+                    <td class="2ndtfiletype">Registrationfile</td>
+                    <td class="2ndtActivity">Registrationfile-2000.pdf</td>
+                </tr>
                 
             </tbody>
 
