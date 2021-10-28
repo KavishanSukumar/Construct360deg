@@ -9,6 +9,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet("/uploadrequirement")
@@ -19,6 +20,7 @@ public class UploadRequirementServlet extends HttpServlet {
         Requirement requirement=new Requirement();
         RequirementDAO requirementDAO=new RequirementDAO();
         HttpSession session=req.getSession();
+        PrintWriter out=resp.getWriter();
         int userid= (int) session.getAttribute("userid");
         requirement.setUseridcus(userid);
         requirement.setDescription(req.getParameter("description"));
@@ -41,8 +43,11 @@ public class UploadRequirementServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");
-        requestDispatcher.forward(req,resp);
+        System.out.println("Requirement added is successfull");
+        out.println("<script type='text/javascript'>");
+        out.println("alert('Insert successful');");
+        out.println("location='"+req.getContextPath()+"/viewproject';");
+        out.println("</script>");
     }
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");

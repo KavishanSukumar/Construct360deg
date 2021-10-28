@@ -40,9 +40,6 @@
       <div class="grid-item1">
         <div class="heading"><h2>Ongoing Projects</h2></div>
         <div class="project1"><h3>Project 1 <i class="fas fa-pen"></i></h3></div>
-        <div class="project2"><h3>Project 2 <i class="fas fa-pen"></i></h3></div>
-        <div class="project3"><h3>Project 3 <i class="fas fa-pen"></i></h3></div>
-        <div class="project4"><h3>Project 4 <i class="fas fa-pen"></i></h3></div>
       </div>
       <div class="grid-item2">Project Members</div>
     </div>
