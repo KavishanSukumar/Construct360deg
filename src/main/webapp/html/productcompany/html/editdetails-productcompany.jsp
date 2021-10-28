@@ -95,9 +95,9 @@
           <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
-      <div class="middle-content" id="emails">
-        <h3>Emails</h3>
-      </div>
+<%--      <div class="middle-content" id="emails">--%>
+<%--        <h3>Emails</h3>--%>
+<%--      </div>--%>
 
       <div id="preference">
         <div class="middle-content">
