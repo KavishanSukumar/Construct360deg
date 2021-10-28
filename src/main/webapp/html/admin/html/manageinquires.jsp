@@ -53,8 +53,8 @@
                     <th class="Date"><span>Date</span></th>
                     <th class="Time"><span>Time</span></th>
                     <th class="User"><span>User</span></th>
-                    <th class="EventSource"><span>EventSource</span></th>
-                    <th class="Activity"><span>Activity</span></th>
+                    <th class="EventSource"><span>Complain Type</span></th>
+                    <th class="Activity"><span>Description</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -62,8 +62,8 @@
                     <td class="1stDate">05-09-2020</td>
                     <td class="1sttime">13:10:01</td>
                     <td class="1stUser">Nimal</td>
-                    <td class="1stEvent">root/test/child</td>
-                    <td class="1stActivity">configaration was added</td>
+                    <td class="1stEvent">payment not updated</td>
+                    <td class="1stActivity">I have done payment but ....</td>
                 </tr>
                 
             </tbody>

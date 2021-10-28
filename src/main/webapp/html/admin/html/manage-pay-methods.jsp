@@ -52,7 +52,7 @@
           <th class="Date"><span>Date</span></th>
           <th class="Time"><span>Time</span></th>
           <th class="User"><span>User</span></th>
-          <th class="EventSource"><span>Payment</span></th>
+          <th class="EventSource"><span>Payment Receipt</span></th>
         </tr>
         </thead>
         <tbody>
