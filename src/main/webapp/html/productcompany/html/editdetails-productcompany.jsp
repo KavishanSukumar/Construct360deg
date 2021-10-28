@@ -64,7 +64,7 @@
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
-          <a id="email-btn" href="#">Emails</a>
+<%--          <a id="email-btn" href="#">Emails</a>--%>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>
 
@@ -95,9 +95,9 @@
           <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
-      <div class="middle-content" id="emails">
-        <h3>Emails</h3>
-      </div>
+<%--      <div class="middle-content" id="emails">--%>
+<%--        <h3>Emails</h3>--%>
+<%--      </div>--%>
 
       <div id="preference">
         <div class="middle-content">
