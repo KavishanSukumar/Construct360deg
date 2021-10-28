@@ -109,9 +109,9 @@
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
           <div class="btn">
-            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">
-              <span>Keep my account</span>
-            </a>
+<%--            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">--%>
+<%--              <span>Keep my account</span>--%>
+<%--            </a>--%>
             <a class="right-btn" href="#">
               <span>Delete my account</span>
             </a>
