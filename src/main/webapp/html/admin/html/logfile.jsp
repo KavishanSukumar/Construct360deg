@@ -45,7 +45,7 @@
         </form>
     </div>
     <div class="third">
-        
+
         <!-- ///////////////////////////////////////////// -->
         <table class="logTable">
             <thead>
@@ -58,7 +58,7 @@
             </thead>
             <tbody>
                 <tr class="1stline">
-                    <td class="1stDate">01-08-2020</td>
+                    <td class="1stDate">01-08-2022</td>
                     <td class="1sttime">16:00:09</td>
                     <td class="1stUser">Nimal</td>
                     <td class="1stActivity">configuration was added</td>
@@ -69,7 +69,7 @@
         <!-- ///////////////////////////////////////////// -->
     </div>
 </div>
-  
+
 </div>
 </div>
 <%@include file="../../footer.jsp"%>

@@ -65,14 +65,14 @@
                     <td class="1stEvent">payment not updated</td>
                     <td class="1stActivity">I have done payment but ....</td>
                 </tr>
-                
+
             </tbody>
 
         </table>
         <!-- ///////////////////////////////////////////// -->
     </div>
 </div>
-  
+
 </div>
 </div>
 <%@include file="../../footer.jsp"%>

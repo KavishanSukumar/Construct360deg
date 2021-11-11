@@ -59,16 +59,16 @@
             </ul>
            
             <div class="filter-table hidden" id="ft">
-                <h4>Type :</h4>
-                <label class="filterby">Landscape
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby">Ordinary
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>Seller Ranking :</h4>
+<%--                <h4>Type :</h4>--%>
+<%--                <label class="filterby">Landscape--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby">Ordinary--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+                <h4>Customer Ranking :</h4>
                 <label class="filterby"><i class="fas fa-star"></i>
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
