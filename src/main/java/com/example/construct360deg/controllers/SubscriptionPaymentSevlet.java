@@ -1,6 +1,8 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.AllProfileDAO;
 import com.example.construct360deg.dao.PreviousProjectDAO;
+import com.example.construct360deg.model.AllUsers;
 import com.example.construct360deg.model.PreviousProject;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +22,15 @@ public class SubscriptionPaymentSevlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
-
+        int userid= (int) session.getAttribute("userid");
+        AllProfileDAO allProfileDAO=new AllProfileDAO();
+        AllUsers allUsers=new AllUsers();
+        try {
+            allUsers=allProfileDAO.getuser(userid);
+            req.setAttribute("user",allUsers);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         if(userrole.equals("admin")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/pay-sub.jsp");
             requestDispatcher.forward(req,resp);
@@ -40,7 +50,6 @@ public class SubscriptionPaymentSevlet extends HttpServlet {
         }else if (userrole.equals("prof_indiv")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/pay-sub.jsp");
             requestDispatcher.forward(req,resp);
-
             System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/pay-sub.jsp");

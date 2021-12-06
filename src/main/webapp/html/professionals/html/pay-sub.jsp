@@ -1,3 +1,6 @@
+<%@ page import="com.example.construct360deg.model.AllUsers" %><%
+  AllUsers user= (AllUsers) request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,24 +17,43 @@
 <body>
 <%@include file="sidebar-professional.jsp"%>
     <div class="container" id="container">
+
       <div class="content" id="content">
-        <div id="free" class="free">
-          <div class="ammount">
-            <h1>0/<span style="font-size: 30px">Mo</span></h1>
-          </div>
-          <div class="facilities">
-            <ul class="facilities-list" style="list-style-type: circle">
-              <li>Finding professionals</li>
-              <li>Finding previous projects</li>
-              <li>A lifetime continues subscription</li>
-              <li> </li>
-            </ul>
-          </div>
-          <div class="sub">
-            <button value="freesubscription" class="sub-btn" disabled>Your Plan</button>
-          </div>
-        </div>
         <div id="monthly" class="monthly">
+          <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
+            <%--        monthly--%>
+            <input type="hidden" name="merchant_id" value="1219380">
+            <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+            <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+            <input type="hidden" name="notify_url" value="">
+            <%--            <br><br>Item Details<br>--%>
+            <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
+            <input type="hidden" name="items" value="Monthly Subscription">
+            <input type="hidden" name="currency" value="LKR">
+            <input type="hidden" name="amount" value="40">
+            <%--            <br><br>Customer Details<br>--%>
+            <%
+              String name=null;
+              if(user.getProffullname()!=null)
+                name=user.getProffullname();
+              else if(user.getProfcompanyname()!=null)
+                name=user.getProfcompanyname();
+              else if(user.getCusindfullname()!=null)
+                name=user.getCusindfullname();
+              else if(user.getCuscompanyname()!=null)
+                name=user.getCuscompanyname();
+              else if(user.getProductcomname()!=null)
+                name=user.getProductcomname();
+              else
+                name="Not Mentioned";
+            %>
+            <input type="hidden" name="first_name" value="<%=name%>">
+            <input type="hidden" name="last_name" value="">
+            <input type="hidden" name="email" value="<%=user.getEmail()%>">
+            <input type="hidden" name="phone" value="<%=user.getContactnum()%>">
+            <input type="hidden" name="address" value="<%=user.getHouseno()+" "+user.getStreet()%>">
+            <input type="hidden" name="city" value="<%=user.getCity()%>">
+            <input type="hidden" name="country" value="Sri Lanka">
             <div class="ammount">
               <h1>900/<span style="font-size: 30px">Mo</span></h1>
             </div>
@@ -44,24 +66,61 @@
               </ul>
             </div>
             <div class="sub">
-              <button value="monthlysubscription" class="sub-btn">Choose Plan</button>
+              <button type="submit" target="_blank" value="monthlysubscription" class="sub-btn">Choose Plan</button>
             </div>
+          </form>
         </div>
+
         <div id="annual" class="annual">
-          <div class="ammount">
-            <h1>10000/<span style="font-size: 30px">Yr</span></h1>
-          </div>
-          <div class="facilities">
-            <ul class="facilities-list">
-              <li>Contacting professionals through the website</li>
-              <li>Managing projects through the website</li>
-              <li>Lodge appointment</li>
-              <li>A year long continues subscription</li>
-            </ul>
-          </div>
-          <div class="sub">
-            <button value="monthlysubscription" class="sub-btn">Choose Plan</button>
-          </div>
+          <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
+            <%--        monthly--%>
+            <input type="hidden" name="merchant_id" value="1219380">
+            <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+            <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+            <input type="hidden" name="notify_url" value="">
+            <%--            <br><br>Item Details<br>--%>
+            <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
+            <input type="hidden" name="items" value="Monthly Subscription">
+            <input type="hidden" name="currency" value="LKR">
+            <input type="hidden" name="amount" value="40">
+            <%--            <br><br>Customer Details<br>--%>
+            <%
+               name=null;
+              if(user.getProffullname()!=null)
+                name=user.getProffullname();
+              else if(user.getProfcompanyname()!=null)
+                name=user.getProfcompanyname();
+              else if(user.getCusindfullname()!=null)
+                name=user.getCusindfullname();
+              else if(user.getCuscompanyname()!=null)
+                name=user.getCuscompanyname();
+              else if(user.getProductcomname()!=null)
+                name=user.getProductcomname();
+              else
+                name="Not Mentioned";
+            %>
+            <input type="hidden" name="first_name" value="<%=name%>">
+            <input type="hidden" name="last_name" value="">
+            <input type="hidden" name="email" value="<%=user.getEmail()%>">
+            <input type="hidden" name="phone" value="<%=user.getContactnum()%>">
+            <input type="hidden" name="address" value="<%=user.getHouseno()+" "+user.getStreet()%>">
+            <input type="hidden" name="city" value="<%=user.getCity()%>">
+            <input type="hidden" name="country" value="Sri Lanka">
+            <div class="ammount">
+              <h1>10000/<span style="font-size: 30px">Yr</span></h1>
+            </div>
+            <div class="facilities">
+              <ul class="facilities-list">
+                <li>Contacting professionals through the website</li>
+                <li>Managing projects through the website</li>
+                <li>Lodge appointment</li>
+                <li>A year long continues subscription</li>
+              </ul>
+            </div>
+            <div class="sub">
+              <button type="submit" target="_blank" value="monthlysubscription" class="sub-btn">Choose Plan</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

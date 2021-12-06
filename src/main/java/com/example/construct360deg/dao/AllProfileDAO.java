@@ -107,4 +107,30 @@ public class AllProfileDAO {
 
         return allUsers;
     }
+    public AllUsers getuser(int userid) throws SQLException {
+        AllUsers user=new AllUsers();
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        String sql="SELECT * FROM alluserview WHERE userid=?";
+        ResultSet resultSet=null;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            user.setUserid(userid);
+            user.setProfcompanyname(resultSet.getString("profcompanyname"));
+            user.setProffullname(resultSet.getString("Proffullname"));
+            user.setProductcomname(resultSet.getString("productcomname"));
+            user.setCuscompanyname(resultSet.getString("cuscompanyname"));
+            user.setCusindfullname(resultSet.getString("cusindfullname"));
+            user.setProvince(resultSet.getString("province"));
+            user.setDistrict(resultSet.getString("district"));
+            user.setCity(resultSet.getString("city"));
+            user.setStreet(resultSet.getString("street"));
+            user.setHouseno(resultSet.getString("houseno"));
+            user.setContactnum(resultSet.getString("contactno"));
+            user.setEmail(resultSet.getString("email"));
+        }
+        return user;
+    }
 }
