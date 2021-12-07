@@ -62,11 +62,19 @@ select{
     border-radius: 10px;
 }
 
-input {
+.terms> input {
     display: inline-block;
     padding: 10px 100px;
     border-radius: 10px;
     text-align: center;
+}
+input[type=text],input[type=password],input[type=email] {
+    display: inline-block;
+    padding: 10px 0px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing:border-box;
+    width: 54%;
 }
 input:hover{
     border-color: #ff7200;
