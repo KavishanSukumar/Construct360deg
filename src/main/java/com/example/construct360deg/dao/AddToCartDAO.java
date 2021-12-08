@@ -53,4 +53,13 @@ public class AddToCartDAO {
 
         return products;
     }
+    public void removeformcart(int userid,int productid) throws SQLException {
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        String sql="DELETE FROM `addtocart` WHERE userid=? AND productid=?;";
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        preparedStatement.setInt(2,productid);
+        preparedStatement.executeUpdate();
+    }
 }
