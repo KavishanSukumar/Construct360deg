@@ -141,7 +141,7 @@
 
 <script>
     function confirmation(ele){
-        var out=confirm("Do you want to add the product to the cart");
+        var out=confirm("Delete product");
         if(out==true){
           var productid=ele.id;
           var xhttp=new XMLHttpRequest();
