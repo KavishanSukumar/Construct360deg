@@ -34,7 +34,6 @@
 
 
     <div class="rightSide">
-      <!-- /////////////////This is the leftside of rightside//////////////////// -->
       <form action="<%=request.getContextPath()%>/addproduct" method="post" enctype="multipart/form-data" class="col4">
       <div class="leftrightSide">
         <div class="col-12">
@@ -75,7 +74,7 @@
 
       </div>
 
-            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
             <div class="rightrightside">
                   <div class="brower_content" >
                   <div class="row11">
@@ -98,8 +97,7 @@
                 <div class="col-12">
                   <button type="submit" class="btnsub">Add Product Now</button>
                 </div>
-              
-              
+
             </div>
             
           </form>
@@ -108,7 +106,7 @@
         <!-- rightside end -->
       </div>
       <!-- content end -->
-      <!-- //////////////////////////////////// -->
+      <!-- ////////////////////////////////////////////////////////////////////////// -->
     </div>
   
   <div class="footer">
