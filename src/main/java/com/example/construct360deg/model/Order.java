@@ -1,5 +1,7 @@
 package com.example.construct360deg.model;
 
+import java.util.Date;
+
 public class Order {
     private int orderid;
     private int productid;
@@ -12,6 +14,51 @@ public class Order {
     private String Phone;
     private String email;
     private String deliverytype;
+    private String orderdate;
+    private String orderstatus;
+    private String customername;
+    private float productprice;
+    private String productname;
+
+    public float getProductprice() {
+        return productprice;
+    }
+
+    public void setProductprice(float productprice) {
+        this.productprice = productprice;
+    }
+
+    public String getProductname() {
+        return productname;
+    }
+
+    public void setProductname(String productname) {
+        this.productname = productname;
+    }
+
+    public String getCustomername() {
+        return customername;
+    }
+
+    public void setCustomername(String customername) {
+        this.customername = customername;
+    }
+
+    public String getOrderstatus() {
+        return orderstatus;
+    }
+
+    public void setOrderstatus(String orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+
+    public String getOrderdate() {
+        return orderdate;
+    }
+
+    public void setOrderdate(String orderdate) {
+        this.orderdate = orderdate;
+    }
 
     public int getOrderid() {
         return orderid;
