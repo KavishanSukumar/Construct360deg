@@ -151,8 +151,8 @@
                         </div>
             </div>
 
-<%--            <div class="project" id="updatepayment">--%>
-<%--            </div>--%>
+
+
 
             <div class="project" id="closeproject">
                 <h2>  Close Project </h2>
