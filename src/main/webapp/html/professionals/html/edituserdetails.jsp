@@ -110,7 +110,6 @@
         <input type="text" placeholder="Search.." name="search">
       </form>
       <div class="main">
-        <a href="#"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-bell"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
       </div>
