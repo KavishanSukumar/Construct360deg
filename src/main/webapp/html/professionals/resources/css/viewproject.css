@@ -286,7 +286,6 @@ form.example::after {
     background: #ffffff;
     width: 850px;
     height: 350px;
-    z-index: 2;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -305,7 +304,7 @@ form.example::after {
     padding: 10px;
     margin-left: 370px;
     margin-top: 25px;
-    border-radius: 20px;
+    border-radius: 50px;
 }
 .deleteproject .ok-btn:hover{
     background: #ff7200;
