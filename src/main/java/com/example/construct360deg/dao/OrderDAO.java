@@ -112,6 +112,23 @@ public class OrderDAO {
         return orders;
     }
 
+    public void Orderstatus(int orderid,int task) throws SQLException {
+        Connection connection=Database.getConnection();
+        String sql=null;
+        if(task==1){
+            sql="UPDATE `orders` SET `orderstatus`='Confirmed' WHERE orderid=?";
+        }
+        else if (task==0){
+            sql="UPDATE `orders` SET `orderstatus`='Rejected' WHERE orderid=?";
+        }
+        PreparedStatement preparedStatement=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,orderid);
+        preparedStatement.executeUpdate();
+        System.out.println("test me");
+    }
+
 }
 /*
 SELECT product.companyid,product.productname,product.productprice,CONCAT(customerindividual.firstname," ",customerindividual.lastname) AS cusindivname,customercompany.companyname,orders.* FROM

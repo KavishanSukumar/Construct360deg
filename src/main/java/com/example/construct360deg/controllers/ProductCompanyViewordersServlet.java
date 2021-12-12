@@ -18,12 +18,27 @@ import java.util.ArrayList;
 public class ProductCompanyViewordersServlet extends HttpServlet {
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int orderid= Integer.parseInt( req.getParameter("orderid"));
+        int task= Integer.parseInt( req.getParameter("task"));
+        System.out.println(orderid);
+        System.out.println(task);
+        OrderDAO orderDAO=new OrderDAO();
+
+        try {
+            orderDAO.Orderstatus(orderid,task);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("test you");
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         int userid=(int)session.getAttribute("userid");
         OrderDAO orderDAO=new OrderDAO();
         ArrayList<Order> orders=new ArrayList<>();
-
         try {
             orders=orderDAO.getmyorders(userid);
         } catch (SQLException e) {
@@ -34,8 +49,4 @@ public class ProductCompanyViewordersServlet extends HttpServlet {
         requestDispatcher.forward(req,resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-    }
 }
