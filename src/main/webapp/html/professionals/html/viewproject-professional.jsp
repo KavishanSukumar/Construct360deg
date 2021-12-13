@@ -153,11 +153,10 @@
 
 
 
-
             <div class="project" id="closeproject">
                 <h2>  Close Project </h2>
                 <div class="form">
-                    <form action="/action_page.php">
+                    <form action="/action_page.java">
                         <label for="pname">Project Name</label>
                         <input type="text" id="pname" name="pname" placeholder="project name..">
                         <label for="area">Reason for close the project</label>
