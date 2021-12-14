@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>advertise</title>
 
-    <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
-    <link rel="stylesheet" href="./html/professionals/resources/css/advertise.css">
+    <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="../resources/css/advertise.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
@@ -23,14 +23,15 @@
       
         <div class="filling">
           <h2>Setup your advertisement here</h2>
-            <form id="fill" class="details" action="">
+            <form id="fill" class="details" action="<%=request.getContextPath()%>/advertise" method="post" enctype="multipart/form-data">
                 
                 <label for="url">Your web page's url (Optional) :</label>
-                    <input type="text" id="url" name="weburl" ><br><br>
+                    <input type="text" id="url" name="weburl" maxlength="60"><br>
+                    <p id="weburl_wordcount"></p>
                 
                 <label for="headline">Headline:</label>
-                    <input type="text" id="headline" name="head"  required><br><br>
-                
+                    <input type="text" id="headline" name="headline"  maxlength="60" required><br>
+                    <p id="headline_wordcount"></p>
                 <label for="descrip">Description :</label><br>
                     <textarea id="descrip" name="description" required></textarea><br><br>
                 <p> Mesurements of the Advertisement :
@@ -41,10 +42,10 @@
                        <img src="./html/professionals/resources/images/Advertise/addtemp.jpg" alt="">
                    </div> <br>
                 <div class="img-file">  
-                    <input type="file" id="reqfile" ><br>
+                    <input type="file" id="imgfile" name="imgfile" onchange="return fileValidation()"/><br>
                     <label id="filetype">(Choose png / jpeg / jpg file)</label>
                 </div>
-
+<%--                <input type="submit" value="Uplaod" form="fill">--%>
                 </form>
             </div>
 
@@ -62,7 +63,43 @@
      
     </div>
   </div>
+    <script>
+        function fileValidation(){
+            var fileInput = document.getElementById('imgfile');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.png|\.jpeg|\.jpg)$/i;
+            if(!allowedExtensions.exec(filePath)){
+                alert('Please upload an image file');
+                fileInput.value = '';
+                return false;}
+        }
+    </script>
+    <script>
+         var text_weburl = document.getElementById("url");
+         var result1  = document.getElementById("weburl_wordcount");
+         var limit1 = 60;
+         result1.textContent = 0 + "/" + limit1;
 
+         text_weburl.addEventListener("input",function (){
+             var textlen = text_weburl.value.length;
+             result1.textContent = textlen + "/" + limit1;
+
+
+         })
+    </script>
+    <script>
+        var text_headline = document.getElementById("headline");
+        var result2  = document.getElementById("headline_wordcount");
+        var limit2 = 60;
+        result2.textContent = 0 + "/" + limit2;
+
+        text_headline.addEventListener("input",function (){
+            var textlen = text_headline.value.length;
+            result2.textContent = textlen + "/" + limit2;
+
+
+        })
+    </script>
     <%@include file="../../footer.jsp"%>
 </div>
 

@@ -1,0 +1,56 @@
+.container{
+
+    display: grid;
+    grid-template-rows: 72px 100vh 100px;
+    grid-template-areas: "nav"
+                         "webpage"
+                         "footer";
+}
+.content{
+
+    height: auto;
+    display: grid;
+    grid-area: webpage;
+    grid-template-rows: 100px auto;
+    grid-template-areas: "a1"
+                         "a2";
+}
+
+.part1{
+    grid-area: a1;
+}
+
+.part2{
+    grid-area: a2;
+}
+ #title{
+     font-size: 40px;
+     color: black;
+ }
+
+
+#req-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+    margin-top: -270px;
+
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    width: 470px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.footer{
+    grid-area: footer;
+}

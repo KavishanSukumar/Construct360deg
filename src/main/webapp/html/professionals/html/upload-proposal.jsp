@@ -6,34 +6,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>upload-proposal</title>
-    <link rel="stylesheet" href="./html/professionals/resources/css/upload-proposal.css">
+    <link rel="stylesheet" href="../resources/css/nav-bar-updated.css">
+    <link rel="stylesheet" href="../resources/css/uploadproposal.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
 </head>
 <body>
     <div class="container">
         <%@include file="sidebar-professional.jsp"%>
         <div class="content">
-             <div class="uploadarea">
-                <p>PDF only</p>
-                <div class="drag-area">
-                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                    <header>Drag & Drop to Upload File</header>
-                    <span>OR</span>
-                    <button>Browse File</button>
-                    <input type="file" hidden>
+            <div class="filling">
+
+                <div class="img-area">
+                <p id="title">Upload your proposal to </p>
+                <img id="profimg" src="../resources/images/Avatar.png" alt=""  >
+                    <p id="profimgname">Pathum nissanka</p>
                 </div>
 
-                <div class="uploadFile">
-                    <input type="submit" value="Save changes">
-                    <input type="submit" value="Uplaod" style="float: right;">
+                <div class="up-area">
+                    <form class="proposal">
+
+                        <label for="uploadfile" id="up-proposal">Proposal :-</label>
+                        <input type="file" id="uploadfile" name="uploadfile" onchange="return fileValidation()"/><br>
+                        <label id="filetype">(Choose pdf or zip file)</label>
+                        <div class="upload">
+                            <input type="submit" value="Upload">
+                        </div>
+
+                    </form>
                 </div>
-             </div>
+
+            </div>
+
+
         </div>
-    </div>
-    <script src="./html/professionals/resources/js/upload-proposal.js"></script>
+        <script>
+            function fileValidation(){
+                var fileInput = document.getElementById('uploadfile');
+                var filePath = fileInput.value;
+                var allowedExtensions = /(\.pdf|\.zip)$/i;
+                if(!allowedExtensions.exec(filePath)){
+                    alert('Please upload pdf or zip file');
+                    fileInput.value = '';
+                    return false;}
+            }
+        </script>
+
 
 
     <%@include file="../../footer.jsp"%>
+    </div>
+
 </body>
 
 </html>

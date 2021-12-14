@@ -1,0 +1,108 @@
+.container{
+
+    display: grid;
+    grid-template-rows: 72px 100vh 100px;
+    grid-template-areas: "nav"
+                         "webpage"
+                         "footer";
+}
+
+
+.content{
+
+    height: auto;
+    display: grid;
+    grid-area: webpage;
+
+    grid-template-areas: "a1 a2 a3";
+}
+.filling{
+    grid-area: a2;
+    grid-template-rows: 72px auto;
+    grid-template-areas: "b1"
+                         "b2";
+    background-color: #c4c4c4;
+    height: 500px;
+    width: 600px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    border-radius: 18px;
+    box-sizing: border-box;
+    border: 5px solid #f3905d;
+    box-shadow: 5px 10px black;
+}
+
+
+.img-area {
+    display:grid;
+    grid-area: b1;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: "c1 c1"
+                         "c2 c3";
+}
+#title{
+    grid-area: c1;
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 52px;
+}
+#profimg{
+    margin-left: 35px;
+    grid-area: c2;
+    width: 185px;
+    height: 200px;
+
+
+}
+#profimgname{
+    grid-area: c3;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.up-area{
+    margin-top: 35px;
+    display: grid;
+    grid-area: b2;
+}
+
+
+
+
+#up-proposal{
+    font-size: 25px;
+    margin-left: 20px;
+}
+#filetype{
+    margin-left: 20px;
+}
+.up-area input[type=file]{
+    align-items: center;
+    font-size: 18px;
+    margin-left: 28px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.proposal input[type=submit] {
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background: #ff7200;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 22px;
+    margin-bottom: 35px;
+    margin-left: 190px;
+}
+
+
+.footer{
+    grid-area: footer;
+}
