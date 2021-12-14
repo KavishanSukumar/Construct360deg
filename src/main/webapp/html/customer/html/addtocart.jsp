@@ -54,6 +54,9 @@
                 $("#discountval").text(discount);
                 $("#subtotalval").text(total-discount);
             });
+
+
+
         });
     </script>
 </head>
@@ -88,6 +91,10 @@
                                         <p><%=x.getProductdes()%></p>
                                         <p>Quantity Available:<%=x.getQuantity()%></p>
                                         <p>Product Price:<%=x.getPrice()%></p>
+                                        <div>
+                                            <a><button class="Order-btn-cart">Order Product</button></a>
+                                            <a><button class="Order-btn-cart" id="<%=x.getProductid()%>" onclick="removeformcart(this)">Remove Product</button></a>
+                                        </div>
                                     </div>
                                 </li>
                             <%}%>
@@ -116,11 +123,23 @@
                     </div>
                 </div>
                 <div>
-                    <a><button class="Order-btn-cart">Order Product</button></a>
+                    <a><button class="Order-btn-cart">Order Products</button></a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function removeformcart(ele){
+            var out=confirm("Do you want to remove the product from the cart!");
+            if (out==true){
+                var productid=ele.id
+                var xHttp=new XMLHttpRequest();
+                xHttp.open("POST","<%=request.getContextPath()%>/removefromcart?productid="+productid,true);
+                xHttp.send();
+                location="<%=request.getContextPath()%>/addtocart";
+            }
+        }
+    </script>
 <%@include file="../../footer.jsp"%>
 </body>
 </html>

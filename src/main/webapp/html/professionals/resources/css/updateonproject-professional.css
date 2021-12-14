@@ -226,7 +226,7 @@ form.example::after {
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
-.project{
+.onproject{
     /* background-color: #fff; */
     background-color:#e6e4e3;
     border-radius: 30px;
@@ -252,6 +252,8 @@ form.example::after {
 }
 .chart1{box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);}
 .chart2{box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);}
+
+
 .footer{
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;

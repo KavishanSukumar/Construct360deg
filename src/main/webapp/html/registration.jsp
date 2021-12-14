@@ -62,6 +62,20 @@ pageEncoding="ISO-8859-1"%>
                     $(".submit").prop("disabled",false);
                 }
             })
+
+            $("#professional").change(function (){
+                var value=$("#professional option:selected").text();
+                if(value=="Customer"){
+                    $(".customerblock").css("display","");
+                    $(".professionalblock").css("display","none");
+                }else if (value=="Professional"){
+                    $(".professionalblock").css("display","");
+                    $(".customerblock").css("display","none");
+                }else{
+                    $(".professionalblock").css("display","none");
+                    $(".customerblock").css("display","none");
+                }
+            });
         })
     </script>
 </head>
@@ -94,13 +108,27 @@ pageEncoding="ISO-8859-1"%>
                     <input type="text" id="contactno" name="contactno" placeholder="Enter Contact Number" required>
                     <br>
                     <label for="professional">Professional Role</label>
-                    <select name="professional" id="professional" required>
-                        <option >Select</option>
+                    <select id="professional" required>
+                        <option disabled selected>Select</option>
+                            <option >Customer</option>
+                            <option >Professional</option>
+                            <option value="prod">Product Company</option>
+                    </select>
+                    <label for="professional" class="customerblock" style="display:none " >Role Type</label>
+                    <select name="professional" id="customerblock" class="customerblock" style="display:none " required>
+                        <option disabled selected>Select</option>
                         <option value="cus_indiv">Customer Individual</option>
                         <option value="cus_com">Customer Company</option>
+                    </select>
+                    <label for="professional" class="professionalblock" style="display:none ">Role Type</label>
+                    <select name="professional" id="professionalblock" class="professionalblock" style="display:none" required>
+                        <option disabled selected>Select</option>
                         <option value="prof_indiv">Professional Individual</option>
                         <option value="prof_com">Professional Company</option>
-                        <option value="prod_com">Product Company</option>
+                    </select>
+
+                    <select name="professional" id="productblock"  style="display:none" required>
+                        <option value="prod_com" selected>Product Company</option>
                     </select>
                     <div class="terms">
                         <input type="checkbox" required >

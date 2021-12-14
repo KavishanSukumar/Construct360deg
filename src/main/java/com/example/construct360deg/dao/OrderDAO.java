@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class OrderDAO {
@@ -47,7 +48,7 @@ public class OrderDAO {
         boolean status=false;
         int row=0;
 
-        String sql="INSERT INTO `orders`( `productid`, `userid`, `quantity`, `district`, `houseno`, `street`, `city`, `Phone`, `email`, `deliverytype`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO `orders`( `productid`, `userid`, `quantity`, `district`, `houseno`, `street`, `city`, `Phone`, `email`, `deliverytype`,`OrderDate`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         Connection connection=Database.getConnection();
         PreparedStatement preparedStatement;
 
@@ -62,10 +63,75 @@ public class OrderDAO {
         preparedStatement.setString(8,order.getPhone());
         preparedStatement.setString(9,order.getEmail());
         preparedStatement.setString(10,order.getDeliverytype());
+
+        LocalDate lt = LocalDate.now();
+        preparedStatement.setString(11, String.valueOf(lt));
         row=preparedStatement.executeUpdate();
         if(row>0){
             status=true;
         }
         return status;
     }
+
+    public ArrayList<Order> getmyorders(int userid) throws SQLException {
+        ArrayList<Order> orders=new ArrayList<>();
+        String sql="SELECT * FROM `companyorders` WHERE companyid=?";
+        PreparedStatement preparedStatement=null;
+        Connection connection=Database.getConnection();
+        ResultSet resultSet;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Order order=new Order();
+            order.setOrderid(resultSet.getInt("orderid"));
+            order.setProductid(resultSet.getInt("productid"));
+            order.setUserid(resultSet.getInt("userid"));
+            order.setQuantity(resultSet.getFloat("quantity"));
+            order.setDistrict(resultSet.getString("district"));
+            order.setHouseno(resultSet.getString("houseno"));
+            order.setStreet(resultSet.getString("street"));
+            order.setCity(resultSet.getString("city"));
+            order.setPhone(resultSet.getString("Phone"));
+            order.setEmail(resultSet.getString("email"));
+            order.setDeliverytype(resultSet.getString("deliverytype"));
+            order.setOrderdate(resultSet.getString("OrderDate"));
+            order.setOrderstatus(resultSet.getString("orderstatus"));
+            if(resultSet.getString("cusindivname")!=null){
+                order.setCustomername(resultSet.getString("cusindivname"));
+            }else{
+                order.setCustomername(resultSet.getString("companyname"));
+            }
+            order.setProductprice(resultSet.getFloat("productprice"));
+            order.setProductname(resultSet.getString("productname"));
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
+    public void Orderstatus(int orderid,int task) throws SQLException {
+        Connection connection=Database.getConnection();
+        String sql=null;
+        if(task==1){
+            sql="UPDATE `orders` SET `orderstatus`='Confirmed' WHERE orderid=?";
+        }
+        else if (task==0){
+            sql="UPDATE `orders` SET `orderstatus`='Rejected' WHERE orderid=?";
+        }
+        PreparedStatement preparedStatement=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,orderid);
+        preparedStatement.executeUpdate();
+        System.out.println("test me");
+    }
+
 }
+/*
+SELECT product.companyid,product.productname,product.productprice,CONCAT(customerindividual.firstname," ",customerindividual.lastname) AS cusindivname,customercompany.companyname,orders.* FROM
+(((orders LEFT JOIN product ON orders.productid=product.productid)LEFT JOIN customerindividual ON orders.userid=customerindividual.userid)LEFT JOIN customercompany
+ ON orders.userid=customercompany.userid);
+ */

@@ -37,7 +37,8 @@
         <a href="#" class="active"><i class="fas fa-tasks"></i> My tasks</a>
         <a href="#"><i class="fas fa-inbox"></i> Chatbox</a>
       </div>
-      <div class="project">
+
+      <div class="onproject">
         <!-- <h2>Update Ongoing Projects</h2> -->
         <div class="item1">
           <img id="upload" alt="your image" width="200" height="200" />

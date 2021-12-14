@@ -4,9 +4,9 @@ body{
     font-family: "Roboto", sans-serif;
     /* background-color: #c4c4c4; */
 }
-.container{
-margin-bottom: 170px;
-}
+/*.container{*/
+/*margin-bottom: 170px;*/
+/*}*/
 #content{
     display: flex;
     flex-direction: row;
