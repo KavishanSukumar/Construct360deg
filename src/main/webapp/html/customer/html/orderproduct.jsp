@@ -35,19 +35,19 @@
             <span>District <span class="required">*</span></span>
             <select name="district">
               <option value="select" disabled>Select a District...</option>
-              <option value="COL">Colombo</option>
-              <option value="GAM">Gampaha</option>
-              <option value="KAL">Kaluthara</option>
-              <option value="KAN">Kandy</option>
-              <option value="MAT">Matale</option>
-              <option value="NUW">Nuwera Eliya</option>
-              <option value="GAL">Galle</option>
-              <option value="MAT">Matara</option>
-              <option value="HAM">Hambanthota</option>
-              <option value="RAT">Rathnapura </option>
-              <option value="POL">Polonnaruwa</option>
-              <option value="ANU">Anuradhapura</option>
-              <option value="KEL">Kegalle </option>
+              <option value="Colombo">Colombo</option>
+              <option value="Gampaha">Gampaha</option>
+              <option value="Kalutara">Kaluthara</option>
+              <option value="Kandy">Kandy</option>
+              <option value="Matale">Matale</option>
+              <option value="NuweraEliya">Nuwera Eliya</option>
+              <option value="Galle">Galle</option>
+              <option value="Matara">Matara</option>
+              <option value="Hambanthota">Hambanthota</option>
+              <option value="Rathnapura">Rathnapura </option>
+              <option value="Polonnaruwa">Polonnaruwa</option>
+              <option value="Anuradhapura">Anuradhapura</option>
+              <option value="Kegalle">Kegalle </option>
 
             </select>
           </label>

@@ -169,5 +169,22 @@ display: none;
     background-color: #ff7200;
 }
 
+.vieworder{
+    display: none;
+    position: fixed;
+    background-color: #cccccc;
+    height: auto;
+    width: 550px;
+    z-index: 100;
+    text-align: center;
+    margin: 150px 520px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 6px grey;
+}
 
 
+.blurer{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
