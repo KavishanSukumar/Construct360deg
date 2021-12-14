@@ -284,6 +284,7 @@ form.example::after {
     left: 55%;
     transform: translate(-50%, -50%)scale(0);
     background: #ffffff;
+    border-radius: 30px;
     width: 850px;
     height: 350px;
     text-align: center;

@@ -70,8 +70,8 @@
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
-          <a id="email-btn" href="#">Emails</a>
-          <a id="preference-btn" href="#">Account preferences</a>
+<%--          <a id="email-btn" href="#">Emails</a>--%>
+<%--          <a id="preference-btn" href="#">Account preferences</a>--%>
         </div>
 
       </div>
@@ -101,30 +101,30 @@
           <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
-      <div class="middle-content" id="emails">
-        <h3>Emails</h3>
-      </div>
+<%--      <div class="middle-content" id="emails">--%>
+<%--        <h3>Emails</h3>--%>
+<%--      </div>--%>
 
-      <div id="preference">
-        <div class="middle-content">
-          <h2>Delete Your Account</h2>
-          <h3>We are sorry to see you go.</h3>
-          <br>
-          <h4>Before you go...</h4>
-          <p>* If you're sick of getting email notifications from us, you can disable them here.
-            <br><br>* If you want to change your username, you can do that here.
-            <br><br>* Account deletion is final. There will be no way to restore your account. </p>
-          <div class="btn">
-            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">
-              <span>Keep my account</span>
-            </a>
-            <a class="right-btn" href="#">
-              <span>Delete my account</span>
-            </a>
-          </div>
+<%--      <div id="preference">--%>
+<%--        <div class="middle-content">--%>
+<%--          <h2>Delete Your Account</h2>--%>
+<%--          <h3>We are sorry to see you go.</h3>--%>
+<%--          <br>--%>
+<%--          <h4>Before you go...</h4>--%>
+<%--          <p>* If you're sick of getting email notifications from us, you can disable them here.--%>
+<%--            <br><br>* If you want to change your username, you can do that here.--%>
+<%--            <br><br>* Account deletion is final. There will be no way to restore your account. </p>--%>
+<%--          <div class="btn">--%>
+<%--            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">--%>
+<%--              <span>Keep my account</span>--%>
+<%--            </a>--%>
+<%--            <a class="right-btn" href="#">--%>
+<%--              <span>Delete my account</span>--%>
+<%--            </a>--%>
+<%--          </div>--%>
 
-        </div>
-      </div>
+<%--        </div>--%>
+<%--      </div>--%>
     </div>
   </div>
 <%@include file="../../footer.jsp"%>
