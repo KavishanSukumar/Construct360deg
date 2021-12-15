@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+    int userid= (int) session.getAttribute("userid");
+%>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,6 +38,48 @@
             $("#task").css("display","none");
             $("#chatbox").css("display","none");
           });
+
+          var receiver=null;
+
+          $(".chatuser").click(function (){
+            receiver=this.id;
+          });
+
+          $("#send-btn").click(function (){
+            var message= $("#message").val();
+            $("#message").val('');
+            console.log(message);
+            console.log(receiver);
+            $.ajax({
+                url:"<%=request.getContextPath()%>/chat",
+                type:"POST",
+                data:{"receiver":receiver,"message":message,"task":1},
+            });
+          });
+
+          var myVar=setInterval(function (){
+              var text='';
+              $.ajax({
+                  url:"<%=request.getContextPath()%>/chat",
+                  type: "POST",
+                  data:{"receiver":receiver,"task":0},
+                  success:function (data){
+                      for (let i in data){
+                          if(data[i].sender==<%=userid%>){
+                              text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
+                          }else{
+                              text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                          }
+                      }
+                      if(text!=''){
+                          $("#messagearea").empty();
+                          $("#messagearea").append(text);
+                      }
+                  }
+
+              });
+          },2000)
+
     });
   </script>
 </head>
@@ -62,9 +106,9 @@
         </div>
         <div class="content2">
             <div class="home">
-                <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
-                <a href="#" id="task-btn"><i class="fas fa-tasks"></i> My tasks</a>
-                <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
+                <a  class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
+                <a  id="task-btn"><i class="fas fa-tasks"></i> My tasks</a>
+                <a  id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
                 <div class="grid-item1">
@@ -100,19 +144,19 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser">
+                            <div class="chatuser" id="63">
                                 <h4>Sukumar Kavishan</h4>
                                 <p>Date:2021-06-10</p>
                             </div>
-                            <div class="chatuser">
+                            <div class="chatuser" id="62">
                                 <h4>Senal Punsara</h4>
                                 <p>Date:2021-05-19</p>
                             </div>
-                            <div class="chatuser">
+                            <div class="chatuser" id="66">
                                 <h4>Imesh Udara</h4>
                                 <p>Date:2021-04-20</p>
                             </div>
-                            <div class="chatuser">
+                            <div class="chatuser" id="67">
                                 <h4>Chathuri Priyangika</h4>
                                 <p>Date:2021-03-01</p>
                             </div>
@@ -123,10 +167,10 @@
                             <h4>Kavishan Sukumar</h4>
                         </div>
                         <div class="currentchat">
-
+                           <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
                         </div>
                         <div class="currentchattextbox">
-                            <input type="text" class="chatbar"><i class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></i>
+                            <input type="text" class="chatbar" id="message"><button class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></button>
                         </div>
                     </div>
                 </div>
