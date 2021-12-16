@@ -6,7 +6,7 @@ body{
 
 .footer{
     border-top: 1px solid #ebebeb;
-    padding-bottom: 0%;
+    padding-bottom: 0.4%;
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
@@ -15,4 +15,177 @@ body{
 .footer p{
     text-align: center;
     color: rgb(255, 255, 255);
+}
+
+/* .Maxcontainer{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "firstpart"
+        "content";
+} */
+
+.content{
+    grid-area: webpage;
+    height: 100vh;
+    display: grid;
+
+    /* align-items: center;
+    justify-content: center; */
+    width: 100%;
+    margin-top: 5px;
+    grid-template-areas:"second_row"
+                        "third_row" ;
+    grid-template-rows:auto auto;
+    grid-row-gap: 10px;
+}
+
+.second{
+    grid-area: second_row;
+    background-color: rgb(255, 255, 255);
+    height: 5vh;
+    width: 100%;
+    width: 199.9vh;
+}
+.third{
+    grid-area: third_row;
+    display: grid;
+    background-color: rgb(255, 255, 255);
+    height: 86vh;
+    width: 100%;
+    width: 199.9vh;
+    grid-template-areas: "ordertypes ordertable";
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 6fr;
+}
+.ordertypes{
+    grid-area: ordertypes;
+    display: flex;
+    flex-direction: column;
+}
+.ordertable{
+    grid-area:ordertable;
+}
+.ordertypes > button{
+    box-sizing: border-box;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    border: none;
+}
+.ordertypes > button:hover{
+    background-color: #ff7200;
+}
+/* //////////////////////////////////////////////////////////////////////////// */
+
+.from{
+    float: left;
+    margin-left: 50px;
+}
+
+.to{
+    float: left;
+    margin-left: 50px;
+}
+
+.By_option{
+    float: left;
+    margin-left: 50px;
+}
+.okbtn{
+    background-color: #585858;
+    border: none;
+    color: white;
+    padding: 4px 14px;
+    display: inline-block;
+    font-size: 15px;
+    margin: 1px 11px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logTable{
+    border-collapse: collapse;
+    width: 90%;
+    text-align: center;
+
+}
+
+.logTable td, .logTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+.logTable  tr:hover {
+    cursor: pointer;
+}
+
+.logTable  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+
+.btn{
+    border: none;
+    padding: 7px 25px;
+    font-size: 15px;
+    margin: 8px 11px;
+    border-radius: 5px;
+}
+.btn:hover{
+    background-color: #ff7200;
+}
+
+input[type=text], select, textarea {
+
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+}
+
+input[type=date], select, textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+}
+
+#neworders{
+    display:block;
+}
+#confirmorders{
+    display: none;
+}
+#rejectedorders{
+    display: none;
+}
+.active{
+    background-color: #ff7200;
+}
+
+.vieworder{
+    display: none;
+    position: fixed;
+    background-color: #cccccc;
+    height: auto;
+    width: 550px;
+    z-index: 100;
+    text-align: center;
+    margin: 150px 520px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 6px grey;
+}
+
+
+.blurer{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
