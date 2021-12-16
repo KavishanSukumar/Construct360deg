@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%
+    int userid= (int) session.getAttribute("userid");
+%>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +65,47 @@
             $("#updateproject").css("display","none");
             $("#closeproject").css("display","none");
           });
+
+            var receiver=null;
+
+            $(".chatuser").click(function (){
+                receiver=this.id;
+            });
+
+            $("#send-btn").click(function (){
+                var message= $("#message").val();
+                $("#message").val('');
+                console.log(message);
+                console.log(receiver);
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/chat",
+                    type:"POST",
+                    data:{"receiver":receiver,"message":message,"task":1},
+                });
+            });
+
+            var myVar=setInterval(function (){
+                var text='';
+                $.ajax({
+                    url:"<%=request.getContextPath()%>/chat",
+                    type: "POST",
+                    data:{"receiver":receiver,"task":0},
+                    success:function (data){
+                        for (let i in data){
+                            if(data[i].sender==<%=userid%>){
+                                text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
+                            }else{
+                                text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                            }
+                        }
+                        if(text!=''){
+                            $("#messagearea").empty();
+                            $("#messagearea").append(text);
+                        }
+                    }
+
+                });
+            },2000)
     });
     function popup(){
         document.getElementById("popup").classList.toggle("active");
@@ -174,7 +217,7 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser">
+                            <div class="chatuser" id="64">
                                 <h4>Sukumar Kavishan</h4>
                                 <p>Date:2021-06-10</p>
                             </div>
@@ -197,10 +240,10 @@
                             <h4>Kavishan Sukumar</h4>
                         </div>
                         <div class="currentchat">
-
+                            <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
                         </div>
                         <div class="currentchattextbox">
-                            <input type="text" class="chatbar"><i class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></i>
+                            <input type="text" class="chatbar" id="message"><button class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></button>
                         </div>
                     </div>
                 </div>

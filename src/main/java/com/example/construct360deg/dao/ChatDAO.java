@@ -36,7 +36,7 @@ public class ChatDAO {
     public ArrayList<Chat> viewMessage(int sender) throws SQLException {
         ArrayList<Chat> chats=new ArrayList<>();
         Connection connection=Database.getConnection();
-        String sql="SELECT * FROM `chat` WHERE sender=? OR receiver=?";
+        String sql="SELECT * FROM `chat` WHERE sender=? OR receiver=? ORDER BY datetime ASC";
         PreparedStatement preparedStatement=null;
         ResultSet resultSet;
         preparedStatement=connection.prepareStatement(sql);

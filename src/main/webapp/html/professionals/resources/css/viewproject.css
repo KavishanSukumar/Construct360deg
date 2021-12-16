@@ -459,14 +459,14 @@ form.example::after {
     height: 40px;
 }
 .chatbar{
-    width: 695px;
+    width: 680px;
     margin: 0px 10px;
     height: 25px ;
     border-radius:5px ;
 }
 #send-btn{
     margin: 5px 5px;
-    padding: 5px 0px;
+    padding: 5px 5px;
 }
 #send-btn:hover{
     color: #ff7200;
