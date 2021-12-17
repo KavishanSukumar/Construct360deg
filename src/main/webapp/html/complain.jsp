@@ -12,8 +12,24 @@
     <title>Report</title>
     <link rel="stylesheet" href="./resources/css/complain.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="./resources/js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#category").change(function (){
+                var value=$("#category option:selected").text();
+                if(value=="User"){
+                    $("#complaineeuseridlable").css("display","block");
+                    $("#complaineeuserid").css("display","block");
+                    console.log("hello");
+                }else{
+                    $("#complaineeuseridlable").css("display","none");
+                    $("#complaineeuserid").css("display","none");
+                    console.log("hello1");
+                }
+            });
+        });
 
-
+    </script>
 </head>
 
 <body>
@@ -21,7 +37,7 @@
 <!-- header area start -->
 <div class="container">
     <form class="myform" action="<%=request.getContextPath()%>/complains" method="post">
-        <label for="userid">Userid</label>
+        <label for="userid">Complainer Userid</label>
         <input type="text" id="userid" name="userid" placeholder="Your Userid.." value="<%=userid%>" disabled>
 
         <label for="fname">Full Name</label>
@@ -37,8 +53,8 @@
             <option value="website">Website</option>
         </select>
 
-        <label for="complaineeuserid">Last Name</label>
-        <input type="number" id="complaineeuserid" name="complaineeuserid" placeholder="Enter Complainee userid" required>
+        <label id="complaineeuseridlable" for="complaineeuserid">Complainee Userid</label>
+        <input type="number" id="complaineeuserid" name="complaineeuserid" placeholder="Enter Complainee userid">
 
         <label for="message" >Message</label>
         <textarea id="message" name="message"  style="height:200px" required></textarea>
