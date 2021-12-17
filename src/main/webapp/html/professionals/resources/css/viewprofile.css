@@ -58,10 +58,10 @@ form.example::after {
     border-radius: 10px;
     display: grid;
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    grid-template-rows: 500px 500px 800px 150px;
+    grid-template-rows: 500px 550px 800px 150px;
     background-color: rgb(222, 225, 226);
     width: 900px;
-    height: 1950px;
+    height: 2000px;
     margin-top: 90px;
     margin-left: 300px;
 }
@@ -111,6 +111,15 @@ form.example::after {
 }
 .box2 h3{margin-left: 30px;}
 .box2 p{margin-left: 50px;}
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    width: 210px;
+    height: 200px;
+}
 .box2 i{
     float: right;
     font-size: 20px;
@@ -118,7 +127,6 @@ form.example::after {
     margin-right: 10px;
     color: #292727;
 }
-
 .box3 i{
     margin-left: 430px;
     font-size: 50px;
@@ -134,42 +142,51 @@ form.example::after {
 .box3 .button{
     margin-left: 120px;
     width: 600px;}
-
+.summary .background{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
 .summary .close-btn{
     position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 35px;
-    height: 35px;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
     background: #22242A;
     color: #ffffff;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    border-radius: 50px;
+
 }
-.summary .content{
+.summary .summarycontent{
     position: absolute;
     top: 100%;
     left: 50%;
+    height: 400px;
     transform: translate(-50%, -50%)scale(0);
     background: #ffffff;
-    border-radius: 30px;
-    width: 850px;
-    height: 520px;
+    z-index: 2;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
 }
 .summary h3{
-    margin-left: -580px;
-    margin-top: -20px}
+    margin-right: 640px;
+    margin-top: -10px}
 .description{
     border: 1px solid grey;
     border-radius: 30px;
-    width: 750px;
-    height: 340px;
-    margin-top: -100px;
+    width: 700px;
+    height: 280px;
 }
 .summary .save-btn{
     position: absolute;
@@ -177,16 +194,18 @@ form.example::after {
     background: #e6e4e3;
     width: 70px;
     padding: 10px;
-    margin-left: 740px;
-    margin-top: 435px;
+    margin-left: 350px;
+    margin-top: 5px;
     border-radius: 50px;
     cursor: pointer;
+    border: 1px solid grey;
 }
 .summary .save-btn:hover{
     background: #ff7200;
     color: white;
 }
-.summary.active .content{
+.summary.active .background{display: block;}
+.summary.active .summarycontent{
     transition:all 300ms ease-in-out;
     transform:translate(-50%, -50%) scale(1);
 }
