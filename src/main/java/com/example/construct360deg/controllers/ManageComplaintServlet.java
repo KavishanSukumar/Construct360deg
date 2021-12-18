@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 @WebServlet("/inquires")
-public class ManageReportServlet extends HttpServlet {
+public class ManageComplaintServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Complain> complains=new ArrayList<>();
