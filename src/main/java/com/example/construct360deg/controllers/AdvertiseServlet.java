@@ -60,13 +60,13 @@ public class AdvertiseServlet extends HttpServlet {
                 System.out.println("advertisement  adding is successful");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('You successfully upload your advertisement');");
-                out.println("location='"+req.getContextPath()+"/advertise';");
+                out.println("location='"+req.getContextPath()+"/landingpage';");
                 out.println("</script>");
             }else {
                 System.out.println("advertisement adding is unsuccessful");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Insert unsuccessful');");
-                out.println("location='"+req.getContextPath()+"/advertise';");
+                out.println("location='"+req.getContextPath()+"/landingpage';");
                 out.println("</script>");
             }
         } catch (SQLException throwables) {

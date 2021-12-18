@@ -25,7 +25,7 @@ public class ViewUploadProjectServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("projects",projects);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/addproject.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewprofile.jsp");
         requestDispatcher.forward(req,resp);
     }
 
@@ -39,7 +39,7 @@ public class ViewUploadProjectServlet extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("projects",projects);
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/addproject.jsp");
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/viewprofile.jsp");
         requestDispatcher.forward(req,resp);
     }
 }
