@@ -23,7 +23,7 @@ body{
     height: 78vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-area: 
+    grid-template-areas:
     "container-details container-form"; 
     /* grid-gap: 400px;   */
 }
@@ -45,9 +45,8 @@ body{
 }
 
 
-
 .NAME>input[type=text] {
-    width: 150%;
+    width: 100%;
     /* align-items: center; */
     padding: 12px 20px;
     /* margin: 8px 40px; */
@@ -57,19 +56,6 @@ body{
     box-sizing: border-box;
     font-size: 11px;
 }
-
-.EMAIL>input[type=email] {
-    width: 150%;
-    /* align-items: center; */
-    padding: 12px 20px;
-    /* margin: 8px 40px; */
-    display: inline-block;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 11px;
-}
-
 .DATE>input[type=date] {
     width: 100%;
     /* align-items: center; */
@@ -94,7 +80,7 @@ body{
     font-size: 11px;
 }
 
-.TELE>input[type=tel] {
+.TELE>textarea[type=area] {
     width: 150%;
     /* align-items: center; */
     padding: 12px 20px;
@@ -104,7 +90,9 @@ body{
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 11px;
+    resize: none;
 }
+
 
 .appoinmentform>.btn{
     width: 61%;
