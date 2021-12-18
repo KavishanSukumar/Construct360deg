@@ -1,9 +1,16 @@
 <%@ page import="com.example.construct360deg.model.Viewprofile" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.PreviousProject" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
     ArrayList<Viewprofile> addsummary= (ArrayList<Viewprofile>) request.getAttribute("summary");
 %>
+
+<%
+    ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,7 +81,8 @@
 
         <div class="summary" id="popup">
             <div class="button" onclick="popup()">Add summary</div>
-          <div class="content">
+          <div class="background"></div>
+          <div class="summarycontent">
               <div class="close-btn" onclick="popup()">&times;</div>
             <h3>Description</h3>
               <textarea class="description" id = "text" placeholder="You can write about your years of experience, industry or skills.
@@ -88,6 +96,25 @@
           <h3>Previous Projects</h3>
           <p>Add external documents, photos or links.</p>
 
+          <%for (PreviousProject x:previousProjects){%>
+          <%
+            String base64Encoded=null;
+            if (x.getImgBytes()==null){
+
+            }else {
+              byte[] bytes = x.getImgBytes();
+              byte[] encodeBase64 = Base64.encodeBase64(bytes);
+              base64Encoded = new String(encodeBase64, "UTF-8");
+            }
+          %>
+
+          <div class="gallery">
+            <a target="_blank" href="user4.png">
+              <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >
+            </a>
+            <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
+          </div>
+          <%}%>
 
 
       </div>

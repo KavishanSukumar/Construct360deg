@@ -2,11 +2,11 @@
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%
 
-  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
+<%--<%--%>
+<%--  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");--%>
+<%--%>--%>
 
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,7 +110,7 @@
         <input type="text" placeholder="Search.." name="search">
       </form>
       <div class="main">
-        <a href="#"><i class="fa fa-home"></i></a>
+        <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
       </div>
     </div>
@@ -158,29 +158,26 @@
       <div class="middle-content" id="qualification">
         <h3>Qualifications</h3>
       </div>
-      <div class="middle-content" id="emails">
-        <h3>Emails</h3>
-      </div>
 
       <div class="middle-content" id="preproject">
-            <%for (PreviousProject x:previousProjects){%>
-              <%
-                String base64Encoded=null;
-                if(x.getImgBytes()==null){
+<%--            <%for (PreviousProject x:previousProjects){%>--%>
+<%--              <%--%>
+<%--                String base64Encoded=null;--%>
+<%--                if(x.getImgBytes()==null){--%>
 
-                }else{
-                  byte[] bytes = x.getImgBytes();
-                  byte[] encodeBase64 = Base64.encodeBase64(bytes);
-                  base64Encoded = new String(encodeBase64, "UTF-8");
-                }
-              %>
-              <div class="gallery">
-                <a target="_blank" href="user4.png">
-                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >
-                </a>
-                <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
-              </div>
-            <%}%>
+<%--                }else{--%>
+<%--                  byte[] bytes = x.getImgBytes();--%>
+<%--                  byte[] encodeBase64 = Base64.encodeBase64(bytes);--%>
+<%--                  base64Encoded = new String(encodeBase64, "UTF-8");--%>
+<%--                }--%>
+<%--              %>--%>
+<%--              <div class="gallery">--%>
+<%--                <a target="_blank" href="user4.png">--%>
+<%--                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >--%>
+<%--                </a>--%>
+<%--                <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>--%>
+<%--              </div>--%>
+<%--            <%}%>--%>
             <button id="addproject-btn" onclick="myfunction()">Add Project</button>
       </div>
 

@@ -1,6 +1,8 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.PreviousProjectDAO;
 import com.example.construct360deg.dao.ViewProfileDAO;
+import com.example.construct360deg.model.PreviousProject;
 import com.example.construct360deg.model.Viewprofile;
 
 import javax.servlet.RequestDispatcher;
@@ -45,6 +47,16 @@ public class ViewProfileServlet extends HttpServlet {
                 e.printStackTrace();
             }
             req.setAttribute("summary",addSummary);
+
+            PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
+            ArrayList<PreviousProject> previousProjects=new ArrayList<>();
+            try {
+                previousProjects=previousProjectDAO.getAllPreviousProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("previousProjects",previousProjects);
+
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
@@ -58,6 +70,16 @@ public class ViewProfileServlet extends HttpServlet {
                 e.printStackTrace();
             }
             req.setAttribute("summary",addSummary);
+
+            PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
+            ArrayList<PreviousProject> previousProjects=new ArrayList<>();
+            try {
+                previousProjects=previousProjectDAO.getAllPreviousProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("previousProjects",previousProjects);
+
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
