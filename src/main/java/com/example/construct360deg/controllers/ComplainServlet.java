@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-
+/*
+* Admins userid should be 1 to make this part run
+* */
 @WebServlet("/complains")
 public class ComplainServlet extends HttpServlet {
     @Override
@@ -28,10 +30,16 @@ public class ComplainServlet extends HttpServlet {
         ComplainDAO complainDAO=new ComplainDAO();
         PrintWriter out= resp.getWriter();
         complain.setComplainer((Integer) session.getAttribute("userid"));
-        complain.setComplainee(Integer.parseInt(req.getParameter("complaineeuserid")));
+        complain.setCategory(req.getParameter("category"));
+        if(complain.getCategory().equals("user")){
+            complain.setComplainee(Integer.parseInt(req.getParameter("complaineeuserid")));
+        }else{
+            complain.setComplainee(1);
+        }
+
         complain.setEmail(req.getParameter("email"));
         complain.setFullname(req.getParameter("fname"));
-        complain.setCategory(req.getParameter("category"));
+
         complain.setMessage(req.getParameter("message"));
 
         try {
