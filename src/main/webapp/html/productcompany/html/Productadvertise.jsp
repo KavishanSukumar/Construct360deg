@@ -24,7 +24,7 @@
                     <h2 id="advertise_product">Advertising products</h2>
                 </div>
                 <div class="advertisingcomponent">
-                    <img src="../resources/images/Advertise/advertiseproduct.png">
+                    <img src="./resources/images/Advertise/advertiseproduct.png">
                     <p>“Building a profitable personal brand online is not a sprint, and something that happens over
                         night. Don’t aim for perfection early on.
                         Instead allow your brand to evolve naturally over time and focus on providing massive value and

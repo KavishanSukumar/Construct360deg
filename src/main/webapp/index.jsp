@@ -202,7 +202,7 @@
     </div>
     <div id="contactform">
         <div class="container">
-            <form action="">
+            <form action="<%=request.getContextPath()%>/Homeform" method="post">
 
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your name..">
@@ -214,7 +214,7 @@
                 <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
                 <label for="subject">Message</label>
-                <textarea id="subject" name="subject"  style="height:200px"></textarea>
+                <textarea id="subject" name="message"  style="height:200px"></textarea>
 
                 <input type="submit" value="Submit">
 
