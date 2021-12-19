@@ -1,6 +1,7 @@
 package com.example.construct360deg.model;
 
 public class HomeForm {
+    private int contactid;
     private String fname;
     private String lname;
     private String email;
@@ -36,5 +37,13 @@ public class HomeForm {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public int getContactid() {
+        return contactid;
+    }
+
+    public void setContactid(int contactid) {
+        this.contactid = contactid;
     }
 }

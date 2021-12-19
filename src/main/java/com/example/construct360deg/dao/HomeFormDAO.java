@@ -5,7 +5,9 @@ import com.example.construct360deg.model.HomeForm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class HomeFormDAO {
     public boolean homeform(HomeForm homeForm) throws SQLException{
@@ -26,6 +28,29 @@ public class HomeFormDAO {
         }else {
             return false;
         }
+    }
+
+    public ArrayList<HomeForm> retriveHomeForm() throws SQLException {
+        ArrayList<HomeForm> homeForms = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `homeform`";
+        ResultSet resultSet = null;
+
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            HomeForm homeForm = new HomeForm();
+            homeForm.setContactid(resultSet.getInt("contactid"));
+            homeForm.setFname(resultSet.getString("fname"));
+            homeForm.setLname(resultSet.getString("lname"));
+            homeForm.setEmail(resultSet.getString("email"));
+            homeForm.setMessage(resultSet.getString("message"));
+            homeForms.add(homeForm);
+        }
+
+        return homeForms;
     }
 
 }
