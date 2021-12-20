@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Experience" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
     ArrayList<Viewprofile> addsummary= (ArrayList<Viewprofile>) request.getAttribute("summary");
@@ -9,6 +10,10 @@
 
 <%
     ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
+%>
+
+<%
+    ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
 %>
 
 <!DOCTYPE html>
@@ -23,7 +28,6 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script>
-
     function popup(){
       document.getElementById("popup").classList.toggle("active");
     }
@@ -42,6 +46,9 @@
       }
     }
 
+    function popupex(){
+      document.getElementById("popupex").classList.toggle("active");
+    }
   </script>
 </head>
 
@@ -62,7 +69,13 @@
     <div class="content2">
       <div class="box1">
         <img src="./html/professionals/resources/images/viewprofile/cover.png">
-        <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
+
+          <div class="profile-pic">
+            <img src="./html/professionals/resources/images/viewprofile/user2.png" id="user">
+              <input id="file" type="file">
+            <label for="file" id="uploadbtn">Choose Photo</label>
+          </div>
+
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
         <h2>Robert Johns</h2>
         <p>Expert Consultant:Upscale Commercial/Residential
@@ -70,13 +83,45 @@
         Award Winner<br>Colombo District, Western, Sri Lanka.</p>
         <a href="#" class="button">Message</a>
       </div>
+      <script>
+        //declearing html elements
+        const imgDiv = document.querySelector('.profile-pic');
+        const img = document.querySelector('#user');
+        const file = document.querySelector('#file');
+        const uploadbtn = document.querySelector('#uploadbtn');
+
+        //if user hover on img div
+        imgDiv.addEventListener('mouseenter', function (){
+          uploadbtn.style.display = "block";
+        });
+
+        //if we hover out from img div
+        imgDiv.addEventListener('mouseleave', function (){
+          uploadbtn.style.display = "none";
+        });
+
+        //lets work for image showing functionality when we choose an image to upload
+        //when we choose a photo to upload
+        file.addEventListener('change', function (){
+          //this refers to file
+          const choosedFile = this.files[0];
+
+          if (choosedFile){
+            const reader = new FileReader();//FileReader is a predefined function of JS
+            reader.addEventListener('load', function (){
+              img.setAttribute('src', reader.result);
+            });
+            reader.readAsDataURL(choosedFile);
+          }
+        });
+      </script>
 
       <div class="box2">
         <a href="#"><i class="fa fa-camera"></i></a>
           <h3>About</h3>
 
           <%for (Viewprofile x:addsummary){%>
-             <p><%=x.getSummaryText()%></p>
+             <p>* <%=x.getSummaryText()%></p>
           <% }%>
 
         <div class="summary" id="popup">
@@ -115,15 +160,42 @@
             <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>
           </div>
           <%}%>
-
-
       </div>
 
       <div class="box3">
           <i class="fa fa-shopping-bag"></i>
           <h3>Experience</h3>
           <p>Add past positions to find new career opportunities or to reconnect with your past colleagues</p>
-          <a href="#" class="button">Add experience</a>
+
+        <div class="experience" id="popupex">
+          <div class="button" onclick="popupex()">Add experience</div><br>
+
+          <%for (Experience x:experiences){%>
+          <p>* I worked as a <%=x.getTitle()%> for <%=x.getYears()%> years in <%=x.getCompanyname()%> company in <%=x.getLocation()%>.</p>
+          <%}%>
+
+          <div class="background"></div>
+          <div class="excontent">
+            <div class="close-btn" onclick="popupex()">&times;</div>
+
+            <form action="<%=request.getContextPath()%>/viewprofile" method="post">
+              <h3>Add Experience</h3>
+              <label for="title">Title:</label>
+              <input type="text" id="title" name="title">
+
+              <label for="comname">Company Name: </label>
+              <input type="text" id="comname" name="comname">
+
+              <label for="location">Location: </label>
+              <input type="text" id="location" name="location">
+
+              <label for="years">Number of years worked: </label>
+              <input type="text" id="years" name="years">
+              <input type="submit" value="Save">
+            </form>
+
+          </div>
+        </div>
 
           <i class="fa fa-pencil-ruler"></i>
           <h3>Skills</h3>

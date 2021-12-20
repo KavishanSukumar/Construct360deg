@@ -3,10 +3,6 @@
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
-<%--<%--%>
-<%--  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");--%>
-<%--%>--%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +113,7 @@
     <div class="content2">
       <div class="setting">
         <img src="./html/professionals/resources/images/viewprofile/user2.png">
-        <a href="#"><i class="fa fa-camera"></i></a>
+<%--        <a href="#"><i class="fa fa-camera"></i></a>--%>
         <h3>Robert Johns</h3>
         <p>Your personal account</p>
         <div class="menu">
@@ -160,24 +156,6 @@
       </div>
 
       <div class="middle-content" id="preproject">
-<%--            <%for (PreviousProject x:previousProjects){%>--%>
-<%--              <%--%>
-<%--                String base64Encoded=null;--%>
-<%--                if(x.getImgBytes()==null){--%>
-
-<%--                }else{--%>
-<%--                  byte[] bytes = x.getImgBytes();--%>
-<%--                  byte[] encodeBase64 = Base64.encodeBase64(bytes);--%>
-<%--                  base64Encoded = new String(encodeBase64, "UTF-8");--%>
-<%--                }--%>
-<%--              %>--%>
-<%--              <div class="gallery">--%>
-<%--                <a target="_blank" href="user4.png">--%>
-<%--                  <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >--%>
-<%--                </a>--%>
-<%--                <p><%=x.getBuiltYear()%>-<%=x.getCity()%><br><%=x.getProvince()%></p>--%>
-<%--              </div>--%>
-<%--            <%}%>--%>
             <button id="addproject-btn" onclick="myfunction()">Add Project</button>
       </div>
 

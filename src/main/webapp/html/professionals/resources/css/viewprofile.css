@@ -18,7 +18,7 @@ form.example input[type=text] {
     margin-top: 6px;
     width: 63%;
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-  }
+}
 form.example button {
     float: left;
     width: 3%;
@@ -30,10 +30,10 @@ form.example button {
     cursor: pointer;
     margin-left: 210px;
     margin-top: 6px;
-  }
+}
 form.example button:hover {
     background: #d1cfcd;
-  }
+}
 form.example::after {
     content: "";
     clear: both;
@@ -68,20 +68,52 @@ form.example::after {
 .box1{border-bottom: 1px solid rgb(177, 167, 167);}
 .box2{border-bottom: 1px solid rgb(177, 167, 167);}
 .box3{border-bottom: 1px solid rgb(177, 167, 167);}
+
 .box1 img{
     width: 900px;
     height: 260px;
     border-radius: 10px;
 }
-.box1 .user{
-    width: 220px;
+
+/*change profile picture*/
+.box1 .profile-pic {
     height: 220px;
+    width: 220px;
+    position: absolute;
+    top: 55%;
+    left: 30%;
+    transform: translate(-50%,-50%);
     border-radius: 50%;
-    margin-top: -180px;
-    margin-left: 30px;
-    border: 5px solid white;
+    overflow: hidden;
+    border: 1px solid grey;
 }
-.box1 h2{margin-left: 30px;}
+.box1 #user{
+    width: 100%;
+    height: 100%;
+}
+.box1 #file{
+    display: none;
+}
+.box1 #uploadbtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+    color: wheat;
+    line-height: 30px;
+    cursor: pointer;
+    display: none;
+}
+/* The end */
+
+.box1 h2{
+    margin-left: 30px;
+    margin-top: 85px;
+}
 .box1 p{
     margin-left: 30px;
     margin-top: -15px;
@@ -89,8 +121,9 @@ form.example::after {
 }
 .box1 i{
     font-size: 25px;
-    margin-left: 580px;
     color: #292727;
+    float: right;
+    margin-right: 20px;
 }
 .button{
     background-color: rgb(222, 225, 226);
@@ -137,12 +170,8 @@ form.example::after {
     margin-top: 5px;
 }
 .box3 p{
-    text-align: center;
-    margin-top: -15px;}
-.box3 .button{
-    margin-left: 120px;
-    width: 600px;}
-.summary .background{
+    margin-left: 20px;}
+.summary .background, .experience .background{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -152,7 +181,7 @@ form.example::after {
     z-index: 1;
     display: none;
 }
-.summary .close-btn{
+.summary .close-btn, .experience .close-btn{
     position: absolute;
     right: 10px;
     top: 10px;
@@ -188,27 +217,63 @@ form.example::after {
     width: 700px;
     height: 280px;
 }
-.summary .save-btn{
-    position: absolute;
+.summary .save-btn, .experience .save-btn{
     font-size: 18px;
     background: #e6e4e3;
-    width: 70px;
     padding: 10px;
-    margin-left: 350px;
+    margin-left: 680px;
     margin-top: 5px;
     border-radius: 50px;
     cursor: pointer;
     border: 1px solid grey;
 }
-.summary .save-btn:hover{
+.summary .save-btn:hover, .experience .save-btn:hover{
     background: #ff7200;
     color: white;
 }
 .summary.active .background{display: block;}
+.experience.active .background{display: block;}
 .summary.active .summarycontent{
     transition:all 300ms ease-in-out;
     transform:translate(-50%, -50%) scale(1);
 }
+.experience.active .excontent{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.excontent input[type=text]{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.excontent{
+    background-color: rgb(230, 228, 228);
+    margin-top: 50px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    height: 450px;
+    transform: translate(-50%, -50%)scale(0);
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.excontent input[type="submit"]{
+    padding: 10px;
+    border-radius: 20px;
+    width: 80px;
+}
+.excontent input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+.excontent label{font-size: 15px;}
 
 .box4 h3{margin-left: 30px;}
 .box4 p{margin-left: 100px;}
@@ -218,7 +283,7 @@ form.example::after {
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
-    font-size:14px;
+    font-size: 14px;
     background: rgb(0, 0, 0);
 }
 .footer p{
