@@ -23,7 +23,6 @@
         </form>
         <div class="main">
             <a href="#"><i class="fa fa-home"></i></a>
-            <a href="#"><i class="fa fa-bell"></i></a>
             <a href="#"><i class="fa fa-mail-bulk"></i></a>
         </div>
     </div>
@@ -38,17 +37,12 @@
         </div>
         <div class="box2">
             <a href="#"><i class="fa fa-camera"></i></a>
-            <h3>About</h3>
-            <p>+ Add summary</p>
-            <h3>Featured</h3>
-            <span>Add external documents, photos and links.</span>
-            <p>+ Add featured</p>
             <h3>Contact</h3>
             <p>Email - <a href="Upwork456@gmail.com">Upwork456@gmail.com</a></p>
-            <p>LinkedIn - <a href="htttps://www.linkedin.com/in/UpWork-466278a1a5">htttps://www.linkedin.com/in/Upwork-466278a1a5</a></p>
+            <p>Tele - 0472341578</p>
         </div>
     </div>
 </div>
-</body>
+</body><br><br>
 <%@include file="../../footer.jsp"%>
 </html>
