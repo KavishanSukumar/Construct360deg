@@ -1,7 +1,12 @@
 package com.example.construct360deg.model;
 
+
+
+
 import java.io.InputStream;
 import java.sql.Blob;
+import java.sql.Date;
+import java.sql.Time;
 
 public class Advertise {
     private String addid;
@@ -11,24 +16,52 @@ public class Advertise {
     private String description;
     private InputStream img;
     private Blob imgblob;
+    private Date todaydate;
+    private Time nowtime;
+    private String username;
+    private String role;
+    private Date evodate;
+    private String addstatus;
 
-    public Blob getImgblob() {
-        return imgblob;
+
+    public Date getEvodate() {
+        return evodate;
     }
 
-    public void setImgblob(Blob imgblob) {
-        this.imgblob = imgblob;
+    public void setEvodate(Date evodate) {
+        this.evodate = evodate;
     }
 
-    public Byte[] getImgbyte() {
-        return imgbyte;
+    public String getAddstatus() {
+        return addstatus;
     }
 
-    public void setImgbyte(Byte[] imgbyte) {
-        this.imgbyte = imgbyte;
+    public void setAddstatus(String addstatus) {
+        this.addstatus = addstatus;
     }
 
-    private Byte[] imgbyte;
+
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+
 
     public String getAddid() {
         return addid;
@@ -77,6 +110,31 @@ public class Advertise {
     public void setImg(InputStream img) {
         this.img = img;
     }
+
+    public Blob getImgblob() {
+        return imgblob;
+    }
+
+    public void setImgblob(Blob imgblob) {
+        this.imgblob = imgblob;
+    }
+
+    public Date getTodaydate() {
+        return todaydate;
+    }
+
+    public void setTodaydate(Date todaydate) {
+        this.todaydate = todaydate;
+    }
+
+    public Time getNowtime() {
+        return nowtime;
+    }
+
+    public void setNowtime(Time nowtime) {
+        this.nowtime = nowtime;
+    }
+
 
 
 }

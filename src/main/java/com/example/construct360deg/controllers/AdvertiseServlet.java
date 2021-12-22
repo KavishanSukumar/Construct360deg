@@ -10,7 +10,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @WebServlet("/advertise")
@@ -36,6 +42,8 @@ public class AdvertiseServlet extends HttpServlet {
         }
     }
 
+
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
@@ -44,9 +52,19 @@ public class AdvertiseServlet extends HttpServlet {
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
 
-        /* me deka gana ahanna*/
+        DateTimeFormatter todaytdate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timenow = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalDate nowdate = LocalDate.now();
+        LocalTime nowtime = LocalTime.now();
+
+        String thedate=todaytdate.format(nowdate);
+        String thetime=timenow.format(nowtime);
+        System.out.println(thedate);
+        System.out.println(thetime);
 
 
+        advertise.setTodaydate(Date.valueOf(nowdate));
+        advertise.setNowtime(Time.valueOf(nowtime));
         advertise.setUserid(userid);
         advertise.setHeadline(req.getParameter("headline"));
         advertise.setDescription(req.getParameter("description"));

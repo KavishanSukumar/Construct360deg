@@ -58,11 +58,13 @@
 }
 
 #available_adds{
-    /*background-color: #ff7200;*/
+    background-color: #ff7200;
     font-size: 17px;
     border-radius: 20px;
     cursor: pointer;
+
 }
+
 #accept_adds{
     font-size: 17px;
     border-radius: 20px;
@@ -78,7 +80,7 @@
     background-color: #ff7200;
 }
 
-.from{
+.from {
     float: left;
     margin-left: 53px;
 }
@@ -92,24 +94,36 @@
     float: left;
     margin-left: 50px;
 }
-.okbtn{
+.btn, .okbtn{
     background-color: #585858;
     border: none;
     color: white;
-    padding: 4px 14px;
+    padding: 8px 14px;
     display: inline-block;
-    font-size: 15px;
-    margin: 1px 11px;
+    font-size: 14px;
+    margin: 1px 9px;
     cursor: pointer;
     border-radius: 5px;
 }
-
-.manageadds{
-
-    border-collapse: collapse;
-    width: 90.4%;
-    margin-left: 54px;
+#confirm{
+    background-color: #1fa11f;
 }
+#confirm:hover{
+    background-color: #000000;
+}
+#reject{
+    background-color: #d21212;
+}
+#reject:hover{
+    background-color: #000000;
+}
+
+/*manageadds{*/
+
+/*    border-collapse: collapse;*/
+/*    width: 90.4%;*/
+/*    margin-left: 54px;*/
+/*}*/
 
 .manageadds td, .manageadds th {
     border: 1px solid #ddd;

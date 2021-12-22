@@ -20,6 +20,9 @@
 
     <div class="content">
         <img src="./html/customer/resources/images/landingpage/home.jpg" class="background-img">
+
+
+
     </div>
 
 </div>
