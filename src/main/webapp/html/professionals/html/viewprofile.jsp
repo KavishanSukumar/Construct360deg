@@ -3,22 +3,17 @@
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.Experience" %>
+<%@ page import="com.example.construct360deg.model.Skills" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
     ArrayList<Viewprofile> addsummary= (ArrayList<Viewprofile>) request.getAttribute("summary");
-%>
-
-<%
     ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
-%>
-
-<%
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
+    ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
 %>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,10 +23,6 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script>
-    function popup(){
-      document.getElementById("popup").classList.toggle("active");
-    }
-
     function summaryData(){
       let summaryText= document.getElementById("text").value;
       console.log(summaryText);
@@ -45,9 +36,14 @@
         console.log("Hello1**********");
       }
     }
-
+    function popup(){
+      document.getElementById("popup").classList.toggle("active");
+    }
     function popupex(){
       document.getElementById("popupex").classList.toggle("active");
+    }
+    function popupskills(){
+      document.getElementById("popupskills").classList.toggle("active");
     }
   </script>
 </head>
@@ -69,12 +65,7 @@
     <div class="content2">
       <div class="box1">
         <img src="./html/professionals/resources/images/viewprofile/cover.png">
-
-          <div class="profile-pic">
-            <img src="./html/professionals/resources/images/viewprofile/user2.png" id="user">
-              <input id="file" type="file">
-            <label for="file" id="uploadbtn">Choose Photo</label>
-          </div>
+        <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
 
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
         <h2>Robert Johns</h2>
@@ -83,56 +74,22 @@
         Award Winner<br>Colombo District, Western, Sri Lanka.</p>
         <a href="#" class="button">Message</a>
       </div>
-      <script>
-        //declearing html elements
-        const imgDiv = document.querySelector('.profile-pic');
-        const img = document.querySelector('#user');
-        const file = document.querySelector('#file');
-        const uploadbtn = document.querySelector('#uploadbtn');
-
-        //if user hover on img div
-        imgDiv.addEventListener('mouseenter', function (){
-          uploadbtn.style.display = "block";
-        });
-
-        //if we hover out from img div
-        imgDiv.addEventListener('mouseleave', function (){
-          uploadbtn.style.display = "none";
-        });
-
-        //lets work for image showing functionality when we choose an image to upload
-        //when we choose a photo to upload
-        file.addEventListener('change', function (){
-          //this refers to file
-          const choosedFile = this.files[0];
-
-          if (choosedFile){
-            const reader = new FileReader();//FileReader is a predefined function of JS
-            reader.addEventListener('load', function (){
-              img.setAttribute('src', reader.result);
-            });
-            reader.readAsDataURL(choosedFile);
-          }
-        });
-      </script>
 
       <div class="box2">
         <a href="#"><i class="fa fa-camera"></i></a>
           <h3>About</h3>
 
-          <%for (Viewprofile x:addsummary){%>
-             <p>* <%=x.getSummaryText()%></p>
-          <% }%>
-
         <div class="summary" id="popup">
             <div class="button" onclick="popup()">Add summary</div>
+          <%for (Viewprofile x:addsummary){%>
+              <p>* <%=x.getSummaryText()%></p>
+          <% }%>
+
           <div class="background"></div>
           <div class="summarycontent">
               <div class="close-btn" onclick="popup()">&times;</div>
             <h3>Description</h3>
-              <textarea class="description" id = "text" placeholder="You can write about your years of experience, industry or skills.
-               Peoples also talk about their achievements or previous project experiences here....">
-
+              <textarea class="description" id = "text">
               </textarea>
             <div class="save-btn" onclick="summaryData()">Save</div>
           </div>
@@ -168,7 +125,7 @@
           <p>Add past positions to find new career opportunities or to reconnect with your past colleagues</p>
 
         <div class="experience" id="popupex">
-          <div class="button" onclick="popupex()">Add experience</div><br>
+          <div class="button" onclick="popupex()">Add Experience</div><br>
 
           <%for (Experience x:experiences){%>
           <p>* I worked as a <%=x.getTitle()%> for <%=x.getYears()%> years in <%=x.getCompanyname()%> company in <%=x.getLocation()%>.</p>
@@ -200,13 +157,52 @@
           <i class="fa fa-pencil-ruler"></i>
           <h3>Skills</h3>
           <p>Add skills to showcase your strengths, get your profile noticed by hiring customers</p>
-          <a href="#" class="button">Add skills</a>
+        <div class="skills" id="popupskills">
+        <div class="button" onclick="popupskills()">Add Skills</div><br>
+
+          <%for (Skills x:skills){%>
+            <div class="gallery">
+            <p>* <%=x.getSkill1()%></p>
+              <p>* <%=x.getSkill2()%></p>
+              <p>* <%=x.getSkill3()%></p>
+              <p>* <%=x.getSkill4()%></p>
+              <p>* <%=x.getSkill5()%></p>
+              <p> <%=x.getOther()%></p>
+            </div>
+          <%}%>
+
+          <div class="background"></div>
+          <div class="skills-content">
+            <div class="close-btn" onclick="popupskills()">&times;</div>
+              <form action="<%=request.getContextPath()%>/skills" method="post">
+                <h2>Add Your Skills :</h2>
+                <label for="skill-1">Skill-1:</label>
+                <input type="text" id="skill-1" name="skill1">
+
+                <label for="skill-2">Skill-2: </label>
+                <input type="text" id="skill-2" name="skill2">
+
+                <label for="skill-3">Skill-3: </label>
+                <input type="text" id="skill-3" name="skill3">
+
+                <label for="skill-4">Skill-4: </label>
+                <input type="text" id="skill-4" name="skill4">
+
+                <label for="skill-5">Skill-5: </label>
+                <input type="text" id="skill-5" name="skill5">
+
+                <label for="other">Another skills: </label>
+                <input type="text" id="other" name="other">
+                <input type="submit" value="Save">
+              </form>
+          </div>
+        </div>
       </div>
 
       <div class="box4">
         <h3>Contact</h3>
         <p>Email - <a href="wpsJohns456@gmail.com">wpsJohns456@gmail.com</a></p>
-        <p>LinkedIn - <a href="htttps://www.linkedin.com/in/robert-john-466278a1a5">htttps://www.linkedin.com/in/robert-john-466278a1a5</a></p>
+        <p>Tele - 0763452789</p>
       </div>
     </div>
   </div><br><br>
