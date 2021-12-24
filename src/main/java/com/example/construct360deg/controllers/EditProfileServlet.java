@@ -1,6 +1,8 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.AccountDetailsDAO;
 import com.example.construct360deg.dao.PreviousProjectDAO;
+import com.example.construct360deg.model.Account;
 import com.example.construct360deg.model.PreviousProject;
 
 import javax.servlet.RequestDispatcher;
@@ -22,7 +24,6 @@ public class EditProfileServlet extends HttpServlet {
         int userid= (int) session.getAttribute("userid");
         String userrole= (String) session.getAttribute("userrole");
 
-
         if(userrole.equals("admin")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/editdetails-admin.jsp");
             requestDispatcher.forward(req,resp);
@@ -36,27 +37,29 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
-            PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
-            ArrayList<PreviousProject> previousProjects=new ArrayList<>();
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                previousProjects=previousProjectDAO.getAllPreviousProjects(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
+                accounts = accountDetailsDAO.retriveDetails();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-            req.setAttribute("previousProjects",previousProjects);
+            req.setAttribute("accounts",accounts);
+
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
             requestDispatcher.forward(req,resp);
 
             System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
-            PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
-            ArrayList<PreviousProject> previousProjects=new ArrayList<>();
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                previousProjects=previousProjectDAO.getAllPreviousProjects(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
+                accounts = accountDetailsDAO.retriveDetails();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
             }
-            req.setAttribute("previousProjects",previousProjects);
+            req.setAttribute("accounts",accounts);
+
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
             requestDispatcher.forward(req,resp);
 

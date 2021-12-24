@@ -1,7 +1,12 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Account" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
+<%
+  ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,75 +21,53 @@
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
-          $("#email-btn").click(function (){
-            $(this).addClass("active");
-            $("#preproject-btn").removeClass("active");
-            $("#preference-btn").removeClass("active");
-            $("#account-btn").removeClass("active");
-            $("#qualification-btn").removeClass("active");
-            $("#account").css("display","none");
-            $("#qualification").css("display","none");
-            $("#emails").css("display","block");
-            $("#preproject").css("display","none");
-            $("#preference").css("display","none");
-          });
           $("#preproject-btn").click(function (){
             $(this).addClass("active");
-            $("#email-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
             $("#qualification").css("display","none");
-            $("#emails").css("display","none");
             $("#preproject").css("display","block");
             $("#preference").css("display","none");
           });
           $("#preference-btn").click(function (){
             $(this).addClass("active");
-            $("#email-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#account").css("display","none");
             $("#qualification").css("display","none");
-            $("#emails").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","block");
           });
           $("#account-btn").click(function (){
             $(this).addClass("active");
-            $("#email-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account").css("display","block");
             $("#qualification").css("display","none");
-            $("#emails").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
           });
           $("#qualification-btn").click(function (){
             $(this).addClass("active");
-            $("#email-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#qualification").css("display","block");
             $("#account").css("display","none");
-            $("#emails").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
           });
           $("#addproject-btn").click(function (){
             $(this).addClass("active");
-            $("#email-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#preproject-btn").addClass("active");
             $("#preference-btn").removeClass("active");
             $("#account").css("display","none");
-            $("#emails").css("display","none");
             $("#preproject").css("display","block");
             $("#preference").css("display","none");
           });
@@ -113,8 +96,9 @@
     <div class="content2">
       <div class="setting">
         <img src="./html/professionals/resources/images/viewprofile/user2.png">
-<%--        <a href="#"><i class="fa fa-camera"></i></a>--%>
-        <h3>Robert Johns</h3>
+        <%for (Account x:accounts){%>
+        <h3><%=x.getFirstname()%> <%=x.getLastname()%></h3>
+        <%}%>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
@@ -123,34 +107,36 @@
           <a id="preproject-btn" href="#">Previous Projects</a>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>
-
       </div>
+
+      <%for (Account x:accounts){%>
       <div class="middle-content" id="account">
-        <form action="/action_page.java">
+        <form action="<%=request.getContextPath()%>/account" method="post">
           <label for="fname">First Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="fname" name="firstname" value="Robert">
+          <input type="text" id="fname" name="firstname" value="<%=x.getFirstname()%>">
 
           <label for="lname">Last Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="lname" name="lastname" value="Johns">
+          <input type="text" id="lname" name="lastname" value="<%=x.getLastname()%>">
 
           <label for="bio">Bio: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="bio" name="bio" value="Expert Consultant:Upscale Commercial/ResidentialConstruction, Architectural Concreate, Masonry,Foundation Award Winner Colombo District, Western, Sri Lanka">
+          <input type="text" id="bio" name="bio" value="<%=x.getBio()%>">
 
           <label for="nic">Nic Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="nic" name="nic" value="708240370v">
+          <input type="text" id="nic" name="nic" value="<%=x.getNic()%>">
 
           <label for="email">E-mail: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="email" name="email" value="wpsJohns456@gmail.com">
+          <input type="text" id="email" name="email" value="<%=x.getEmail()%>">
 
           <label for="address">Address: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="address" name="address" value="No.22 boralasgamuwa road, Kaluthara North, Colombo.">
+          <input type="text" id="address" name="address" value="<%=x.getAddress()%>">
 
           <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="0763452789">
+          <input type="text" id="contactnum" name="contactnum" value="<%=x.getContactnum()%>">
 
           <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
+      <%}%>
       <div class="middle-content" id="qualification">
         <h3>Qualifications</h3>
       </div>
@@ -212,12 +198,10 @@
               <span>Delete my account</span>
             </a>
           </div>
-
         </div>
       </div>
-<%--      ----------------------%>
-    </div>
 
+    </div>
   </div>
   <%@include file="../../footer.jsp"%>
 </body>

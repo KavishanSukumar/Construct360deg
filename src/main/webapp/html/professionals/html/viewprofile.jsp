@@ -1,15 +1,13 @@
-<%@ page import="com.example.construct360deg.model.Viewprofile" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
-<%@ page import="com.example.construct360deg.model.Experience" %>
-<%@ page import="com.example.construct360deg.model.Skills" %>
+<%@ page import="com.example.construct360deg.model.*" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
     ArrayList<Viewprofile> addsummary= (ArrayList<Viewprofile>) request.getAttribute("summary");
     ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
+    ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
 %>
 
 <!DOCTYPE html>
@@ -68,10 +66,10 @@
         <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
 
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
-        <h2>Robert Johns</h2>
-        <p>Expert Consultant:Upscale Commercial/Residential
-        <br>Construction, Architectural Concreate, Masonry,Foundation
-        Award Winner<br>Colombo District, Western, Sri Lanka.</p>
+        <%for (Account x:accounts){%>
+        <h2><%=x.getFirstname()%> <%=x.getLastname()%></h2>
+        <p><%=x.getBio()%></p>
+        <%}%>
         <a href="#" class="button">Message</a>
       </div>
 
@@ -83,7 +81,7 @@
             <div class="button" onclick="popup()">Add summary</div>
           <%for (Viewprofile x:addsummary){%>
               <p>* <%=x.getSummaryText()%></p>
-          <% }%>
+          <%}%>
 
           <div class="background"></div>
           <div class="summarycontent">
@@ -201,8 +199,10 @@
 
       <div class="box4">
         <h3>Contact</h3>
-        <p>Email - <a href="wpsJohns456@gmail.com">wpsJohns456@gmail.com</a></p>
-        <p>Tele - 0763452789</p>
+        <%for (Account x:accounts){%>
+        <p>Email - <%=x.getEmail()%></p>
+        <p>Tele - <%=x.getContactnum()%></p>
+        <%}%>
       </div>
     </div>
   </div><br><br>

@@ -1,13 +1,7 @@
 package com.example.construct360deg.controllers;
 
-import com.example.construct360deg.dao.ExperienceDAO;
-import com.example.construct360deg.dao.PreviousProjectDAO;
-import com.example.construct360deg.dao.SkillsDAO;
-import com.example.construct360deg.dao.ViewProfileDAO;
-import com.example.construct360deg.model.Experience;
-import com.example.construct360deg.model.PreviousProject;
-import com.example.construct360deg.model.Skills;
-import com.example.construct360deg.model.Viewprofile;
+import com.example.construct360deg.dao.*;
+import com.example.construct360deg.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,6 +38,17 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if(userrole.equals("prof_com")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            ArrayList<Account> accounts = new ArrayList<>();
+            try {
+                accounts = accountDetailsDAO.retriveDetails();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",accounts);
+
+            //add summary
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();
             ArrayList<Viewprofile> addSummary = new ArrayList<>();
             try {
@@ -53,6 +58,7 @@ public class ViewProfileServlet extends HttpServlet {
             }
             req.setAttribute("summary",addSummary);
 
+            //Add previous projects
             PreviousProjectDAO previousProjectDAO=new PreviousProjectDAO();
             ArrayList<PreviousProject> previousProjects=new ArrayList<>();
             try {
@@ -87,6 +93,16 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("prof_indiv")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            ArrayList<Account> accounts = new ArrayList<>();
+            try {
+                accounts = accountDetailsDAO.retriveDetails();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",accounts);
+
             //Add summary
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();
             ArrayList<Viewprofile> addSummary = new ArrayList<>();
@@ -139,36 +155,6 @@ public class ViewProfileServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //Add Experience
-//        HttpSession session = req.getSession();
-//        int userid = (int) session.getAttribute("userid");
-//        Experience experience = new Experience();
-//        ExperienceDAO experienceDAO = new ExperienceDAO();
-//        PrintWriter out= resp.getWriter();
-//
-//        experience.setTitle(req.getParameter("title"));
-//        experience.setCompanyname(req.getParameter("comname"));
-//        experience.setLocation(req.getParameter("location"));
-//        experience.setYears(Integer.parseInt(req.getParameter("years")));
-//
-//        try {
-//            if (experienceDAO.addexperience(experience)){
-//                System.out.println("Experience added successfull");
-//                out.println("<script type='text/javascript'>");
-//                out.println("alert('Experience added successfull');");
-//                out.println("location='"+req.getContextPath()+"/viewprofile';");
-//                out.println("</script>");
-//            }else{
-//                System.out.println("Experience added unsuccessfull");
-//                out.println("<script type='text/javascript'>");
-//                out.println("alert('Experience added unsuccessfull');");
-//                out.println("location='"+req.getContextPath()+"/viewprofile';");
-//                out.println("</script>");
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-
         //Mixed
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
@@ -209,32 +195,6 @@ public class ViewProfileServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-//        Skills skills1 = new Skills();
-//        SkillsDAO skillsDAO = new SkillsDAO();
-//        skills1.setSkill1(req.getParameter("skill1"));
-//        skills1.setSkill2(req.getParameter("skill2"));
-//        skills1.setSkill3(req.getParameter("skill3"));
-//        skills1.setSkill4(req.getParameter("skill4"));
-//        skills1.setSkill5(req.getParameter("skill5"));
-//        skills1.setOther(req.getParameter("other"));
-//
-//        try {
-//            if(skillsDAO.addSkills(skills1)){
-//                System.out.println("Skills added successfull");
-//                out.println("<script type='text/javascript'>");
-//                out.println("alert('Skills added successfull');");
-//            }else{
-//                System.out.println("Skills added unsuccessfull");
-//                out.println("<script type='text/javascript'>");
-//                out.println("alert('Skills added unsuccessfull');");
-//            }
-//            out.println("location='"+req.getContextPath()+"/viewprofile';");
-//            out.println("</script>");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
 
     }
 
