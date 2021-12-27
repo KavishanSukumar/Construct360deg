@@ -110,6 +110,9 @@
     function popup(){
         document.getElementById("popup").classList.toggle("active");
     }
+    function openproject(){
+        location.href="<%=request.getContextPath()%>/myproject";
+    }
   </script>
 </head>
 
@@ -138,7 +141,7 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1">
+                <div class="grid-item1" onclick="openproject()">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
                     <div class="project1"><h3>Maharagama project two floors </h3></div>
                 </div>

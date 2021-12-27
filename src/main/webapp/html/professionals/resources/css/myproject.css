@@ -429,11 +429,25 @@ ul li a:hover,ul li i:hover{
 #send-btn:hover{
     color: #ff7200;
 }
+
+.update_payment{
+    box-shadow:2px 2px 2px 2px #cccccc;
+    height: auto;
+    width: 300px;
+    margin: 10px 10px;
+}
+
+.newpayment{
+    display: block;
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
 #viewproject{display: none;}
 #updateproject{display: grid;}
 #chatbox{display: none;}
 #closeproject{display: none;}
 #updatepayments{display: none}
+#update_payment{display: none}
 
 .footer{
     border-top: 1px solid #ebebeb;

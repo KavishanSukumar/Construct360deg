@@ -42,9 +42,9 @@ public class AddproductSevlet extends HttpServlet {
                 out.println("location='"+req.getContextPath()+"/addproduct';");
                 out.println("</script>");
             }else {
-                System.out.println("Unsuccessfull");
+                System.out.println("Product adding is successfull");
                 out.println("<script type='text/javascript'>");
-                out.println("alert('Insert Unsuccessful');");
+                out.println("alert('Insert successful');");
                 out.println("location='"+req.getContextPath()+"/addproduct';");
                 out.println("</script>");
             }

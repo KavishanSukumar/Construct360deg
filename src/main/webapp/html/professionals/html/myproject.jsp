@@ -1,3 +1,4 @@
+<%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -9,9 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Project</title>
 <%--  <link rel="stylesheet" href="./html/professionals/resources/css/viewproject.css">--%>
-  <link rel="stylesheet" href="../resources/css/myproject.css">
+  <link rel="stylesheet" href="./html/professionals/resources/css/myproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="../resources/js/jquery-3.6.0.js"></script>
+  <script src="./html/professionals/resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
             $("#updateproject-btn").click(function (){
@@ -25,19 +26,20 @@
                 $("#closeproject").css("display","none");
                 $("#viewproject").css("display","none");
                 $("#chatbox").css("display","none");
+                $("#update_payment").css("display","none");
             });
-            // $("#updateproject-btn").click(function (){
-            //     $(this).addClass("active");
-            //     $("#chatbox-btn").removeClass("active");
-            //     $("#updatepayment-btn").removeClass("active");
-            //     $("#closeproject-btn").removeClass("active");
-            //     $("#deleteproject-btn").removeClass("active");
-            //     $("#updateproject").css("display","grid");
-            //     $("#updatepayments").css("display","none");
-            //     $("#closeproject").css("display","none");
-            //     $("#viewproject").css("display","none");
-            //     $("#chatbox").css("display","none");
-            // });
+            $("#updatepayment-btn").click(function (){
+                $(this).addClass("active");
+                $("#chatbox-btn").removeClass("active");
+                $("#closeproject-btn").removeClass("active");
+                $("#updateproject-btn").removeClass("active");
+                $("#deleteproject-btn").removeClass("active");
+                $("#updateproject").css("display","none");
+                $("#update_payment").css("display","block");
+                $("#closeproject").css("display","none");
+                $("#viewproject").css("display","none");
+                $("#chatbox").css("display","none");
+            });
             $("#closeproject-btn").click(function (){
                 $(this).addClass("active");
                 $("#chatbox-btn").removeClass("active");
@@ -49,6 +51,7 @@
                 $("#closeproject").css("display","block");
                 $("#viewproject").css("display","none");
                 $("#chatbox").css("display","none");
+                $("#update_payment").css("display","none");
             });
             $("#deleteproject-btn").click(function (){
                 $(this).addClass("active");
@@ -61,6 +64,7 @@
                 $("#closeproject").css("display","none");
                 $("#viewproject").css("display","block");
                 $("#chatbox").css("display","none");
+                $("#update_payment").css("display","none");
             });
             $("#chatbox-btn").click(function (){
                 $(this).addClass("active");
@@ -73,6 +77,7 @@
                 $("#closeproject").css("display","none");
                 $("#viewproject").css("display","none");
                 $("#chatbox").css("display","block");
+                $("#update_payment").css("display","none");
             });
 
             var receiver=null;
@@ -114,6 +119,12 @@
                     }
                 });
             },2000)
+
+            $('#addpaymentbtn').click(function(){
+                var string="<form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='text' name='paymentamount' placeholder='Enter the payment amount'> <input type='file' name='paymentfile'><input type='hidden' name='payee' value=67 ><input type='hidden' name='payer' value=66><input type='hidden' name='projectid' value=1 ><button type='submit'>Submit</button></form>";
+                $('#newpayment').append(string);
+            });
+
     });
     function popup(){
         document.getElementById("popup").classList.toggle("active");
@@ -178,7 +189,13 @@
             </div>
 
 <%--            <div class="project" id="updatepayments">--%>
-
+            <div class="update_payment" id="update_payment">
+                <div class="newpayment" id="newpayment">
+                </div>
+                <div>
+                    <button class="ok-btn" id="addpaymentbtn" onclick="addpayment()">Add payment</button>
+                </div>
+            </div>
 <%--            </div>--%>
 
             <div class="project" id="closeproject">
