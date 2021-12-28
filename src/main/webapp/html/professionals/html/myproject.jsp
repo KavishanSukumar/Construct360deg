@@ -1,8 +1,13 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.Project" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
 <%
     int userid= (int) session.getAttribute("userid");
+%>
+<%
+    ArrayList<Project> projects = (ArrayList<Project>) request.getAttribute("projects");
 %>
 <head>
   <meta charset="UTF-8">
@@ -15,13 +20,30 @@
   <script src="./html/professionals/resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
+            $("#displayproject-btn").click(function (){
+                $(this).addClass("active");
+                $("#chatbox-btn").removeClass("active");
+                $("#updateproject-btn").removeClass("active");
+                $("#updatepayment-btn").removeClass("active");
+                $("#closeproject-btn").removeClass("active");
+                $("#deleteproject-btn").removeClass("active");
+                $("#displayproject").css("display","block");
+                $("#updateproject").css("display","none");
+                $("#updatepayments").css("display","none");
+                $("#closeproject").css("display","none");
+                $("#viewproject").css("display","none");
+                $("#chatbox").css("display","none");
+                $("#update_payment").css("display","none");
+            });
             $("#updateproject-btn").click(function (){
                 $(this).addClass("active");
+                $("#displayproject-btn").removeClass("active");
                 $("#chatbox-btn").removeClass("active");
                 $("#updatepayment-btn").removeClass("active");
                 $("#closeproject-btn").removeClass("active");
                 $("#deleteproject-btn").removeClass("active");
                 $("#updateproject").css("display","grid");
+                $("#displayproject").css("display","none");
                 $("#updatepayments").css("display","none");
                 $("#closeproject").css("display","none");
                 $("#viewproject").css("display","none");
@@ -31,9 +53,11 @@
             $("#updatepayment-btn").click(function (){
                 $(this).addClass("active");
                 $("#chatbox-btn").removeClass("active");
+                $("#displayproject-btn").removeClass("active");
                 $("#closeproject-btn").removeClass("active");
                 $("#updateproject-btn").removeClass("active");
                 $("#deleteproject-btn").removeClass("active");
+                $("#displayproject").css("display","none");
                 $("#updateproject").css("display","none");
                 $("#update_payment").css("display","block");
                 $("#closeproject").css("display","none");
@@ -43,9 +67,11 @@
             $("#closeproject-btn").click(function (){
                 $(this).addClass("active");
                 $("#chatbox-btn").removeClass("active");
+                $("#displayproject-btn").removeClass("active");
                 $("#updatepayment-btn").removeClass("active");
                 $("#updateproject-btn").removeClass("active");
                 $("#deleteproject-btn").removeClass("active");
+                $("#displayproject").css("display","none");
                 $("#updateproject").css("display","none");
                 $("#updatepayments").css("display","none");
                 $("#closeproject").css("display","block");
@@ -56,9 +82,11 @@
             $("#deleteproject-btn").click(function (){
                 $(this).addClass("active");
                 $("#chatbox-btn").removeClass("active");
+                $("#displayproject-btn").removeClass("active");
                 $("#updatepayment-btn").removeClass("active");
                 $("#updateproject-btn").removeClass("active");
                 $("#closeproject-btn").removeClass("active");
+                $("#displayproject").css("display","none");
                 $("#updateproject").css("display","none");
                 $("#updatepayments").css("display","none");
                 $("#closeproject").css("display","none");
@@ -68,10 +96,12 @@
             });
             $("#chatbox-btn").click(function (){
                 $(this).addClass("active");
+                $("#displayproject-btn").removeClass("active");
                 $("#deleteproject-btn").removeClass("active");
                 $("#updatepayment-btn").removeClass("active");
                 $("#updateproject-btn").removeClass("active");
                 $("#closeproject-btn").removeClass("active");
+                $("#displayproject").css("display","none");
                 $("#updateproject").css("display","none");
                 $("#updatepayments").css("display","none");
                 $("#closeproject").css("display","none");
@@ -129,6 +159,9 @@
     function popup(){
         document.getElementById("popup").classList.toggle("active");
     }
+    function popupdetails(){
+        document.getElementById("displayproject").classList.toggle("active");
+    }
   </script>
 </head>
 
@@ -136,20 +169,14 @@
     <%@include file="sidebar-professional.jsp"%>
     <div class="container">
         <div class="content1">
-        <div class="name">
-            <h3>Maharagama project two floors</h3>
-        </div>
-
-        <div class="img">
-<%--            <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">--%>
-            <img src="../resources/images/viewprofile/user2.png" class="user">
-            <h3>Johns Robert</h3>
-            <p>Contractor</p>
-        </div>
+          <div class="name">
+            <h2>Maharagama project two floors</h2>
+          </div>
         </div>
         <div class="content2">
             <div class="home">
-                <a href="#" class="active" id="updateproject-btn"><i class="fas fa-home"></i> Update Project</a>
+                <a href="#" class="active" id="displayproject-btn"><i class="fas fa-home"></i> Project Overview</a>
+                <a href="#" id="updateproject-btn"><i class="fas fa-home"></i> Update Project</a>
                 <a href="#" id="updatepayment-btn"><i class="fas fa-home"></i> Update Payments</a>
                 <a href="#" id="closeproject-btn"><i class="fas fa-home"></i> Close Project</a>
                 <a href="#" id="deleteproject-btn" onclick="popup()"><i class="fas fa-home"></i> Delete Project</a>
@@ -157,7 +184,6 @@
             </div>
             <div class="project" id="viewproject">
                 <div class="deleteproject" id="popup">
-<%--                    <button onclick="popup()">Delete Project</button>--%>
                     <div class="content">
                         <h1>WARNING..!</h1>
                         <h3>You can't delete this project.
@@ -165,6 +191,67 @@
                             <br>If you want to remove the project, you must first close the project.</h3>
                         <div class="ok-btn" onclick="popup()">OK</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="project" id="displayproject">
+                <div class="grid-item2">
+                    <%for (Project x:projects){%>
+                    <div class="box1">
+                        <h2>Upcoming Events</h2>
+                        <h3>Building</h3>
+<%--                        <h2><%=x.getFirstname()%> <%=x.getLastname()%></h2>--%>
+<%--                        <p><%=x.getBio()%></p>--%>
+                        <p><%=x.getEvent1()%><br><%=x.getEvent2()%><br></p>
+
+                        <h3>Landscaping</h3>
+                        <p><%=x.getEvent3()%><br><%=x.getEvent4()%><br></p>
+
+                        <h3>Another events:</h3>
+                        <p><%=x.getOther()%></p>
+                    </div>
+                    <div class="box2">
+                        <h2>Project Members</h2>
+                        <p> * <%=x.getContractor()%>(Me)<br> * <%=x.getCustomer()%><br> * <%=x.getLand()%></p>
+                    </div>
+                    <%}%>
+                </div>
+
+                <button onclick="popupdetails()">Add Details</button>
+                <div class="background"></div>
+                <div class="project-content">
+                    <div class="close-btn" onclick="popupdetails()">&times;</div>
+                    <form action="<%=request.getContextPath()%>/myproject" method="post">
+                        <h2>Add your upcoming events :</h2>
+                        <h3>Building</h3>
+                        <label for="event1">Event-1:</label>
+                        <input type="text" id="event1" name="event1">
+
+                        <label for="event2">Event-2: </label>
+                        <input type="text" id="event2" name="event2">
+
+                        <h3>Landscaping</h3>
+                        <label for="event3">Event-3: </label>
+                        <input type="text" id="event3" name="event3">
+
+                        <label for="event4">Event-4: </label>
+                        <input type="text" id="event4" name="event4">
+
+                        <label for="other">Another Events: </label>
+                        <input type="text" id="other" name="other">
+
+                        <h2>Add your project members:</h2>
+                        <label for="contractor">Contractor: </label>
+                        <input type="text" id="contractor" name="contractor">
+
+                        <label for="customer">Customer: </label>
+                        <input type="text" id="customer" name="customer">
+
+                        <label for="land">Landscape Designer: </label>
+                        <input type="text" id="land" name="land">
+
+                        <input type="submit" value="Save">
+                    </form>
                 </div>
             </div>
 

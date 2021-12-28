@@ -128,7 +128,7 @@ ul li a:hover,ul li i:hover{
     transform: scale(1.1);
 }
 .container{
-    grid-template-rows: 73px 80px 660px;
+    grid-template-rows: 73px 80px 760px;
     display: grid;
     grid-template-areas: 
     'menu_bar'
@@ -137,10 +137,8 @@ ul li a:hover,ul li i:hover{
 }
 .content1{
     margin-top: 73px;
-    display: grid;
-    grid-template-columns: 250px 240px;
-    grid-template-areas:'name img' ;
     height: 80px;
+    margin-left: 230px;
 }
 .name{
     height: 80px;
@@ -163,7 +161,7 @@ ul li a:hover,ul li i:hover{
     margin-top: -10px;
 }
 .content2{
-    height: 660px;
+    height: 760px;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
@@ -194,47 +192,96 @@ ul li a:hover,ul li i:hover{
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
-#viewproject{
-    background-color:#e6e4e3;
-    display: grid;
-    grid-column-gap: 50px;
-    grid-template-columns: 600px 560px;
-    grid-template-areas: 'grid-item1  grid-item2';
-}
-.grid-item1{
-    padding: 40px;
-    width: 550px;
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px 120px;
-    grid-template-areas: 
-    'heading'
-    'project1';
-}
-.grid-item1 .project1{
-    border-radius: 15px;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
-}
 .grid-item2{
     padding: 20px;
     display: grid;
     grid-template-rows: 280px 280px;
-    grid-template-areas: 
+    grid-template-areas:
     'box1'
     'box2';
     grid-row-gap: 30px;
 }
-.box1{
+.box1, .box2{
     border-radius: 15px;
+    margin-left: 800px;
+    padding: 15px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
-.box2{
-    border-radius: 15px;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+#displayproject button{
+    padding: 10px;
+    margin-left: 1130px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+#displayproject button:hover{
+    background: #ff7200;
+    color: white;
 }
 .box2 p{font-size: 18px;}
-#task {
-    background-color: #e6e4e3;
+
+.project .background{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+.project .close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: #22242A;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.project .project-content{
+    background-color: rgb(230, 228, 228);
+    margin-top: -220px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0);
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.project.active .background{display: block;}
+.project.active .project-content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.project-content input[type=text]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /*font-size: 15px;*/
+}
+.project-content input[type="submit"]{
+    padding: 10px;
+    border-radius: 5px;
+    width: 80px;
+}
+.project-content input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+
+
+#viewproject{
+    background-color:#e6e4e3;
 }
 .deleteproject .content{
     position: absolute;
@@ -253,7 +300,6 @@ ul li a:hover,ul li i:hover{
 .deleteproject .content h3{
     margin-top: 50px;
 }
-
 .deleteproject .ok-btn{
     position: absolute;
     font-size: 22px;
@@ -306,6 +352,9 @@ ul li a:hover,ul li i:hover{
 }
 
 #closeproject{
+    background-color:#e6e4e3;
+}
+#displayproject{
     background-color:#e6e4e3;
 }
 #closeproject h2{
@@ -443,7 +492,8 @@ ul li a:hover,ul li i:hover{
     padding: 10px 10px;
 }
 #viewproject{display: none;}
-#updateproject{display: grid;}
+#updateproject{display: none;}
+#displayproject{display: block}
 #chatbox{display: none;}
 #closeproject{display: none;}
 #updatepayments{display: none}
