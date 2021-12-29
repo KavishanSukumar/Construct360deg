@@ -218,7 +218,7 @@
                 <div class="box2">
                     <h2>Project Members</h2>
                     <%for (Project x:projects){%>
-                    <p> * <%=x.getContractor()%>(Me)<br> * <%=x.getCustomer()%><br> * <%=x.getLand()%></p>
+                    <p> * Contractor : <%=x.getContractor()%><br> * Customer :<%=x.getCustomer()%><br> * Landscape Designer :<%=x.getLand()%></p>
                     <%}%>
                 </div>
             </div>
