@@ -196,25 +196,33 @@
 
             <div class="project" id="displayproject">
                 <div class="grid-item2">
-                    <%for (Project x:projects){%>
+<%--                    <%for (Project x:projects){%>--%>
                     <div class="box1">
                         <h2>Upcoming Events</h2>
                         <h3>Building</h3>
-<%--                        <h2><%=x.getFirstname()%> <%=x.getLastname()%></h2>--%>
-<%--                        <p><%=x.getBio()%></p>--%>
+
+                        <%for (Project x:projects){%>
                         <p><%=x.getEvent1()%><br><%=x.getEvent2()%><br></p>
+                        <%}%>
 
                         <h3>Landscaping</h3>
+                        <%for (Project x:projects){%>
                         <p><%=x.getEvent3()%><br><%=x.getEvent4()%><br></p>
+                        <%}%>
 
-                        <h3>Another events:</h3>
+                        <h3>Another events</h3>
+                        <%for (Project x:projects){%>
                         <p><%=x.getOther()%></p>
+                        <%}%>
                     </div>
+
                     <div class="box2">
                         <h2>Project Members</h2>
+                        <%for (Project x:projects){%>
                         <p> * <%=x.getContractor()%>(Me)<br> * <%=x.getCustomer()%><br> * <%=x.getLand()%></p>
+                        <%}%>
                     </div>
-                    <%}%>
+
                 </div>
 
                 <button onclick="popupdetails()">Add Details</button>

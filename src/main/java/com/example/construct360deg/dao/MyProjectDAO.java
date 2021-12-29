@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MyProjectDAO {
-    public static boolean addDetails(Project project) throws SQLException {
+    public boolean addDetails(Project project) throws SQLException {
         Connection connection = Database.getConnection();
         String sql = "INSERT INTO `projectdetails`(`event1`, `event2`, `event3`, `event4`, `other`, `contractor`, `customer`, `land`) VALUES (?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = null;

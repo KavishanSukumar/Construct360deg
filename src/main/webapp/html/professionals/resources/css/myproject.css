@@ -195,7 +195,7 @@ ul li a:hover,ul li i:hover{
 .grid-item2{
     padding: 20px;
     display: grid;
-    grid-template-rows: 280px 280px;
+    grid-template-rows: 350px 230px;
     grid-template-areas:
     'box1'
     'box2';
@@ -267,7 +267,6 @@ ul li a:hover,ul li i:hover{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    /*font-size: 15px;*/
 }
 .project-content input[type="submit"]{
     padding: 10px;
@@ -278,8 +277,6 @@ ul li a:hover,ul li i:hover{
     background: #ff7200;
     color: white;
 }
-
-
 #viewproject{
     background-color:#e6e4e3;
 }
