@@ -128,53 +128,26 @@ ul li a:hover,ul li i:hover{
     transform: scale(1.1);
 }
 .container{
-    grid-template-rows: 73px 80px 660px;
+    grid-template-rows: 73px 80px 760px;
     display: grid;
-    grid-template-areas:
+    grid-template-areas: 
     'menu_bar'
     'content1'
     'content2';
 }
 .content1{
     margin-top: 73px;
-    display: grid;
-    grid-template-columns: 250px 1fr 240px;
-    grid-template-areas:'name search img' ;
     height: 80px;
+    margin-left: 230px;
 }
 .name{
     height: 80px;
     margin-left: 20px;}
 .name p{margin-top: -12px;}
-
-form.example input[type=text] {
-    background-color: #e7e8e9;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    margin-top: 20px;
-    width: 40%;
+.img{
+    height: 80px;
+    margin-left: 800px;
 }
-form.example button {
-    float: left;
-    width: 5%;
-    padding: 10px;
-    background: #b6b7b8;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-}
-form.example button:hover {
-    background: #a7a4a2;
-}
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-.img{height: 80px;}
 .img .user{
     width: 50px;
     border-radius: 50px;
@@ -188,7 +161,7 @@ form.example::after {
     margin-top: -10px;
 }
 .content2{
-    height: 660px;
+    height: 760px;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
@@ -213,33 +186,216 @@ form.example::after {
     background: #e6e4e3;
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-}
+    }
 .home a.active{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
-#viewproject{
-    background-color:#e6e4e3;
+.grid-item2{
+    padding: 20px;
     display: grid;
-    grid-column-gap: 50px;
-    grid-template-columns: 600px 560px;
-    grid-template-areas: 'grid-item1  grid-item2';
-}
-.grid-item1{
-    padding: 40px;
-    width: 550px;
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px 120px;
+    grid-template-rows: 350px 230px;
     grid-template-areas:
-    'heading'
-    'project1';
+    'box1'
+    'box2';
+    grid-row-gap: 30px;
 }
-.grid-item1 .project1{
+.box1, .box2{
     border-radius: 15px;
+    margin-left: 800px;
+    padding: 15px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
+#displayproject button{
+    padding: 10px;
+    margin-left: 1130px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+#displayproject button:hover{
+    background: #ff7200;
+    color: white;
+}
+.box2 p{font-size: 18px;}
+
+.project .background, .deleteproject .background{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+.project .close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: #22242A;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.project .project-content{
+    background-color: rgb(230, 228, 228);
+    margin-top: -220px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0);
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.project.active .background{display: block;}
+.deleteproject.active .background{display: block;}
+.project.active .project-content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.deleteproject.active .content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.project-content input[type=text]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.project-content input[type="submit"]{
+    padding: 10px;
+    border-radius: 5px;
+    width: 80px;
+}
+.project-content input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+#viewproject{
+    background-color:#e6e4e3;
+}
+.deleteproject .content{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%)scale(0);
+    background: #ffffff;
+    border-radius: 30px;
+    width: 850px;
+    height: 350px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.deleteproject .content h1{color: red;}
+.deleteproject .content h3{
+    margin-top: 50px;
+}
+.deleteproject .ok-btn{
+    position: absolute;
+    font-size: 22px;
+    background: #e6e4e3;
+    width: 70px;
+    height: 30px;
+    padding: 10px;
+    margin-left: 370px;
+    margin-top: 25px;
+    border-radius: 50px;
+}
+.deleteproject .ok-btn:hover{
+    background: #ff7200;
+    color: white;
+}
+.deleteproject.active .overlay{
+    display: block;
+}
+.deleteproject.active .content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+#updateproject{
+    background-color:#e6e4e3;
+    grid-template-rows: 300px 350px;
+    grid-template-areas:
+     'item1'
+     'item2';
+}
+.item1{
+    padding:20px;
+    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+}
+.item1 form{
+    margin-top: 20px;
+}
+.item2{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 570px 570px;
+    grid-column-gap: 50px;
+}
+.chart1{
+    border-style: inset;}
+.chart2{
+    border-style: inset;}
+.chart1:hover,.chart2:hover{
+    box-shadow:5px 5px 5px 5px #cccccc ;
+}
+
+#closeproject{
+    background-color:#e6e4e3;
+}
+#displayproject{
+    background-color:#e6e4e3;
+}
+#closeproject h2{
+    margin-left: 50px;
+    margin-top: 30px;
+}
+#closeproject .form{
+    padding: 60px;
+    width: 50%;
+}
+#closeproject input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#closeproject input[type=submit] {
+    width: 100%;
+    background-color: #bdbebd;
+    color: black;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#closeproject input[type=submit]:hover {
+    background: #FF7200;
+    color: white;
+}
+#closeproject textarea{
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
 #chatbox{
     background-color:#e6e4e3;}
 #chat-box-container{
@@ -324,8 +480,26 @@ form.example::after {
 #send-btn:hover{
     color: #ff7200;
 }
-#viewproject{display: grid;}
+
+.update_payment{
+    box-shadow:2px 2px 2px 2px #cccccc;
+    height: auto;
+    width: 300px;
+    margin: 10px 10px;
+}
+
+.newpayment{
+    display: block;
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+#viewproject{display: none;}
+#updateproject{display: none;}
+#displayproject{display: block}
 #chatbox{display: none;}
+#closeproject{display: none;}
+#updatepayments{display: none}
+#update_payment{display: none}
 
 .footer{
     border-top: 1px solid #ebebeb;

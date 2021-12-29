@@ -9,8 +9,5 @@
         <module name="Construct360deg" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Construct360deg" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

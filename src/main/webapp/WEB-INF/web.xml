@@ -17,15 +17,15 @@
 <!--        <location>/html/errors/404.jsp</location>-->
 <!--    </error-page>-->
 
-    <error-page>
-        <error-code>503</error-code>
-        <location>/html/errors/503.jsp</location>
-    </error-page>
+<!--    <error-page>-->
+<!--        <error-code>503</error-code>-->
+<!--        <location>/html/errors/503.jsp</location>-->
+<!--    </error-page>-->
 
-    <error-page>
-        <error-code>403</error-code>
-        <location>/html/errors/403.jsp</location>
-    </error-page>
+<!--    <error-page>-->
+<!--        <error-code>403</error-code>-->
+<!--        <location>/html/errors/403.jsp</location>-->
+<!--    </error-page>-->
 
 
 

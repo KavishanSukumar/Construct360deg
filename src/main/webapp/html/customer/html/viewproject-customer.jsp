@@ -13,30 +13,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
-    $(document).ready(function (){
-          $("#task-btn").click(function (){
-            $(this).addClass("active");
-            $("#chatbox-btn").removeClass("active");
-            $("#home-btn").removeClass("active");
-            $("#viewproject").css("display","none");
-            $("#task").css("display","block");
-            $("#chatbox").css("display","none");
+      $(document).ready(function (){
+          $("#home-btn").click(function (){
+              $(this).addClass("active");
+              $("#chatbox-btn").removeClass("active");
+              $("#viewproject").css("display","grid");
+              $("#chatbox").css("display","none");
           });
           $("#chatbox-btn").click(function (){
-            $(this).addClass("active");
-            $("#task-btn").removeClass("active");
-            $("#home-btn").removeClass("active");
-            $("#viewproject").css("display","none");
-            $("#task").css("display","none");
-            $("#chatbox").css("display","block");
-          });
-          $("#home-btn").click(function (){
-            $(this).addClass("active");
-            $("#task-btn").removeClass("active");
-            $("#chatbox-btn").removeClass("active");
-            $("#viewproject").css("display","grid");
-            $("#task").css("display","none");
-            $("#chatbox").css("display","none");
+              $(this).addClass("active");
+              $("#home-btn").removeClass("active");
+              $("#viewproject").css("display","none");
+              $("#chatbox").css("display","block");
           });
 
           var receiver=null;
@@ -81,13 +69,19 @@
           },2000)
 
     });
+
+      function popup(){
+          document.getElementById("popup").classList.toggle("active");
+      }
+      function openproject(){
+          location.href="<%=request.getContextPath()%>/myprojectcustomer";
+      }
   </script>
 </head>
 
 <body>
     <%@include file="sidebar-customer.jsp"%>
     <div class="container">
-
         <div class="content1">
         <div class="name">
             <h3>Hi, Kalum</h3>
@@ -106,35 +100,14 @@
         </div>
         <div class="content2">
             <div class="home">
-                <a  class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
-                <a  id="task-btn"><i class="fas fa-tasks"></i> My tasks</a>
-                <a  id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
+                <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1">
+                <div class="grid-item1" onclick="openproject()">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1"><h3>Maharagama Two floor </h3></div>
+                    <div class="project1"><h3>Maharagama project two floors </h3></div>
                 </div>
-                <div class="grid-item2">
-                    <div class="box1">
-                        <h2>Upcoming Events</h2>
-                        <h3>Building</h3>
-                        <p>Building Walls<br>Drainage System<br></p>
-                        <h3>Landscaping</h3>
-                        <p>Garden desingning<br>Sculpture implement<br></p>
-                    </div>
-                    <div class="box2">
-                        <h2>Project Members</h2>
-                        <p>* You<br> * Johns Robert ( Contractor )<br> * Predeep Bandara ( Landscape Designer )</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project" id="task">
-                <a href="<%=request.getContextPath()%>/uploadrequirement" class="btn">Upload Requirements</a>
-                <a href="#" class="btn">Update Payment Details</a>
-                <a href="closeproject-professional.jsp" class="btn">Close Project</a>
-                <a href="#" class="btn">Delete Project</a>
             </div>
 
             <div class="project" id="chatbox">
@@ -144,19 +117,19 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser" id="65">
+                            <div class="chatuser" id="64">
                                 <h4>Sukumar Kavishan</h4>
                                 <p>Date:2021-06-10</p>
                             </div>
-                            <div class="chatuser" id="62">
+                            <div class="chatuser">
                                 <h4>Senal Punsara</h4>
                                 <p>Date:2021-05-19</p>
                             </div>
-                            <div class="chatuser" id="66">
+                            <div class="chatuser">
                                 <h4>Imesh Udara</h4>
                                 <p>Date:2021-04-20</p>
                             </div>
-                            <div class="chatuser" id="67">
+                            <div class="chatuser">
                                 <h4>Chathuri Priyangika</h4>
                                 <p>Date:2021-03-01</p>
                             </div>
@@ -167,7 +140,7 @@
                             <h4>Kavishan Sukumar</h4>
                         </div>
                         <div class="currentchat">
-                           <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
+                            <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
                         </div>
                         <div class="currentchattextbox">
                             <input type="text" class="chatbar" id="message"><button class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></button>

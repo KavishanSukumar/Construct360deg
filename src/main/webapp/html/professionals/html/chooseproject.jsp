@@ -7,23 +7,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Project</title>
-  <link rel="stylesheet" href="./html/professionals/resources/css/viewproject.css">
+  <title>Choose Project</title>
+<%--  <link rel="stylesheet" href="./html/professionals/resources/css/chooseproject.css">--%>
+    <link rel="stylesheet" href="../resources/css/chooseproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <script src="./resources/js/jquery-3.6.0.js"></script>
+    <script src="../resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
           $("#home-btn").click(function (){
             $(this).addClass("active");
+            $("#task-btn").removeClass("active");
             $("#chatbox-btn").removeClass("active");
             $("#viewproject").css("display","grid");
+            $("#task").css("display","none");
             $("#chatbox").css("display","none");
+            $("#updateproject").css("display","none");
+            $("#closeproject").css("display","none");
+          });
+          $("#task-btn").click(function (){
+            $(this).addClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#home-btn").removeClass("active");
+            $("#viewproject").css("display","none");
+            $("#task").css("display","block");
+            $("#chatbox").css("display","none");
+            $("#updateproject").css("display","none");
+            $("#closeproject").css("display","none");
+          });
+          $("#updateproject-btn").click(function (){
+            $(this).addClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#home-btn").removeClass("active");
+            $("#task-btn").addClass("active");
+            $("#viewproject").css("display","none");
+            $("#updateproject").css("display","grid");
+            $("#chatbox").css("display","none");
+            $("#task").css("display","none");
+            $("#closeproject").css("display","none");
+          });
+          $("#closeproject-btn").click(function (){
+            $(this).addClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#home-btn").removeClass("active");
+            $("#task-btn").addClass("active");
+            $("#viewproject").css("display","none");
+            $("#updateproject").css("display","none");
+            $("#chatbox").css("display","none");
+            $("#task").css("display","none");
+            $("#closeproject").css("display","block");
           });
           $("#chatbox-btn").click(function (){
             $(this).addClass("active");
+            $("#task-btn").removeClass("active");
             $("#home-btn").removeClass("active");
             $("#viewproject").css("display","none");
+            $("#task").css("display","none");
             $("#chatbox").css("display","block");
+            $("#updateproject").css("display","none");
+            $("#closeproject").css("display","none");
           });
 
             var receiver=null;
@@ -70,9 +111,6 @@
     function popup(){
         document.getElementById("popup").classList.toggle("active");
     }
-    function openproject(){
-        location.href="<%=request.getContextPath()%>/myproject";
-    }
   </script>
 </head>
 
@@ -84,26 +122,21 @@
             <h3>Hi, Johns</h3>
             <p>Keep up the good work!</p>
         </div>
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search your project..." name="search">
-        </form>
+
         <div class="img">
-            <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
+<%--            <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">--%>
+                <img src="../resources/images/viewprofile/user2.png" class="user">
             <h3>Johns Robert</h3>
             <p>Contractor</p>
         </div>
         </div>
         <div class="content2">
             <div class="home">
-                <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
+                <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> My Projects</a>
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1" onclick="openproject()">
-                    <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1"><h3>Maharagama project two floors </h3></div>
-                </div>
+
             </div>
 
             <div class="project" id="chatbox">
