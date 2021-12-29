@@ -10,6 +10,7 @@ body{
     background: #000;
 }
 .container{
+    top: 30%;
     position: relative;
     width: 400px;
     background: #111;

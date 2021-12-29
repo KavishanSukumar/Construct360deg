@@ -121,7 +121,24 @@ public class AdvertiseDAO {
         return status;
     }
 
+    public void deleteadvertise(int addid) throws SQLException{
+        int row = 0;
+        Connection connection=Database.getConnection();
+        String sql="DELETE FROM `advertisement` WHERE ad_id=?";
+        PreparedStatement preparedStatement=null;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,addid);
+        preparedStatement.executeUpdate();
+        System.out.println("test me");
+        row+=preparedStatement.executeUpdate();
+        if (row>=1){
 
+            System.out.println("All queries successfully updated");
+        }else{
+
+            System.out.println("Error");
+        }
+    }
 
     public ArrayList<Advertise> retriveAdevertises() throws SQLException{
         ArrayList<Advertise> pendingadvertises = new ArrayList<>();
@@ -203,6 +220,64 @@ public class AdvertiseDAO {
 
 
         return rejectadds;
+    }
+
+    public ArrayList<Advertise> displayadds() throws SQLException {
+        ArrayList<Advertise> displayadds = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `displayadds`";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        System.out.println("hello 1");
+        while(resultSet.next()){
+            Advertise displayadd = new Advertise();
+            displayadd.setUserid(resultSet.getInt("userid"));
+            displayadd.setAddid(resultSet.getString("ad_id"));
+            displayadd.setAddstatus(resultSet.getString("ad_status"));
+            displayadd.setWeburl(resultSet.getString("ad_url"));
+            displayadd.setHeadline(resultSet.getString("ad_topic"));
+            displayadd.setUsername(resultSet.getString("username"));
+            byte[] img1=resultSet.getBytes("profilepic");
+            displayadd.setProfimg(img1);
+            byte[] img2=resultSet.getBytes("ad_img");
+            displayadd.setAddimg(img2);
+            displayadds.add(displayadd);
+        }
+        System.out.println("hello 2");
+     return displayadds;
+
+    }
+
+    public ArrayList<Advertise> displayownadds(int userid) throws SQLException {
+        ArrayList<Advertise> displayadds = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `advertisement` WHERE `userid` = ?";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        resultSet = preparedStatement.executeQuery();
+        System.out.println("displayownadds(prof)1");
+        while (resultSet.next()) {
+            Advertise displayadd = new Advertise();
+            displayadd.setUserid(resultSet.getInt("userid"));
+            displayadd.setAddid(resultSet.getString("ad_id"));
+            displayadd.setAddstatus(resultSet.getString("addstatus"));
+            displayadd.setWeburl(resultSet.getString("url"));
+            displayadd.setHeadline(resultSet.getString("headline"));
+            displayadd.setDescription(resultSet.getString("description"));
+            displayadd.setTodaydate(resultSet.getDate("submit_date"));
+            displayadd.setNowtime(resultSet.getTime("submit_time"));
+            displayadd.setEvodate(resultSet.getDate("evaluated_date"));
+            byte[] img = resultSet.getBytes("image");
+            displayadd.setAddimg(img);
+            System.out.println(img);
+            displayadds.add(displayadd);
+        }
+        System.out.println("displayownadds(prof) 2");
+        return displayadds;
     }
 
 

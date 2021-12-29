@@ -22,6 +22,27 @@ public class Advertise {
     private String role;
     private Date evodate;
     private String addstatus;
+    private byte[] profimg;
+    private byte[] addimg;
+
+    public byte[] getProfimg() {
+        return profimg;
+    }
+
+    public void setProfimg(byte[] profimg) {
+        this.profimg = profimg;
+    }
+
+    public byte[] getAddimg() {
+        return addimg;
+    }
+
+    public void setAddimg(byte[] addimg) {
+        this.addimg = addimg;
+    }
+
+
+
 
 
     public Date getEvodate() {

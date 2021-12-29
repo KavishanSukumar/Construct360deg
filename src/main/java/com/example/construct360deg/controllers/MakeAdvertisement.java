@@ -15,61 +15,30 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.UUID;
 
-@WebServlet("/manageadvertise(prof)")
+@WebServlet("/advertise")
 @MultipartConfig
-public class AdvertiseServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+public class MakeAdvertisement extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException, ServletException {
         HttpSession session = req.getSession();
         String userrole = (String) session.getAttribute("userrole");
-        int userid = (int) session.getAttribute("userid");
-        System.out.println(userid);
-        ArrayList<Advertise> displayadds = new ArrayList<>();
-        AdvertiseDAO advertiseDAO = new AdvertiseDAO();
 
         if (userrole.equals("prof_com")) {
-
-            try {
-                displayadds=advertiseDAO.displayownadds(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-                System.out.println("i am in prof_com catch block");
-            }
-            req.setAttribute("displayadds",displayadds);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/manageadds(prof).jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
-            System.out.println("Professional_company");
-
-
-
+            System.out.println("Professional");
         } else if (userrole.equals("prof_indiv")) {
-
-            try {
-                displayadds=advertiseDAO.displayownadds(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-                System.out.println("i am in prof_indivi catch block");
-            }
-            req.setAttribute("displayadds",displayadds);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/manageadds(prof).jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
-            System.out.println("Professional_individual");
-
+            System.out.println("Professional");
         } else if (userrole.equals("prod_com")) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Product company");
         }
     }
-
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
@@ -77,7 +46,9 @@ public class AdvertiseServlet extends HttpServlet {
         Advertise advertise = new Advertise();
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
-
+        System.out.println("------------------------------");
+        System.out.println(userid);
+        System.out.println("------------------------------");
         DateTimeFormatter todaytdate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter timenow = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDate nowdate = LocalDate.now();

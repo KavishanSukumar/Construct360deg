@@ -1,34 +1,97 @@
 
 .container{
     display: grid;
-    grid-template-rows: 70px 90vh 110px;
+    grid-template-rows: 72px calc(100% - 74px);
     grid-template-areas: "nav"
-                         "webpage"
-                         "footer";
+                         "webpage";
+
+
 }
 
 
 /* Start your style of the web page here */
 .content{
+
     grid-area: webpage;
     display: grid;
     width: 100%;
-    margin-top: 0%;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 29% 42% 29%;
     grid-template-areas: "a1 a2 a3";
+    /*background-color: #4e4e4e;*/
+    align-items: start;
+    overflow-y: auto;
+    min-height: 100vh;
+    background-color: #2F323A;
+    margin-top: 3px;
+
+
+}
+.displyitems{
+    /*background-color: #000000;*/
+    /*margin-top:3px;*/
+    display: flex;
+    flex-basis: border-box;
+    flex-direction: column;
+    grid-area: a2;
+    align-items: center;
+    padding: 3px;
 
 }
 
+.item{
+    border:1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #c4c4c4;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+.ad-header{
+    display: grid;
+    grid-template-rows: 30px 30px;
+    grid-template-columns: 11% 89%;
+    grid-template-areas: "b1 b2"
+                         "b1 b3";
+}
 
+.profimg{
+    grid-area: b1;
+    width: 60px;
+    height: 55px;
+    padding: 3px;
+    border-radius: 10px;
+}
 
+.topic{
+    grid-area: b2;
+    margin: 2px;
+}
+.username{
+    grid-area: b3;
+    margin: 2px;
+}
+
+.ad-img{
+    padding: 3px;
+    width: 600px;
+    height: 500px;
+}
+.web-url{
+    text-align: center;
+    padding: 0;
+    margin: 2px;
+}
 .footer{
-    grid-area: footer;
+    /*grid-area: footer;*/
     border-top: 1px solid #ebebeb;
     padding-bottom: 2%;
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
     background: rgb(0, 0, 0);
+    grid-column: 1 / -1;
+
 }
 .footer p{
     text-align: center;
@@ -36,5 +99,6 @@
 }
 .background-img{
     width: 1519px;
-    height: 652px;
+    height: 900px;
+    grid-column: 1 / -1;
 }

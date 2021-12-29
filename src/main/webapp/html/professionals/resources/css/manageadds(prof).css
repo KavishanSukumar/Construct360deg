@@ -4,8 +4,7 @@
     grid-template-rows: 70px auto 110px;
     grid-template-areas: "nav"
                          "webpage"
-                         "footer";
-
+                          "footer";
 
 }
 
@@ -18,11 +17,20 @@
     justify-content: center; */
     width: 100%;
     margin-top: 5px;
-    grid-template-areas:"first_row"
+    grid-template-areas:"headline"
+                        "first_row"
                         "second_row"
                         "third_row" ;
-    grid-template-rows: 100px auto auto;
+    grid-template-rows: 40px 60px auto auto;
     grid-row-gap: 10px;
+    overflow-y: auto;
+}
+.headline{
+
+}
+#title{
+    text-align: center;
+    margin-top: 25px;
 }
 .first{
     grid-area: first_row;
@@ -30,7 +38,7 @@
     flex-direction: row;
     column-gap: 40px;
     background-color: rgb(255, 255, 255);
-    height: 5vh;
+    height: 8vh;
     width: 199.9vh;
 }
 .second{
@@ -43,7 +51,7 @@
 .third{
     grid-area: third_row;
     background-color: rgb(255, 255, 255);
-    height: 86vh;
+    height: 72vh;
     width: 100%;
     width: 199.9vh;
 }
@@ -67,10 +75,12 @@
 
 }
 
-#accept_adds{
+#make_adds{
     font-size: 17px;
     border-radius: 20px;
     cursor: pointer;
+    width: 200px;
+    background-color: #c4c4c4;
 }
 
 #rejected_adds{
@@ -78,7 +88,7 @@
     border-radius: 20px;
     cursor: pointer;
 }
-#available_adds:hover, #accept_adds:hover, #rejected_adds:hover{
+#available_adds:hover, #make_adds:hover{
     background-color: #ff7200;
 }
 
@@ -106,6 +116,7 @@
     margin: 1px 9px;
     cursor: pointer;
     border-radius: 5px;
+
 }
 #confirm{
     background-color: #1fa11f;
@@ -126,7 +137,9 @@
 /*    width: 90.4%;*/
 /*    margin-left: 54px;*/
 /*}*/
-
+.manageadds{
+    margin-left: 50px;
+}
 .manageadds td, .manageadds th {
     border: 1px solid #ddd;
     padding: 8px;
@@ -148,11 +161,44 @@ th {
     background-color: #7c7c7c;
     color: white;
 }
-
+.manageadds
+tr{
+    text-align: left;
+}
 .headrow th{
     text-align: center;
 }
 
+.managebtn{
+    cursor: pointer;
+}
+.popup{
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 28%;
+    justify-content: center;
+    background-color: black;
+    visibility: hidden;
+
+}
+.popup-content{
+    width: 616px;
+    height: 547px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    border: solid;
+}
+
+
+#close{
+    width: 20px;
+    float: left;
+    border: black;
+    border-radius: 100%;
+    cursor: pointer;
+}
 
 
 input[type=text], select, textarea {
