@@ -1,6 +1,8 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.AdvertiseDAO;
 import com.example.construct360deg.dao.UserloginDAO;
+import com.example.construct360deg.model.Advertise;
 import com.example.construct360deg.model.Userlogin;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 @WebServlet("/login")
@@ -43,10 +46,38 @@ public class LoginServlet extends HttpServlet {
                     requestDispatcher.forward(req,resp);
                     System.out.println("Admin");
                 }else if (userlogin.getUserrole().equals("cus_indiv")){
+                    ArrayList<Advertise> displayadds = new ArrayList<>();
+                    AdvertiseDAO advertiseDAO = new AdvertiseDAO();
+
+                    try {
+                        displayadds=advertiseDAO.displayadds();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        System.out.println("i am in catch block");
+                    }
+                    for(Advertise x:displayadds){
+                        System.out.println(x.getAddid());
+                    }
+                    System.out.println(displayadds);
+                    req.setAttribute("displayadds",displayadds);
                     RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
                     requestDispatcher.forward(req,resp);
                     System.out.println("Customer");
                 }else if (userlogin.getUserrole().equals("cus_com")){
+                    ArrayList<Advertise> displayadds = new ArrayList<>();
+                    AdvertiseDAO  advertiseDAO = new AdvertiseDAO();
+
+                    try {
+                        displayadds=advertiseDAO.displayadds();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                        System.out.println("i am in catch block");
+                    }
+                    for(Advertise x:displayadds){
+                        System.out.println(x.getAddid());
+                    }
+                    System.out.println(displayadds);
+                    req.setAttribute("displayadds",displayadds);
                     RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
                     requestDispatcher.forward(req,resp);
                     System.out.println("Customer");
