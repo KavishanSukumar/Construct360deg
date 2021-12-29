@@ -21,15 +21,7 @@ public class ViewMyProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
-        if (userrole.equals("cus_indiv")){
-            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
-            requestDispatcher.forward(req,resp);
-            System.out.println("Customer");
-        }else if (userrole.equals("cus_com")){
-            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
-            requestDispatcher.forward(req,resp);
-            System.out.println("Customer");
-        }else if(userrole.equals("prof_com")){
+        if(userrole.equals("prof_com")){
             //Add Details in project
             MyProjectDAO myProjectDAO = new MyProjectDAO();
             ArrayList<Project> projects = new ArrayList<>();

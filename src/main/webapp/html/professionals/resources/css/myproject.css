@@ -219,7 +219,7 @@ ul li a:hover,ul li i:hover{
 }
 .box2 p{font-size: 18px;}
 
-.project .background{
+.project .background, .deleteproject .background{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -255,7 +255,12 @@ ul li a:hover,ul li i:hover{
     border-radius: 20px;
 }
 .project.active .background{display: block;}
+.deleteproject.active .background{display: block;}
 .project.active .project-content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.deleteproject.active .content{
     transition:all 300ms ease-in-out;
     transform:translate(-50%, -50%) scale(1);
 }
@@ -292,6 +297,7 @@ ul li a:hover,ul li i:hover{
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    z-index: 2;
 }
 .deleteproject .content h1{color: red;}
 .deleteproject .content h3{
@@ -319,7 +325,6 @@ ul li a:hover,ul li i:hover{
     transition:all 300ms ease-in-out;
     transform:translate(-50%, -50%) scale(1);
 }
-
 #updateproject{
     background-color:#e6e4e3;
     grid-template-rows: 300px 350px;

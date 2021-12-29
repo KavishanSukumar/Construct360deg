@@ -184,6 +184,7 @@
             </div>
             <div class="project" id="viewproject">
                 <div class="deleteproject" id="popup">
+                    <div class="background"></div>
                     <div class="content">
                         <h1>WARNING..!</h1>
                         <h3>You can't delete this project.
@@ -196,7 +197,6 @@
 
             <div class="project" id="displayproject">
                 <div class="grid-item2">
-<%--                    <%for (Project x:projects){%>--%>
                     <div class="box1">
                         <h2>Upcoming Events</h2>
                         <h3>Building</h3>
@@ -283,7 +283,6 @@
                         </div>
             </div>
 
-<%--            <div class="project" id="updatepayments">--%>
             <div class="update_payment" id="update_payment">
                 <div class="newpayment" id="newpayment">
                 </div>
@@ -291,16 +290,17 @@
                     <button class="ok-btn" id="addpaymentbtn" onclick="addpayment()">Add payment</button>
                 </div>
             </div>
-<%--            </div>--%>
 
             <div class="project" id="closeproject">
                 <h2>  Close Project </h2>
                 <div class="form">
                     <form action="/action_page.java">
-                        <label for="pname">Project Name</label>
-                        <input type="text" id="pname" name="pname" placeholder="project name..">
                         <label for="area">Reason for close the project</label>
-                        <textarea id="area" name="area" rows="8" cols="69">  Type your reason...</textarea>
+                        <textarea id="area" name="area" rows="8" cols="69" placeholder="Type your reason..." required></textarea><br><br>
+
+                        <label for="pname">Type here "Project is Closed"</label>
+                        <input type="text" id="pname" name="pname" required>
+
                         <input type="submit" value="Submit">
                     </form>
                 </div>
