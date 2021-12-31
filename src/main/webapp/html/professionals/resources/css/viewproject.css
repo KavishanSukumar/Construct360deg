@@ -238,6 +238,7 @@ form.example::after {
 }
 .grid-item1 .project1{
     border-radius: 15px;
+    padding: 10px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
 #chatbox{
