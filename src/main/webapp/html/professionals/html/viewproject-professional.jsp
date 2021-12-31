@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.Closeproject" %>
+<%@ page import="com.example.construct360deg.model.Newproject" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -7,7 +8,9 @@
 %>
 <%
     ArrayList<Closeproject> closeprojects = (ArrayList<Closeproject>) request.getAttribute("closeprojects");
+    ArrayList<Newproject> newprojects = (ArrayList<Newproject>) request.getAttribute("newprojects");
 %>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +24,7 @@
           $("#home-btn").click(function (){
             $(this).addClass("active");
             $("#chatbox-btn").removeClass("active");
-            $("#viewproject").css("display","grid");
+            $("#viewproject").css("display","block");
             $("#chatbox").css("display","none");
           });
           $("#chatbox-btn").click(function (){
@@ -78,6 +81,9 @@
     function openproject(){
         location.href="<%=request.getContextPath()%>/myproject";
     }
+    function popupadd(){
+        document.getElementById("viewproject").classList.toggle("active");
+    }
   </script>
 </head>
 
@@ -105,14 +111,26 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1" onclick="openproject()">
+<%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1">
-                        <h3>Maharagama project two floors </h3>
+                    <%for (Newproject y:newprojects){%>
+                    <div class="project1" style="cursor: pointer" onclick="openproject()">
+                        <h3><%=y.getNewproject()%></h3>
                         <%for (Closeproject x:closeprojects){%>
                             <p style="color: red"><%=x.getDisplay()%></p>
                         <%}%>
                     </div>
+                    <%}%>
+<%--                </div>--%>
+                <button onclick="popupadd()">Add Project</button>
+                <div class="background"></div>
+                <div class="new-content">
+                    <div class="close-btn" onclick="popupadd()">&times;</div>
+                    <form action="<%=request.getContextPath()%>/newproject" method="post">
+                        <label for="new"> Add New Project :</label>
+                        <input type="text" id="new" name="newproject">
+                        <input type="submit" value="submit">
+                    </form>
                 </div>
             </div>
 

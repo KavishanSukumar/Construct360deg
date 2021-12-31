@@ -80,7 +80,7 @@
         <div class="summary" id="popup">
             <div class="button" onclick="popup()">Add summary</div>
           <%for (Viewprofile x:addsummary){%>
-              <p>* <%=x.getSummaryText()%></p>
+              <p><%=x.getSummaryText()%></p>
           <%}%>
 
           <div class="background"></div>
