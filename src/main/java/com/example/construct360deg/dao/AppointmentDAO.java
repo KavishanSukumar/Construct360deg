@@ -2,7 +2,7 @@ package com.example.construct360deg.dao;
 
 import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.Appointment;
-import com.example.construct360deg.model.Complain;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,20 +35,30 @@ public class AppointmentDAO {
 
     }
 
-//    public ArrayList<Appointment> retriveAppointments() throws SQLException{
-//        ArrayList<Appointment> appointments = new ArrayList<>();
-//        Connection connection = Database.getConnection();
-//        PreparedStatement preparedStatement = null;
-//        String sql = "SELECT * FROM `appointment`";
-//        ResultSet resultSet = null;
-//
-//        preparedStatement=connection.prepareStatement(sql);
-//        resultSet = preparedStatement.executeQuery();
-//
-//        while (resultSet.next()){
-//            Appointment appointment = new Appointment();
-////            appointment.????????-------------------------------------
-//        }
-//    }
+    public ArrayList<Appointment> retriveAppointments() throws SQLException{
+        ArrayList<Appointment> appointments = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `allappointment`";
+        ResultSet resultSet = null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Appointment appointment = new Appointment();
+            appointment.setAppoinmentid(resultSet.getInt("appoinmentid"));
+            appointment.setCustomerid(resultSet.getInt("customerid"));
+            appointment.setProfid(resultSet.getInt("profid"));
+            appointment.setTime(resultSet.getString("time"));
+            appointment.setDate(resultSet.getString("date"));
+            appointment.setCaption(resultSet.getString("caption"));
+            appointment.setMessage(resultSet.getString("message"));
+            appointment.setCus_name(resultSet.getString("cus_name"));
+            appointment.setUser_role(resultSet.getString("user_role"));
+            appointments.add(appointment);
+        }
+        return appointments;
+    }
 
 }
