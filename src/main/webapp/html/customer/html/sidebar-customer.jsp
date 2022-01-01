@@ -28,6 +28,7 @@
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="project"></i><h4>Projects</h4></a>
             <a href="<%=request.getContextPath()%>/searchproduct"><i class="fab fa-product-hunt" id="product"></i><h4>Products</h4></a>
             <a href="<%=request.getContextPath()%>/searchprofessionals"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
+            <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true"></i><h4>Notifications</h4></a>
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="report"></i><h4>Lodge Complains</h4></a>
             <a href="#"><i class="fas fa-hands-helping" id="help"></i><h4>Help and Support</h4></a>
