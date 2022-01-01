@@ -25,7 +25,7 @@
                         $("#notify").append(text);
                     }
                 })
-           },5gi000);
+           },5000);
         });
         function openmessage(ele){
             var id=document.getElementById(ele);
