@@ -237,6 +237,7 @@ form.example::after {
     'project1';
 }
 .grid-item1 .project1{
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
@@ -329,6 +330,7 @@ form.example::after {
 
 .footer{
     border-top: 1px solid #ebebeb;
+    margin-top: -170px;
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;

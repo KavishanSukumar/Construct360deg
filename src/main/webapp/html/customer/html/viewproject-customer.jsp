@@ -1,7 +1,12 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.construct360deg.model.Closeproject" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
     int userid= (int) session.getAttribute("userid");
+%>
+<%
+    ArrayList<Closeproject> closeprojects = (ArrayList<Closeproject>) request.getAttribute("closeprojects");
 %>
 <head>
   <meta charset="UTF-8">
@@ -104,9 +109,14 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1" onclick="openproject()">
+                <div class="grid-item1">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1"><h3>Maharagama project two floors </h3></div>
+                    <div class="project1" style="cursor: pointer" onclick="openproject()">
+                        <h3>Maharagama project two floors </h3>
+                        <%for (Closeproject x:closeprojects){%>
+                        <p style="color: red"><%=x.getDisplay()%></p>
+                        <%}%>
+                    </div>
                 </div>
             </div>
 
