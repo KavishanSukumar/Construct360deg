@@ -8,6 +8,10 @@ public class Appointment {
     private String date;
     private String caption;
     private String message;
+    private String appointmentstatus;
+    private String cus_name;
+    private String user_role;
+
 
     public int getAppoinmentid() {
         return appoinmentid;
@@ -63,5 +67,29 @@ public class Appointment {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getAppointmentstatus() {
+        return appointmentstatus;
+    }
+
+    public void setAppointmentstatus(String appointmentstatus) {
+        this.appointmentstatus = appointmentstatus;
+    }
+
+    public String getCus_name() {
+        return cus_name;
+    }
+
+    public void setCus_name(String cus_name) {
+        this.cus_name = cus_name;
+    }
+
+    public String getUser_role() {
+        return user_role;
+    }
+
+    public void setUser_role(String user_role) {
+        this.user_role = user_role;
     }
 }

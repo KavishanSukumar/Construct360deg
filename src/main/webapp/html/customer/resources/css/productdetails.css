@@ -3,7 +3,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: rgb(0, 0, 0);
+    background: rgb(253, 253, 253);
     /*background-image: url("../images/productdetails/constrution.png");*/
 }
 
@@ -20,7 +20,7 @@ main{
     display: grid;
     grid-template-columns: 45% 55% ;
     grid-template-areas: "cover content";
-    box-shadow: -2px 0px 33px 0px rgb(255, 114, 0);
+    box-shadow: -2px 0px 33px 0px rgb(101, 101, 101);
 }
 .cover{
     grid-area: cover;
@@ -33,7 +33,7 @@ main{
 
 .cover img{
     width: 551px;
-    height: 642.5px;
+    height: 633.5px;
 }
 
 .content{
