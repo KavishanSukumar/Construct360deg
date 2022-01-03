@@ -47,13 +47,13 @@ public class ComplainServlet extends HttpServlet {
                 System.out.println("Complain Lodge successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Complain Lodge successful');");
-                out.println("location='"+req.getContextPath()+"/complains';");
+                out.println("location='"+req.getContextPath()+"/landingpage';");
                 out.println("</script>");
             }else{
                 System.out.println("Complain Lodge unsuccessfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Complain Lodge unsuccessful');");
-                out.println("location='"+req.getContextPath()+"/complains';");
+                out.println("location='"+req.getContextPath()+"/landingpage';");
                 out.println("</script>");
             }
         } catch (SQLException e) {

@@ -1,6 +1,9 @@
 package com.example.construct360deg.controllers;
 
 
+import com.example.construct360deg.dao.AdvertiseDAO;
+import com.example.construct360deg.model.Advertise;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -10,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet("/landingpage")
 @MultipartConfig
@@ -36,11 +41,39 @@ public class LandingpageServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
             System.out.println("admin");
         } else if (userrole.equals("cus_indiv")) {
+            ArrayList<Advertise> displayadds = new ArrayList<>();
+            AdvertiseDAO advertiseDAO = new AdvertiseDAO();
+
+            try {
+                displayadds=advertiseDAO.displayadds();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                System.out.println("i am in catch block");
+            }
+            for(Advertise x:displayadds){
+                System.out.println(x.getAddid());
+            }
+            System.out.println(displayadds);
+            req.setAttribute("displayadds",displayadds);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("cus_indiv");
         }
         else if (userrole.equals("cus_com")) {
+            ArrayList<Advertise> displayadds = new ArrayList<>();
+            AdvertiseDAO  advertiseDAO = new AdvertiseDAO();
+
+            try {
+                displayadds=advertiseDAO.displayadds();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                System.out.println("i am in catch block");
+            }
+            for(Advertise x:displayadds){
+                System.out.println(x.getAddid());
+            }
+            System.out.println(displayadds);
+            req.setAttribute("displayadds",displayadds);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("cus_com");
