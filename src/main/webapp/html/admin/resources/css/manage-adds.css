@@ -59,26 +59,25 @@
 
 }
 
-#available_adds{
-    background-color: #ff7200;
-    font-size: 17px;
-    border-radius: 20px;
-    cursor: pointer;
-
-}
-
-#accept_adds{
-    font-size: 17px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-#rejected_adds{
+.button {
+    display: block;
+    width: 140px;
+    height: 55px;
+    background-color: #c4c4c4;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    line-height: 25px;
+    text-decoration: none;
+    color: black;
     font-size: 17px;
     border-radius: 20px;
     cursor: pointer;
 }
-#available_adds:hover, #accept_adds:hover, #rejected_adds:hover{
+
+
+
+a:hover{
     background-color: #ff7200;
 }
 
@@ -110,22 +109,17 @@
 #confirm{
     background-color: #1fa11f;
 }
-#confirm:hover{
-    background-color: #000000;
-}
 #reject{
-    background-color: #d21212;
+    background-color:red;
 }
-#reject:hover{
+#reject:hover,#confirm:hover,#view:hover,#view1:hover,#view2:hover{
     background-color: #000000;
 }
 
-/*manageadds{*/
-
-/*    border-collapse: collapse;*/
-/*    width: 90.4%;*/
-/*    margin-left: 54px;*/
-/*}*/
+.manageadds{
+    border-collapse: collapse;
+    margin-left: 50px;
+}
 
 .manageadds td, .manageadds th {
     border: 1px solid #ddd;
@@ -147,6 +141,7 @@ th {
     text-align: left;
     background-color: #7c7c7c;
     color: white;
+    margin-left: 50px;
 }
 
 .headrow th{
@@ -168,6 +163,53 @@ input[type=date], select, textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     /* resize: vertical; */
+}
+
+managebtn{
+    cursor: pointer;
+}
+.popup{
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 28%;
+    justify-content: center;
+    background-color: black;
+    visibility: hidden;
+
+}
+
+.popup-content{
+    width: 616px;
+    height: 520px;
+    display: grid;
+    border: solid;
+}
+
+
+#view,#view2,#view3{
+    margin-left: 33px;
+}
+
+#close,#close2,#close3{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 573px;
+    opacity: 0.5;
+}
+#close:hover,#close2:hover,#close3:hover{
+    color: white;
+    background-color: red;
+    opacity: 1;
 }
 
 .footer{

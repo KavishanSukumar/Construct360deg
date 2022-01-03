@@ -3,17 +3,10 @@
     padding: 0;
     
 } 
-/*.Maxcontainer{*/
-/*    display: grid;*/
-/*    height: 100vh; */
-/*    grid-template-columns: 1fr;*/
-/*    grid-template-rows: 0.2fr 0.2fr;*/
-/*    grid-template-areas:*/
-/*        "firstpart" */
-/*         "content";*/
-/*    grid-gap: 0.2rem;*/
-/*    */
-/*}*/
+.Maxcontainer{
+    margin-bottom: -15px;
+
+}
 
 
 
@@ -52,13 +45,13 @@
     margin-right: 20px;
     border: 1px solid gray;
     height: 35px;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
 }
 .row6{
     margin-top: 20px;
     margin-left: 38px;
     border: 1px solid gray;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
 }
 .custom-select{
     margin-top: 20px;
@@ -77,21 +70,20 @@
 #Price{
     margin-left: 83px;
     border: 1px solid gray;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     padding: 5.5px;
 }
 #stock{
     margin-left: 2px;
     border: 1px solid gray;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     padding: 5.5px;
 }
 .row11{
     /* border: 2px solid black; */
     margin: 0px;
-    padding: 120px;
-    padding-left: 40%;
-    margin-right: 15%;
+    padding: 181px;
+    padding-left: 48%;
 }
 .leftrightSide{
     padding-left: 40px;
@@ -130,7 +122,7 @@
 }
 #category{
     border: 1px solid gray;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
 }
 
 .custom-fileUpload .btnfile{
@@ -156,7 +148,7 @@
 }
 
 .col-12 .btnsub{
-    width: 49%;
+    width: 26%;
     background-color: rgb(248, 144, 59);
     color: rgb(255, 255, 255);
     padding: 13px 44px;
@@ -165,7 +157,7 @@
     padding-left: 36px;
     border: 1px solid ;
     cursor: pointer;
-    border-radius: 25px;
+    /*border-radius: 25px;*/
 }
 
 .col-12 .btnsub:hover{
@@ -189,7 +181,9 @@
 
 .brower_content{
     /* float: left; */
-    border: 1px solid black; 
+    border: 1px solid black;
+    width: 467px;
+    height: 416px;
        
 }
 
@@ -197,20 +191,21 @@
     overflow: hidden;
 }
 
+
 .brower_content .productimg img{
-    width: 26%;
-    height: 38%;
+    width: 31%;
+    height: 54%;
     /* object-fit: cover; */
     position: absolute;
-    top: 191px;
-    left: 1033px;
-    border-radius: 5px;
+    top: 175px;
+    left: 1031px;
+    /*border-radius: 5px;*/
     transition: transform .5s ease;
-    display: none;
+    display: block;
 }
 
 .brower_content .productimg:hover img{
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .brower_content .productimg img.active{
@@ -246,7 +241,7 @@
     padding-left: 38px;
     border: 1px solid ;
     cursor: pointer;
-    border-radius: 25px;
+    /*border-radius: 25px;*/
 }
 
 .DeleteandCloseButton .btndel:hover{
@@ -264,7 +259,8 @@
     padding-left: 36px;
     border: 1px solid ;
     cursor: pointer;
-    border-radius: 25px;}
+    /*border-radius: 25px;*/
+}
 
     .DeleteandCloseButton .btnclo:hover{
         background-color: rgb(245, 190, 138);

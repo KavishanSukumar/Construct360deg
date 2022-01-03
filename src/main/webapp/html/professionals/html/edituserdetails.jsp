@@ -5,7 +5,7 @@
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
-  ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
+  Account accounts = (Account) request.getAttribute("accounts");
 %>
 
 <!DOCTYPE html>
@@ -96,9 +96,9 @@
     <div class="content2">
       <div class="setting">
         <img src="./html/professionals/resources/images/viewprofile/user2.png">
-        <%for (Account x:accounts){%>
-        <h3><%=x.getFirstname()%> <%=x.getLastname()%></h3>
-        <%}%>
+<%--        <%for (Account x:accounts){%>--%>
+        <h3><%=accounts.getFirstname()%> <%=accounts.getLastname()%></h3>
+<%--        <%}%>--%>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
@@ -109,34 +109,37 @@
         </div>
       </div>
 
-      <%for (Account x:accounts){%>
+<%--      <%for (Account x:accounts){%>--%>
       <div class="middle-content" id="account">
         <form action="<%=request.getContextPath()%>/account" method="post">
-          <label for="fname">First Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="fname" name="firstname" value="<%=x.getFirstname()%>">
-
-          <label for="lname">Last Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="lname" name="lastname" value="<%=x.getLastname()%>">
-
-          <label for="bio">Bio: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="bio" name="bio" value="<%=x.getBio()%>">
-
-          <label for="nic">Nic Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="nic" name="nic" value="<%=x.getNic()%>">
-
-          <label for="email">E-mail: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="email" name="email" value="<%=x.getEmail()%>">
-
-          <label for="address">Address: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="address" name="address" value="<%=x.getAddress()%>">
-
-          <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="<%=x.getContactnum()%>">
-
-          <input type="submit" id="submit" value="Save changes">
+            <div class="col-1">
+              <label for="fname">First Name</label>
+              <label for="lname">Last Name</label>
+              <label for="nic">Nic Number</label>
+              <label for="pHomeno">Home Number</label>
+              <label for="pstreet">Street</label>
+              <label for="pcity">City</label>
+              <label for="pdistrict">District</label>
+              <label for="pprovince">Province</label>
+              <label for="email">Email</label>
+              <label for="contactnum">Contact Number</label>
+            </div>
+            <div class="col-2">
+              <input type="text" id="fname" name="firstname" value="<%=accounts.getFirstname()%>">
+              <input type="text" id="lname" name="lastname" value="<%=accounts.getLastname()%>">
+              <input type="text" id="nic" name="nic" value="<%=accounts.getNic()%>">
+              <input type="text" id="pHomeno" name="houseno" value="<%=accounts.getHouseno()%>">
+              <input type="text" id="pstreet" name="street" value="<%=accounts.getStreet()%>">
+              <input type="text" id="pcity" name="city" value="<%=accounts.getCity()%>">
+              <input type="text" id="pdistrict" name="district" value="<%=accounts.getDistrict()%>">
+              <input type="text" id="pprovince" name="province" value="<%=accounts.getProvince()%>">
+              <input type="text" id="email" name="email" value="<%=accounts.getEmail()%>">
+              <input type="text" id="contactnum" name="contactno" value="<%=accounts.getContactno()%>">
+            </div>
+            <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
-      <%}%>
+
       <div class="middle-content" id="qualification">
         <h3>Qualifications</h3>
       </div>

@@ -13,8 +13,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search for contractors</title>
+  <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/admin/resources/css/searchallusers.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
@@ -22,51 +24,56 @@
 <div class="container">
       <div class="content">
         <div class="content1">
-        <form class="example" action="/action_page.java">
+        <form class="example" method="get" action="<%=request.getContextPath()%>/searchprofile">
           <button type="submit"><i class="fa fa-search"></i></button>
-          <input type="text" placeholder="Search.." name="search">
+          <input type="text" placeholder="Search.." name="search" id="search">
         </form>
         </div>
         <div class="container-3">
             <h3>Filter By</h3>
+         <form id="usertypes" action="" method="get">
             <h4>Users :</h4>
             <label class="box">Contractor
-                <input type="checkbox">
+                <input type="checkbox" value="contractor">
                 <span class="checkmark"></span>
               </label>
             <label class="box">Landscape Designer
-                <input type="checkbox">
+                <input type="checkbox" value="landscape">
                 <span class="checkmark"></span>
             </label>
             <label class="box">Customers
-                <input type="checkbox">
+                <input type="checkbox" value="customers">
                 <span class="checkmark"></span>
             </label>
             <label class="box">Product Companies
-                <input type="checkbox">
+                <input type="checkbox" value="product">
                 <span class="checkmark"></span>
             </label>
+
+
             <h4>Ranking :</h4>
             <label class="box"><i class="fas fa-star"></i>
-                <input type="checkbox">
+                <input type="checkbox" name="1" value="1">
                 <span class="checkmark"></span>
               </label>
             <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
+                <input type="checkbox" name="2" value="2">
                 <span class="checkmark"></span>
             </label>
             <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
+                <input type="checkbox" name="3" value="3">
                 <span class="checkmark"></span>
               </label>
             <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
+                <input type="checkbox" name="4" value="4">
                 <span class="checkmark"></span>
             </label>
             <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
+                <input type="checkbox" name="5" value="5">
                 <span class="checkmark"></span>
             </label>
+             <button id="usertypesinput" ></button>
+         </form>
         </div>
 
         <div class="container-4">
@@ -81,7 +88,7 @@
                         base64Encoded = new String(encodeBase64, "UTF-8");
                     }
                 %>
-                <div class="gallery">
+                <div class="gallery" id="gal">
                     <a target="_blank" href="user4.png">
                       <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
                     </a>
@@ -120,15 +127,30 @@
                             post="Not Mentioned";
                     %>
                     <div class="desc">
-                        <p><%=name%></p>
-                        <p><%=post%></p>
+                        <p id="name"><%=name%></p>
+                        <p id="post"><%=post%></p>
                     </div>
                 </div>
             <%}%>
         </div>
+          <%@include file="../../footer.jsp"%>
       </div>
+
     </div>
-    <%@include file="../../footer.jsp"%>
+
+<script>
+    const searchbar = document.getElementById('search');
+
+    searchbar.addEventListener('keyup',(e)=>{
+        const input = e.target.value;
+        if(input==""){
+            console.log("null value");
+        }else{
+            console.log("not null value");
+        }
+
+    })
+</script>
 </body>
 
 </html>

@@ -84,4 +84,101 @@ public class ProductDAO {
         return products;
 
     }
+
+    public boolean Updateproduct(Product product) throws SQLException{
+        Boolean status=false;
+        Connection connection= Database.getConnection();
+        PreparedStatement preparedStatement3=null;
+
+        String sql2="UPDATE `product`  SET    `quantity`=?, `productimage`=?, `productdes`=?, `productprice`=?, `productname`=? WHERE  productid=?";
+
+        preparedStatement3=connection.prepareStatement(sql2);
+
+        preparedStatement3.setFloat(1,product.getQuantity());
+        preparedStatement3.setBlob(2,product.getProductimage());
+        preparedStatement3.setString(3,product.getProductdes());
+        preparedStatement3.setFloat(4,product.getPrice());
+        preparedStatement3.setString(5,product.getProductName());
+        preparedStatement3.setInt(6,product.getProductid());
+
+        int rows=preparedStatement3.executeUpdate();
+
+        if(rows>0){
+            status=true;
+        }
+
+        return status;
+
+    }
+
+
+    public Product editProductDetailsCom(int userid,int productid) throws SQLException {
+        Product product=new Product();
+        PreparedStatement preparedStatement=null;
+        Connection connection= Database.getConnection();
+        String sql="SELECT * FROM `product` WHERE companyid =? AND productid=? ";
+        ResultSet resultSet=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+        preparedStatement.setInt(2,productid);
+        resultSet=preparedStatement.executeQuery();
+
+        if(resultSet.next()){
+            product.setProductName(resultSet.getString("productname"));
+            product.setQuantity(resultSet.getFloat("quantity"));
+            product.setPrice(resultSet.getFloat("productprice"));
+            product.setCompanyid(resultSet.getInt("companyid"));
+            product.setProductid(resultSet.getInt("productid"));
+            byte[] bytes=resultSet.getBytes("productimage");
+            product.setImgBytes(bytes);
+            product.setProductdes(resultSet.getString("productdes"));
+        }
+        return product;
+
+    }
+
+    public boolean deleteProduct(int productid) throws SQLException{
+        Boolean status=false;
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+
+        String sql = "DELETE FROM `product` WHERE productid=?";
+
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,productid);
+
+        int rows = preparedStatement.executeUpdate();
+        if(rows>0){
+            status=true;
+        }
+
+        return status;
+}
+
+    public Product viewproductdetails(int productid) throws SQLException {
+        Product product=new Product();
+        PreparedStatement preparedStatement=null;
+        Connection connection= Database.getConnection();
+        String sql="SELECT * FROM `product` WHERE productid=? ";
+        ResultSet resultSet=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,productid);
+        resultSet=preparedStatement.executeQuery();
+
+        if(resultSet.next()){
+            product.setProductName(resultSet.getString("productname"));
+            product.setQuantity(resultSet.getFloat("quantity"));
+            product.setPrice(resultSet.getFloat("productprice"));
+//            product.setCompanyid(resultSet.getInt("companyid"));
+            product.setProductid(resultSet.getInt("productid"));
+            byte[] bytes=resultSet.getBytes("productimage");
+            product.setImgBytes(bytes);
+            product.setProductdes(resultSet.getString("productdes"));
+        }
+        return product;
+
+    }
 }

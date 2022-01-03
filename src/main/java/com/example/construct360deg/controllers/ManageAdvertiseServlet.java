@@ -23,11 +23,22 @@ public class ManageAdvertiseServlet extends HttpServlet {
         ArrayList<Advertise> acceptadds = new ArrayList<>();
         ArrayList<Advertise> rejectadds = new ArrayList<>();
         AdvertiseDAO advertiseDAO = new AdvertiseDAO();
-
+        String searchinput = req.getParameter("By");
+        if(searchinput!=null) {
+            searchinput = searchinput.trim();
+        }
+        String activityfrom = req.getParameter("activityfrom");
+        String activityTo = req.getParameter("activityTo");
+        System.out.println("----------activityfrom--------------");
+        System.out.println(activityfrom);
+        System.out.println("---------activityTo----------------");
+        System.out.println(activityTo);
+        System.out.println("this is search input in manage adds");
+        System.out.println(searchinput);
         try {
-            advertise = advertiseDAO.retriveAdevertises();
-            acceptadds = advertiseDAO.retreiveacceptadds();
-            rejectadds = advertiseDAO.retreiverejectadds();
+            advertise = advertiseDAO.retriveAdevertises(searchinput,activityfrom,activityTo);
+            acceptadds = advertiseDAO.retreiveacceptadds(searchinput,activityfrom,activityTo);
+            rejectadds = advertiseDAO.retreiverejectadds(searchinput,activityfrom,activityTo);
         } catch (SQLException e) {
             e.printStackTrace();
         }

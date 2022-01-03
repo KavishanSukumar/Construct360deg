@@ -129,8 +129,9 @@
                             <div class="desc"> <%=x.getProductName()%></div>
                         </div>
                         <div class="addtocart">
-                            <button href="#" value="<%=x.getProductid()%>" class="order-btn">Edit</button>
-                            <button onclick="confirmation(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Delete</button>
+<%--                            <a href="<%=request.getContextPath()%>/editproducts"><button   class="order-btn">Edit</button></a>--%>
+                            <button onclick="editproduct(<%=x.getProductid()%>)" class="order-btn">Edit</button>
+                            <button onclick="deleteproduct(<%=x.getProductid()%>)" class="addtocart-btn" >Delete</button>
                         </div>
 
                     </div>
@@ -140,15 +141,25 @@
 </div>
 
 <script>
-    function confirmation(ele){
+    function deleteproduct(id){
+        var productid = id;
+        console.log(productid);
         var out=confirm("Delete product");
         if(out==true){
-          var productid=ele.id;
-          var xhttp=new XMLHttpRequest();
-          xhttp.open("POST","<%=request.getContextPath()%>/addtocart?productid="+productid,true);
-          xhttp.send();
+          location.href="<%=request.getContextPath()%>/deleteproduct?productid="+productid;
         }
     }
+    function editproduct(id){
+        var productid = id;
+        console.log(productid);
+        var out=confirm("Edit product");
+        if(out==true){
+            location.href="<%=request.getContextPath()%>/editproducts?productid="+productid;
+        }else{
+            console.log("we in flase box5");
+        }
+    }
+
 </script>
 </body>
 

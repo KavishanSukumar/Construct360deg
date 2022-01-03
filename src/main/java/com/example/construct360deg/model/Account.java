@@ -5,11 +5,14 @@ public class Account {
     private String userrole;
     private String firstname;
     private String lastname;
-    private String bio;
     private String nic;
+    private String houseno;
+    private String street;
+    private String city;
+    private String district;
+    private String province;
     private String email;
-    private String address;
-    private int contactnum;
+    private String contactno;
 
     public int getUserid() {
         return userid;
@@ -17,6 +20,14 @@ public class Account {
 
     public void setUserid(int userid) {
         this.userid = userid;
+    }
+
+    public String getUserrole() {
+        return userrole;
+    }
+
+    public void setUserrole(String userrole) {
+        this.userrole = userrole;
     }
 
     public String getFirstname() {
@@ -35,20 +46,52 @@ public class Account {
         this.lastname = lastname;
     }
 
-    public String getBio() {
-        return bio;
-    }
-
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
     public String getNic() {
         return nic;
     }
 
     public void setNic(String nic) {
         this.nic = nic;
+    }
+
+    public String getHouseno() {
+        return houseno;
+    }
+
+    public void setHouseno(String houseno) {
+        this.houseno = houseno;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 
     public String getEmail() {
@@ -59,19 +102,11 @@ public class Account {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getContactno() {
+        return contactno;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getContactnum() {
-        return contactnum;
-    }
-
-    public void setContactnum(int contactnum) {
-        this.contactnum = contactnum;
+    public void setContactno(String contactno) {
+        this.contactno = contactno;
     }
 }

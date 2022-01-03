@@ -30,6 +30,7 @@
             <a href="<%=request.getContextPath()%>/inquires"><i class="fas fa-flag-checkered" id="flag"></i><h4>Inquires</h4></a>
             <a href="<%=request.getContextPath()%>/allpayments"><i class="fas fa-file-invoice-dollar" id="payment"></i><h4>Payment Details</h4></a>
             <a href="<%=request.getContextPath()%>/managelog"><i class="fas fa-address-book" id="book"></i><h4>Manage Log </h4></a>
+            <a href="<%=request.getContextPath()%>/manageadds"><i class="fas fa-ad" id="ads"></i><h4>Manage Ads </h4></a>
             <a href="#"><i class="fas fa-hands-helping" id="help"></i><h4>Help and Support</h4></a>
             <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
         </ul>

@@ -184,21 +184,30 @@ tr{
 }
 .popup-content{
     width: 616px;
-    height: 547px;
+    height: 537px;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
     border: solid;
+
 }
 
 
 #close{
-    width: 20px;
-    float: left;
+    width: 36px;
+    /* float: left; */
     border: black;
+    font-weight: bold;
     border-radius: 100%;
     cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 30px;
+    color: #060000;
+    margin-left: 565px;
 }
+
 
 
 input[type=text], select, textarea {

@@ -125,7 +125,7 @@
                     %>
                     <div class="profile">
                         <div class="gallery">
-                            <a target="_blank" href="user4.jpg">
+                            <a target="_blank" onclick="viewdetails(<%=x.getProductid()%>)">
                                 <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/customer/resources/images/Avatar.png;'">
                             </a>
                             <div class="desc"> <%=x.getProductName()%></div>
@@ -156,6 +156,16 @@
           var xhttp=new XMLHttpRequest();
           xhttp.open("POST","<%=request.getContextPath()%>/addtocart?productid="+productid,true);
           xhttp.send();
+        }
+    }
+    function viewdetails(id){
+        var productid = id;
+        console.log(productid);
+        var out=confirm("viewproduct");
+        if(out==true){
+            location.href="<%=request.getContextPath()%>/viewproductdetails?productid="+productid;
+        }else {
+            console.log("false box");
         }
     }
 </script>
