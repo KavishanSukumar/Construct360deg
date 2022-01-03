@@ -21,9 +21,13 @@
 
 
 <div class="container">
+<<<<<<< HEAD
     <%@include file="sidebar-customer.jsp"%>
+=======
+>>>>>>> 59fb4cba82a76c43a129aa604bdcdfc5f36117c2
 
 
+    <%@include file="sidebar-customer.jsp"%>
 
 
     <div class="content">

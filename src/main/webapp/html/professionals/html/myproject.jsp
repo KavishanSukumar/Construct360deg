@@ -294,12 +294,12 @@
             <div class="project" id="closeproject">
                 <h2>  Close Project </h2>
                 <div class="form">
-                    <form action="/action_page.java">
+                    <form action="<%=request.getContextPath()%>/closeproject" method="post">
                         <label for="area">Reason for close the project</label>
-                        <textarea id="area" name="area" rows="8" cols="69" placeholder="Type your reason..." required></textarea><br><br>
+                        <textarea id="area" name="reason" rows="8" cols="69" placeholder="Type your reason..." required></textarea><br><br>
 
                         <label for="pname">Type here "Project is Closed"</label>
-                        <input type="text" id="pname" name="pname" required>
+                        <input type="text" id="pname" name="display" required>
 
                         <input type="submit" value="Submit">
                     </form>

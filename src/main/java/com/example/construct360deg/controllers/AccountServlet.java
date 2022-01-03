@@ -15,10 +15,11 @@ import java.sql.SQLException;
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
        @Override
-       public void doGet(HttpServletRequest req, HttpServletResponse resp){
+       public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 
        }
 
+       @Override
        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
               HttpSession session = req.getSession();
               PrintWriter out = resp.getWriter();
@@ -31,11 +32,14 @@ public class AccountServlet extends HttpServlet {
 
               account.setFirstname(req.getParameter("firstname"));
               account.setLastname(req.getParameter("lastname"));
-              account.setBio(req.getParameter("bio"));
               account.setNic(req.getParameter("nic"));
+              account.setHouseno(req.getParameter("houseno"));
+              account.setStreet(req.getParameter("street"));
+              account.setCity(req.getParameter("city"));
+              account.setDistrict(req.getParameter("district"));
+              account.setProvince(req.getParameter("province"));
               account.setEmail(req.getParameter("email"));
-              account.setAddress(req.getParameter("address"));
-              account.setContactnum(Integer.parseInt(req.getParameter("contactnum")));
+              account.setContactno(req.getParameter("contactno"));
               System.out.println("Hello2");
 
               try {

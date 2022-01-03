@@ -23,6 +23,7 @@ public class EditProfileServlet extends HttpServlet {
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
         String userrole= (String) session.getAttribute("userrole");
+        Account accounts = new Account();
 
         if(userrole.equals("admin")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/editdetails-admin.jsp");
@@ -38,9 +39,9 @@ public class EditProfileServlet extends HttpServlet {
             System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-            ArrayList<Account> accounts = new ArrayList<>();
+//            Account accounts = new Account();
             try {
-                accounts = accountDetailsDAO.retriveDetails();
+                accounts = accountDetailsDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -52,9 +53,9 @@ public class EditProfileServlet extends HttpServlet {
             System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-            ArrayList<Account> accounts = new ArrayList<>();
+//            Account accounts = new Account();
             try {
-                accounts = accountDetailsDAO.retriveDetails();
+                accounts = accountDetailsDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

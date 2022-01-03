@@ -22,6 +22,7 @@ public class ViewProfileServlet extends HttpServlet {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
         int userid = (int) session.getAttribute("userid");
+        Account accounts = new Account();
         if(userrole.equals("admin")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
@@ -40,9 +41,9 @@ public class ViewProfileServlet extends HttpServlet {
         }else if(userrole.equals("prof_com")){
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-            ArrayList<Account> accounts = new ArrayList<>();
+//            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                accounts = accountDetailsDAO.retriveDetails();
+                accounts = accountDetailsDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -95,13 +96,14 @@ public class ViewProfileServlet extends HttpServlet {
         }else if (userrole.equals("prof_indiv")){
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-            ArrayList<Account> accounts = new ArrayList<>();
+//            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                accounts = accountDetailsDAO.retriveDetails();
+                accounts = accountDetailsDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             req.setAttribute("accounts",accounts);
+            System.out.println(accounts.getFirstname());
 
             //Add summary
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();

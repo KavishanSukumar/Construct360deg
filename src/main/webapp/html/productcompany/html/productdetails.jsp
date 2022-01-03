@@ -8,7 +8,9 @@
 <body>
 <main>
     <div class="container">
-        <div class="cover"></div>
+        <div class="cover">
+            <img src="../resources/images/productdetails/shovel.jpg">
+        </div>
         <div class="content">
             <div class="nav">
                 <span class="logo">Brand New*</span>
@@ -27,6 +29,7 @@
                         managed under the headship of our mentor "Mr. Amrit Singh" and have achieved a significant position in this sector.</p>
                     <div class="prix">
                         <span><b>Rs 1000.00</b></span>
+                        <span><b>Units In Stock : 50</b></span>
 <%--                        <span class="crt">Add to cart</span>--%>
                         <a><button class="crt">Add to cart</button></a>
 <%--                        <span class="orderNow">Order Now</span>--%>

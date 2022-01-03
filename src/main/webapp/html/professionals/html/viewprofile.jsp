@@ -7,7 +7,7 @@
     ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
-    ArrayList<Account> accounts = (ArrayList<Account>) request.getAttribute("accounts");
+    Account accounts = (Account) request.getAttribute("accounts");
 %>
 
 <!DOCTYPE html>
@@ -66,9 +66,9 @@
         <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
 
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
-        <%for (Account x:accounts){%>
-        <h2><%=x.getFirstname()%> <%=x.getLastname()%></h2>
-        <p><%=x.getBio()%></p>
+        <h2><%=accounts.getFirstname()%> <%=accounts.getLastname()%></h2>
+        <%for (Viewprofile x:addsummary){%>
+        <p><%=x.getSummaryText()%></p>
         <%}%>
         <a href="#" class="button">Message</a>
       </div>
@@ -79,9 +79,6 @@
 
         <div class="summary" id="popup">
             <div class="button" onclick="popup()">Add summary</div>
-          <%for (Viewprofile x:addsummary){%>
-              <p>* <%=x.getSummaryText()%></p>
-          <%}%>
 
           <div class="background"></div>
           <div class="summarycontent">
@@ -199,10 +196,8 @@
 
       <div class="box4">
         <h3>Contact</h3>
-        <%for (Account x:accounts){%>
-        <p>Email - <%=x.getEmail()%></p>
-        <p>Tele - <%=x.getContactnum()%></p>
-        <%}%>
+        <p>Email - <%=accounts.getEmail()%></p>
+        <p>Tele - <%=accounts.getContactno()%></p>
       </div>
     </div>
   </div><br><br>
