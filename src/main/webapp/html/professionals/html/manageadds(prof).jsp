@@ -131,7 +131,7 @@
 
                       <div class="popup" id="popupid<%=x.getAddid()%>">
                           <div class="popup-content">
-                              <button id="close" onclick="mypopupclose('popupid<%=x.getAddid()%>')">X</button>
+                              <button c="close" onclick="mypopupclose('popupid<%=x.getAddid()%>')">X</button>
                               <img src="data:image/jpeg;base64,<%=base64Encoded1%>" onerror="this.src='./resources/images/Avatar.png;'" id="addimg" style="width: 600px; height: 500px; padding: 8px">
                           </div>
                       </div>

@@ -3,12 +3,12 @@ package com.example.construct360deg.dao;
 import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.Advertise;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 public class AdvertiseDAO {
     public boolean advertise(Advertise advertise) throws SQLException{
         Boolean status=false;
@@ -140,13 +140,46 @@ public class AdvertiseDAO {
         }
     }
 
-    public ArrayList<Advertise> retriveAdevertises() throws SQLException{
+    public ArrayList<Advertise> retriveAdevertises(String searchinput,String activityfrom,String activityTo) throws SQLException{
         ArrayList<Advertise> pendingadvertises = new ArrayList<>();
         Connection  connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        System.out.println("this is advertise dao");
+        System.out.println("this is retriveAdevertises function in  Adevertisedao");
+        System.out.println(searchinput);
+        String sql = null;
+        System.out.println("----------activityfrom--------------");
+        System.out.println(activityfrom);
+        System.out.println("---------activityTo----------------");
+        System.out.println(activityTo);
 
-        String sql = "SELECT * FROM `alladdsview`";
+//        Date from = new SimpleDateFormat("dd-MMM-yyyy").parse(activityfrom);
+
+
+
+        if((activityfrom!="" && activityfrom!=null) && (activityTo!="" && activityTo!=null)){
+            System.out.println("tada ");
+            if(searchinput=="" || searchinput==null){
+                System.out.println("tada tada");
+                sql = "SELECT * FROM `alladdsview` WHERE  submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )";
+                System.out.println(sql);
+            }else {
+                sql = "SELECT * FROM `alladdsview` WHERE  submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )" +
+                        "AND (submit_time like '%" + searchinput + "%' OR CONVERT(username, CHAR(30)) like '%" + searchinput + "%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%" + searchinput + "%' OR CONVERT(addid, CHAR(30)) like '%" + searchinput + "%')";
+                System.out.println("blah blah ");
+            }
+        }else{
+            if(searchinput=="" || searchinput==null){
+                sql = "SELECT * FROM `alladdsview`";
+                System.out.println("blah blah balh ");
+            }else{
+                sql = "SELECT * FROM `alladdsview` WHERE " +"CONVERT(submit_time, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(username, CHAR(30)) like '%"+searchinput+"%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(addid, CHAR(30)) like '%"+searchinput+"%'";
+                System.out.println("blah blah balh balh");
+            }
+
+        }
+
         ResultSet resultSet = null;
         preparedStatement= connection.prepareStatement(sql);
         resultSet=preparedStatement.executeQuery();
@@ -160,6 +193,8 @@ public class AdvertiseDAO {
             advertise.setUsername(resultSet.getString("username"));
             advertise.setRole(resultSet.getString("role"));
             advertise.setAddid(resultSet.getString("addid"));
+            byte[] img = resultSet.getBytes("file");
+            advertise.setAddimg(img);
             advertise.setImgblob(resultSet.getBlob("file"));
             pendingadvertises.add(advertise);
         }
@@ -169,12 +204,39 @@ public class AdvertiseDAO {
     }
 
 
-    public ArrayList<Advertise> retreiveacceptadds() throws  SQLException{
+    public ArrayList<Advertise> retreiveacceptadds(String searchinput,String activityfrom,String activityTo) throws  SQLException{
         System.out.println("this is advertise dao 2");
         ArrayList<Advertise> acceptadds = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `allacceptadds`";
+
+        String sql = null;
+        if((activityfrom!="" && activityfrom!=null) && (activityTo!="" && activityTo!=null)){
+
+            if(searchinput=="" || searchinput==null){
+
+                sql = "SELECT * FROM `allacceptadds` WHERE  evaluated_date >= CAST('"+ activityfrom + "' AS date )   AND evaluated_date <= CAST('"+ activityTo + "' AS date )";
+                System.out.println("ooo ");
+                System.out.println(sql);
+            }else {
+                sql = "SELECT * FROM `allacceptadds` WHERE  evaluated_date >= CAST('"+ activityfrom + "' AS date )   AND evaluated_date <= CAST('"+ activityTo + "' AS date ) " +
+                        "AND (submit_time like '%" + searchinput + "%' OR CONVERT(username, CHAR(30)) like '%" + searchinput + "%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%" + searchinput + "%' OR CONVERT(addid, CHAR(30)) like '%" + searchinput + "%')";
+                System.out.println("ooo ooo ");
+            }
+        }else{
+            if(searchinput=="" || searchinput==null){
+                sql = "SELECT * FROM `allacceptadds`";
+                System.out.println("ooo ooo ooo ");
+            }else{
+                sql = "SELECT * FROM `allacceptadds` WHERE  " + " CONVERT(submit_time, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(username, CHAR(30)) like '%"+searchinput+"%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(addid, CHAR(30)) like '%"+searchinput+"%'";
+                System.out.println("ooo ooo ooo ooo");
+            }
+
+        }
+//        submit_date	 submit_time	 username	 role	 addid	 file	 evaluated_date
+//        sql = "SELECT * FROM `allacceptadds`";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();
@@ -189,6 +251,8 @@ public class AdvertiseDAO {
             acceptadd.setAddid(resultSet.getString("addid"));
             acceptadd.setImgblob(resultSet.getBlob("file"));
             System.out.println(resultSet.getBlob("file"));
+            byte[] img = resultSet.getBytes("file");
+            acceptadd.setAddimg(img);
             acceptadd.setEvodate(resultSet.getDate("evaluated_date"));
             acceptadds.add(acceptadd);
         }
@@ -197,11 +261,36 @@ public class AdvertiseDAO {
         return acceptadds;
     }
 
-    public ArrayList<Advertise> retreiverejectadds() throws  SQLException{
+    public ArrayList<Advertise> retreiverejectadds(String searchinput,String activityfrom,String activityTo) throws  SQLException{
         ArrayList<Advertise> rejectadds = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `allrejectadds`";
+        String sql = null;
+        if((activityfrom!="" && activityfrom!=null) && (activityTo!="" && activityTo!=null)){
+
+            if(searchinput=="" || searchinput==null){
+
+                sql = "SELECT * FROM `allrejectadds` WHERE  evaluated_date >= CAST('"+ activityfrom + "' AS date )   AND evaluated_date <= CAST('"+ activityTo + "' AS date )";
+                System.out.println("333");
+                System.out.println(sql);
+            }else {
+                sql = "SELECT * FROM `allrejectadds` WHERE  evaluated_date >= CAST('"+ activityfrom + "' AS date )   AND evaluated_date <= CAST('"+ activityTo + "' AS date ) " +
+                        "AND (submit_time like '%" + searchinput + "%' OR CONVERT(username, CHAR(30)) like '%" + searchinput + "%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%" + searchinput + "%' OR CONVERT(addid, CHAR(30)) like '%" + searchinput + "%')";
+                System.out.println("333 333 ");
+            }
+        }else{
+            if(searchinput=="" || searchinput==null){
+                sql = "SELECT * FROM `allrejectadds`";
+                System.out.println("333 333 333 ");
+            }else{
+                sql = "SELECT * FROM `allrejectadds` WHERE  " + " CONVERT(submit_time, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(username, CHAR(30)) like '%"+searchinput+"%'" +
+                        "OR CONVERT(role, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(addid, CHAR(30)) like '%"+searchinput+"%'";
+                System.out.println("333 333 333 333");
+            }
+
+        }
+
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();
@@ -214,6 +303,8 @@ public class AdvertiseDAO {
             rejectadd.setRole(resultSet.getString("role"));
             rejectadd.setAddid(resultSet.getString("addid"));
             rejectadd.setImgblob(resultSet.getBlob("file"));
+            byte[] img = resultSet.getBytes("file");
+            rejectadd.setAddimg(img);
             rejectadd.setEvodate(resultSet.getDate("evaluated_date"));
             rejectadds.add(rejectadd);
         }

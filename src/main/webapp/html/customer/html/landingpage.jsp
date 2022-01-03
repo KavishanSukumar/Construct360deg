@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
-<div>
-<%@include file="sidebar-customer.jsp"%>
-<div class="container">
 
+
+<div class="container">
+    <%@include file="sidebar-customer.jsp"%>
 
 
 
@@ -76,11 +76,12 @@
            </div>
            <%}%>
       </div>
-    </div>
-    <%@include file="../../footer.jsp"%>
+        <%@include file="../../footer.jsp"%>
     </div>
 
-<%--<%@include file="../../footer.jsp"%>--%>
+    </div>
+
+
 </body>
 
 </html>

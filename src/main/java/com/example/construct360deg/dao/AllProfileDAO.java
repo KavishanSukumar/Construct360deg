@@ -8,11 +8,21 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class AllProfileDAO {
-    public ArrayList<AllUsers> getUserdetails() throws SQLException {
+    public ArrayList<AllUsers> getUserdetails(String searchval) throws SQLException {
         ArrayList<AllUsers> allUsers=new ArrayList<>();
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
-        String sql="SELECT * FROM alluserview";
+        String pattern = searchval;
+        String sql = null;
+        System.out.println(pattern);
+        if(pattern==null || pattern=="" ){
+            sql="SELECT * FROM alluserview";
+        }else{
+            sql="SELECT * FROM alluserview WHERE  profcompanyname like '%"+pattern+"%' OR  Proffullname like '%"+pattern+"%' OR  productcomname like '%"+pattern+"%' OR  cuscompanyname like '%"+pattern+"%' OR  cusindfullname like '%"+pattern+"%' ";
+        }
+
+
+
         ResultSet resultSet;
         ServletOutputStream servletOutputStream=null;
         preparedStatement=connection.prepareStatement(sql);
