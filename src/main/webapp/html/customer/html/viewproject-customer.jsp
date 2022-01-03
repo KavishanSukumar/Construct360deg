@@ -127,7 +127,7 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser" id="64">
+                            <div class="chatuser" id="67">
                                 <h4>Sukumar Kavishan</h4>
                                 <p>Date:2021-06-10</p>
                             </div>

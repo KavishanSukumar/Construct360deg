@@ -318,6 +318,20 @@ ul li a:hover,ul li i:hover{
     background: #ff7200;
     color: white;
 }
+
+#addpaymentbtn{
+    font-size: 20px;
+    background: #e6e4e3;
+    width: 190px;
+    height: 35px;
+    border-radius: 20px;
+}
+#addpaymentbtn:hover{
+    background: #ff7200;
+    color: white;
+}
+
+
 .deleteproject.active .overlay{
     display: block;
 }
@@ -464,6 +478,10 @@ ul li a:hover,ul li i:hover{
     display: block;
     margin: 10px 10px;
     padding: 10px 10px;
+    border-style: double;
+}
+.newpayment input[type="text"],.newpayment input[type="submit"],.newpayment input[type="file"]{
+    margin: 10px 10px;
 }
 #viewproject{display: none;}
 #uploadreq{display: none;}

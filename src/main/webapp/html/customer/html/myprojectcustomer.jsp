@@ -150,7 +150,7 @@
             },2000)
 
             $('#addpaymentbtn').click(function(){
-                var string="<form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='text' name='paymentamount' placeholder='Enter the payment amount'> <input type='file' name='paymentfile'><input type='hidden' name='payee' value=67 ><input type='hidden' name='payer' value=66><input type='hidden' name='projectid' value=1 ><button type='submit'>Submit</button></form>";
+                var string="<hr><form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='text' name='paymentamount' placeholder='Enter the payment amount'> <input type='file' name='paymentfile'><input type='hidden' name='payee' value=67 ><input type='hidden' name='payer' value=66><input type='hidden' name='projectid' value=1 ><button type='submit'>Submit</button></form><hr>";
                 $('#newpayment').append(string);
             });
 
@@ -258,7 +258,7 @@
                         <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                     </div>
                     <div class="chatarea">
-                        <div class="chatuser" id="64">
+                        <div class="chatuser" id="67">
                             <h4>Sukumar Kavishan</h4>
                             <p>Date:2021-06-10</p>
                         </div>

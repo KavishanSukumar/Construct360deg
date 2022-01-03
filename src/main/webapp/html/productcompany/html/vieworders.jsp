@@ -66,7 +66,7 @@
         <%@include file="sidebar-productcompany.jsp"%>
         <div class="content">
             <div class="second">
-                <form action="">
+                <form action="<%=request.getContextPath()%>/searchorders" method="post">
                     <div class="from">
                         <label name="activityfrom">Show Orders From</label> &ensp;
                         <input id="activityfrom" name="activityfrom" type="date" size = "59"class="form-control validate" />
@@ -77,11 +77,11 @@
                     </div>
                     <div class="By_option">
                         <label name="By">Search</label> &ensp;
-                        <input id="By" name="By" type="text" size = "59"class="form-control validate" />
+                        <input id="search" name="search" type="text" size = "59"class="form-control validate" />
                     </div>
                     <div class="OK">
-                        <button type="button" class="okbtn">GO</button>
-                      </div>
+                        <button type="submit" class="okbtn" id="searchbtn">GO</button>
+                    </div>
                 </form>
             </div>
             <div class="third">

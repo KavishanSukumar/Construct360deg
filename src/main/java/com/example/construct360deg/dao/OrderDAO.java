@@ -129,6 +129,92 @@ public class OrderDAO {
         System.out.println("test me");
     }
 
+    public ArrayList<Order> searchorders(int userid, String fromdate,String todate, String search ) throws SQLException {
+        ArrayList<Order> orders=new ArrayList<>();
+        String sql=null;
+        PreparedStatement preparedStatement=null;
+        Connection connection=Database.getConnection();
+        ResultSet resultSet;
+        search='%'+search+'%';
+        if(!fromdate.equals("")&&!todate.equals("")&&!search.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate>=? AND OrderDate<=? AND ((cusindivname LIKE ?) OR (companyname LIKE ?))";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,fromdate);
+            preparedStatement.setString(3,todate);
+            preparedStatement.setString(4,search);
+            preparedStatement.setString(5,search);
+        }else if(!fromdate.equals("")&&!todate.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate>=? AND OrderDate<=?";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,fromdate);
+            preparedStatement.setString(3,todate);
+        }else if (!todate.equals("")&&!search.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate<=? AND ((cusindivname LIKE ?) OR (companyname LIKE ?))";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,todate);
+            preparedStatement.setString(3,search);
+            preparedStatement.setString(4,search);
+        }else if (!todate.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate<=?";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,todate);
+        }else if(!fromdate.equals("")&&!search.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate>=? AND ((cusindivname LIKE ?) OR (companyname LIKE ?))";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,fromdate);
+            preparedStatement.setString(3,search);
+            preparedStatement.setString(4,search);
+        }else if(!fromdate.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND OrderDate>=? ";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,fromdate);
+        }else if(!search.equals("")){
+            sql="SELECT * FROM `companyorders` WHERE companyid=? AND ((cusindivname LIKE ?) OR (companyname LIKE ?))";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+            preparedStatement.setString(2,search);
+            preparedStatement.setString(3,search);
+        }else{
+            sql="SELECT * FROM `companyorders` WHERE companyid=?";
+            preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setInt(1,userid);
+        }
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Order order=new Order();
+            order.setOrderid(resultSet.getInt("orderid"));
+            order.setProductid(resultSet.getInt("productid"));
+            order.setUserid(resultSet.getInt("userid"));
+            order.setQuantity(resultSet.getFloat("quantity"));
+            order.setDistrict(resultSet.getString("district"));
+            order.setHouseno(resultSet.getString("houseno"));
+            order.setStreet(resultSet.getString("street"));
+            order.setCity(resultSet.getString("city"));
+            order.setPhone(resultSet.getString("Phone"));
+            order.setEmail(resultSet.getString("email"));
+            order.setDeliverytype(resultSet.getString("deliverytype"));
+            order.setOrderdate(resultSet.getString("OrderDate"));
+            order.setOrderstatus(resultSet.getString("orderstatus"));
+            if(resultSet.getString("cusindivname")!=null){
+                order.setCustomername(resultSet.getString("cusindivname"));
+            }else{
+                order.setCustomername(resultSet.getString("companyname"));
+            }
+            order.setProductprice(resultSet.getFloat("productprice"));
+            order.setProductname(resultSet.getString("productname"));
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
 }
 /*
 SELECT product.companyid,product.productname,product.productprice,CONCAT(customerindividual.firstname," ",customerindividual.lastname) AS cusindivname,customercompany.companyname,orders.* FROM
