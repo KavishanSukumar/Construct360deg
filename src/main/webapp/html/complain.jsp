@@ -27,6 +27,13 @@
                     console.log("hello1");
                 }
             });
+
+            $("#cancelbtn").click(function (){
+                var out=confirm("Do you want to cancel");
+                if (out){
+                    location.href="<%=request.getContextPath()%>/landingpage";
+                }
+            });
         });
 
     </script>
@@ -60,7 +67,7 @@
         <textarea id="message" name="message"  style="height:200px" required></textarea>
         <div id="buttons">
             <button type="submit" value="submit" class="btn">Submit</button>
-            <button value="cancel" class="btn">Cancel</button>
+            <button value="cancel" id="cancelbtn" class="btn" onclick="cancelbtn()">Cancel</button>
         </div>
     </form>
 </div>
