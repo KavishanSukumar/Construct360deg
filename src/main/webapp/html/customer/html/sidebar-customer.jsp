@@ -1,4 +1,32 @@
+<<<<<<< HEAD
 <header class="menu_bar" id="menu_bar">
+=======
+<script src="./resources/js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function (){
+        var myvar=setInterval(function (){
+            $.ajax({
+                url:"<%=request.getContextPath()%>/instantnotification",
+                type:"POST",
+                success:function (data){
+                    console.log(data[0]);
+                    if (data[0]!='0'){
+                        $("#notification").addClass("mycolor");
+                        $("#notificationtext").addClass("mycolor");
+
+                        console.log(true)
+                    }else{
+                        $("#notification").removeClass("mycolor");
+                        $("#notificationtext").removeClass("mycolor");
+                        console.log(false);
+                    }
+                }
+            });
+        },1000);
+    });
+</script>
+<header class="menu_bar">
+>>>>>>> d07a48e39e30881a1102fc6d1cff5b48eeef45e9
     <%
         if(session.getAttribute("uname")==null){
             response.sendRedirect(request.getContextPath()+"/login");
@@ -28,8 +56,12 @@
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="project"></i><h4>Projects</h4></a>
             <a href="<%=request.getContextPath()%>/searchproduct"><i class="fab fa-product-hunt" id="product"></i><h4>Products</h4></a>
             <a href="<%=request.getContextPath()%>/searchprofessionals"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
+<<<<<<< HEAD
             <a href="<%=request.getContextPath()%>/uploadrequirement"><i class="fas fa-file-upload"></i><p style="margin-top: 0px; font-size: 15px; font-weight: bold">Upload requirements</p></a>
             <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true"></i><h4>Notifications</h4></a>
+=======
+            <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true" id="notification"></i><h4 id="notificationtext">Notifications</h4></a>
+>>>>>>> d07a48e39e30881a1102fc6d1cff5b48eeef45e9
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="report"></i><h4>Lodge Complains</h4></a>
             <a href="#"><i class="fas fa-hands-helping" id="help"></i><h4>Help and Support</h4></a>

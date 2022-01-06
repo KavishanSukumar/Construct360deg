@@ -29,6 +29,7 @@ public class SkillsServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         Skills skills1 = new Skills();
         SkillsDAO skillsDAO = new SkillsDAO();
+        skills1.setUserid(userid);
         skills1.setSkill1(req.getParameter("skill1"));
         skills1.setSkill2(req.getParameter("skill2"));
         skills1.setSkill3(req.getParameter("skill3"));

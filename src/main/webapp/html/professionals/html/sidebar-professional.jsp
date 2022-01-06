@@ -1,3 +1,27 @@
+<script src="./resources/js/jquery-3.6.0.js"></script>
+<script>
+    $(document).ready(function (){
+        var myvar=setInterval(function (){
+            $.ajax({
+                url:"<%=request.getContextPath()%>/instantnotification",
+                type:"POST",
+                success:function (data){
+                    console.log(data[0]);
+                    if (data[0]!='0'){
+                        $("#notification").addClass("mycolor");
+                        $("#notificationtext").addClass("mycolor");
+
+                        console.log(true)
+                    }else{
+                        $("#notification").removeClass("mycolor");
+                        $("#notificationtext").removeClass("mycolor");
+                        console.log(false);
+                    }
+                }
+            });
+        },1000);
+    });
+</script>
 <header class="menu_bar">
     <%
         if(session.getAttribute("uname")==null){
@@ -28,7 +52,7 @@
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
             <a href="<%=request.getContextPath()%>/manageadvertise(prof)"><i class="fas fa-ad" id="user"></i><h4>Advertise</h4></a>
             <a href="<%=request.getContextPath()%>/customer"><i class="fas fa-users" id="customers"></i><h4>Customers</h4></a>
-            <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true"></i><h4>Notifications</h4></a>
+            <a href="<%=request.getContextPath()%>/notification" ><i class="fas fa-bell" aria-hidden="true" id="notification"></i><h4 id="notificationtext">Notifications</h4></a>
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payments & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="chek"></i><h4>Lodge Complains</h4></a>
             <a href="#"><i class="fas fa-hands-helping" id="head"></i><h4>Help and Support</h4></a>

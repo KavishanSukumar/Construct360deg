@@ -1,4 +1,9 @@
+<%@ page import="com.example.construct360deg.model.Account" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
+<%
+  Account account = (Account) request.getAttribute("accounts");
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,8 +55,7 @@
         <input type="text" placeholder="Search.." name="search">
       </form>
       <div class="main">
-        <a href="#"><i class="fa fa-home"></i></a>
-        <a href="#"><i class="fa fa-bell"></i></a>
+        <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
       </div>
     </div>
@@ -59,45 +63,40 @@
       <div class="setting">
         <img src="./html/productcompany/resources/images/Addproduct/companyLogo.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Square angle</h3>
+        <h3><%=account.getCompanyname()%></h3>
         <p>Your account</p>
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
-<%--          <a id="email-btn" href="#">Emails</a>--%>
           <a id="preference-btn" href="#">Account preferences</a>
         </div>
 
       </div>
       <div class="middle-content" id="account">
-        <form action="/action_page.java">
-          <label for="fname">First Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="fname" name="firstname" value="Upwork">
-
-          <label for="lname">Last Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="lname" name="lastname" >
-
-          <label for="bio">Bio: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="bio" name="bio" value="Product Compny, Colombo District, Western, Sri Lanka">
-
-          <label for="nic">Nic Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="nic" name="nic">
-
-          <label for="email">E-mail: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="email" name="email" value="Upwork456@gmail.com">
-
-          <label for="address">Address: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="address" name="address" value="No.228/15 migamuwa road, Colombo.">
-
-          <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="0472341578">
-
+        <form action="<%=request.getContextPath()%>/account" method="post">
+          <div class="col-1">
+            <label for="cname">Company Name</label>
+            <label for="pHomeno">Home Number</label>
+            <label for="pstreet">Street</label>
+            <label for="pcity">City</label>
+            <label for="pdistrict">District</label>
+            <label for="pprovince">Province</label>
+            <label for="email">Email</label>
+            <label for="contactnum">Contact Number</label>
+          </div>
+          <div class="col-2">
+            <input type="text" id="cname" name="companyname" value="<%=account.getCompanyname()%>">
+            <input type="text" id="pHomeno" name="houseno" value="<%=account.getHouseno()%>">
+            <input type="text" id="pstreet" name="street" value="<%=account.getStreet()%>">
+            <input type="text" id="pcity" name="city" value="<%=account.getCity()%>">
+            <input type="text" id="pdistrict" name="district" value="<%=account.getDistrict()%>">
+            <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
+            <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
+            <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
+          </div>
           <input type="submit" id="submit" value="Save changes">
         </form>
       </div>
-<%--      <div class="middle-content" id="emails">--%>
-<%--        <h3>Emails</h3>--%>
-<%--      </div>--%>
 
       <div id="preference">
         <div class="middle-content">
@@ -109,9 +108,6 @@
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
           <div class="btn">
-<%--            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">--%>
-<%--              <span>Keep my account</span>--%>
-<%--            </a>--%>
             <a class="right-btn" href="#">
               <span>Delete my account</span>
             </a>

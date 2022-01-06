@@ -13,6 +13,7 @@ public class NotificationDAO {
     public ArrayList<Notification> getNotifications(int userid) throws SQLException {
         ArrayList<Notification> notifications= new ArrayList<>();
         String sql="SELECT * FROM `notification` WHERE notifiyeeid=? ORDER BY datetime DESC";
+        String  sql1="UPDATE `notification` SET status=1 WHERE notifiyeeid=?";
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
         ResultSet resultSet=null;
@@ -31,6 +32,24 @@ public class NotificationDAO {
             notification.setDatetime(resultSet.getString("datetime"));
             notifications.add(notification);
         }
+        preparedStatement=connection.prepareStatement(sql1);
+        preparedStatement.setInt(1,userid);
+        preparedStatement.executeUpdate();
+
         return notifications;
+    }
+
+    public int getInstanceNotification(int userid) throws SQLException {
+       int number=0;
+       ResultSet resultSet=null;
+       String sql="SELECT COUNT(*) AS count FROM `notification` WHERE notifiyeeid=? AND status=0";
+       Connection connection=Database.getConnection();
+       PreparedStatement preparedStatement=connection.prepareStatement(sql);
+       preparedStatement.setInt(1,userid);
+        resultSet=preparedStatement.executeQuery();
+        while (resultSet.next()){
+            number=resultSet.getInt("count");
+        }
+       return number;
     }
 }
