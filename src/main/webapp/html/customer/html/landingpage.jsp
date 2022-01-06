@@ -22,8 +22,6 @@
 
 <div class="container">
 
-    <%@include file="sidebar-customer.jsp"%>
-
 
     <%@include file="sidebar-customer.jsp"%>
 
