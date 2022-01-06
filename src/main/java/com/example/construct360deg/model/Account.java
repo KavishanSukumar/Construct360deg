@@ -3,6 +3,7 @@ package com.example.construct360deg.model;
 public class Account {
     private int userid;
     private String userrole;
+    private String companyname;
     private String firstname;
     private String lastname;
     private String nic;
@@ -24,6 +25,14 @@ public class Account {
 
     public String getUserrole() {
         return userrole;
+    }
+
+    public String getCompanyname() {
+        return companyname;
+    }
+
+    public void setCompanyname(String companyname) {
+        this.companyname = companyname;
     }
 
     public void setUserrole(String userrole) {

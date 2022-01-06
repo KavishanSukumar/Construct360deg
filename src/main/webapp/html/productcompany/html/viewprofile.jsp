@@ -1,6 +1,11 @@
+<%@ page import="com.example.construct360deg.model.Account" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+
+<%
+    Account account = (Account) request.getAttribute("accounts");
+%>
 
 <head>
     <meta charset="UTF-8">
@@ -31,15 +36,16 @@
             <img src="./html/productcompany/resources/images/viewprofile/cover.png">
             <img src="./html/productcompany/resources/images/Addproduct/companyLogo.jpg" class="user">
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
-            <h2>Square angle</h2>
-            <p>Product Company<br>Colombo District, Western, Sri Lanka.</p>
+            <h2><%=account.getCompanyname()%></h2><br>
+            <p>Product Company</p>
+            <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
             <a href="#" class="button">Message</a>
         </div>
         <div class="box2">
             <a href="#"><i class="fa fa-camera"></i></a>
             <h3>Contact</h3>
-            <p>Email - <a href="Upwork456@gmail.com">Upwork456@gmail.com</a></p>
-            <p>Tele - 0472341578</p>
+            <p>Email - <%=account.getEmail()%></p>
+            <p>Tele - <%=account.getContactno()%></p>
         </div>
     </div>
 </div>

@@ -111,6 +111,29 @@ form.example::after {
 .menu a.active{background-color: #dad7d5;}
 
 .menu h4{margin-left: 15px;}
+
+#account label {
+    padding: 20px 12px 12px 0;
+    display: block;
+    margin: 8px 0;
+}
+#account .col-1 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+#account .col-2 {
+    float: left;
+    width: 75%;
+    /*margin-top: 6px;*/
+}
+#account:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
 .middle-content input[type=text]{
     width: 100%;
     padding: 12px;

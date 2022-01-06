@@ -1,12 +1,13 @@
 <%@page import="java.util.ArrayList" %>
 <%@page import="com.example.construct360deg.model.PreviousProject" %>
 <%@page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Account" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+
 <%
-
-  ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
-
+  Account account = (Account) request.getAttribute("accounts");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,16 +57,15 @@
         <input type="text" placeholder="Search.." name="search">
       </form>
       <div class="main">
-        <a href="#"><i class="fa fa-home"></i></a>
-        <a href="#"><i class="fa fa-bell"></i></a>
-        <a href="#"><i class="fa fa-mail-bulk"></i></a>
+          <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
+          <a href="#"><i class="fa fa-mail-bulk"></i></a>
       </div>
     </div>
     <div class="content2">
       <div class="setting">
         <img src="./html/customer/resources/images/viewprofile/user3.jpg">
         <a href="#"><i class="fa fa-camera"></i></a>
-        <h3>Kalum Perera</h3>
+        <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
@@ -75,33 +75,33 @@
 
       </div>
       <div class="middle-content" id="account">
-        <form action="/action_page.java">
-          <label for="fname">First Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="fname" name="firstname" value="Kalum">
-
-          <label for="lname">Last Name: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="lname" name="lastname" value="Perera">
-
-          <label for="bio">Bio: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="bio" name="bio" value="Customer, Colombo District, Western, Sri Lanka">
-
-          <label for="nic">Nic Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="nic" name="nic" value="758240370v">
-
-          <label for="email">E-mail: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="email" name="email" value="KalumPerera456@gmail.com">
-
-          <label for="address">Address: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="address" name="address" value="No.37 dankatiya road, Kaluthara North, Colombo.">
-
-          <label for="contactnum">Contact Number: <i class="fa fa-pencil-alt"></i></label>
-          <input type="text" id="contactnum" name="contactnum" value="0765678934">
-
+        <form action="<%=request.getContextPath()%>/account" method="post">
+          <div class="col-1">
+            <label for="fname">First Name</label>
+            <label for="lname">Last Name</label>
+            <label for="nic">Nic Number</label>
+            <label for="pHomeno">Home Number</label>
+            <label for="pstreet">Street</label>
+            <label for="pcity">City</label>
+            <label for="pdistrict">District</label>
+            <label for="pprovince">Province</label>
+            <label for="email">Email</label>
+            <label for="contactnum">Contact Number</label>
+          </div>
+          <div class="col-2">
+            <input type="text" id="fname" name="firstname" value="<%=account.getFirstname()%>">
+            <input type="text" id="lname" name="lastname" value="<%=account.getLastname()%>">
+            <input type="text" id="nic" name="nic" value="<%=account.getNic()%>">
+            <input type="text" id="pHomeno" name="houseno" value="<%=account.getHouseno()%>">
+            <input type="text" id="pstreet" name="street" value="<%=account.getStreet()%>">
+            <input type="text" id="pcity" name="city" value="<%=account.getCity()%>">
+            <input type="text" id="pdistrict" name="district" value="<%=account.getDistrict()%>">
+            <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
+            <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
+            <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
+          </div>
           <input type="submit" id="submit" value="Save changes">
         </form>
-      </div>
-      <div class="middle-content" id="emails">
-        <h3>Emails</h3>
       </div>
 
       <div id="preference">
@@ -114,9 +114,6 @@
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
           <div class="btn">
-<%--            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">--%>
-<%--              <span>View Profile</span>--%>
-<%--            </a>--%>
             <a class="right-btn" href="#">
               <span>Delete my account</span>
             </a>
