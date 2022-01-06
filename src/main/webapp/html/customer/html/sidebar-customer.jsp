@@ -1,4 +1,4 @@
-<header class="menu_bar">
+<header class="menu_bar" id="menu_bar">
     <%
         if(session.getAttribute("uname")==null){
             response.sendRedirect(request.getContextPath()+"/login");
@@ -28,6 +28,7 @@
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="project"></i><h4>Projects</h4></a>
             <a href="<%=request.getContextPath()%>/searchproduct"><i class="fab fa-product-hunt" id="product"></i><h4>Products</h4></a>
             <a href="<%=request.getContextPath()%>/searchprofessionals"><i class="fas fa-user" id="user"></i><h4>Professionals</h4></a>
+            <a href="<%=request.getContextPath()%>/uploadrequirement"><i class="fas fa-file-upload"></i><p style="margin-top: 0px; font-size: 15px; font-weight: bold">Upload requirements</p></a>
             <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true"></i><h4>Notifications</h4></a>
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="report"></i><h4>Lodge Complains</h4></a>

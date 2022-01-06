@@ -2,8 +2,10 @@ package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.CloseProjectDAO;
 import com.example.construct360deg.dao.NewProjectDAO;
+import com.example.construct360deg.dao.RequirementDAO;
 import com.example.construct360deg.model.Closeproject;
 import com.example.construct360deg.model.Newproject;
+import com.example.construct360deg.model.Requirement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +23,7 @@ public class ViewProjectsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
+        int userid = (int) session.getAttribute("userid");
         String userrole= (String) session.getAttribute("userrole");
         if (userrole.equals("cus_indiv")){
             //Add project
@@ -42,6 +45,17 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("closeprojects", closeprojects);
+
+            //displayownrequirments///////////////////////////////////////////////////////
+
+            ArrayList<Requirement> requirements = new ArrayList<>();
+            RequirementDAO   requirementDAO = new RequirementDAO();
+            try {
+                requirements=requirementDAO.displayownRequirement(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("requirements", requirements);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);
@@ -66,6 +80,18 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("closeprojects", closeprojects);
+
+            //displayownrequirments///////////////////////////////////////////////////////
+
+            ArrayList<Requirement> requirements = new ArrayList<>();
+            RequirementDAO   requirementDAO = new RequirementDAO();
+            try {
+                requirements=requirementDAO.displayownRequirement(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("requirements", requirements);
+
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);

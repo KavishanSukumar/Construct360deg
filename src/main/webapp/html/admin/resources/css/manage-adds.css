@@ -24,6 +24,12 @@
     grid-template-rows: 100px auto auto;
     grid-row-gap: 10px;
 }
+
+.blur{
+
+}
+
+
 .first{
     grid-area: first_row;
     display: flex;

@@ -1,30 +1,81 @@
 package com.example.construct360deg.dao;
 
 import com.example.construct360deg.database.Database;
+import com.example.construct360deg.model.Advertise;
 import com.example.construct360deg.model.Requirement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class RequirementDAO {
     public void uploadRequirement(Requirement requirement) throws SQLException {
+        Boolean status=false;
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
-        String sql="INSERT INTO `requirement`( `useridcus`, `description`, `type`, `contactnum`, `requirementfile`, `street`, `city`, `district`, `province`) VALUES (?,?,?,?,?,?,?,?,?)";
+        String sql="INSERT INTO `requirement`( `useridcus`, `reqname`,`description`, `type`, `contactnum`, `requirementfile`, `street`, `city`, `district`, `province`,`submit_date`,`submit_time`,`filename`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         int row;
 
         preparedStatement=connection.prepareStatement(sql);
         preparedStatement.setInt(1,requirement.getUseridcus());
-        preparedStatement.setString(2,requirement.getDescription());
-        preparedStatement.setString(3,requirement.getType());
-        preparedStatement.setString(4,requirement.getContactnum());
-        preparedStatement.setBlob(5,requirement.getRequirementstream());
-        preparedStatement.setString(6,requirement.getStreet());
-        preparedStatement.setString(7,requirement.getCity());
-        preparedStatement.setString(8,requirement.getDistrict());
-        preparedStatement.setString(9,requirement.getProvince());
+        preparedStatement.setString(2,requirement.getReqname());
+        preparedStatement.setString(3,requirement.getDescription());
+        preparedStatement.setString(4,requirement.getType());
+        preparedStatement.setString(5,requirement.getContactnum());
+        preparedStatement.setBlob(6,requirement.getRequirementstream());
+        preparedStatement.setString(7,requirement.getStreet());
+        preparedStatement.setString(8,requirement.getCity());
+        preparedStatement.setString(9,requirement.getDistrict());
+        preparedStatement.setString(10,requirement.getProvince());
+        preparedStatement.setDate(11,requirement.getReq_upload_date());
+        preparedStatement.setTime(12,requirement.getReq_upload_time());
+        preparedStatement.setString(13, requirement.getFilename());
         row=preparedStatement.executeUpdate();
+        if (row>=1){
+            status=true;
+            System.out.println("All queries successfully updated");
+        }else{
+            status=false;
+            System.out.println("Error");
+        }
 
     }
+    public ArrayList<Requirement> displayownRequirement(int useridcus) throws SQLException {
+        ArrayList<Requirement> displayRequirements = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `requirement` WHERE `useridcus` = ?";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,useridcus);
+        resultSet = preparedStatement.executeQuery();
+        System.out.println("displayRequirement");
+        while (resultSet.next()) {
+            Requirement displayRequirement = new Requirement();
+            displayRequirement.setRequirementid(resultSet.getInt("requirementid"));
+            displayRequirement.setUseridcus(resultSet.getInt("useridcus"));
+            displayRequirement.setReqname(resultSet.getString("reqname"));
+            displayRequirement.setDescription(resultSet.getString("description"));
+            displayRequirement.setContactnum(resultSet.getString("contactnum"));
+            displayRequirement.setFilename(resultSet.getString("filename"));
+            displayRequirement.setStreet(resultSet.getString("street"));
+            displayRequirement.setCity(resultSet.getString("city"));
+            displayRequirement.setDistrict(resultSet.getString("district"));
+            displayRequirement.setProvince(resultSet.getString("province"));
+            displayRequirement.setReq_upload_date(resultSet.getDate("submit_date"));
+            displayRequirement.setReq_upload_time(resultSet.getTime("submit_time"));
+            displayRequirement.setType(resultSet.getString("type"));
+            byte[] requirementfile = resultSet.getBytes("requirementfile");
+            displayRequirement.setRequirementfile(requirementfile);
+
+            displayRequirements.add(displayRequirement);
+        }
+        System.out.println("displayRequirement 2");
+        return displayRequirements;
+    }
+
+
+
 }
