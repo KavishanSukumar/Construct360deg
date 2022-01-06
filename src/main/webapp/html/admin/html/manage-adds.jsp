@@ -27,7 +27,7 @@ if(active_page==null){
 }
 
 %>
-<div class="container">
+<div class="container blur">
 
   <div class="content" id="content">
 

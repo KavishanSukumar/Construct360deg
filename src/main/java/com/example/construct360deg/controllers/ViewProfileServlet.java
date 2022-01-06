@@ -22,18 +22,42 @@ public class ViewProfileServlet extends HttpServlet {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
         int userid = (int) session.getAttribute("userid");
-        Account accounts = new Account();
+        Account account = new Account();
         if(userrole.equals("admin")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
 
         }else if (userrole.equals("cus_indiv")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
 
         }else if (userrole.equals("cus_com")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
@@ -41,13 +65,12 @@ public class ViewProfileServlet extends HttpServlet {
         }else if(userrole.equals("prof_com")){
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-//            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                accounts = accountDetailsDAO.retriveDetails(userid);
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("accounts",accounts);
+            req.setAttribute("accounts",account);
 
             //add summary
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();
@@ -73,7 +96,7 @@ public class ViewProfileServlet extends HttpServlet {
             ExperienceDAO experienceDAO = new ExperienceDAO();
             ArrayList<Experience> experiences = new ArrayList<>();
             try {
-                experiences = experienceDAO.retriveExperience();
+                experiences = experienceDAO.retriveExperience(userid);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -83,7 +106,7 @@ public class ViewProfileServlet extends HttpServlet {
             SkillsDAO skillsDAO = new SkillsDAO();
             ArrayList<Skills> skills = new ArrayList<>();
             try{
-                skills = skillsDAO.retriveSkills();
+                skills = skillsDAO.retriveSkills(userid);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -96,14 +119,13 @@ public class ViewProfileServlet extends HttpServlet {
         }else if (userrole.equals("prof_indiv")){
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-//            ArrayList<Account> accounts = new ArrayList<>();
             try {
-                accounts = accountDetailsDAO.retriveDetails(userid);
+                account = accountDetailsDAO.retriveDetails(userid, userrole);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("accounts",accounts);
-            System.out.println(accounts.getFirstname());
+            req.setAttribute("accounts",account);
+            System.out.println(account.getFirstname());
 
             //Add summary
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();
@@ -129,7 +151,7 @@ public class ViewProfileServlet extends HttpServlet {
             ExperienceDAO experienceDAO = new ExperienceDAO();
             ArrayList<Experience> experiences = new ArrayList<>();
             try {
-                experiences = experienceDAO.retriveExperience();
+                experiences = experienceDAO.retriveExperience(userid);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -139,7 +161,7 @@ public class ViewProfileServlet extends HttpServlet {
             SkillsDAO skillsDAO = new SkillsDAO();
             ArrayList<Skills> skills = new ArrayList<>();
             try{
-                skills = skillsDAO.retriveSkills();
+                skills = skillsDAO.retriveSkills(userid);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -150,6 +172,14 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("prod_com")){
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/viewprofile.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
@@ -174,6 +204,7 @@ public class ViewProfileServlet extends HttpServlet {
 
         Experience experience = new Experience();
         ExperienceDAO experienceDAO = new ExperienceDAO();
+        experience.setUserid(userid);
         PrintWriter out= resp.getWriter();
         experience.setTitle(req.getParameter("title"));
         experience.setCompanyname(req.getParameter("comname"));

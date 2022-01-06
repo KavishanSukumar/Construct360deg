@@ -98,7 +98,7 @@ form.example::after {
     border: 1px solid rgb(54, 54, 54);
     margin-left: 30px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 .button:hover{
     background: #ff7200;
@@ -106,6 +106,16 @@ form.example::after {
 }
 .box2 h3{margin-left: 30px;}
 .box2 p{margin-left: 50px;}
+
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 210px;
+    height: 200px;
+}
 .box3 i{
     margin-left: 430px;
     font-size: 50px;
@@ -115,6 +125,8 @@ form.example::after {
     text-align: center;
     margin-top: 5px;
 }
+.box3 p{
+    margin-left: 20px;}
 
 .box4 h3{margin-left: 30px;}
 .box4 p{margin-left: 100px;}

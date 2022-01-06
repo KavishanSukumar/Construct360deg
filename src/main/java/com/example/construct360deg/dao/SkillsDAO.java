@@ -12,17 +12,18 @@ import java.util.ArrayList;
 public class SkillsDAO {
     public boolean addSkills(Skills skills1) throws SQLException {
         Connection connection = Database.getConnection();
-        String sql = "INSERT INTO `skill`(`skill1`, `skill2`, `skill3`, `skill4`, `skill5`, `other`) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO `skill`(`userid`, `skill1`, `skill2`, `skill3`, `skill4`, `skill5`, `other`) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = null;
         int row = 0;
 
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, skills1.getSkill1());
-        preparedStatement.setString(2, skills1.getSkill2());
-        preparedStatement.setString(3, skills1.getSkill3());
-        preparedStatement.setString(4, skills1.getSkill4());
-        preparedStatement.setString(5, skills1.getSkill5());
-        preparedStatement.setString(6, skills1.getOther());
+        preparedStatement.setInt(1,skills1.getUserid());
+        preparedStatement.setString(2, skills1.getSkill1());
+        preparedStatement.setString(3, skills1.getSkill2());
+        preparedStatement.setString(4, skills1.getSkill3());
+        preparedStatement.setString(5, skills1.getSkill4());
+        preparedStatement.setString(6, skills1.getSkill5());
+        preparedStatement.setString(7, skills1.getOther());
         row = preparedStatement.executeUpdate();
 
         if (row > 0) {
@@ -32,24 +33,25 @@ public class SkillsDAO {
         }
     }
 
-    public ArrayList<Skills> retriveSkills() throws SQLException {
+    public ArrayList<Skills> retriveSkills(int userid) throws SQLException {
         ArrayList<Skills> skills = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `skill`";
+        String sql = "SELECT * FROM `skill` WHERE userid=?";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
             Skills skills1 = new Skills();
-            skills1.setUserid(resultSet.getInt("userid"));
             skills1.setSkill1(resultSet.getString("skill1"));
             skills1.setSkill2(resultSet.getString("skill2"));
             skills1.setSkill3(resultSet.getString("skill3"));
             skills1.setSkill4(resultSet.getString("skill4"));
             skills1.setSkill5(resultSet.getString("skill5"));
             skills1.setOther(resultSet.getString("other"));
+            skills1.setUserid(resultSet.getInt("userid"));
             skills.add(skills1);
 
         }

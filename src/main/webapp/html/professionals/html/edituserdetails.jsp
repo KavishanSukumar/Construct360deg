@@ -5,7 +5,7 @@
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
-  Account accounts = (Account) request.getAttribute("accounts");
+  Account account = (Account) request.getAttribute("accounts");
 %>
 
 <!DOCTYPE html>
@@ -96,9 +96,7 @@
     <div class="content2">
       <div class="setting">
         <img src="./html/professionals/resources/images/viewprofile/user2.png">
-<%--        <%for (Account x:accounts){%>--%>
-        <h3><%=accounts.getFirstname()%> <%=accounts.getLastname()%></h3>
-<%--        <%}%>--%>
+        <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
         <p>Your personal account</p>
         <div class="menu">
           <h4>Account Settings</h4>
@@ -109,7 +107,6 @@
         </div>
       </div>
 
-<%--      <%for (Account x:accounts){%>--%>
       <div class="middle-content" id="account">
         <form action="<%=request.getContextPath()%>/account" method="post">
             <div class="col-1">
@@ -125,16 +122,16 @@
               <label for="contactnum">Contact Number</label>
             </div>
             <div class="col-2">
-              <input type="text" id="fname" name="firstname" value="<%=accounts.getFirstname()%>">
-              <input type="text" id="lname" name="lastname" value="<%=accounts.getLastname()%>">
-              <input type="text" id="nic" name="nic" value="<%=accounts.getNic()%>">
-              <input type="text" id="pHomeno" name="houseno" value="<%=accounts.getHouseno()%>">
-              <input type="text" id="pstreet" name="street" value="<%=accounts.getStreet()%>">
-              <input type="text" id="pcity" name="city" value="<%=accounts.getCity()%>">
-              <input type="text" id="pdistrict" name="district" value="<%=accounts.getDistrict()%>">
-              <input type="text" id="pprovince" name="province" value="<%=accounts.getProvince()%>">
-              <input type="text" id="email" name="email" value="<%=accounts.getEmail()%>">
-              <input type="text" id="contactnum" name="contactno" value="<%=accounts.getContactno()%>">
+              <input type="text" id="fname" name="firstname" value="<%=account.getFirstname()%>">
+              <input type="text" id="lname" name="lastname" value="<%=account.getLastname()%>">
+              <input type="text" id="nic" name="nic" value="<%=account.getNic()%>">
+              <input type="text" id="pHomeno" name="houseno" value="<%=account.getHouseno()%>">
+              <input type="text" id="pstreet" name="street" value="<%=account.getStreet()%>">
+              <input type="text" id="pcity" name="city" value="<%=account.getCity()%>">
+              <input type="text" id="pdistrict" name="district" value="<%=account.getDistrict()%>">
+              <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
+              <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
+              <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
             </div>
             <input type="submit" id="submit" value="Save changes">
         </form>

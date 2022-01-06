@@ -23,29 +23,49 @@ public class EditProfileServlet extends HttpServlet {
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
         String userrole= (String) session.getAttribute("userrole");
-        Account accounts = new Account();
+        Account account = new Account();
 
         if(userrole.equals("admin")){
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/editdetails-admin.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_indiv")){
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/editdetails-customer.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_com")){
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/editdetails-customer.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-//            Account accounts = new Account();
             try {
-                accounts = accountDetailsDAO.retriveDetails(userid);
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("accounts",accounts);
+            req.setAttribute("accounts",account);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
             requestDispatcher.forward(req,resp);
@@ -53,19 +73,25 @@ public class EditProfileServlet extends HttpServlet {
             System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
-//            Account accounts = new Account();
             try {
-                accounts = accountDetailsDAO.retriveDetails(userid);
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("accounts",accounts);
+            req.setAttribute("accounts",account);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
             requestDispatcher.forward(req,resp);
 
             System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/editdetails-productcompany.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("hello"+userrole);

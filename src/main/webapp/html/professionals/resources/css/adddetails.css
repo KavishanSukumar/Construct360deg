@@ -240,15 +240,6 @@ form.example::after {
     background: #ff7200;
     color: white;
 }
-.gallery{
-    margin: 17px;
-    float: left;
-}
-.gallery img{
-    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
-    width: 210px;
-    height: 200px;
-}
 
 .btn a{
     text-decoration: none;
