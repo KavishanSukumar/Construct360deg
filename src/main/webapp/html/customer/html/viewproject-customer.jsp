@@ -1,23 +1,15 @@
 <%@ page import="java.util.ArrayList" %>
-<<<<<<< HEAD
 <%@ page import="com.example.construct360deg.model.Project" %>
-=======
-<%@ page import="com.example.construct360deg.model.Closeproject" %>
 <%@ page import="com.example.construct360deg.model.Requirement" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
->>>>>>> 6c432d84ce14665466493bedb9cb1824f247c420
 <!DOCTYPE html>
 <html lang="en">
 <%
     int userid= (int) session.getAttribute("userid");
 %>
 <%
-<<<<<<< HEAD
     Project project = (Project) request.getAttribute("closeprojects");
-=======
-    ArrayList<Closeproject> closeprojects = (ArrayList<Closeproject>) request.getAttribute("closeprojects");
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
->>>>>>> 6c432d84ce14665466493bedb9cb1824f247c420
 %>
 <head>
   <meta charset="UTF-8">
@@ -146,9 +138,6 @@
     </form>
 </div>
 </div>
-
-<%--+++++++++++++++++++++++++++++++++++ senal's req form end+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
-
 
     <%@include file="sidebar-customer.jsp"%>
     <div class="container" id="blur">
