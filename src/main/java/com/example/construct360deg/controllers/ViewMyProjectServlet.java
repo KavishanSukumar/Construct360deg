@@ -21,16 +21,18 @@ public class ViewMyProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
+//        String projectid = (String) session.getAttribute("projectid");
+        int userid = (int) session.getAttribute("userid");
         if(userrole.equals("prof_com")){
             //Add Details in project
             MyProjectDAO myProjectDAO = new MyProjectDAO();
-            ArrayList<Project> projects = new ArrayList<>();
+            Project project = new Project();
             try {
-                projects = myProjectDAO.retriveDetails();
+                project = myProjectDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("projects",projects);
+            req.setAttribute("projects",project);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
             requestDispatcher.forward(req,resp);
@@ -38,27 +40,61 @@ public class ViewMyProjectServlet extends HttpServlet {
         }else if (userrole.equals("prof_indiv")){
             //Add Details in project
             MyProjectDAO myProjectDAO = new MyProjectDAO();
-            ArrayList<Project> projects = new ArrayList<>();
+            Project project = new Project();
             try {
-                projects = myProjectDAO.retriveDetails();
+                project = myProjectDAO.retriveDetails(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("projects",projects);
+            req.setAttribute("projects",project);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
+
+        }else if (userrole.equals("cus_indiv")) {
+            //Add Details in project
+            MyProjectDAO myProjectDAO = new MyProjectDAO();
+            Project project = new Project();
+            try {
+                project = myProjectDAO.retriveDetails(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("projects",project);
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/myprojectcustomer.jsp");
+            requestDispatcher.forward(req, resp);
+            System.out.println("Customer");
+
+        }else if (userrole.equals("cus_com")) {
+            //Add Details in project
+            MyProjectDAO myProjectDAO = new MyProjectDAO();
+            Project project = new Project();
+            try {
+                project = myProjectDAO.retriveDetails(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("projects",project);
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/myprojectcustomer.jsp");
+            requestDispatcher.forward(req, resp);
+            System.out.println("Customer");
         }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
+//        String projectid = (String) session.getAttribute("projectid");
         PrintWriter out = resp.getWriter();
         Project project = new Project();
         MyProjectDAO myProjectDAO = new MyProjectDAO();
+        project.setUserid(userid);
+//        project.setProjectid(projectid);
         project.setEvent1(req.getParameter("event1"));
         project.setEvent2(req.getParameter("event2"));
         project.setEvent3(req.getParameter("event3"));

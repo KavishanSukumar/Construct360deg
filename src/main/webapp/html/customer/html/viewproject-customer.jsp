@@ -1,12 +1,12 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.Closeproject" %>
+<%@ page import="com.example.construct360deg.model.Project" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
     int userid= (int) session.getAttribute("userid");
 %>
 <%
-    ArrayList<Closeproject> closeprojects = (ArrayList<Closeproject>) request.getAttribute("closeprojects");
+    Project project = (Project) request.getAttribute("closeprojects");
 %>
 <head>
   <meta charset="UTF-8">
@@ -79,7 +79,7 @@
           document.getElementById("popup").classList.toggle("active");
       }
       function openproject(){
-          location.href="<%=request.getContextPath()%>/myprojectcustomer";
+          location.href="<%=request.getContextPath()%>/myproject";
       }
   </script>
 </head>
@@ -113,9 +113,7 @@
                     <div class="heading"><h2>Ongoing Projects</h2></div>
                     <div class="project1" style="cursor: pointer" onclick="openproject()">
                         <h3>Maharagama project two floors </h3>
-                        <%for (Closeproject x:closeprojects){%>
-                        <p style="color: red"><%=x.getDisplay()%></p>
-                        <%}%>
+                        <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
                 </div>
             </div>

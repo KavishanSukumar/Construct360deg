@@ -7,7 +7,7 @@
     int userid= (int) session.getAttribute("userid");
 %>
 <%
-    ArrayList<Project> projects = (ArrayList<Project>) request.getAttribute("projects");
+    Project project = (Project) request.getAttribute("projects");
 %>
 <head>
   <meta charset="UTF-8">
@@ -201,26 +201,18 @@
                         <h2>Upcoming Events</h2>
                         <h3>Building</h3>
 
-                        <%for (Project x:projects){%>
-                        <p><%=x.getEvent1()%><br><%=x.getEvent2()%><br></p>
-                        <%}%>
+                        <p><%=project.getEvent1()%><br><%=project.getEvent2()%><br></p>
 
                         <h3>Landscaping</h3>
-                        <%for (Project x:projects){%>
-                        <p><%=x.getEvent3()%><br><%=x.getEvent4()%><br></p>
-                        <%}%>
+                        <p><%=project.getEvent3()%><br><%=project.getEvent4()%><br></p>
 
                         <h3>Another events</h3>
-                        <%for (Project x:projects){%>
-                        <p><%=x.getOther()%></p>
-                        <%}%>
+                        <p><%=project.getOther()%></p>
                     </div>
 
                     <div class="box2">
                         <h2>Project Members</h2>
-                        <%for (Project x:projects){%>
-                        <p> * Contractor : <%=x.getContractor()%><br> * Customer :<%=x.getCustomer()%><br> * Landscape Designer :<%=x.getLand()%></p>
-                        <%}%>
+                        <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLand()%></p>
                     </div>
 
                 </div>
@@ -228,35 +220,36 @@
                 <button onclick="popupdetails()">Add Details</button>
                 <div class="background"></div>
                 <div class="project-content">
+
                     <div class="close-btn" onclick="popupdetails()">&times;</div>
                     <form action="<%=request.getContextPath()%>/myproject" method="post">
                         <h2>Add your upcoming events :</h2>
                         <h3>Building</h3>
                         <label for="event1">Event-1:</label>
-                        <input type="text" id="event1" name="event1">
+                        <input type="text" id="event1" name="event1" value="<%=project.getEvent1()%>">
 
                         <label for="event2">Event-2: </label>
-                        <input type="text" id="event2" name="event2">
+                        <input type="text" id="event2" name="event2" value="<%=project.getEvent2()%>">
 
                         <h3>Landscaping</h3>
                         <label for="event3">Event-3: </label>
-                        <input type="text" id="event3" name="event3">
+                        <input type="text" id="event3" name="event3" value="<%=project.getEvent3()%>">
 
                         <label for="event4">Event-4: </label>
-                        <input type="text" id="event4" name="event4">
+                        <input type="text" id="event4" name="event4" value="<%=project.getEvent4()%>">
 
                         <label for="other">Another Events: </label>
-                        <input type="text" id="other" name="other">
+                        <input type="text" id="other" name="other" value="<%=project.getOther()%>">
 
                         <h2>Add your project members:</h2>
                         <label for="contractor">Contractor: </label>
-                        <input type="text" id="contractor" name="contractor">
+                        <input type="text" id="contractor" name="contractor" value="<%=project.getContractor()%>">
 
                         <label for="customer">Customer: </label>
-                        <input type="text" id="customer" name="customer">
+                        <input type="text" id="customer" name="customer" value="<%=project.getCustomer()%>">
 
                         <label for="land">Landscape Designer: </label>
-                        <input type="text" id="land" name="land">
+                        <input type="text" id="land" name="land" value="<%=project.getLand()%>">
 
                         <input type="submit" value="Save">
                     </form>
