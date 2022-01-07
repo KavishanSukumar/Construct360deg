@@ -3,10 +3,11 @@ package com.example.construct360deg.dao;
 import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.UserRegistration;
 
+import javax.mail.MessagingException;
 import java.sql.*;
 
 public class RegistrationDAO {
-    public boolean userRegistration(UserRegistration userRegistration) throws SQLException {
+    public boolean userRegistration(UserRegistration userRegistration) throws SQLException, MessagingException {
         boolean status=false;
         int row;
         String sql="INSERT INTO `login`( `username`, `password`,`user_role`) VALUES (?,?,?);";
@@ -82,6 +83,12 @@ public class RegistrationDAO {
         if (row!=0){
             status=true;
         }
+
+        SendEmailDAO sendEmailDAO=new SendEmailDAO();
+
+        System.out.println(sendEmailDAO.sendEmail("kavishansukumar@gmail.com","Testing","Testing"));
+
+        System.out.println("Regirstration DAO");
         return status;
     }
     public boolean getEmail(String data,String field) throws SQLException {

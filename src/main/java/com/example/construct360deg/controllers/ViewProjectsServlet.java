@@ -2,8 +2,11 @@ package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.MyProjectDAO;
 import com.example.construct360deg.dao.NewProjectDAO;
-import com.example.construct360deg.model.Newproject;
 import com.example.construct360deg.model.Project;
+import com.example.construct360deg.dao.RequirementDAO;
+import com.example.construct360deg.model.Newproject;
+import com.example.construct360deg.model.Requirement;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,6 +48,16 @@ public class ViewProjectsServlet extends HttpServlet {
             }
             req.setAttribute("closeprojects",project);
 
+
+            ArrayList<Requirement> requirements = new ArrayList<>();
+            RequirementDAO   requirementDAO = new RequirementDAO();
+            try {
+                requirements=requirementDAO.displayownRequirement(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("requirements", requirements);
+
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Customer");
@@ -69,6 +82,17 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("closeprojects",project);
+
+
+            ArrayList<Requirement> requirements = new ArrayList<>();
+            RequirementDAO   requirementDAO = new RequirementDAO();
+            try {
+                requirements=requirementDAO.displayownRequirement(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("requirements", requirements);
+
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);

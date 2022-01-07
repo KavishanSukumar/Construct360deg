@@ -19,12 +19,21 @@
     grid-template-areas: "a1 a2 a3";
     /*background-color: #4e4e4e;*/
     align-items: start;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     min-height: 100vh;
     background-color: #2F323A;
-    margin-top: 3px;
 
 
+
+}
+.column1{
+    grid-area: a1;
+    position: fixed;
+}
+
+.column3{
+    grid-area: a3;
+    position: fixed;
 }
 .displyitems{
     /*background-color: #000000;*/
@@ -35,6 +44,8 @@
     grid-area: a2;
     align-items: center;
     padding: 3px;
+
+
 
 }
 

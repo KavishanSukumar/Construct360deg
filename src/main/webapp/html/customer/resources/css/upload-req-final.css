@@ -174,13 +174,12 @@ ul li a:hover,ul li i:hover{
 
     .filling{
       grid-area: a2;
-      margin-top: 20px;
-      margin-left: 20px;
-      margin-right: 20px;
       background-color:#000000c5;
-      height: 633px;
+      height: 680px;
       border-radius: 2%;
       color:white;
+      margin: auto;
+      margin-top: 20px;
     }
    .filling form{
        padding:50px;
