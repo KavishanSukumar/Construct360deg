@@ -1,7 +1,7 @@
 package com.example.construct360deg.dao;
 
 import com.example.construct360deg.database.Database;
-import com.example.construct360deg.model.Newproject;
+import com.example.construct360deg.model.Project;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,14 +10,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NewProjectDAO {
-    public boolean addProject(Newproject newproject) throws SQLException {
+    public boolean addProject(Project project) throws SQLException {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
+//        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
+        String sql = "INSERT INTO `project`(`projectname`) VALUES (?)";
         preparedStatement = connection.prepareStatement(sql);
         int row =0;
 
-        preparedStatement.setString(1,newproject.getNewproject());
+        preparedStatement.setString(1,project.getProjectname());
         row = preparedStatement.executeUpdate();
          if (row>0){
              return true;
@@ -26,20 +27,21 @@ public class NewProjectDAO {
          }
     }
 
-    public ArrayList<Newproject> viewProject() throws SQLException {
-        ArrayList<Newproject> newprojects = new ArrayList<>();
+    public ArrayList<Project> viewProject() throws SQLException {
+        ArrayList<Project> newprojects = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql ="SELECT * FROM `addproject`";
+        String sql ="SELECT * FROM `project`";
         preparedStatement = connection.prepareStatement(sql);
+//        preparedStatement.setInt(1,projectid);
         ResultSet resultSet = null;
         resultSet= preparedStatement.executeQuery();
 
         while (resultSet.next()){
-            Newproject newproject = new Newproject();
-            newproject.setUserid(resultSet.getInt("userid"));
-            newproject.setNewproject(resultSet.getString("newproject"));
-            newprojects.add(newproject);
+            Project project = new Project();
+            project.setProjectname(resultSet.getString("projectname"));
+//            project.setProjectid(resultSet.getInt("projectid"));
+            newprojects.add(project);
         }
         return newprojects;
 

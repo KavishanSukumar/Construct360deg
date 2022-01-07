@@ -4,7 +4,6 @@ import com.example.construct360deg.dao.MyProjectDAO;
 import com.example.construct360deg.dao.NewProjectDAO;
 import com.example.construct360deg.model.Project;
 import com.example.construct360deg.dao.RequirementDAO;
-import com.example.construct360deg.model.Newproject;
 import com.example.construct360deg.model.Requirement;
 
 
@@ -25,10 +24,11 @@ public class ViewProjectsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         int userid = (int) session.getAttribute("userid");
+//        int projectid = (int) session.getAttribute("projectid");
         String userrole= (String) session.getAttribute("userrole");
         if (userrole.equals("cus_indiv")){
             //Add project
-            ArrayList<Newproject> newprojects = new ArrayList<>();
+            ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProject();
@@ -63,7 +63,7 @@ public class ViewProjectsServlet extends HttpServlet {
             System.out.println("Customer");
         }else if (userrole.equals("cus_com")){
             //Add project
-            ArrayList<Newproject> newprojects = new ArrayList<>();
+            ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProject();
@@ -99,7 +99,7 @@ public class ViewProjectsServlet extends HttpServlet {
             System.out.println("Customer");
         }else if(userrole.equals("prof_com")){
             //Add project
-            ArrayList<Newproject> newprojects = new ArrayList<>();
+            ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProject();
@@ -124,7 +124,7 @@ public class ViewProjectsServlet extends HttpServlet {
             System.out.println("Professional");
         }else if (userrole.equals("prof_indiv")){
             //Add project
-            ArrayList<Newproject> newprojects = new ArrayList<>();
+            ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProject();

@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.Newproject" %>
+<%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
 <%@ page import="com.example.construct360deg.model.Project" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
 %>
 <%
     Project project = (Project) request.getAttribute("closeprojects");
-    ArrayList<Newproject> newprojects = (ArrayList<Newproject>) request.getAttribute("newprojects");
+    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
 %>
 
 <head>
@@ -113,9 +113,9 @@
             <div class="project" id="viewproject">
 <%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <%for (Newproject y:newprojects){%>
+                    <%for (Project y:newprojects){%>
                     <div class="project1" style="cursor: pointer" onclick="openproject()">
-                        <h3><%=y.getNewproject()%></h3>
+                        <h3><%=y.getProjectname()%></h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
                     <%}%>
@@ -126,7 +126,7 @@
                     <div class="close-btn" onclick="popupadd()">&times;</div>
                     <form action="<%=request.getContextPath()%>/newproject" method="post">
                         <label for="new"> Add New Project :</label>
-                        <input type="text" id="new" name="newproject">
+                        <input type="text" id="new" name="projectname">
                         <input type="submit" value="submit">
                     </form>
                 </div>
