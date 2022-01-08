@@ -63,7 +63,7 @@
     <div class="content2">
       <div class="box1">
         <img src="./html/professionals/resources/images/viewprofile/cover.png">
-        <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
+        <a href="#" style="cursor: pointer"><img src="./html/professionals/resources/images/viewprofile/user2.png" class="user"></a>
 
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
         <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2>

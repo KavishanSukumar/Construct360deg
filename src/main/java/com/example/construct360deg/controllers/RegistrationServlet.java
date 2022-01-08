@@ -4,6 +4,7 @@ import com.example.construct360deg.dao.RegistrationDAO;
 import com.example.construct360deg.model.UserRegistration;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import javax.mail.MessagingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,6 +47,8 @@ public class RegistrationServlet extends HttpServlet {
                 System.out.println("Error");
             }
         } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
             e.printStackTrace();
         }
 

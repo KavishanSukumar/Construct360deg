@@ -1,7 +1,7 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.NewProjectDAO;
-import com.example.construct360deg.model.Newproject;
+import com.example.construct360deg.model.Project;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,14 +18,17 @@ public class NewProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
+//        int projectid = (int) session.getAttribute("projectid");
         PrintWriter out = resp.getWriter();
-        Newproject newproject = new Newproject();
+//        Newproject newproject = new Newproject();
+        Project project = new Project();
+        project.setUserid(userid);
+//        project.setProjectid(projectid);
         NewProjectDAO newProjectDAO = new NewProjectDAO();
-
-        newproject.setNewproject(req.getParameter("newproject"));
+        project.setProjectname(req.getParameter("projectname"));
 
         try {
-            if (newProjectDAO.addProject(newproject)){
+            if (newProjectDAO.addProject(project)){
                 System.out.println("project added successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('project added successfull');");

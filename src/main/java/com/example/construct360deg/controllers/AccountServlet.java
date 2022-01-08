@@ -32,7 +32,6 @@ public class AccountServlet extends HttpServlet {
               account.setUserid(userid);
 
               if (userrole.equals("prof_indiv") || userrole.equals("cus_indiv")) {
-//                     System.out.println("Hello1");
 
                      account.setFirstname(req.getParameter("firstname"));
                      account.setLastname(req.getParameter("lastname"));
@@ -62,7 +61,6 @@ public class AccountServlet extends HttpServlet {
                             e.printStackTrace();
                      }
               }else if(userrole.equals("prod_com")){
-
                      account.setCompanyname(req.getParameter("companyname"));
                      account.setHouseno(req.getParameter("houseno"));
                      account.setStreet(req.getParameter("street"));

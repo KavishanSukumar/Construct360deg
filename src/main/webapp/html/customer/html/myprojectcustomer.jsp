@@ -7,7 +7,7 @@
     int userid= (int) session.getAttribute("userid");
 %>
 <%
-    ArrayList<Project> projects = (ArrayList<Project>) request.getAttribute("projects");
+    Project project = (Project) request.getAttribute("projects");
 %>
 <head>
     <meta charset="UTF-8">
@@ -200,26 +200,18 @@
                     <h2>Upcoming Events</h2>
                     <h3>Building</h3>
 
-                    <%for (Project x:projects){%>
-                    <p><%=x.getEvent1()%><br><%=x.getEvent2()%><br></p>
-                    <%}%>
+                    <p><%=project.getEvent1()%><br><%=project.getEvent2()%><br></p>
 
                     <h3>Landscaping</h3>
-                    <%for (Project x:projects){%>
-                    <p><%=x.getEvent3()%><br><%=x.getEvent4()%><br></p>
-                    <%}%>
+                    <p><%=project.getEvent3()%><br><%=project.getEvent4()%><br></p>
 
                     <h3>Another events</h3>
-                    <%for (Project x:projects){%>
-                    <p><%=x.getOther()%></p>
-                    <%}%>
+                    <p><%=project.getOther()%></p>
                 </div>
 
                 <div class="box2">
                     <h2>Project Members</h2>
-                    <%for (Project x:projects){%>
-                    <p> * Contractor : <%=x.getContractor()%><br> * Customer :<%=x.getCustomer()%><br> * Landscape Designer :<%=x.getLand()%></p>
-                    <%}%>
+                    <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLand()%></p>
                 </div>
             </div>
         </div>

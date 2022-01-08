@@ -2,6 +2,8 @@ package com.example.construct360deg.model;
 
 public class Project {
     private int userid;
+    private int projectid;
+    private String projectname;
     private String event1;
     private String event2;
     private String event3;
@@ -10,13 +12,31 @@ public class Project {
     private String contractor;
     private String customer;
     private String land;
+    private String reason;
+    private String display;
 
     public int getUserid() {
-        return userid;
+        return this.userid;
     }
 
     public void setUserid(int userid) {
         this.userid = userid;
+    }
+
+    public int getProjectid() {
+        return projectid;
+    }
+
+    public void setProjectid(int projectid) {
+        this.projectid = projectid;
+    }
+
+    public String getProjectname() {
+        return projectname;
+    }
+
+    public void setProjectname(String projectname) {
+        this.projectname = projectname;
     }
 
     public String getEvent1() {
@@ -81,5 +101,18 @@ public class Project {
 
     public void setLand(String land) {
         this.land = land;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+    public String getDisplay() {
+        return display;
+    }
+    public void setDisplay(String display) {
+        this.display = display;
     }
 }

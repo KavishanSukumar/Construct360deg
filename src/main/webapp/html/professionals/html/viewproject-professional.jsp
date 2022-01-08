@@ -1,14 +1,14 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.Closeproject" %>
-<%@ page import="com.example.construct360deg.model.Newproject" %>
+<%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
+<%@ page import="com.example.construct360deg.model.Project" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
     int userid= (int) session.getAttribute("userid");
 %>
 <%
-    ArrayList<Closeproject> closeprojects = (ArrayList<Closeproject>) request.getAttribute("closeprojects");
-    ArrayList<Newproject> newprojects = (ArrayList<Newproject>) request.getAttribute("newprojects");
+    Project project = (Project) request.getAttribute("closeprojects");
+    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
 %>
 
 <head>
@@ -113,12 +113,10 @@
             <div class="project" id="viewproject">
 <%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <%for (Newproject y:newprojects){%>
+                    <%for (Project y:newprojects){%>
                     <div class="project1" style="cursor: pointer" onclick="openproject()">
-                        <h3><%=y.getNewproject()%></h3>
-                        <%for (Closeproject x:closeprojects){%>
-                            <p style="color: red"><%=x.getDisplay()%></p>
-                        <%}%>
+                        <h3><%=y.getProjectname()%></h3>
+                        <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
                     <%}%>
 <%--                </div>--%>
@@ -128,7 +126,7 @@
                     <div class="close-btn" onclick="popupadd()">&times;</div>
                     <form action="<%=request.getContextPath()%>/newproject" method="post">
                         <label for="new"> Add New Project :</label>
-                        <input type="text" id="new" name="newproject">
+                        <input type="text" id="new" name="projectname">
                         <input type="submit" value="submit">
                     </form>
                 </div>
