@@ -423,7 +423,10 @@ tr:nth-child(even) {
     margin: auto;
     margin-left: 20px;
     margin-top: 6px;
+    display: flex;
+    gap: 5px;
 }
+
 .minibtns{
     size: 30px;
     height: 41px;

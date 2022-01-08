@@ -1,10 +1,11 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.AllUsers" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Requirement" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
-    ArrayList<AllUsers> allcus= (ArrayList<AllUsers>) request.getAttribute("allcus");
-
+//    ArrayList<AllUsers> allcus= (ArrayList<AllUsers>) request.getAttribute("allcus");
+    ArrayList<Requirement> displayreqonpublic= (ArrayList<Requirement>) request.getAttribute("displayreqonpublic");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,13 +64,13 @@
         </div>
 
         <div class="container-4">
-            <%for (AllUsers x:allcus){%>
+            <%for (Requirement x:displayreqonpublic){%>
                 <%
                     String base64Encoded=null;
-                    if(x.getImgbytes()==null){
+                    if(x.getCusprofimg()==null){
 
                     }else{
-                        byte[] bytes = x.getImgbytes();
+                        byte[] bytes = x.getCusprofimg();
                         byte[] encodeBase64 = Base64.encodeBase64(bytes);
                         base64Encoded = new String(encodeBase64, "UTF-8");
                     }
@@ -80,25 +81,22 @@
                     </a>
                     <%
                         String name=null;
-                        if(x.getCuscompanyname()!=null)
-                            name=x.getCuscompanyname();
-                        else if(x.getCusindfullname()!=null)
-                            name=x.getCusindfullname();
+                        if(x.getCusname()!=null)
+                            name=x.getCusname();
                         else
                             name="Not Mentioned";
                     %>
-                    <%
-                        String post=null;
-                        if(x.isCustomerindivflag())
-                            post="Individuals Customer";
-                        else if(x.isCustomercomflag())
-                            post="Company Customer";
-                        else
-                        post="Not Mentioned";
-                    %>
+<%--                    <%--%>
+<%--                        String post=null;--%>
+<%--                        if(x.isCustomerindivflag())--%>
+<%--                            post="Individuals Customer";--%>
+<%--                        else if(x.isCustomercomflag())--%>
+<%--                            post="Company Customer";--%>
+<%--                        else--%>
+<%--                        post="Not Mentioned";--%>
+<%--                    %>--%>
                     <div class="desc">
                         <p><%=name%></p>
-                        <p><%=post%></p>
                     </div>
                 </div>
             <%}%>

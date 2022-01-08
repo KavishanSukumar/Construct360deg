@@ -6,6 +6,10 @@ import java.sql.Date;
 import java.sql.Time;
 
 public class Requirement {
+
+    private String cusname;
+    private String custype;
+    private byte[] cusprofimg;
     private int requirementid;
     private int useridcus;
     private String reqname;
@@ -21,6 +25,43 @@ public class Requirement {
     private InputStream requirementstream;
     private Date req_upload_date;
     private Time req_upload_time;
+    private int display_on_prof;
+
+    public String getCusname() {
+        return cusname;
+    }
+
+    public void setCusname(String cusname) {
+        this.cusname = cusname;
+    }
+
+    public String getCustype() {
+        return custype;
+    }
+
+    public void setCustype(String custype) {
+        this.custype = custype;
+    }
+
+    public byte[] getCusprofimg() {
+        return cusprofimg;
+    }
+
+    public void setCusprofimg(byte[] cusprofimg) {
+        this.cusprofimg = cusprofimg;
+    }
+
+
+
+    public int getDisplay_on_prof() {
+        return display_on_prof;
+    }
+
+    public void setDisplay_on_prof(int display_on_prof) {
+        this.display_on_prof = display_on_prof;
+    }
+
+
 
     public String getFilename() {
         return filename;

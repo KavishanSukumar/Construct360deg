@@ -67,6 +67,7 @@ public class RequirementDAO {
             displayRequirement.setReq_upload_date(resultSet.getDate("submit_date"));
             displayRequirement.setReq_upload_time(resultSet.getTime("submit_time"));
             displayRequirement.setType(resultSet.getString("type"));
+            displayRequirement.setDisplay_on_prof(resultSet.getInt("display_on_prof"));
             byte[] requirementfile = resultSet.getBytes("requirementfile");
             displayRequirement.setRequirementfile(requirementfile);
 
@@ -76,6 +77,42 @@ public class RequirementDAO {
         return displayRequirements;
     }
 
+    public void display_req_in_prof(int reqid, int dis_on_prof) throws SQLException{
+
+        Connection connection = Database.getConnection();
+        String sql="UPDATE `requirement` SET `display_on_prof`=? WHERE requirementid =?";
+        PreparedStatement preparedStatement = null;
+        preparedStatement=connection.prepareStatement(sql);
+
+        preparedStatement.setInt(1,dis_on_prof);
+        preparedStatement.setInt(2,reqid);
+        preparedStatement.executeUpdate();
+    }
 
 
+    public  ArrayList<Requirement> display_cus_in_prof_public() throws SQLException{
+        ArrayList<Requirement> displayReqonpublic= new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = null;
+        sql="SELECT * FROM `allpublicreq`";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            Requirement displayRequirementonpublic = new Requirement();
+//            displayRequirementonpublic.setRequirementid(resultSet.getInt("requirementid"));
+            displayRequirementonpublic.setUseridcus(resultSet.getInt("cusid"));
+            displayRequirementonpublic.setCusname(resultSet.getString("username"));
+            byte [] cusprofimg = resultSet.getBytes("profilepic");
+            displayRequirementonpublic.setCusprofimg(cusprofimg);
+            displayReqonpublic.add(displayRequirementonpublic);
+        }
+        return displayReqonpublic;
+    }
 }
+
+
+
+
+

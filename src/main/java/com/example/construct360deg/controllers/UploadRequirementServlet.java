@@ -20,6 +20,14 @@ import java.time.LocalTime;
 @MultipartConfig
 public class UploadRequirementServlet extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");
+        requestDispatcher.forward(req,resp);
+    }
+
+
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Requirement requirement=new Requirement();
         RequirementDAO requirementDAO=new RequirementDAO();
@@ -64,8 +72,5 @@ public class UploadRequirementServlet extends HttpServlet {
         }
 
     }
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/uploadrequirement.jsp");
-        requestDispatcher.forward(req,resp);
-    }
+
 }

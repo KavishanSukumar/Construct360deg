@@ -285,7 +285,14 @@
                            </div>
                            <div class="btns">
                                <button class="minibtns">Choose professional</button>
-                               <button class="minibtns">Upload to public</button>
+                               <% if(x.getDisplay_on_prof()==0){%>
+                               <form action="<%=request.getContextPath()%>/sendrequirement-public" method="post"><button class="minibtns" id="uploadtopublic">Upload to public</button>
+                               <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                               <input type="hidden" value="<%=x.getDisplay_on_prof()%>" name="dis_on_prof">
+                               </form>
+                               <% }else{%>
+                               <button class="minibtns" id="uploadtopublic2" style="cursor: none">Requirement is Uploaded  to public</button>
+                               <%}%>
                                <button class="minibtns">Available proposals</button>
                                <button class="minibtns">Remove</button>
                            </div>

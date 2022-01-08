@@ -117,6 +117,12 @@ public class AllProfileDAO {
 
         return allUsers;
     }
+
+
+
+
+
+
     public AllUsers getuser(int userid) throws SQLException {
         AllUsers user=new AllUsers();
         Connection connection=Database.getConnection();
