@@ -78,7 +78,8 @@
     function popup(){
         document.getElementById("popup").classList.toggle("active");
     }
-    function openproject(){
+    function openproject(ele){
+        console.log(ele.id);
         location.href="<%=request.getContextPath()%>/myproject";
     }
     function popupadd(){
@@ -114,7 +115,7 @@
 <%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
                     <%for (Project y:newprojects){%>
-                    <div class="project1" style="cursor: pointer" onclick="openproject()">
+                    <div class="project1" style="cursor: pointer" onclick="openproject(this)" id="<%=y.getProjectid()%>">
                         <h3><%=y.getProjectname()%></h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
