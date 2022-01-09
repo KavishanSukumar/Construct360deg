@@ -29,7 +29,6 @@ public class NotifyingNotificationServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(count);
         out.print(count);
     }
 }
