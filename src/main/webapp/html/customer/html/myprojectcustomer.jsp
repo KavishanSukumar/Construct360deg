@@ -204,7 +204,6 @@
             <div class="grid-item1">
                 <div class="box3" id="ongoing">
                 </div>
-
                 <div class="box4" id="proposed">
                 </div>
             </div>
