@@ -128,7 +128,7 @@ ul li a:hover,ul li i:hover{
     transform: scale(1.1);
 }
 .container{
-    grid-template-rows: 73px 80px 760px;
+    grid-template-rows: 73px 80px 770px;
     display: grid;
     grid-template-areas: 
     'menu_bar'
@@ -161,7 +161,7 @@ ul li a:hover,ul li i:hover{
     margin-top: -10px;
 }
 .content2{
-    height: 760px;
+    height: 770px;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
@@ -192,6 +192,23 @@ ul li a:hover,ul li i:hover{
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
+.grid-item1{
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 350px 50px 230px;
+    grid-template-areas:
+    'box3'
+    'update'
+    'box4';
+    /*grid-row-gap: 30px;*/
+}
+.box3, .box4{
+    border-radius: 15px;
+    width: 750px;
+    height: 300px;
+    padding: 15px;
+    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+}
 .grid-item2{
     padding: 20px;
     display: grid;
@@ -200,6 +217,7 @@ ul li a:hover,ul li i:hover{
     'box1'
     'box2';
     grid-row-gap: 30px;
+    margin-top: -670px;
 }
 .box1, .box2{
     border-radius: 15px;
@@ -207,7 +225,13 @@ ul li a:hover,ul li i:hover{
     padding: 15px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
-#displayproject button{
+#displayproject .update{
+    margin-top: -10px;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+}
+#displayproject .addDetails{
     padding: 10px;
     margin-left: 1130px;
     margin-top: 30px;

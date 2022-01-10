@@ -195,7 +195,14 @@
                 </div>
             </div>
 
-            <div class="project" id="displayproject">
+            <div class="project" id="displayproject"> git
+                <div class="grid-item1">
+                    <div class="box3" id="ongoing">
+                    </div>
+                    <button onclick="popupUpdate()" class="update">Update</button>
+                    <div class="box4" id="proposed">
+                    </div>
+                </div>
                 <div class="grid-item2">
                     <div class="box1">
                         <h2>Upcoming Events</h2>
@@ -217,7 +224,7 @@
 
                 </div>
 
-                <button onclick="popupdetails()">Add Details</button>
+                <button onclick="popupdetails()" class="addDetails">Add Details</button>
                 <div class="background"></div>
                 <div class="project-content">
 
