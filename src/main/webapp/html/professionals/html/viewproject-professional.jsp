@@ -79,8 +79,9 @@
         document.getElementById("popup").classList.toggle("active");
     }
     function openproject(ele){
-        console.log(ele.id);
-        location.href="<%=request.getContextPath()%>/myproject";
+        var projectid=ele.id;
+        console.log(projectid.id);
+        location.href="<%=request.getContextPath()%>/myproject?projectid="+projectid;
     }
     function popupadd(){
         document.getElementById("viewproject").classList.toggle("active");
