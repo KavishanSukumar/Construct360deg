@@ -22,11 +22,23 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
         String userrole= (String) session.getAttribute("userrole");
         int userid = (int) session.getAttribute("userid");
         Account account = new Account();
-        if(userrole.equals("prof_indiv")||userrole.equals("prof_com")){
+
+//        if(userrole.equals("prof_indiv")||userrole.equals("prof_com")){
+//
+//        }
+        if(userrole.equals("cus_indiv")||userrole.equals("cus_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid=66,userrole="prof_indiv");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
-                account = accountDetailsDAO.retriveDetails(userid,userrole);
+                account = accountDetailsDAO.retriveDetails(userid=66,userrole="prof_indiv");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -36,7 +48,7 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
             ViewProfileDAO viewprofieDAO = new ViewProfileDAO();
             ArrayList<Viewprofile> addSummary = new ArrayList<>();
             try {
-                addSummary = viewprofieDAO.displaySummary(userid);
+                addSummary = viewprofieDAO.displaySummary(userid=66);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -46,7 +58,7 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
             PreviousProjectDAO previousProjectDAO = new PreviousProjectDAO();
             ArrayList<PreviousProject> previousProjects = new ArrayList<>();
             try {
-                previousProjects = previousProjectDAO.getAllPreviousProjects(userid);
+                previousProjects = previousProjectDAO.getAllPreviousProjects(userid=66);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -56,7 +68,7 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
             ExperienceDAO experienceDAO = new ExperienceDAO();
             ArrayList<Experience> experiences = new ArrayList<>();
             try {
-                experiences = experienceDAO.retriveExperience(userid);
+                experiences = experienceDAO.retriveExperience(userid=66);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -66,7 +78,7 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
             SkillsDAO skillsDAO = new SkillsDAO();
             ArrayList<Skills> skills = new ArrayList<>();
             try {
-                skills = skillsDAO.retriveSkills(userid);
+                skills = skillsDAO.retriveSkills(userid=66);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

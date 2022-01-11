@@ -243,11 +243,14 @@ form.example::after {
     margin: 5px;
     float: left;
 }
-.gallery img{
+.gallery .user{
+    background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
+    overflow: hidden;
     box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
     width: 210px;
     height: 200px;
 }
+
 .gallery .desc{
     text-align: center;
     width: 200px;

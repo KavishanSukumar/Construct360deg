@@ -11,48 +11,6 @@
     height: 50px;
     width: 100%;
 }
-form.example input[type=text] {
-    padding: 8px;
-    font-size: 16px;
-    border: none;
-    margin-top: 6px;
-    width: 63%;
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-}
-form.example button {
-    float: left;
-    width: 3%;
-    padding: 8px;
-    background: #bbbfc2;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-left: 210px;
-    margin-top: 6px;
-}
-form.example button:hover {
-    background: #d1cfcd;
-}
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-.main{
-    float: left;
-    margin-top: -40px;
-    margin-left: 15px;
-}
-.main i{
-    color: #7c7b7b;
-    cursor: pointer;
-    padding: 7px;
-    font-size: 35px;
-}
-.main i:hover{
-    background: #d6d4d1;
-}
 .content2{
     border: 1px solid rgb(224, 218, 218);
     border-radius: 10px;
@@ -62,7 +20,7 @@ form.example::after {
     background-color: rgb(222, 225, 226);
     width: 900px;
     height: 1950px;
-    margin-top: 90px;
+    /*margin-top: 90px;*/
     margin-left: 300px;
 }
 .box1{border-bottom: 1px solid rgb(177, 167, 167);}
@@ -74,6 +32,8 @@ form.example::after {
     border-radius: 10px;
 }
 .box1 .user{
+    background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
+    overflow: hidden;
     width: 220px;
     height: 220px;
     border-radius: 50%;
