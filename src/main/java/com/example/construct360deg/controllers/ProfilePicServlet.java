@@ -1,5 +1,4 @@
 package com.example.construct360deg.controllers;
-<<<<<<< HEAD
 
 import com.example.construct360deg.dao.ViewProfileDAO;
 import com.example.construct360deg.model.Account;
@@ -49,7 +48,7 @@ public class ProfilePicServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }else if(userrole.equals("prod_com") || userrole.equals("admin")){
+        } else if (userrole.equals("prod_com") || userrole.equals("admin")) {
             Part filePart = req.getPart("image");
             if (filePart != null) {
                 account.setProfilepic(filePart.getInputStream());
@@ -72,9 +71,5 @@ public class ProfilePicServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
-=======
-public class ProfilePicServlet {
->>>>>>> 21479b9b0ba550af874945bd6678009a5496947d
 }
