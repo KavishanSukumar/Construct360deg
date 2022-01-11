@@ -6,6 +6,7 @@
 
 <%
   Account account = (Account) request.getAttribute("accounts");
+  Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <!DOCTYPE html>
@@ -84,10 +85,10 @@
     <%@include file="sidebar-professional.jsp"%>
 
     <div class="content1">
-      <form class="example" action="/action_page.java">
-        <button type="submit"><i class="fa fa-search"></i></button>
-        <input type="text" placeholder="Search.." name="search">
-      </form>
+<%--      <form class="example" action="/action_page.java">--%>
+<%--        <button type="submit"><i class="fa fa-search"></i></button>--%>
+<%--        <input type="text" placeholder="Search.." name="search">--%>
+<%--      </form>--%>
       <div class="main">
         <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
@@ -95,7 +96,18 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./html/professionals/resources/images/viewprofile/user2.png">
+        <%
+          String base64Encoded2=null;
+          if (account1.getImgBytes()==null){
+
+          }else {
+            byte[] bytes = account1.getImgBytes();
+            byte[] encodeBase64 = Base64.encodeBase64(bytes);
+            base64Encoded2 = new String(encodeBase64, "UTF-8");
+          }
+        %>
+        <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user">
+
         <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
         <p>Your personal account</p>
         <div class="menu">

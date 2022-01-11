@@ -11,38 +11,8 @@
     height: 50px;
     width: 100%;
 }
-form.example input[type=text] {
-    padding: 8px;
-    font-size: 16px;
-    border: none;
-    margin-top: 6px;
-    width: 63%;
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-}
-form.example button {
-    float: left;
-    width: 3%;
-    padding: 8px;
-    background: #bbbfc2;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-left: 210px;
-    margin-top: 6px;
-}
-form.example button:hover {
-    background: #d1cfcd;
-}
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 .main{
-    float: left;
-    margin-top: -40px;
-    margin-left: 15px;
+    margin-left: 50px;
 }
 .main i{
     color: #7c7b7b;
@@ -63,7 +33,7 @@ form.example::after {
 }
 .setting{
     border-radius: 8px;
-    margin-top: 48px;
+    /*margin-top: 48px;*/
     margin-left: 60px;
     height: 362px;
     width: 300px;
@@ -74,12 +44,14 @@ form.example::after {
     color: #5e5c5c;
     cursor: pointer;
 }
-.setting img{
+.setting .user{
+    background: gainsboro;
+    overflow: hidden;
     width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin-top: 20px;
     margin-left: 10px;
-    /*border-radius: 8px;*/
 }
 .setting h3{
     margin-left: 140px;
@@ -132,8 +104,6 @@ form.example::after {
     display: table;
     clear: both;
 }
-
-
 .middle-content input[type=text]{
     width: 100%;
     padding: 12px;
@@ -163,7 +133,7 @@ form.example::after {
     background-color: rgb(230, 228, 228);
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
     border-radius: 5px;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     padding: 30px;
     height: 660px;
 }
@@ -190,9 +160,6 @@ form.example::after {
 }
 #account{
     display: block;
-}
-#emails{
-    display: none;
 }
 #preference{
     display: none;

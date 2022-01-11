@@ -1,8 +1,10 @@
 <%@ page import="com.example.construct360deg.model.Account" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
   Account account = (Account) request.getAttribute("accounts");
+  Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <!DOCTYPE html>
@@ -50,10 +52,6 @@
      <%@include file="sidebar-productcompany.jsp"%>
 
     <div class="content1">
-      <form class="example" action="/action_page.java">
-        <button type="submit"><i class="fa fa-search"></i></button>
-        <input type="text" placeholder="Search.." name="search">
-      </form>
       <div class="main">
         <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
@@ -61,8 +59,17 @@
     </div>
     <div class="content2">
       <div class="setting">
-        <img src="./html/productcompany/resources/images/Addproduct/companyLogo.jpg">
-        <a href="#"><i class="fa fa-camera"></i></a>
+        <%
+          String base64Encoded2=null;
+          if (account1.getImgBytes()==null){
+
+          }else {
+            byte[] bytes = account1.getImgBytes();
+            byte[] encodeBase64 = Base64.encodeBase64(bytes);
+            base64Encoded2 = new String(encodeBase64, "UTF-8");
+          }
+        %>
+        <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user">
         <h3><%=account.getCompanyname()%></h3>
         <p>Your account</p>
         <div class="menu">
