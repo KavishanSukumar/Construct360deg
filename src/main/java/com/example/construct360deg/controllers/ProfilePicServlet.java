@@ -1,4 +1,5 @@
 package com.example.construct360deg.controllers;
+<<<<<<< HEAD
 
 import com.example.construct360deg.dao.ViewProfileDAO;
 import com.example.construct360deg.model.Account;
@@ -73,4 +74,7 @@ public class ProfilePicServlet extends HttpServlet {
         }
 
     }
+=======
+public class ProfilePicServlet {
+>>>>>>> 21479b9b0ba550af874945bd6678009a5496947d
 }

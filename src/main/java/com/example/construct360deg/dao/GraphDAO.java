@@ -48,4 +48,20 @@ public class GraphDAO {
         }
         return ongoingGraph;
     }
+    public boolean updateGraph(Graph graph) throws SQLException {
+        int row=0;
+        String sql="UPDATE `ongoinggraph` SET `graphpoint`=`graphpoint`+? WHERE `projectid`=? AND `graphattribute`=?";
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setFloat(1,graph.getGraphpoint());
+        preparedStatement.setInt(2,graph.getProjectid());
+        preparedStatement.setString(3,graph.getGraphattribute());
+        row=preparedStatement.executeUpdate();
+        if (row>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
