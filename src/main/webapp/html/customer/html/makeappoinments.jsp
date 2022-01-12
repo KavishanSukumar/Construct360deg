@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<!-- <input type="checkbox" id="check"> -->
+
 <!-- header area start -->
 <%@include file="sidebar-customer.jsp"%>
 <div class="container">
@@ -29,28 +29,19 @@
     
 <div class="container1">
     <div class="container-details">
-        <!-- <h2>This time for you </h2>
-        <p>shffhdfj sjjsjsjk sldsjjh nfddmfndj ajsjajhs eiituen dgfhfhh</p> -->
-        <img src="../resources/images/makeappoinment/appoinmentpicture.jpeg" id="appoinmentpic" sizes="100px">
+
+        <img src="./html/customer/resources/images/makeappoinment/appoinmentpicture.jpeg" id="appoinmentpic" sizes="100px">
     </div>
     <div class="container-form">
         <form class="appoinmentform" action="<%=request.getContextPath()%>/Makeappointment" method="post" >
             <h2 class="heading of form"> APPOINMENT FORM</h2>
 
-            <label for="custid">Customerid</label>
-            <input type="text" id="custid" name="custid" value="66" hidden>
-
-            <label for="profid">Profid</label>
-            <input type="text" id="profid" name="profid" value="67" hidden>
 
             <div class="NAME">
                 <p>   Caption</p>
                 <input type="text" placeholder="Topic" name="caption">
             </div>
-<%--            <div class="EMAIL">--%>
-<%--                <p>   Your email</p>--%>
-<%--                <input type="email" placeholder="Your email" name="email">--%>
-<%--            </div>--%>
+
             <div class="DATE">
                 <p>   Date</p>
                 <input type="date" name="date" required >

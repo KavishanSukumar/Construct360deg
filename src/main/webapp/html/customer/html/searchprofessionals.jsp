@@ -75,7 +75,7 @@
                     }
                 %>
                 <div class="gallery">
-                    <a target="_blank" href="user4.png">
+                    <a target="_blank" onclick="viewprofprofile(<%=x.getUserid()%>)">
                       <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
                     </a>
                     <%
@@ -108,6 +108,18 @@
       </div>
     </div>
     <%@include file="../../footer.jsp"%>
+<script>
+    function viewprofprofile(id){
+        var profid = id
+        console.log(profid);
+        var out = confirm("viewproprofile");
+        if (out==true){
+            location.href="<%=request.getContextPath()%>/viewprofprofile?profid="+profid;
+        }else {
+            console.log("false")
+        }
+    }
+</script>
 </body>
 
 </html>

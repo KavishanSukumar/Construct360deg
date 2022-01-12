@@ -39,14 +39,14 @@ public class HomeFormServlet extends HttpServlet {
             if(homeFormDAO.homeform(homeForm)){
                 System.out.println("inquiries is successfull");
                 out.println("<script type='text/javascript'>");
-                out.println("alert('Appointment form successful');");
+                out.println("alert('Contact form successful');");
                 out.println("location='"+req.getContextPath()+"/Homeform';");
                 out.println("</script>");
 
             }else {
                 System.out.println("Appointment form is unsuccessfull");
                 out.println("<script type='text/javascript'>");
-                out.println("alert('Appointment form is unsuccessfull');");
+                out.println("alert('Contact form is unsuccessfull');");
                 out.println("location='"+req.getContextPath()+"/Homeform';");
                 out.println("</script>");
 
