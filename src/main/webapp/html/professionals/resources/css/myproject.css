@@ -7,6 +7,7 @@ body{
     position: fixed;
     background: black;
     padding: 20px;
+    z-index: 1;
     width: 100% ;
     height: 73px;
     box-sizing: border-box;
@@ -128,7 +129,7 @@ ul li a:hover,ul li i:hover{
     transform: scale(1.1);
 }
 .container{
-    grid-template-rows: 73px 80px 760px;
+    grid-template-rows: 73px 80px 770px;
     display: grid;
     grid-template-areas: 
     'menu_bar'
@@ -161,7 +162,7 @@ ul li a:hover,ul li i:hover{
     margin-top: -10px;
 }
 .content2{
-    height: 760px;
+    height: 770px;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
@@ -192,6 +193,24 @@ ul li a:hover,ul li i:hover{
     border-top-left-radius: 20px;
     background-color: #e6e4e3;
 }
+.grid-item1{
+    padding: 20px;
+    display: grid;
+    z-index: 0;
+    grid-template-rows: 350px 50px 230px;
+    grid-template-areas:
+    'box3'
+    'update'
+    'box4';
+    /*grid-row-gap: 30px;*/
+}
+.box3, .box4{
+    border-radius: 15px;
+    width: 750px;
+    height: 300px;
+    padding: 15px;
+    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+}
 .grid-item2{
     padding: 20px;
     display: grid;
@@ -200,6 +219,7 @@ ul li a:hover,ul li i:hover{
     'box1'
     'box2';
     grid-row-gap: 30px;
+    margin-top: -670px;
 }
 .box1, .box2{
     border-radius: 15px;
@@ -207,7 +227,13 @@ ul li a:hover,ul li i:hover{
     padding: 15px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
-#displayproject button{
+#displayproject .update{
+    margin-top: -10px;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+}
+#displayproject .addDetails{
     padding: 10px;
     margin-left: 1130px;
     margin-top: 30px;
@@ -506,6 +532,7 @@ ul li a:hover,ul li i:hover{
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;
     padding-top: 1%;
+    margin-top: 30px;
     padding-left: 0%;
     font-size:14px;
     height: 50px;
@@ -515,4 +542,76 @@ ul li a:hover,ul li i:hover{
     margin-top: -5px;
     text-align: center;
     color: rgb(255, 255, 255);
+}
+.updategraph .overlay2{
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: #c4c4c4;
+    z-index: 10;
+    opacity: 0.5;
+}
+.updategraph .updatecontent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) scale(0);
+    background: #ffffff;
+    width: 550px;
+    height: 290px;
+    z-index: 20;
+    text-align: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.updategraph .close-btn1{
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+.updategraph.activeupdate .overlay2{
+    display: block;
+}
+.updategraph.activeupdate .updatecontent{
+    transition: all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+.updategraphform label {
+    margin: 20px 20px;
+    text-align:left;
+    padding-right:20px;
+    display:inline-block;
+    min-width: 158px;;
+}
+.updategraphform input[type="number"]{
+    width: 200px;
+    padding: 5px;
+    text-align: left;
+}
+.updategraphform select {
+    width: 210px;
+    padding: 5px;
+    text-align: left;
+}
+.updategraphform input[type="submit"]{
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+    margin: 20px 20px;
+}
+.updategraphform input[type="submit"]:hover{
+    background: #ff7200;
 }

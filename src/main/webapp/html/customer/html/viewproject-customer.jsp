@@ -92,8 +92,10 @@
       function popup(){
           document.getElementById("popup").classList.toggle("active");
       }
-      function openproject(){
-          location.href="<%=request.getContextPath()%>/myproject";
+      function openproject(ele){
+          var projectid=ele.id;
+          console.log(projectid);
+          location.href="<%=request.getContextPath()%>/myproject?projectid="+projectid;
       }
   </script>
 </head>
@@ -197,7 +199,7 @@
             <div class="project" id="viewproject">
                 <div class="grid-item1">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1" style="cursor: pointer" onclick="openproject()">
+                    <div class="project1" style="cursor: pointer" onclick="openproject(this)" id=1>
                         <h3>Maharagama project two floors </h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>

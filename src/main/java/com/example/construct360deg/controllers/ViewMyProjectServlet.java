@@ -1,6 +1,8 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.GraphDAO;
 import com.example.construct360deg.dao.MyProjectDAO;
+import com.example.construct360deg.model.Graph;
 import com.example.construct360deg.model.Project;
 
 import javax.servlet.RequestDispatcher;
@@ -21,63 +23,43 @@ public class ViewMyProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
-//        String projectid = (String) session.getAttribute("projectid");
+        int projectid = Integer.parseInt(req.getParameter("projectid"));
         int userid = (int) session.getAttribute("userid");
-        if(userrole.equals("prof_com")){
-            //Add Details in project
-            MyProjectDAO myProjectDAO = new MyProjectDAO();
-            Project project = new Project();
-            try {
-                project = myProjectDAO.retriveDetails(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            req.setAttribute("projects",project);
 
+        MyProjectDAO myProjectDAO = new MyProjectDAO();
+        GraphDAO graphDAO=new GraphDAO();
+
+        ArrayList<Graph> proposedGraph=new ArrayList<>();
+        ArrayList<Graph> ongoingGraph=new ArrayList<>();
+        Project project = new Project();
+        try {
+            project = myProjectDAO.retriveDetails(userid);
+            proposedGraph=graphDAO.getProposedGraph(projectid);
+            ongoingGraph=graphDAO.getOngoingGraph(projectid);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        req.setAttribute("proposedGraph",proposedGraph);
+        req.setAttribute("ongoingGraph",ongoingGraph);
+        req.setAttribute("projects",project);
+
+        if(userrole.equals("prof_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
         }else if (userrole.equals("prof_indiv")){
-            //Add Details in project
-            MyProjectDAO myProjectDAO = new MyProjectDAO();
-            Project project = new Project();
-            try {
-                project = myProjectDAO.retriveDetails(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            req.setAttribute("projects",project);
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
 
         }else if (userrole.equals("cus_indiv")) {
-            //Add Details in project
-            MyProjectDAO myProjectDAO = new MyProjectDAO();
-            Project project = new Project();
-            try {
-                project = myProjectDAO.retriveDetails(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            req.setAttribute("projects",project);
-
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/myprojectcustomer.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Customer");
 
         }else if (userrole.equals("cus_com")) {
-            //Add Details in project
-            MyProjectDAO myProjectDAO = new MyProjectDAO();
-            Project project = new Project();
-            try {
-                project = myProjectDAO.retriveDetails(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-            req.setAttribute("projects",project);
-
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/myprojectcustomer.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Customer");

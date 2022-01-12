@@ -11,6 +11,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
+    z-index: 1;
 }
 #logopic{
     width: 100px;
@@ -201,10 +202,26 @@ ul li a:hover,ul li i:hover{
     'box2';
     grid-row-gap: 30px;
 }
+.grid-item1{
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 350px 230px;
+    grid-template-areas:
+    'box3'
+    'box4';
+    grid-row-gap: 30px;
+}
+.box3, .box4{
+    border-radius: 15px;
+    width: 750px;
+    height: 300px;
+    padding: 15px;
+    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+}
 .box1, .box2{
     border-radius: 15px;
-    margin-left: 800px;
     padding: 15px;
+    width: 375px;
     box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
 }
 #displayproject button{
@@ -485,7 +502,10 @@ ul li a:hover,ul li i:hover{
 }
 #viewproject{display: none;}
 #uploadreq{display: none;}
-#displayproject{display: block}
+#displayproject{
+    display: flex;
+    flex-direction: row;
+}
 #chatbox{display: none;}
 #closeproject{display: none;}
 #updatepayments{display: none}
@@ -494,6 +514,7 @@ ul li a:hover,ul li i:hover{
 .footer{
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;
+    margin-top: 100px;
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;

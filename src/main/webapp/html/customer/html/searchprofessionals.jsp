@@ -75,8 +75,10 @@
                     }
                 %>
                 <div class="gallery">
-                    <a target="_blank" href="user4.png">
-                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
+                    <a target="" href="<%=request.getContextPath()%>/viewprofprofile">
+<%--                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/user.png;'">--%>
+                        <img src="data:image/jpeg;base64,<%=base64Encoded%>" class="user">
+
                     </a>
                     <%
                         String name=null;

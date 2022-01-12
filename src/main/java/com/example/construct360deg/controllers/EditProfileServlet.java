@@ -2,6 +2,7 @@ package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.AccountDetailsDAO;
 import com.example.construct360deg.dao.PreviousProjectDAO;
+import com.example.construct360deg.dao.ViewProfileDAO;
 import com.example.construct360deg.model.Account;
 import com.example.construct360deg.model.PreviousProject;
 
@@ -26,6 +27,15 @@ public class EditProfileServlet extends HttpServlet {
         Account account = new Account();
 
         if(userrole.equals("admin")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);
@@ -37,6 +47,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);
@@ -48,6 +67,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);
@@ -72,6 +100,15 @@ public class EditProfileServlet extends HttpServlet {
 
             System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);
@@ -85,6 +122,15 @@ public class EditProfileServlet extends HttpServlet {
 
             System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);

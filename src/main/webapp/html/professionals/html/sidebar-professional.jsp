@@ -10,12 +10,12 @@
                     if (data[0]!='0'){
                         $("#notification").addClass("mycolor");
                         $("#notificationtext").addClass("mycolor");
+                        $("#notificationtext").html("Notifications("+data[0]+")");
 
-                        console.log(true)
                     }else{
                         $("#notification").removeClass("mycolor");
                         $("#notificationtext").removeClass("mycolor");
-                        console.log(false);
+                        $("#notificationtext").html("Notifications");
                     }
                 }
             });

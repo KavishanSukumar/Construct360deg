@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.Project" %>
+<%@ page import="com.example.construct360deg.model.Graph" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,8 @@
 %>
 <%
     Project project = (Project) request.getAttribute("projects");
+    ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
+    ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
 %>
 <head>
   <meta charset="UTF-8">
@@ -18,6 +21,7 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/myproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./html/professionals/resources/js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script>
     $(document).ready(function (){
             $("#displayproject-btn").click(function (){
@@ -162,6 +166,10 @@
     function popupdetails(){
         document.getElementById("displayproject").classList.toggle("active");
     }
+    function UpdateGraph(){
+        document.getElementById("updategraph").classList.toggle("activeupdate");
+
+    }
   </script>
 </head>
 
@@ -196,6 +204,37 @@
             </div>
 
             <div class="project" id="displayproject">
+                <div class="grid-item1">
+                    <div class="box3" id="ongoing">
+                    </div>
+                    <button onclick="UpdateGraph()" class="update">Update</button>
+                    <div class="box4" id="proposed">
+                    </div>
+<%--                ----------------------------------------------------------------------%>
+                    <div class="updategraph" id="updategraph" >
+                        <div class="overlay2"></div>
+                        <div class="updatecontent">
+                            <div class="close-btn1" onclick="UpdateGraph()">&times;</div>
+                            <h1>Update Ongoing Graph</h1>
+                            <form action="<%=request.getContextPath()%>/updategraph" method="post" class="updategraphform">
+                                <label for="graphattribute">Graph Attribute:</label>
+                                <select name="graphattribute" id="graphattribute" required>
+                                    <option selected disabled>Select</option>
+                                    <%for (Graph x:proposedGraph){%>
+                                         <option value="<%=x.getGraphattribute()%>"><%=x.getGraphattribute()%></option>
+                                    <%}%>
+                                </select>
+                                <br>
+                                <label for="workinghours">Value(Working hours):</label>
+                                <input type="number" step="0.1" id="workinghours" name="graphpoint" required>
+                                <input type="hidden" name="projectid" value=1>
+                                <br>
+                                <input type="submit">
+                            </form>
+                        </div>
+                    </div>
+<%--               --------------------------------------------------------------------------%>
+                </div>
                 <div class="grid-item2">
                     <div class="box1">
                         <h2>Upcoming Events</h2>
@@ -217,7 +256,7 @@
 
                 </div>
 
-                <button onclick="popupdetails()">Add Details</button>
+                <button onclick="popupdetails()" class="addDetails">Add Details</button>
                 <div class="background"></div>
                 <div class="project-content">
 
@@ -342,5 +381,44 @@
 
   <%@include file="../../footer.jsp"%>
 </body>
+<script>
+    var xArray =[];
+    var yArray =[];
+    <%for (Graph y:ongoingGraph){%>
+    xArray.push(<%=y.getGraphpoint()%>)
+    yArray.push("<%=y.getGraphattribute()%>")
+    <%}%>
+    var data = [{
+        x:xArray,
+        y:yArray,
+        type:"bar",
+        orientation:"h",
+        marker: {color:"rgba(255,0,0,0.6)"}
+    }];
 
+    var layout = {title:"Ongoing Graph"};
+
+    Plotly.newPlot("ongoing", data, layout);
+</script>
+<script>
+    var xArray = [];
+    var yArray = [];
+
+    <%for (Graph y:proposedGraph){%>
+    xArray.push(<%=y.getGraphpoint()%>)
+    yArray.push("<%=y.getGraphattribute()%>")
+    <%}%>
+
+    var data = [{
+        x:xArray,
+        y:yArray,
+        type:"bar",
+        orientation:"h",
+        marker: {color:"rgba(255,0,0,0.6)"}
+    }];
+
+    var layout = {title:"Proposed Graph"};
+
+    Plotly.newPlot("proposed", data, layout);
+</script>
 </html>

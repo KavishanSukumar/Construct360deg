@@ -1,11 +1,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.*" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <%
     Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <head>
@@ -16,6 +18,24 @@
     <link rel="stylesheet" href="./html/customer/resources/css/viewprofile-customer.css">
     <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        function deleteimage(id){
+            var userid = id;
+            console.log(userid);
+            var out=confirm("Delete Image");
+            if(out==true){
+                location.href="<%=request.getContextPath()%>/viewprofile?userid="+userid;
+            }
+        }
+        //profile pic
+        function preview() {
+            frame.src=URL.createObjectURL(event.target.files[0]);
+        }
+        //end profile pic
+        function popuppic(){
+            document.getElementById("pic").classList.toggle("active");
+        }
+    </script>
 </head>
 
 <body>
@@ -23,19 +43,33 @@
     <%@include file="sidebar-customer.jsp"%>
 
     <div class="content1">
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search.." name="search">
-        </form>
-        <div class="main">
-            <a href="#"><i class="fa fa-home"></i></a>
-            <a href="#"><i class="fa fa-mail-bulk"></i></a>
-        </div>
+
     </div>
     <div class="content2">
-        <div class="box1">
+        <div class="box1" id="pic">
+            <%
+                String base64Encoded2=null;
+                if (account1.getImgBytes()==null){
+
+                }else {
+                    byte[] bytes = account1.getImgBytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded2 = new String(encodeBase64, "UTF-8");
+                }
+            %>
             <img src="./html/customer/resources/images/viewprofile/cover.png">
-            <img src="./html/customer/resources/images/viewprofile/user3.jpg" class="user">
+            <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user" onclick="popuppic()" style="cursor: pointer">
+            <div class="background"></div>
+            <div class="piccontent">
+                <div class="close-btn" onclick="popuppic()">&times;</div>
+                <form action="<%=request.getContextPath()%>/profilepic" method="post" enctype="multipart/form-data">
+                    <h3>Profile Photo</h3>
+                    <input type="file" name="image" onchange="preview()">
+                    <img id="frame" src="data:image/jpeg;base64,<%=base64Encoded2%>" />
+                    <input type="submit" value="Save">
+                    <button onclick="deleteimage(<%=account1.getUserid()%>)" class="button">Delete</button>
+                </form>
+            </div>
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2><br>
             <p>Customer</p>
@@ -43,7 +77,6 @@
             <a href="#" class="button">Message</a>
         </div>
         <div class="box2">
-            <a href="#"><i class="fa fa-camera"></i></a>
             <h3>Contact</h3>
             <p>Email - <%=account.getEmail()%></p>
             <p>Tele - <%=account.getContactno()%></p>
