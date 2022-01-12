@@ -1,0 +1,292 @@
+.container{
+
+    display: grid;
+    grid-template-rows: 72px auto;
+    grid-template-areas: "nav"
+                         "webpage";
+
+}
+
+
+.content{
+
+    height: auto;
+    display: grid;
+    grid-area: webpage;
+
+    grid-template-areas: "a1 a2";
+    grid-template-columns: 200px auto;
+}
+.cus-details{
+    min-block-size: -webkit-fill-available;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.area-b1{
+    display: flex;
+    flex-direction: column;
+}
+.cus-requirements{
+    grid-area: a2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    min-height: 100vh;
+
+}
+
+#my_reqs{
+    background-color:#e6e4e3;
+    display: none;
+    height: auto;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+#my_requirements{
+    display: grid;
+    grid-template-areas: "a1"
+                         "a2";
+    grid-template-rows: 100px auto;
+}
+.header{
+    grid-area: a1;
+    display: flex;
+    flex-direction: row;
+}
+#creat-req-button{
+    text-decoration: none;
+    margin: 20px;
+    font-size: 20px;
+    color: black;
+    background: #ffffff;
+    height: 23px;
+    width: 242px;
+    padding: 8px;
+    border-radius: 16px;
+}
+#creat-req-button:hover{
+    background-color: #FF7200;
+    color: white;
+}
+
+.item-container{
+    grid-area: a2;
+    display: flex;
+    flex-direction: column;
+    row-gap: 36px;
+}
+.item{
+    margin-bottom: 10px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 98%;
+    table-layout: fixed;
+    margin-left: 20px;
+
+}
+
+td,th {
+    border: 1px solid #656565;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.field-name{
+    width: 10vh;
+
+}
+
+.h3header{
+    margin: 5px;
+}
+.btns{
+    margin: auto;
+    margin-left: 20px;
+    margin-top: 6px;
+    display: flex;
+    gap: 5px;
+}
+
+.minibtns{
+    size: 30px;
+    height: 41px;
+    width: auto;
+    font-size: 18px;
+    cursor: pointer;
+    color: black;
+    background: #bababa;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+
+/* upload proposal*/
+#uploadproposal{
+    display: none;
+}
+
+
+.filling{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #ffffff;
+    height: 580px;
+    width: 105vh;
+    /*margin-bottom: 10px;*/
+    /*margin-top: 15px;*/
+    /*border-radius: 18px;*/
+    /*box-sizing: border-box;*/
+    border: 5px solid #ff7200;
+    box-shadow: 5px 10px black;
+    margin: auto;
+    margin-left: 25%;
+    margin-top: 3%;
+}
+
+
+#close{
+    grid-area: b0;
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 718px;
+
+}
+#close:hover{
+    color: white;
+    background-color: red;
+    opacity: 1;
+}
+
+.img-area {
+    align-items: center;
+    grid-area: b1;
+   display: flex;
+    flex-direction: column;
+}
+#title{
+    grid-area: c1;
+    margin-top: 20px;
+    /*margin-left: 15px;*/
+    font-size: 48px;
+}
+#profimg{
+    /*margin-left: 20px;*/
+    grid-area: c2;
+    width: 185px;
+    height: 200px;
+    margin-top: -30px;
+
+}
+.a{
+    font-weight: bold;
+}
+#desrip{
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+#customername{
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -30px;
+}
+#cusid{
+    font-size: 26px;
+    margin-top: 1.5px;
+    font-weight: bold;
+
+}
+
+#text{
+    width: 723px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+    resize: none;
+}
+.up-area{
+    margin-top: 35px;
+    display: grid;
+    grid-area: b2;
+}
+.proposal{
+    margin-top: -67px;
+}
+
+
+
+#up-proposal{
+    font-size: 25px;
+    margin-left: 20px;
+}
+#filetype{
+    margin-left: 20px;
+}
+.up-area input[type=file]{
+    align-items: center;
+    font-size: 18px;
+    margin-left: 28px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.proposal input[type=submit] {
+    width: 206px;
+    height: 45px;
+    text-align: center;
+    font-size: 29px;
+    font-weight:bold;
+    border: none;
+    outline: none;
+    background: #a8a8a8;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    margin-left: 260px;
+}
+
+/* end of upload proposal */
+#submit:hover{
+    background-color: #ff7200;
+    color:white;
+}
+
+.footer{
+    grid-column: 1 / -1;
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0.4%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p {
+    text-align: center;
+
+}

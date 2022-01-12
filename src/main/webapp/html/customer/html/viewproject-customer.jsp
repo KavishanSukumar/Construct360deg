@@ -137,8 +137,39 @@
         </div>
     </form>
 </div>
-</div>
+<%--+++++++++++++++++++++++++++++++++++ senal's req form  end++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
+<%--+++++++++++++++++++++++++++++++++++ senal's available proposals ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
 
+<%--<div class="proposals" id="proposals" style="display: none">--%>
+<%--    <div class="closebtninproposal"><button id="close2" onclick="mypopupclose2()">X</button></div>--%>
+<%--    <div class="items-proposals">--%>
+<%--        <div class="prof-details">--%>
+<%--            <div class="prof-img">--%>
+<%--                <img src="" style="width: 100px; height: 100px">--%>
+<%--            </div>--%>
+<%--             <div class="info">--%>
+<%--                 <p class="mini-info"  id="name">name</p>--%>
+<%--                 <p class="mini-info" id="time">time</p>--%>
+<%--             </div>--%>
+<%--        </div>--%>
+<%--        <div class="descrip">--%>
+<%--            <label for="poposal-descrip">Description</label><br>--%>
+<%--            <input type="text" id="poposal-descrip" name="poposal-descrip" value="djnjdmkmdocskdcmoidm">--%>
+<%--        </div>--%>
+<%--        <div class="others">--%>
+<%--           <div class="file">--%>
+<%--               <a>file</a>--%>
+<%--           </div>--%>
+<%--           <div class="mini-btns">--%>
+<%--               <button id="accept">Accept</button>--%>
+<%--               <button id="reject">Reject</button>--%>
+<%--           </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+
+<%--+++++++++++++++++++++++++++++++++++ senal's available proposals ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
     <%@include file="sidebar-customer.jsp"%>
     <div class="container" id="blur">
         <div class="content1">
@@ -284,11 +315,21 @@
                                <form action="<%=request.getContextPath()%>/sendrequirement-public" method="post"><button class="minibtns" id="uploadtopublic">Upload to public</button>
                                <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
                                <input type="hidden" value="<%=x.getDisplay_on_prof()%>" name="dis_on_prof">
+                               <input type="hidden" value="<%=x.getReqname()%>" name="reqname">
+
                                </form>
                                <% }else{%>
                                <button class="minibtns" id="uploadtopublic2" style="cursor: none">Requirement is Uploaded  to public</button>
                                <%}%>
-                               <button class="minibtns">Available proposals</button>
+<%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
+                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" >Available proposals</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
+                                   <%   System.out.println("-------------------------------------");
+                                       System.out.println(x.getReqname());
+                                       System.out.println("-------------------------------------");
+                                   %>
+                               </form>
                                <button class="minibtns">Remove</button>
                            </div>
                        </div>
@@ -297,7 +338,7 @@
             </div>
                 <div id="output"></div>
             </div>
-
+<%--################################################################# end of senal's part########################################################--%>
     </div>
         <%@include file="../../footer.jsp"%>
 </body>
@@ -328,6 +369,25 @@
             console.log("blajjncuans");
             console.log(val.value);
         }
+    }
+    function processAvailableProposals(reqid){
+       var displayprposals = document.getElementById("proposals");
+        displayprposals.style.display="block";
+        var blur = document.getElementById("blur");
+        blur.style.filter="blur(8px)";
+        blur.style.zIndex="0";
+        var menu_bar = document.getElementById("menu_bar");
+        menu_bar.style.filter="blur(8px)";
+        var overflow = document.getElementById("my_reqs");
+        overflow.style.overflowY="hidden";
+    }
+    function mypopupclose2(){
+        var displayprposals = document.getElementById("proposals");
+        displayprposals.style.display="none";
+        var blur = document.getElementById("blur");
+        blur.style.filter="none";
+        var menubar = document.getElementById("menu_bar");
+        menu_bar.style.filter="none";
     }
 </script>
 </html>

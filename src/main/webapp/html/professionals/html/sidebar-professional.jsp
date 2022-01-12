@@ -22,7 +22,7 @@
         },1000);
     });
 </script>
-<header class="menu_bar">
+<header class="menu_bar" id="menu_bar">
     <%
         if(session.getAttribute("uname")==null){
             response.sendRedirect(request.getContextPath()+"/login");

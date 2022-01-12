@@ -76,9 +76,20 @@
                     }
                 %>
                 <div class="gallery">
-                    <a target="_blank" href="user4.png">
-                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
-                    </a>
+<%--                    <a  href="<%=request.getContextPath()%>/DisplayCusReqOnProf">--%>
+<%--                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >--%>
+<%--                        <input type="hidden" value="<%=x.getUseridcus()%>" name="cusid">--%>
+<%--                        <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">--%>
+<%--                    </a>--%>
+                    <form id="ACR" method="get" action="<%=request.getContextPath()%>/DisplayCusReqOnProf">
+                        <button id="cusprofpic" style="cursor: pointer">
+                            <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
+                            <input type="hidden" value="<%=x.getUseridcus()%>" name="cusid">
+                            <input type="hidden" value="<%=x.getCusprofimg()%>" name="cusprofpic">
+                            <input type="hidden" value="<%=x.getCusname()%>" name="cusname">
+                        </button>
+                    </form>
+
                     <%
                         String name=null;
                         if(x.getCusname()!=null)
