@@ -328,7 +328,7 @@ form.example::after {
 }
 
 
-#close{
+#close,#close2{
     width: 29px;
     /* float: left; */
     border: black;
@@ -343,7 +343,7 @@ form.example::after {
     margin-left: 664px;
     opacity: 0.5;
 }
-#close:hover{
+#close:hover,#close2:hover{
     color: white;
     background-color: red;
     opacity: 1;
@@ -439,9 +439,50 @@ tr:nth-child(even) {
     border: none;
     border-radius: 10px;
 }
-
-
-
+/*+++++++++++++++++++++++++++++++++++ senal's available proposals ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+.proposals{
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    grid-template-areas: "z1"
+                         "z2";
+    grid-template-rows: 20px auto;
+    grid-template-columns: 20% 60% 20%;
+}
+.closebtninproposal{
+    grid-area: z1;
+    display: flex;
+    position: fixed;
+}
+.items-proposals{
+    grid-area: z2;
+    position: relative;
+    display: grid;
+    grid-template-areas:  "a1"
+                          "a2"
+                          "a3";
+    grid-template-rows: 150px auto 100px;
+}
+.prof-details{
+    grid-area: a1;
+    display: flex;
+    flex-direction: row;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.descrip{
+    grid-area: a2;
+}
+.others{
+    grid-area: a3;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
 /*############### end of senal's part ########################=======================================================================================*/
 
 

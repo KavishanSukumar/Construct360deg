@@ -11,6 +11,7 @@
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <head>
@@ -28,19 +29,21 @@
 <div class="container">
     <%@include file="sidebar-customer.jsp"%>
     <div class="content1">
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search.." name="search">
-        </form>
-        <div class="main">
-            <a href="#"><i class="fa fa-home"></i></a>
-            <a href="#"><i class="fa fa-mail-bulk"></i></a>
-        </div>
     </div>
     <div class="content2">
-        <div class="box1">
+        <div class="box1" id="pic">
+            <%
+                String base64Encoded2=null;
+                if (account1.getImgBytes()==null){
+
+                }else {
+                    byte[] bytes = account1.getImgBytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded2 = new String(encodeBase64, "UTF-8");
+                }
+            %>
             <img src="./html/customer/resources/images/viewprofile/cover.png">
-            <img src="./html/customer/resources/images/viewprofile/user2.png" class="user">
+            <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user" onclick="popuppic()">
             <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2>
             <%for (Viewprofile x:addsummary){%>
             <p><%=x.getSummaryText()%></p>

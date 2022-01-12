@@ -1,8 +1,12 @@
 package com.example.construct360deg.model;
 
+import java.io.InputStream;
+
 public class Account {
     private int userid;
     private String userrole;
+    private InputStream profilepic;
+    private byte[] imgBytes;
     private String companyname;
     private String firstname;
     private String lastname;
@@ -25,6 +29,22 @@ public class Account {
 
     public String getUserrole() {
         return userrole;
+    }
+
+    public InputStream getProfilepic() {
+        return profilepic;
+    }
+
+    public void setProfilepic(InputStream profilepic) {
+        this.profilepic = profilepic;
+    }
+
+    public byte[] getImgBytes() {
+        return imgBytes;
+    }
+
+    public void setImgBytes(byte[] imgBytes) {
+        this.imgBytes = imgBytes;
     }
 
     public String getCompanyname() {

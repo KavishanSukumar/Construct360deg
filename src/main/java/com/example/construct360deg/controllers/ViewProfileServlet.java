@@ -24,6 +24,14 @@ public class ViewProfileServlet extends HttpServlet {
         int userid = (int) session.getAttribute("userid");
         Account account = new Account();
         if(userrole.equals("admin")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
@@ -37,6 +45,14 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("cus_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
@@ -50,6 +66,14 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("cus_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
@@ -63,6 +87,15 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if(userrole.equals("prof_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
@@ -117,6 +150,15 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("prof_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
@@ -172,6 +214,15 @@ public class ViewProfileServlet extends HttpServlet {
             System.out.println(userrole);
 
         }else if (userrole.equals("prod_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             //Account details
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {

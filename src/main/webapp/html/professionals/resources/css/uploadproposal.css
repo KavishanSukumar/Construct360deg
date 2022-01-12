@@ -54,7 +54,14 @@
 
 
 }
-#profimgname{
+.details{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.info{
     grid-area: c3;
     margin-left: 10px;
     font-size: 30px;

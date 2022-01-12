@@ -10,19 +10,19 @@
                     if (data[0]!='0'){
                         $("#notification").addClass("mycolor");
                         $("#notificationtext").addClass("mycolor");
+                        $("#notificationtext").html("Notifications("+data[0]+")");
 
-                        console.log(true)
                     }else{
                         $("#notification").removeClass("mycolor");
                         $("#notificationtext").removeClass("mycolor");
-                        console.log(false);
+                        $("#notificationtext").html("Notifications");
                     }
                 }
             });
         },1000);
     });
 </script>
-<header class="menu_bar">
+<header class="menu_bar" id="menu_bar">
     <%
         if(session.getAttribute("uname")==null){
             response.sendRedirect(request.getContextPath()+"/login");

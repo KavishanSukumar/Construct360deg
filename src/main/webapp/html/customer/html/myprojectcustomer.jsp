@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.Project" %>
+<%@ page import="com.example.construct360deg.model.Graph" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,8 @@
 %>
 <%
     Project project = (Project) request.getAttribute("projects");
+    ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
+    ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
 %>
 <head>
     <meta charset="UTF-8">
@@ -17,6 +20,7 @@
     <link rel="stylesheet" href="./html/customer/resources/css/myproject-customer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./html/customer/resources/js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
         $(document).ready(function (){
             $("#displayproject-btn").click(function (){
@@ -26,7 +30,7 @@
                 $("#updatepayment-btn").removeClass("active");
                 $("#closeproject-btn").removeClass("active");
                 $("#deleteproject-btn").removeClass("active");
-                $("#displayproject").css("display","block");
+                $("#displayproject").css("display","flex");
                 $("#uploadreq").css("display","none");
                 $("#updatepayments").css("display","none");
                 $("#closeproject").css("display","none");
@@ -161,7 +165,9 @@
         // function popupdetails(){
         //     document.getElementById("displayproject").classList.toggle("active");
         // }
+
     </script>
+
 </head>
 
 <body>
@@ -195,25 +201,28 @@
         </div>
 
         <div class="project" id="displayproject">
+            <div class="grid-item1">
+                <div class="box3" id="ongoing">
+                </div>
+                <div class="box4" id="proposed">
+                </div>
+            </div>
             <div class="grid-item2">
                 <div class="box1">
                     <h2>Upcoming Events</h2>
                     <h3>Building</h3>
-
                     <p><%=project.getEvent1()%><br><%=project.getEvent2()%><br></p>
-
                     <h3>Landscaping</h3>
                     <p><%=project.getEvent3()%><br><%=project.getEvent4()%><br></p>
-
                     <h3>Another events</h3>
                     <p><%=project.getOther()%></p>
                 </div>
-
                 <div class="box2">
                     <h2>Project Members</h2>
                     <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLand()%></p>
                 </div>
             </div>
+
         </div>
 
         <div class="project" id="uploadreq">
@@ -286,5 +295,44 @@
 
 <%@include file="../../footer.jsp"%>
 </body>
+<script>
+    var xArray =[];
+    var yArray =[];
+    <%for (Graph y:ongoingGraph){%>
+        xArray.push(<%=y.getGraphpoint()%>)
+        yArray.push("<%=y.getGraphattribute()%>")
+    <%}%>
+    var data = [{
+        x:xArray,
+        y:yArray,
+        type:"bar",
+        orientation:"h",
+        marker: {color:"rgba(255,0,0,0.6)"}
+    }];
 
+    var layout = {title:"Ongoing Graph"};
+
+    Plotly.newPlot("ongoing", data, layout);
+</script>
+<script>
+    var xArray = [];
+    var yArray = [];
+
+    <%for (Graph y:proposedGraph){%>
+    xArray.push(<%=y.getGraphpoint()%>)
+    yArray.push("<%=y.getGraphattribute()%>")
+    <%}%>
+
+    var data = [{
+        x:xArray,
+        y:yArray,
+        type:"bar",
+        orientation:"h",
+        marker: {color:"rgba(255,0,0,0.6)"}
+    }];
+
+    var layout = {title:"Proposed Graph"};
+
+    Plotly.newPlot("proposed", data, layout);
+</script>
 </html>

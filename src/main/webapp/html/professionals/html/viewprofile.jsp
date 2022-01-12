@@ -8,6 +8,7 @@
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <!DOCTYPE html>
@@ -34,8 +35,21 @@
         console.log("Hello1**********");
       }
     }
+
+    function deleteimage(id){
+      var userid = id;
+      console.log(userid);
+      var out=confirm("Delete Image");
+      if(out==true){
+        location.href="<%=request.getContextPath()%>/viewprofile?userid="+userid;
+      }
+    }
+
     function popup(){
       document.getElementById("popup").classList.toggle("active");
+    }
+    function popuppic(){
+      document.getElementById("pic").classList.toggle("active");
     }
     function popupex(){
       document.getElementById("popupex").classList.toggle("active");
@@ -43,6 +57,12 @@
     function popupskills(){
       document.getElementById("popupskills").classList.toggle("active");
     }
+
+    //profile pic
+    function preview() {
+      frame.src=URL.createObjectURL(event.target.files[0]);
+    }
+    //end profile pic
   </script>
 </head>
 
@@ -51,21 +71,35 @@
     <%@include file="sidebar-professional.jsp"%>
 
     <div class="content1">
-      <form class="example" action="/action_page.java">
-        <button type="submit"><i class="fa fa-search"></i></button>
-        <input type="text" placeholder="Search.." name="search">
-      </form> 
-      <div class="main"> 
-        <a href="#"><i class="fa fa-home"></i></a>
-        <a href="#"><i class="fa fa-mail-bulk"></i></a>
-      </div>
     </div>
     <div class="content2">
-      <div class="box1">
-        <img src="./html/professionals/resources/images/viewprofile/cover.png">
-        <a href="#" style="cursor: pointer"><img src="./html/professionals/resources/images/viewprofile/user2.png" class="user"></a>
+      <div class="box1" id="pic">
+        <%
+          String base64Encoded2=null;
+          if (account1.getImgBytes()==null){
 
+          }else {
+            byte[] bytes = account1.getImgBytes();
+            byte[] encodeBase64 = Base64.encodeBase64(bytes);
+            base64Encoded2 = new String(encodeBase64, "UTF-8");
+          }
+        %>
+
+        <img src="./html/professionals/resources/images/viewprofile/cover.png">
+        <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user" onclick="popuppic()" style="cursor: pointer">
+        <div class="background"></div>
+        <div class="piccontent">
+          <div class="close-btn" onclick="popuppic()">&times;</div>
+          <form action="<%=request.getContextPath()%>/profilepic" method="post" enctype="multipart/form-data">
+            <h3>Profile Photo</h3>
+            <input type="file" name="image" onchange="preview()">
+            <img id="frame" src="data:image/jpeg;base64,<%=base64Encoded2%>" />
+            <input type="submit" value="Save">
+            <button onclick="deleteimage(<%=account1.getUserid()%>)" class="button">Delete</button>
+          </form>
+        </div>
         <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
+
         <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2>
         <%for (Viewprofile x:addsummary){%>
         <p><%=x.getSummaryText()%></p>
@@ -74,7 +108,7 @@
       </div>
 
       <div class="box2">
-        <a href="#"><i class="fa fa-camera"></i></a>
+<%--        <a href="#"><i class="fa fa-camera"></i></a>--%>
           <h3>About</h3>
 
         <div class="summary" id="popup">
@@ -104,7 +138,6 @@
               base64Encoded = new String(encodeBase64, "UTF-8");
             }
           %>
-
           <div class="gallery">
             <a target="_blank" href="user4.png">
               <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/professionals/resources/images/Avatar.png;'" >
@@ -145,7 +178,6 @@
               <input type="text" id="years" name="years">
               <input type="submit" value="Save">
             </form>
-
           </div>
         </div>
 

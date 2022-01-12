@@ -48,7 +48,7 @@
                 <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
                 <input type="hidden" name="items" value="Monthly Subscription">
                 <input type="hidden" name="currency" value="LKR">
-                <input type="hidden" name="amount" value="40">
+                <input type="hidden" name="amount" value="500">
                 <%--            <br><br>Customer Details<br>--%>
                     <%
                         String name=null;
@@ -100,7 +100,7 @@
                   <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
                   <input type="hidden" name="items" value="Monthly Subscription">
                   <input type="hidden" name="currency" value="LKR">
-                  <input type="hidden" name="amount" value="40">
+                  <input type="hidden" name="amount" value="5000">
                   <%--            <br><br>Customer Details<br>--%>
                   <%
                       name=null;

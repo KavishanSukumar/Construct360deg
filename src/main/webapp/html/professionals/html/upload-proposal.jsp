@@ -19,9 +19,12 @@
             <div class="filling">
 
                 <div class="img-area">
-                <p id="title">Upload your proposal to </p>
-                <img id="profimg" src="../resources/images/Avatar.png" alt=""  >
-                    <p id="profimgname">Pathum nissanka</p>
+                <p id="title" style="align-content: center">Upload your proposal to </p>
+                <img id="profimg" src="../resources/images/Avatar.png" alt="" >
+                    <div class="details">
+                    <p class="info" id="profimgname">Pathum nissanka</p>
+                    <p class="info" id="cusid">Customer ID :- 0009</p>
+                    </div>
                 </div>
 
                 <div class="up-area">

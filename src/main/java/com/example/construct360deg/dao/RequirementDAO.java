@@ -77,6 +77,7 @@ public class RequirementDAO {
         return displayRequirements;
     }
 
+
     public void display_req_in_prof(int reqid, int dis_on_prof) throws SQLException{
 
         Connection connection = Database.getConnection();
@@ -101,7 +102,6 @@ public class RequirementDAO {
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             Requirement displayRequirementonpublic = new Requirement();
-//            displayRequirementonpublic.setRequirementid(resultSet.getInt("requirementid"));
             displayRequirementonpublic.setUseridcus(resultSet.getInt("cusid"));
             displayRequirementonpublic.setCusname(resultSet.getString("username"));
             byte [] cusprofimg = resultSet.getBytes("profilepic");
