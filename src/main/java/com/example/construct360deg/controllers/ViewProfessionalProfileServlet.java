@@ -22,12 +22,23 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
         String userrole= (String) session.getAttribute("userrole");
         int userid = (int) session.getAttribute("userid");
         int profid=Integer.parseInt(req.getParameter("profid"));
+        req.setAttribute("profid",profid);
         Account account = new Account();
 
 //        if(userrole.equals("prof_indiv")||userrole.equals("prof_com")){
 //
 //        }
         if(userrole.equals("cus_indiv")||userrole.equals("cus_com")){
+            AllProfileDAO allProfileDAO=new AllProfileDAO();
+            ArrayList<AllUsers> allprofs=new ArrayList<>();
+
+            try {
+                allprofs=allProfileDAO.getAllProfessionals();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            req.setAttribute("allprofs",allprofs);
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {

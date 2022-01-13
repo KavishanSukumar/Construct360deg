@@ -1,5 +1,7 @@
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
-
+<%--<%--%>
+<%--    int profid = (int) request.getAttribute("profid");--%>
+<%--%>--%>
 <!DOCTYPE html>
 <html >
 
@@ -35,7 +37,7 @@
     <div class="container-form">
         <form class="appoinmentform" action="<%=request.getContextPath()%>/Makeappointment" method="post" >
             <h2 class="heading of form"> APPOINMENT FORM</h2>
-
+<%--            <input type="text" name="profid" value="<%=profid%>" required hidden>--%>
 
             <div class="NAME">
                 <p>   Caption</p>

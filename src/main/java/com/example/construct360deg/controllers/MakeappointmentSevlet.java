@@ -25,20 +25,26 @@ public class MakeappointmentSevlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-
-        Appointment appointment = new Appointment();
-        HttpSession session = req.getSession();
-        AppointmentDAO appointmentDAO = new AppointmentDAO();
         PrintWriter out = resp.getWriter();
+        HttpSession session = req.getSession();
+        int customerid= (int) session.getAttribute("userid");
+        Appointment appointment = new Appointment();
+        AppointmentDAO appointmentDAO = new AppointmentDAO();
 
 
+        int profid = Integer.parseInt(req.getParameter("profid"));
+        String caption = req.getParameter("caption");
+        String date = req.getParameter("date");
+        String time = req.getParameter("time");
+        String message = req.getParameter("message");
 //        appointment.setAppoinmentid(req.getParameter(""));
-        appointment.setCustomerid(Integer.parseInt(req.getParameter("custid")));
-        appointment.setProfid(Integer.parseInt(req.getParameter("profid")));
-        appointment.setDate(req.getParameter("date"));
-        appointment.setTime(req.getParameter("time"));
-        appointment.setCaption(req.getParameter("caption"));
-        appointment.setMessage(req.getParameter("message"));
+//        appointment.setCustomerid(Integer.parseInt(req.getParameter("custid")));
+        appointment.setProfid(profid);
+        appointment.setCustomerid(customerid);
+        appointment.setDate(date);
+        appointment.setTime(time);
+        appointment.setCaption(caption);
+        appointment.setMessage(message);
         System.out.println("Hello World2");
 
         try {

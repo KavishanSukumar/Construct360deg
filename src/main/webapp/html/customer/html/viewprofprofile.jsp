@@ -10,6 +10,8 @@
     ArrayList<PreviousProject> previousProjects= (ArrayList<PreviousProject>) request.getAttribute("previousProjects");
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
+    ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
+    int profid = (int) request.getAttribute("profid");
     Account account = (Account) request.getAttribute("accounts");
     Account account1 = (Account) request.getAttribute("changepic");
 %>
@@ -49,7 +51,9 @@
             <p><%=x.getSummaryText()%></p>
             <%}%><br>
             <a href="#" class="button">Message</a>
-            <a href="#" class="button">Appointments</a>
+
+            <a  onclick="makeappointment(<%=profid%>)" class="button">Appointments</a>
+
             <a href="#" class="button">Upload requirements</a>
         </div>
 
@@ -105,6 +109,17 @@
     </div>
 </div><br><br>
 <%@include file="../../footer.jsp"%>
+<script>
+    function makeappointment(id){
+        var profid = id
+        var out = confirm("makeappointment")
+        if (out==true){
+            location.href="<%=request.getContextPath()%>/Makeappointment?profid"+profid;
+        }else {
+            console.log("something wrong")
+        }
+    }
+</script>
 </body>
 
 </html>
