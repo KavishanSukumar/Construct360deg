@@ -24,14 +24,26 @@
           $("#home-btn").click(function (){
             $(this).addClass("active");
             $("#chatbox-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
             $("#viewproject").css("display","block");
             $("#chatbox").css("display","none");
+            $("#appointment").css("display","none");
           });
           $("#chatbox-btn").click(function (){
             $(this).addClass("active");
             $("#home-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","block");
+            $("#appointment").css("display","none");
+          });
+          $("#appointment-btn").click(function (){
+            $(this).addClass("active");
+            $("#home-btn").removeClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#viewproject").css("display","none");
+            $("#chatbox").css("display","none");
+            $("#appointment").css("display","block");
           });
 
             var receiver=null;
@@ -96,10 +108,10 @@
             <h3>Hi, Johns</h3>
             <p>Keep up the good work!</p>
         </div>
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search your project..." name="search">
-        </form>
+<%--        <form class="example" action="/action_page.java">--%>
+<%--            <button type="submit"><i class="fa fa-search"></i></button>--%>
+<%--            <input type="text" placeholder="Search your project..." name="search">--%>
+<%--        </form>--%>
         <div class="img">
             <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
             <h3>Johns Robert</h3>
@@ -110,6 +122,7 @@
             <div class="home">
                 <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
+                <a href="#" id="appointment-btn"><i class="fas fa-inbox"></i> Appointments</a>
             </div>
             <div class="project" id="viewproject">
 <%--                <div class="grid-item1">--%>
@@ -170,6 +183,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="project" id="appointment">
+
             </div>
 
         </div>
