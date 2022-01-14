@@ -19,9 +19,10 @@ public class SearchProfessionalsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AllProfileDAO allProfileDAO=new AllProfileDAO();
         ArrayList<AllUsers> allprofs=new ArrayList<>();
+        String searchval = req.getParameter("search");
 
         try {
-            allprofs=allProfileDAO.getAllProfessionals();
+            allprofs=allProfileDAO.getAllProfessionals(searchval);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,9 +35,10 @@ public class SearchProfessionalsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         AllProfileDAO allProfileDAO=new AllProfileDAO();
         ArrayList<AllUsers> allUsers=new ArrayList<>();
+        String searchval = req.getParameter("search");
 
         try {
-            allUsers=allProfileDAO.getAllProfessionals();
+            allUsers=allProfileDAO.getAllProfessionals(searchval);
         } catch (SQLException e) {
             e.printStackTrace();
         }
