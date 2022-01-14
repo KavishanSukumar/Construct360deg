@@ -29,16 +29,16 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
 //
 //        }
         if(userrole.equals("cus_indiv")||userrole.equals("cus_com")){
-            AllProfileDAO allProfileDAO=new AllProfileDAO();
-            ArrayList<AllUsers> allprofs=new ArrayList<>();
+//            AllProfileDAO allProfileDAO=new AllProfileDAO();
+//            ArrayList<AllUsers> allprofs=new ArrayList<>();
+//
+//            try {
+//                allprofs=allProfileDAO.getAllProfessionals();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
 
-            try {
-                allprofs=allProfileDAO.getAllProfessionals();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            req.setAttribute("allprofs",allprofs);
+//            req.setAttribute("allprofs",allprofs);
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {

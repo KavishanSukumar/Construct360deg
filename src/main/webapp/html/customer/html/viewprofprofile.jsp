@@ -114,7 +114,7 @@
         var profid = id
         var out = confirm("makeappointment")
         if (out==true){
-            location.href="<%=request.getContextPath()%>/Makeappointment?profid"+profid;
+            location.href="<%=request.getContextPath()%>/Makeappointment?profid="+profid;
         }else {
             console.log("something wrong")
         }

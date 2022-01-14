@@ -18,6 +18,9 @@ import java.sql.SQLException;
 public class MakeappointmentSevlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        int profid=Integer.parseInt(req.getParameter("profid"));
+        req.setAttribute("profid",profid);
+        System.out.println(profid);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/makeappoinments.jsp");
         requestDispatcher.forward(req,resp);
     }
@@ -52,14 +55,14 @@ public class MakeappointmentSevlet extends HttpServlet {
                 System.out.println("Appointment form is successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Appointment form successful');");
-                out.println("location='"+req.getContextPath()+"/Makeappointment';");
+                out.println("location='"+req.getContextPath()+"/viewprofprofile?profid="+profid+"';");
                 out.println("</script>");
 
             }else {
                 System.out.println("Appointment form is unsuccessfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Appointment form is unsuccessfull');");
-                out.println("location='"+req.getContextPath()+"/Makeappointment';");
+                out.println("location='"+req.getContextPath()+"/viewprofprofile?profid="+profid+"';");
                 out.println("</script>");
 
             }

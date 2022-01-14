@@ -1,7 +1,7 @@
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
-<%--<%--%>
-<%--    int profid = (int) request.getAttribute("profid");--%>
-<%--%>--%>
+<%
+    int profid = (int) request.getAttribute("profid");
+%>
 <!DOCTYPE html>
 <html >
 
@@ -35,9 +35,9 @@
         <img src="./html/customer/resources/images/makeappoinment/appoinmentpicture.jpeg" id="appoinmentpic" sizes="100px">
     </div>
     <div class="container-form">
-        <form class="appoinmentform" action="<%=request.getContextPath()%>/Makeappointment" method="post" >
+        <form class="appoinmentform" action="<%=request.getContextPath()%>/Makeappointment" method="POST" >
             <h2 class="heading of form"> APPOINMENT FORM</h2>
-<%--            <input type="text" name="profid" value="<%=profid%>" required hidden>--%>
+            <input type="text" name="profid" value="<%=profid%>" required hidden>
 
             <div class="NAME">
                 <p>   Caption</p>
