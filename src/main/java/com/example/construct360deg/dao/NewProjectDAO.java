@@ -10,15 +10,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NewProjectDAO {
-    public boolean addProject(Project project) throws SQLException {
+    public boolean addProject(Project project, int reqid, int proposalid) throws SQLException {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
 //        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
-        String sql = "INSERT INTO `project`(`projectname`) VALUES (?)";
+        String sql = "INSERT INTO `project`(`projectname`,`reqid`,`proposalid`) VALUES (?,?,?)";
         preparedStatement = connection.prepareStatement(sql);
         int row =0;
 
         preparedStatement.setString(1,project.getProjectname());
+        preparedStatement.setInt(2,reqid);
+        preparedStatement.setInt(3,proposalid);
         row = preparedStatement.executeUpdate();
          if (row>0){
              return true;

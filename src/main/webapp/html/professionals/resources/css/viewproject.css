@@ -269,16 +269,49 @@ form.example::after {
     cursor: pointer;
     border-radius: 50px;
 }
-.project .new-content{
+/*.project .new-content{*/
+/*    background-color: rgb(230, 228, 228);*/
+/*    padding: 30px;*/
+/*    width: 600px;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%)scale(0);*/
+/*    z-index: 2;*/
+/*    border-radius: 10px;*/
+/*}*/
+.new-content{
     background-color: rgb(230, 228, 228);
     padding: 30px;
     width: 600px;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%)scale(0);
+    left: 29%;
     z-index: 2;
     border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 10px 10px 8px #888888;
+
 }
+
+.close-btn{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: -25px;
+     background: white;
+    font-size: 20px;
+    color: #060000;
+    margin-left: 594px;
+
+}
+.close-btn:hover{
+    background: #f30707;
+    color: white;
+}
+
 .new-content input[type=text]{
     width: 100%;
     padding: 10px;
@@ -287,6 +320,7 @@ form.example::after {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+
 }
 .new-content input[type="submit"]{
     padding: 8px;
@@ -391,7 +425,100 @@ form.example::after {
 #viewproject{display: block;}
 #chatbox{display: none;}
 
+/*######################### senal's CSS #############################################*/
+#proposals{
+
+    background-color: #e6e4e3;
+    display: grid;
+    grid-template-areas: "a1 a2";
+    grid-template-columns: 50% 50%;
+
+}
+.items-proposals{
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 90%;
+    height: 285px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #888888;
+}
+
+
+.prof-img-area{
+    display: flex;
+    flex-direction: row;
+    margin-top: -11px;
+}
+.info{
+    margin-left: 10px;
+}
+/*.test{*/
+/*    background:#c4c4c4 ;*/
+/*    padding: 5px;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+
+#heading{
+    margin-top: 0px;
+    font-size: 26px;
+    text-align: center;
+    background: #c4c4c4;
+    border-radius: 10px;
+    padding: 2px;
+}
+.mini-btns{
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+#pending{
+    margin-left: 215px;
+}
+#accept{
+    background: #1fa11f;
+    color: white;
+    margin-left: 170px;
+}
+#makeproject{
+    cursor: pointer;
+    margin-left: 10px;
+}
+#makeproject:hover{
+    background: #ff7200 ;
+    color: white;
+
+}
+#reject{
+    background: red;
+
+}
+#remove{
+    cursor: pointer;
+}
+#remove:hover{
+    background: red;
+    color: white;
+}
+.minibtn{
+    height: 30px;
+    width: auto;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #c4c4c4;
+}
+
+#makeproject{
+    background: #ff7200 ;
+    color: white;
+    cursor: none;
+}
 .footer{
+    grid-column: 1 /-1;
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;
     padding-top: 1%;

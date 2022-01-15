@@ -1,9 +1,9 @@
 package com.example.construct360deg.controllers;
 
-import com.example.construct360deg.dao.MyProjectDAO;
-import com.example.construct360deg.dao.NewProjectDAO;
+import com.example.construct360deg.dao.*;
+import com.example.construct360deg.model.AllUsers;
 import com.example.construct360deg.model.Project;
-import com.example.construct360deg.dao.RequirementDAO;
+import com.example.construct360deg.model.Proposal;
 import com.example.construct360deg.model.Requirement;
 
 
@@ -119,6 +119,25 @@ public class ViewProjectsServlet extends HttpServlet {
             }
             req.setAttribute("closeprojects",project);
 
+        ///////------senal's part------------///////////////////////// ////////////////////////////////////////////////////////////////
+            ArrayList<AllUsers> allcustomers = new ArrayList<>();
+            AllProfileDAO allProfileDAO = new AllProfileDAO();
+            ArrayList<Requirement> displayRequirement = new ArrayList<>();
+            RequirementDAO requirementDAO = new RequirementDAO();
+            ArrayList<Proposal>   displayownproposals = new ArrayList<>();
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
+
+            try {
+                allcustomers=allProfileDAO.allcustomers();
+                displayRequirement = requirementDAO.displayRequirement();
+                displayownproposals = proposalsDAO.displayownproposals(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("allcustomers",allcustomers);
+            req.setAttribute("displayRequirement",displayRequirement);
+            req.setAttribute("displayownproposals",displayownproposals);
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
@@ -143,7 +162,25 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("closeprojects",project);
+            ///////------senal's part------------///////////////////////// ////////////////////////////////////////////////////////////////
+            ArrayList<AllUsers> allcustomers = new ArrayList<>();
+            AllProfileDAO allProfileDAO = new AllProfileDAO();
+            ArrayList<Requirement> displayRequirement = new ArrayList<>();
+            RequirementDAO requirementDAO = new RequirementDAO();
+            ArrayList<Proposal>   displayownproposals = new ArrayList<>();
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
 
+            try {
+                allcustomers=allProfileDAO.allcustomers();
+                displayRequirement = requirementDAO.displayRequirement();
+                displayownproposals = proposalsDAO.displayownproposals(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("allcustomers",allcustomers);
+            req.setAttribute("displayRequirement",displayRequirement);
+            req.setAttribute("displayownproposals",displayownproposals);
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");

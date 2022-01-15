@@ -43,6 +43,16 @@ public class Proposal {
     private int customeraccept;
     private int customerreject;
 
+    public int getIsprojectcreated() {
+        return isprojectcreated;
+    }
+
+    public void setIsprojectcreated(int isprojectcreated) {
+        this.isprojectcreated = isprojectcreated;
+    }
+
+    private  int isprojectcreated;
+
 
     public byte[] getProfprofimg() {
         return profprofimg;

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 @MultipartConfig
@@ -40,4 +41,45 @@ public class AvailableProposalsServlet extends HttpServlet {
         requestDispatcher.forward(req,resp);
     }
 
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        PrintWriter out = resp.getWriter();
+
+       int val = Integer.parseInt(req.getParameter("choice"));
+        int pid = Integer.parseInt(req.getParameter("pid"));
+        System.out.println("++++++++++++ choiece +++++++++++");
+        System.out.println(val);
+        System.out.println(pid);
+        System.out.println("+++++++++++++++++++++++");
+
+        ProposalsDAO proposalsDAO = new ProposalsDAO();
+
+
+        try {
+            proposalsDAO.accept_or_reject(val,pid);
+            if(val==1){
+                System.out.println("You accept the proposal");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('You accept the proposal');");
+                out.println("location='"+req.getContextPath()+"/viewproject';");
+                out.println("</script>");
+            }else {
+                System.out.println("You reject the proposal");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('You reject the proposal');");
+                out.println("location='"+req.getContextPath()+"/viewproject';");
+                out.println("</script>");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            System.out.println("Error");
+            out.println("<script type='text/javascript'>");
+            out.println("alert('Error');");
+            out.println("location='"+req.getContextPath()+"/viewproject';");
+            out.println("</script>");
+        }
+
+
+
+    }
 }

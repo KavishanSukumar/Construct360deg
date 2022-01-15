@@ -94,6 +94,7 @@
 #name{
     margin-top: 0px;
     font-size: 25px;
+        font-weight: bold;
 }
 #time{
     margin-top: -22px;
@@ -138,6 +139,10 @@ tr:nth-child(even) {
 }
 .mini-btns{
     margin-top: 3px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
 }
 .minibtns{
     size: 30px;
@@ -151,7 +156,18 @@ tr:nth-child(even) {
     border: none;
     border-radius: 10px;
 }
-
+#accept0{
+    size: 30px;
+    height: 28px;
+    width: auto;
+    font-size: 15px;
+    cursor: none;
+    color: white;
+    background: #36a736;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
 #accept:hover{
     background-color: #36a736;
     color: white;

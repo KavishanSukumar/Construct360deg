@@ -47,7 +47,7 @@
     <div class="up-area">
         <form class="proposal" method="post" action="<%=request.getContextPath()%>/DisplayCusReqOnProf" enctype="multipart/form-data">
             <label class="a" id="desrip">Description :-</label><br>
-            <textarea id="text" style="" required></textarea>
+            <textarea id="text" style="" name="description" required></textarea>
             <label class="a" for="uploadfile" id="up-proposal">Proposal :-</label>
             <input type="file" id="uploadfile" name="uploadfile"  multiple onchange="processSelectedFiles(this)"  required accept="application/pdf,application/zip"/><br>
             <label id="filetype">(Choose pdf or zip file)</label>
@@ -58,7 +58,7 @@
             <div class="upload">
                 <input id="submit" type="submit" value="Upload">
             </div>
-
+           <%System.out.println("i am in the upload form end");%>
         </form>
     </div>
 
