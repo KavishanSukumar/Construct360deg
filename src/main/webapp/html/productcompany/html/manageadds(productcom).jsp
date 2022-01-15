@@ -65,7 +65,7 @@
                 <a href="<%=request.getContextPath()%>/advertise"><button type="button" id="make_adds" onclick="" ><b>Make Your Own Advertisements</b></button></a>
             </div>
             <div class="common2">
-                <a href="<%=request.getContextPath()%>/advertise"><button type="button" id="make_addspro" onclick="" ><b>Advertise your product</b></button></a>
+                <a href="<%=request.getContextPath()%>/promoteproduct"><button type="button" id="make_addspro" onclick="" ><b>Advertise your product</b></button></a>
             </div>
         </div>
         <div class="second">
