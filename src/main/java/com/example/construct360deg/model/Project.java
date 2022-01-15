@@ -16,6 +16,16 @@ public class Project {
     private String display;
     private int proposalid;
 
+    public int getCusaccept() {
+        return cusaccept;
+    }
+
+    public void setCusaccept(int cusaccept) {
+        this.cusaccept = cusaccept;
+    }
+
+    private int cusaccept;
+
     public int getProposalid() {
         return proposalid;
     }

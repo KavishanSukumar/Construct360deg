@@ -472,10 +472,12 @@ ul li a:hover,ul li i:hover{
 }
 #reject{
     background: red;
-
+    color: white;
+    margin-left: 22vh;
 }
 #remove{
     cursor: pointer;
+    margin-left: 10px;
 }
 #remove:hover{
     background: red;

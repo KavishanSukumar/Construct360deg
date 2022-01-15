@@ -58,14 +58,17 @@
             $(this).addClass("active");
             $("#home-btn").removeClass("active");
             $("#chatbox-btn").removeClass("active");
+            $("#myproposals").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#appointment").css("display","block");
+            $("#proposals").css("display","none");
           });
         $("#myproposals").click(function (){
             $(this).addClass("active");
             $("#chatbox-btn").removeClass("active");
             $("#home-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#proposals").css("display","grid");
@@ -114,9 +117,14 @@
     function popup(){
         document.getElementById("popup").classList.toggle("active");
     }
-    function openproject(ele){
-        var projectid=ele.id;
-        location.href="<%=request.getContextPath()%>/myproject?projectid="+projectid;
+    function openproject(project_id,cus_accept){
+        var projectid=project_id;
+        var cusaccept = cus_accept;
+        if(cusaccept==1) {
+            location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
+        }else{
+            alert("Customer still not agreed to terms and conditions. Please wait...");
+        }
     }
     function popupadd(){
         document.getElementById("viewproject").classList.toggle("active");
@@ -179,7 +187,8 @@
 <%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
                     <%for (Project y:newprojects){%>
-                    <div class="project1" style="cursor: pointer" onclick="openproject(this)" id=<%=y.getProjectid()%>>
+
+                    <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                         <h3><%=y.getProjectname()%></h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
@@ -338,9 +347,9 @@
                                                      System.out.println(extention1);
                                                  %>
                                                  <%if(extention1.equals(".pdf")){%>
-                                                 <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 20px; margin-top: 0px"><i class="fas fa-file-pdf"></i> <%=reqfilename%></a>
+                                                 <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-pdf"></i> <%=reqfilename%></a>
                                                  <%}else {%>
-                                                 <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 20px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a>
+                                                 <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a>
 
                                                  <%}%>
                                              </div>

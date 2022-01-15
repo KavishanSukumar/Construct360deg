@@ -42,6 +42,7 @@ public class NewProjectDAO {
         while (resultSet.next()){
             Project project = new Project();
             project.setProjectname(resultSet.getString("projectname"));
+            project.setCusaccept(resultSet.getByte("cus_accept"));
 //            project.setProjectid(resultSet.getInt("projectid"));
             newprojects.add(project);
         }
