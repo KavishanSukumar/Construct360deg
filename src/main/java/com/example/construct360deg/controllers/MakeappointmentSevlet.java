@@ -18,6 +18,9 @@ import java.sql.SQLException;
 public class MakeappointmentSevlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        int profid=Integer.parseInt(req.getParameter("profid"));
+        req.setAttribute("profid",profid);
+        System.out.println(profid);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/makeappoinments.jsp");
         requestDispatcher.forward(req,resp);
     }
@@ -25,20 +28,26 @@ public class MakeappointmentSevlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 
-
-        Appointment appointment = new Appointment();
-        HttpSession session = req.getSession();
-        AppointmentDAO appointmentDAO = new AppointmentDAO();
         PrintWriter out = resp.getWriter();
+        HttpSession session = req.getSession();
+        int customerid= (int) session.getAttribute("userid");
+        Appointment appointment = new Appointment();
+        AppointmentDAO appointmentDAO = new AppointmentDAO();
 
 
+        int profid = Integer.parseInt(req.getParameter("profid"));
+        String caption = req.getParameter("caption");
+        String date = req.getParameter("date");
+        String time = req.getParameter("time");
+        String message = req.getParameter("message");
 //        appointment.setAppoinmentid(req.getParameter(""));
-        appointment.setCustomerid(Integer.parseInt(req.getParameter("custid")));
-        appointment.setProfid(Integer.parseInt(req.getParameter("profid")));
-        appointment.setDate(req.getParameter("date"));
-        appointment.setTime(req.getParameter("time"));
-        appointment.setCaption(req.getParameter("caption"));
-        appointment.setMessage(req.getParameter("message"));
+//        appointment.setCustomerid(Integer.parseInt(req.getParameter("custid")));
+        appointment.setProfid(profid);
+        appointment.setCustomerid(customerid);
+        appointment.setDate(date);
+        appointment.setTime(time);
+        appointment.setCaption(caption);
+        appointment.setMessage(message);
         System.out.println("Hello World2");
 
         try {
@@ -46,14 +55,14 @@ public class MakeappointmentSevlet extends HttpServlet {
                 System.out.println("Appointment form is successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Appointment form successful');");
-                out.println("location='"+req.getContextPath()+"/Makeappointment';");
+                out.println("location='"+req.getContextPath()+"/viewprofprofile?profid="+profid+"';");
                 out.println("</script>");
 
             }else {
                 System.out.println("Appointment form is unsuccessfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Appointment form is unsuccessfull');");
-                out.println("location='"+req.getContextPath()+"/Makeappointment';");
+                out.println("location='"+req.getContextPath()+"/viewprofprofile?profid="+profid+"';");
                 out.println("</script>");
 
             }

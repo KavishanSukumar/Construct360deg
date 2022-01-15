@@ -87,6 +87,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
             AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
             try {
                 account = accountDetailsDAO.retriveDetails(userid,userrole);

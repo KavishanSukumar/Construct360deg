@@ -47,11 +47,18 @@ public class AllProfileDAO {
 
         return allUsers;
     }
-    public ArrayList<AllUsers> getAllProfessionals() throws SQLException {
+    public ArrayList<AllUsers> getAllProfessionals(String searchval) throws SQLException {
             ArrayList<AllUsers> allUsers=new ArrayList<>();
             Connection connection= Database.getConnection();
             PreparedStatement preparedStatement=null;
-            String sql="SELECT * FROM allcomview";
+            String sql = null;
+            String pattern = searchval;
+            System.out.println(pattern);
+            if(pattern==null || pattern=="" ){
+                sql="SELECT * FROM allcomview";
+            }else{
+                sql="SELECT * FROM allcomview WHERE  profcompanyname like '%"+pattern+"%'";
+            }
             ResultSet resultSet;
             preparedStatement=connection.prepareStatement(sql);
             resultSet=preparedStatement.executeQuery();
@@ -65,7 +72,13 @@ public class AllProfileDAO {
                 allUsers1.setComcontractflag(resultSet.getBoolean("comcontractflag"));
                 allUsers.add(allUsers1);
             }
-            String sql2="SELECT * FROM `allindivview`";
+            String sql2 = null;
+            if(pattern==null || pattern=="" ){
+                sql2="SELECT * FROM `allindivview`";
+            }else{
+                sql2="SELECT * FROM allindivview WHERE  Proffullname like '%"+pattern+"%'";
+            }
+//            String sql2="SELECT * FROM `allindivview`";
             preparedStatement=connection.prepareStatement(sql2);
             resultSet=preparedStatement.executeQuery();
 

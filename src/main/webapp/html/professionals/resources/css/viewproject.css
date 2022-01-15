@@ -137,44 +137,18 @@ ul li a:hover,ul li i:hover{
 }
 .content1{
     margin-top: 73px;
-    display: grid;
-    grid-template-columns: 250px 1fr 240px;
-    grid-template-areas:'name search img' ;
     height: 80px;
 }
 .name{
     height: 80px;
     margin-left: 20px;}
 .name p{margin-top: -12px;}
-
-form.example input[type=text] {
-    background-color: #e7e8e9;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    margin-top: 20px;
-    width: 40%;
-  }
-form.example button {
-    float: left;
-    width: 5%;
-    padding: 10px;
-    background: #b6b7b8;
-    color: black;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-form.example button:hover {
-    background: #a7a4a2;
+.img{
+    height: 80px;
+    margin-top: -94px;
+    float: right;
+    margin-right: 20px;
 }
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-.img{height: 80px;}
 .img .user{
     width: 50px;
     border-radius: 50px;
@@ -340,6 +314,8 @@ form.example::after {
 
 #chatbox{
     background-color:#e6e4e3;}
+#appointment{
+    background-color:#e6e4e3;}
 #chat-box-container{
     display: flex;
 }
@@ -424,6 +400,7 @@ form.example::after {
 }
 #viewproject{display: block;}
 #chatbox{display: none;}
+#appointment{display: none;}
 
 /*######################### senal's CSS #############################################*/
 #proposals{

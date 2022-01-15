@@ -31,8 +31,7 @@ public class AccountServlet extends HttpServlet {
               account.setUserrole(userrole);
               account.setUserid(userid);
 
-              if (userrole.equals("prof_indiv") || userrole.equals("cus_indiv")) {
-
+              if (userrole.equals("prof_indiv") || userrole.equals("cus_indiv") || userrole.equals("prof_com") || userrole.equals("cus_com")) {
                      account.setFirstname(req.getParameter("firstname"));
                      account.setLastname(req.getParameter("lastname"));
                      account.setNic(req.getParameter("nic"));
@@ -60,6 +59,7 @@ public class AccountServlet extends HttpServlet {
                      } catch (SQLException e) {
                             e.printStackTrace();
                      }
+//              }else if (userrole.equals("prof_com") || userrole.equals("cus_com")) {
               }else if(userrole.equals("prod_com")){
                      account.setCompanyname(req.getParameter("companyname"));
                      account.setHouseno(req.getParameter("houseno"));
@@ -110,5 +110,6 @@ public class AccountServlet extends HttpServlet {
                             e.printStackTrace();
                      }
               }
+
        }
 }

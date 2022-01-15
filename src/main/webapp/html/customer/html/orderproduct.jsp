@@ -51,6 +51,7 @@
 
             </select>
           </label>
+
           <label>
             <span>Street Address <span class="required">*</span></span>
             <input type="text" name="street" placeholder="House number and street name" required>
@@ -77,6 +78,7 @@
             <input type="number" name="quantity" placeholder="" required min="1" max="<%=productquantity%>">
           </label>
         </div>
+
         <div class="rightside">
             <table>
               <tr>
@@ -89,12 +91,9 @@
               </tr>
               <tr>
                 <td>Subtotal</td>
-                <td>$88.00</td>
+                <td><%=productprice*productquantity%></td>
               </tr><br><br>
-              <!-- <tr>
-                <td>Shipping</td>
-                <td>Free shipping</td>
-              </tr> -->
+
             </table><br>
             <div>
               <input type="radio" name="dbt" value="dbt" checked> Pick Up
@@ -107,6 +106,7 @@
             </div>
             <button type="submit">Place Order</button>
         </div><!-- rightside -->
+
       </form>
      </div>
     </div>

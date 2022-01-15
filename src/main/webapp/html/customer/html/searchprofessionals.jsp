@@ -16,6 +16,19 @@
   <title>Search for contractors</title>
   <link rel="stylesheet" href="./html/customer/resources/css/searchcontractor.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        const searchbar = document.getElementById('search');
+
+        searchbar.addEventListener('keyup',(e)=>{
+            const input = e.target.value;
+            if(input==""){
+                console.log("null value");
+            }else{
+                console.log("not null value");
+            }
+
+        })
+    </script>
 </head>
 
 <body>
@@ -23,7 +36,7 @@
 <div class="container">
       <div class="content">
         <div class="content1">
-        <form class="example" action="/action_page.java">
+        <form class="example" action="<%=request.getContextPath()%>/searchprofessionals">
           <button type="submit"><i class="fa fa-search"></i></button>
           <input type="text" placeholder="Search.." name="search">
         </form>
@@ -75,9 +88,13 @@
                     }
                 %>
                 <div class="gallery">
-                    <a target="" href="<%=request.getContextPath()%>/viewprofprofile">
-<%--                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/user.png;'">--%>
-                        <img src="data:image/jpeg;base64,<%=base64Encoded%>" class="user">
+                    <a target="" onclick="viewprofprofile(<%=x.getUserid()%>)">
+                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" style="cursor: pointer" class="user" >
+
+<%--                    <a target="" href="<%=request.getContextPath()%>/viewprofprofile">--%>
+<%--&lt;%&ndash;                      <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/user.png;'">&ndash;%&gt;--%>
+<%--                        <img src="data:image/jpeg;base64,<%=base64Encoded%>" class="user">--%>
+
 
                     </a>
                     <%
@@ -110,6 +127,18 @@
       </div>
     </div>
     <%@include file="../../footer.jsp"%>
+<script>
+    function viewprofprofile(id){
+        var profid = id
+        console.log(profid);
+        var out = confirm("viewproprofile");
+        if (out==true){
+            location.href="<%=request.getContextPath()%>/viewprofprofile?profid="+profid;
+        }else {
+            console.log("false")
+        }
+    }
+</script>
 </body>
 
 </html>

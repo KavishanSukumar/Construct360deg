@@ -150,14 +150,14 @@ ul li a:hover,ul li i:hover{
 .container-4{
     background-color: #e9e9e9;
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    display: grid;
+    /*display: grid;*/
     border-radius: 5px;
     padding: 20px;
     width: 810px;
     height: 450px;
     margin-left: 500px;
     margin-top: -470px;
-    grid-template-areas: 'user2 user5 user6';
+    /*grid-template-areas: 'user2 user5 user6';*/
 }
 .content1{
     background-color: #e9e9e9;
@@ -240,7 +240,7 @@ form.example::after {
       color: rgb(217, 219, 92);
 }
 .gallery{
-    margin: 5px;
+    margin-left: 50px;
     float: left;
 }
 .gallery .user{
@@ -250,7 +250,6 @@ form.example::after {
     width: 210px;
     height: 200px;
 }
-
 .gallery .desc{
     text-align: center;
     width: 200px;
