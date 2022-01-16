@@ -10,6 +10,7 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
+    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
 %>
 <head>
   <meta charset="UTF-8">
@@ -92,10 +93,24 @@
       function popup(){
           document.getElementById("popup").classList.toggle("active");
       }
-      function openproject(ele){
-          var projectid=ele.id;
+      function openproject(cusaccept,theprojectid){
+          var projectid=theprojectid;
           console.log(projectid);
-          location.href="<%=request.getContextPath()%>/myproject?projectid="+projectid;
+          if(cusaccept==0){
+               document.getElementById("newcontent").style.display="block";
+               document.getElementById("blur").style.filter="blur(8px)";
+               document.getElementById("projectid").value=theprojectid;
+          }else {
+              location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
+          }
+      }
+
+      function closepopup(){
+          console.log("i am in");
+          var blur = document.getElementById("blur");
+          blur.style.filter="none"
+          var content = document.getElementById("newcontent");
+          content.style.display="none";
       }
   </script>
 </head>
@@ -172,8 +187,35 @@
 
 
 <%--+++++++++++++++++++++++++++++++++++ senal's available proposals ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
-    <%@include file="sidebar-customer.jsp"%>
+
+<%--+++++++++++++++++++++++++++++++++++ senal's customer sign  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
+
+<div class="new-content" style="display: none" id="newcontent">
+    <%--    <button class="close-btn" onclick="popupformclose()">&times;</button>--%>
+    <button class="close-btn" onclick="closepopup()">X</button>
+    <form action="<%=request.getContextPath()%>/customeracceptproject" method="post">
+
+        <div class="terms">
+            <input type="checkbox" required="" id="checkbox">
+            <label id="terms2"><a href="www.google.com" target="www.google.com" id="sentence"> I Accept with the rules &amp; regulations</a></label>
+        </div>
+        <input id="projectid" type="hidden" value="" name="projectid">
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<%--+++++++++++++++++++++++++++++++++++ senal's customer sign end ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>
+
+
+
+
+
+
+
     <div class="container" id="blur">
+        <%@include file="sidebar-customer.jsp"%>
+
         <div class="content1">
         <div class="name">
             <h3>Hi, Kalum</h3>
@@ -199,10 +241,16 @@
             <div class="project" id="viewproject">
                 <div class="grid-item1">
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <div class="project1" style="cursor: pointer" onclick="openproject(this)" id=1>
-                        <h3>Maharagama project two floors </h3>
+                    <%for(Project x:newprojects){%>
+                    <%
+                        System.out.println("888888888888888888888888888888888888888888888888888888888888888");
+                        System.out.println(x.getProjectid());
+                    %>
+                    <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >
+                        <h3><%=x.getProjectname()%></h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
+                    <%}%>
                 </div>
             </div>
 
@@ -244,7 +292,7 @@
                     </div>
                 </div>
             </div>
-<%--  ########################################################################################################################          --%>
+<%--  ##############################################   senal's part   ###############################################################          --%>
 <%--            senal's part--%>
             <div class="project" id="my_reqs">
                <div class="my_requirements" id="my_requirements">
