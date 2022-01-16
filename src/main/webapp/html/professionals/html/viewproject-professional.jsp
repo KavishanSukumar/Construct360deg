@@ -72,6 +72,7 @@
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#proposals").css("display","grid");
+            $("#appointment").css("display","none");
         });
             var receiver=null;
 
@@ -133,6 +134,36 @@
 
 
   </script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $("#newappointment").click(function (){
+                $("#newappointment").addClass("active");
+                $("#confirmappointment").removeClass("active");
+                $("#rejectedappointment").removeClass("active");
+                $("#newappointments").css("display","block");
+                $("#confirmappointments").css("display","none");
+                $("#rejectedappointments").css("display","none");
+            });
+            $("#confirmappointment").click(function (){
+                $("#newappointment").removeClass("active");
+                $("#confirmappointment").addClass("active");
+                $("#rejectedappointment").removeClass("active");
+                $("#newappointments").css("display","none");
+                $("#confirmappointments").css("display","block");
+                $("#rejectedappointments").css("display","none");
+            });
+            $("#rejectedappointment").click(function (){
+                $("#newappointment").removeClass("active");
+                $("#confirmappointment").removeClass("active");
+                $("#rejectedappointment").addClass("active");
+                $("#newappointments").css("display","none");
+                $("#confirmappointments").css("display","none");
+                $("#rejectedappointments").css("display","block");
+            });
+
+        });
+
+    </script>
 </head>
 
 <div class="new-content" style="display: none" id="newcontent">
@@ -180,7 +211,7 @@
 
                 <a href="#" id="myproposals"><i class="fas fa-file"></i></i> My proposals</a>
 
-                <a href="#" id="appointment-btn"><i class="fas fa-inbox"></i> Appointments</a>
+                <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
 
             </div>
             <div class="project" id="viewproject">
@@ -393,11 +424,105 @@
                     </div>
                 <%}%>
 
-            <div class="project" id="appointment">
 
-            </div>
 
         </div>
+<%--            //////////////////////////////Appointment part//////////////////////////////////////////////--%>
+            <div class="project" id="appointment">
+                <div class="ordertypes">
+                    <button class="active" id="newappointment">New Appointment</button>
+                    <button id="confirmappointment">Confirmed Appointment</button>
+                    <button id="rejectedappointment">Rejected Appointment</button>
+                </div>
+
+                <div class="ordertable" id="newappointments" >
+                    <table class="logTable">
+                        <thead>
+                        <tr class="headrow">
+                            <th class="appointmentid"><span>Appointment ID</span></th>
+                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="time"><span>Time</span></th>
+                            <th class="date"><span>Date</span></th>
+                            <th class="caption"><span>Caption</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%--                    <%for(Order a:orders){%>--%>
+                        <%--                    <%if(a.getOrderstatus().equals("Pending")){%>--%>
+                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
+                        <%--                        <td ><%=a.getOrderid()%></td>--%>
+                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
+                        <%--                        <td ><%=a.getCustomername()%></td>--%>
+                        <%--                        <td ><%=a.getProductname()%></td>--%>
+                        <%--                        <td ><%=a.getQuantity()%></td>--%>
+                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
+                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
+                        <%--                        <td><button class="btn" onclick=orderconfirm(this) id="<%=a.getOrderid()%>">Confirm Order</button> <button class="btn" onclick="orderreject(this)" id="<%=a.getOrderid()%>">Reject</button></td>--%>
+                        <%--                    </tr>--%>
+                        <%--                    <%}%>--%>
+                        <%--                    <%}%>--%>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ordertable" id="confirmappointments">
+                    <table class="logTable">
+                        <thead>
+                        <tr class="headrow">
+                            <th class="appointmentid"><span>Appointment ID</span></th>
+                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="time"><span>Time</span></th>
+                            <th class="date"><span>Date</span></th>
+                            <th class="caption"><span>Caption</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%--                    <%for(Order a:orders){%>--%>
+                        <%--                    <%if(a.getOrderstatus().equals("Confirmed")){%>--%>
+                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
+                        <%--                        <td ><%=a.getOrderid()%></td>--%>
+                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
+                        <%--                        <td ><%=a.getCustomername()%></td>--%>
+                        <%--                        <td ><%=a.getProductname()%></td>--%>
+                        <%--                        <td ><%=a.getQuantity()%></td>--%>
+                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
+                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
+                        <%--                    </tr>--%>
+                        <%--                    <%}%>--%>
+                        <%--                    <%}%>--%>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="ordertable" id="rejectedappointments">
+                    <table class="logTable">
+                        <thead>
+                        <tr class="headrow">
+                            <th class="appointmentid"><span>Appointment ID</span></th>
+                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="time"><span>Time</span></th>
+                            <th class="date"><span>Date</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%--                    <%for(Order a:orders){%>--%>
+                        <%--                    <%if(a.getOrderstatus().equals("Rejected")){%>--%>
+                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
+                        <%--                        <td ><%=a.getOrderid()%></td>--%>
+                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
+                        <%--                        <td ><%=a.getCustomername()%></td>--%>
+                        <%--                        <td ><%=a.getProductname()%></td>--%>
+                        <%--                        <td ><%=a.getQuantity()%></td>--%>
+                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
+                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
+                        <%--                    </tr>--%>
+                        <%--                    <%}%>--%>
+                        <%--                    <%}%>--%>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
 
     </div>
 
