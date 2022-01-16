@@ -1,10 +1,7 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.*;
-import com.example.construct360deg.model.AllUsers;
-import com.example.construct360deg.model.Project;
-import com.example.construct360deg.model.Proposal;
-import com.example.construct360deg.model.Requirement;
+import com.example.construct360deg.model.*;
 
 
 import javax.servlet.RequestDispatcher;
@@ -126,17 +123,21 @@ public class ViewProjectsServlet extends HttpServlet {
             RequirementDAO requirementDAO = new RequirementDAO();
             ArrayList<Proposal>   displayownproposals = new ArrayList<>();
             ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Appointment> appointments = new ArrayList<>();
+            AppointmentDAO appointmentDAO = new AppointmentDAO();
 
             try {
                 allcustomers=allProfileDAO.allcustomers();
                 displayRequirement = requirementDAO.displayRequirement();
                 displayownproposals = proposalsDAO.displayownproposals(userid);
+                appointments = appointmentDAO.retriveAppointments(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             req.setAttribute("allcustomers",allcustomers);
             req.setAttribute("displayRequirement",displayRequirement);
             req.setAttribute("displayownproposals",displayownproposals);
+            req.setAttribute("appointment",appointments);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
@@ -145,12 +146,16 @@ public class ViewProjectsServlet extends HttpServlet {
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
+            ArrayList<Appointment> appointments = new ArrayList<>();
+            AppointmentDAO appointmentDAO = new AppointmentDAO();
             try {
                 newprojects=newProjectDAO.viewProject();
+                appointments=appointmentDAO.retriveAppointments(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             req.setAttribute("newprojects",newprojects);
+            req.setAttribute("appointment",appointments);
 
             //close project
             Project project = new Project();
@@ -185,5 +190,21 @@ public class ViewProjectsServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int appointmentid= Integer.parseInt( req.getParameter("appointmentid"));
+        int task= Integer.parseInt( req.getParameter("task"));
+        System.out.println(appointmentid);
+        System.out.println(task);
+        AppointmentDAO appointmentDAO=new AppointmentDAO();
+
+        try {
+            appointmentDAO.Appointmentstatus(appointmentid,task);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("test you");
     }
 }

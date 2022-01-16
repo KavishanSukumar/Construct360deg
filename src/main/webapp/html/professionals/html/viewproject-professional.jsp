@@ -1,12 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
-<%@ page import="com.example.construct360deg.model.Project" %>
-<%@ page import="com.example.construct360deg.model.AllUsers" %>
-<%@ page import="com.example.construct360deg.model.Requirement" %>
-<%@ page import="com.example.construct360deg.model.Proposal" %>
 <%@ page import="java.sql.Time" %>
 <%@ page import="java.sql.Date" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -15,7 +12,7 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
-
+    ArrayList<Appointment> appointments = (ArrayList<Appointment>) request.getAttribute("appointment");
     ArrayList<AllUsers> allcustomers =(ArrayList<AllUsers>)request.getAttribute("allcustomers");
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
     ArrayList<Proposal> displayownproposals =(ArrayList<Proposal>)request.getAttribute("displayownproposals");
@@ -29,8 +26,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Project</title>
+    <link rel="stylesheet" href="./html/professionals/resources/css/viewappoinment.css">
   <link rel="stylesheet" href="./html/professionals/resources/css/viewproject.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
@@ -440,27 +441,30 @@
                         <thead>
                         <tr class="headrow">
                             <th class="appointmentid"><span>Appointment ID</span></th>
-                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="customerid"><span>Customerid</span></th>
                             <th class="time"><span>Time</span></th>
                             <th class="date"><span>Date</span></th>
                             <th class="caption"><span>Caption</span></th>
+                            <th class="message"><span>Message</span></th>
+                            <th class="appointmentstatus">Appointment status</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%--                    <%for(Order a:orders){%>--%>
-                        <%--                    <%if(a.getOrderstatus().equals("Pending")){%>--%>
-                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
-                        <%--                        <td ><%=a.getOrderid()%></td>--%>
-                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
-                        <%--                        <td ><%=a.getCustomername()%></td>--%>
-                        <%--                        <td ><%=a.getProductname()%></td>--%>
-                        <%--                        <td ><%=a.getQuantity()%></td>--%>
-                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
-                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
-                        <%--                        <td><button class="btn" onclick=orderconfirm(this) id="<%=a.getOrderid()%>">Confirm Order</button> <button class="btn" onclick="orderreject(this)" id="<%=a.getOrderid()%>">Reject</button></td>--%>
-                        <%--                    </tr>--%>
-                        <%--                    <%}%>--%>
-                        <%--                    <%}%>--%>
+                                            <%for(Appointment a:appointments){%>
+                                            <%if(a.getAppointmentstatus().equals("Pending")){%>
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                                <td><%=a.getAppoinmentid()%></td>
+                                                <td ><%=a.getCustomerid()%></td>
+                                                <td ><%=a.getTime()%></td>
+                                                <td ><%=a.getDate()%></td>
+                                                <td ><%=a.getCaption()%></td>
+                                                <td ><%=a.getMessage()%></td>
+<%--                                                <td><%=a.getAppointmentstatus()%></td>--%>
+
+                                                <td><button class="btn" onclick=acceptappointment(this) id="<%=a.getAppoinmentid()%>">Accept</button> <button class="btn" onclick="appointmentreject(this)" id="<%=a.getAppoinmentid()%>">Reject</button></td>
+                                            </tr>
+                                            <%}%>
+                                            <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -470,26 +474,26 @@
                         <thead>
                         <tr class="headrow">
                             <th class="appointmentid"><span>Appointment ID</span></th>
-                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="customerid"><span>Customerid</span></th>
                             <th class="time"><span>Time</span></th>
                             <th class="date"><span>Date</span></th>
                             <th class="caption"><span>Caption</span></th>
+                            <th class="message"><span>Message</span></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%--                    <%for(Order a:orders){%>--%>
-                        <%--                    <%if(a.getOrderstatus().equals("Confirmed")){%>--%>
-                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
-                        <%--                        <td ><%=a.getOrderid()%></td>--%>
-                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
-                        <%--                        <td ><%=a.getCustomername()%></td>--%>
-                        <%--                        <td ><%=a.getProductname()%></td>--%>
-                        <%--                        <td ><%=a.getQuantity()%></td>--%>
-                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
-                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
-                        <%--                    </tr>--%>
-                        <%--                    <%}%>--%>
-                        <%--                    <%}%>--%>
+                                            <%for(Appointment a:appointments){%>
+                                            <%if(a.getAppointmentstatus().equals("Confirmed")){%>
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                                <td><%=a.getAppoinmentid()%></td>
+                                                <td ><%=a.getCustomerid()%></td>
+                                                <td ><%=a.getTime()%></td>
+                                                <td ><%=a.getDate()%></td>
+                                                <td ><%=a.getCaption()%></td>
+                                                <td ><%=a.getMessage()%></td>
+                                            </tr>
+                                            <%}%>
+                                            <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -499,25 +503,26 @@
                         <thead>
                         <tr class="headrow">
                             <th class="appointmentid"><span>Appointment ID</span></th>
-                            <th class="customername"><span>Customer Name</span></th>
+                            <th class="customerid"><span>Customerid</span></th>
                             <th class="time"><span>Time</span></th>
                             <th class="date"><span>Date</span></th>
+                            <th class="caption"><span>Caption</span></th>
+                            <th class="message"><span>Message</span></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <%--                    <%for(Order a:orders){%>--%>
-                        <%--                    <%if(a.getOrderstatus().equals("Rejected")){%>--%>
-                        <%--                    <tr id="<%=a.getOrderid()%>" onclick="openorder(this)" class="1stline">--%>
-                        <%--                        <td ><%=a.getOrderid()%></td>--%>
-                        <%--                        <td ><%=a.getOrderdate()%></td>--%>
-                        <%--                        <td ><%=a.getCustomername()%></td>--%>
-                        <%--                        <td ><%=a.getProductname()%></td>--%>
-                        <%--                        <td ><%=a.getQuantity()%></td>--%>
-                        <%--                        <td >Rs.<%=a.getQuantity()*a.getProductprice()%></td>--%>
-                        <%--                        <td ><%=a.getDeliverytype()%></td>--%>
-                        <%--                    </tr>--%>
-                        <%--                    <%}%>--%>
-                        <%--                    <%}%>--%>
+                                            <%for(Appointment a:appointments){%>
+                                            <%if(a.getAppointmentstatus().equals("Rejected")){%>
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                                <td><%=a.getAppoinmentid()%></td>
+                                                <td ><%=a.getCustomerid()%></td>
+                                                <td ><%=a.getTime()%></td>
+                                                <td ><%=a.getDate()%></td>
+                                                <td ><%=a.getCaption()%></td>
+                                                <td ><%=a.getMessage()%></td>
+                                            </tr>
+                                            <%}%>
+                                            <%}%>
                         </tbody>
                     </table>
                 </div>
@@ -558,5 +563,32 @@
     console.log(document.getElementById("proposalid").value);
     console.log(document.getElementById("reqid").value);
     console.log("----------------------------------------------")
+</script>
+
+<script>
+    function acceptappointment(ele){
+        var appointmentid = ele.id;
+        var out=confirm("Do you want to accept the appointment!");
+        if(out==true){
+            var xHTTP = new XMLHttpRequest();
+            xHTTP.open("POST","<%=request.getContextPath()%>/viewproject?task=1&appointmentid="+appointmentid,true);
+            xHTTP.send();
+            location="<%=request.getContextPath()%>/viewproject";
+        }
+    }
+
+    function appointmentreject(ele){
+        var appointmentid = ele.id;
+        var out=confirm("Do you want to reject the appointment!");
+        if (out==true){
+            console.log("test2");
+            var xHTTP=new XMLHttpRequest();
+            xHTTP.open("POST","<%=request.getContextPath()%>/viewproject?task=0&appointmentid="+appointmentid,true);
+            console.log("texxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            xHTTP.send();
+            location="<%=request.getContextPath()%>/viewproject";
+            console.log("Hello2");
+        }
+    }
 </script>
 </html>

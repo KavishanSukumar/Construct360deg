@@ -185,12 +185,12 @@ ul li a:hover,ul li i:hover{
 }
 .home a:hover{
     background: #e6e4e3;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     }
 .home a.active{
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
     background-color: #e6e4e3;
 }
 #viewproject{

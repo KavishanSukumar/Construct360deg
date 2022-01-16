@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,11 +19,13 @@ import java.util.ArrayList;
 public class ViewAppointmentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        HttpSession session=req.getSession();
+        int userid=(int)session.getAttribute("userid");
         ArrayList<Appointment> appointments = new ArrayList<>();
         AppointmentDAO appointmentDAO = new AppointmentDAO();
 
         try {
-            appointments=appointmentDAO.retriveAppointments();
+            appointments=appointmentDAO.retriveAppointments(userid);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
