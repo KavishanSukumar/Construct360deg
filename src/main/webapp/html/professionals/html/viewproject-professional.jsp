@@ -179,6 +179,7 @@
         </div>
         <input id="proposalid" type="hidden" value="" name="proposalid">
         <input id="reqid"       type="hidden" value="" name="reqid">
+        <input id="cusid" type="hidden" value="" name="cusid">
 
         <input type="submit" value="submit">
     </form>
@@ -411,9 +412,9 @@
                                 <%} else if(x.getCustomeraccept()==1 && x.getCustomerreject()==0){%>
                                 <button id="accept" class="minibtn" >Accepted</button>
                                    <%if(x.getIsprojectcreated()==0) {%>
-                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>)">Creat project</button>
+                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>,<%=cusid%>)">Creat project</button>
                                     <%} else{%>
-                                    <button id="makeproject" class="minibtn" id="createdproject">Project is created</button>
+                                    <button id="makeproject2" class="minibtn" id="createdproject">Project is created</button>
                                     <%}%>
                                 <%} else if(x.getCustomeraccept()==0 && x.getCustomerreject()==1){%>
                                 <button id="reject" class="minibtn">Rejected</button>
@@ -535,18 +536,21 @@
     <%@include file="../../footer.jsp"%>
 </body>
 <script>
-    function popupform(porpid,reqid){
+    function popupform(porpid,reqid,cusid){
         var blur = document.getElementById("blur");
         blur.style.filter="blur(8px)";
         var con = document.getElementById("newcontent");
         con.style.display="block";
         var val1= document.getElementById("proposalid").value=porpid;
         var val2= document.getElementById("reqid").value=reqid;
+        var val3 = document.getElementById("cusid").value=cusid;
         console.log("----------------------------------------------")
         console.log(porpid);
         console.log(val1);
         console.log(reqid);
         console.log(val2);
+        console.log(val3);
+        console.log(cusid);
         console.log("----------------------------------------------")
 
     }

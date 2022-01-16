@@ -28,11 +28,11 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
-                newprojects=newProjectDAO.viewProject();
+                newprojects=newProjectDAO.viewProjectcus(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("newprojects",newprojects);
+            req.setAttribute("newprojectscus",newprojects);
 
             //close project
             Project project = new Project();
@@ -57,17 +57,19 @@ public class ViewProjectsServlet extends HttpServlet {
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);
+
+
             System.out.println("Customer");
         }else if (userrole.equals("cus_com")){
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
-                newprojects=newProjectDAO.viewProject();
+                newprojects=newProjectDAO.viewProjectcus(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-            req.setAttribute("newprojects",newprojects);
+            req.setAttribute("newprojectscus",newprojects);
 
             //close project
             Project project = new Project();
@@ -99,7 +101,7 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
-                newprojects=newProjectDAO.viewProject();
+                newprojects=newProjectDAO.viewProject(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -149,8 +151,12 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Appointment> appointments = new ArrayList<>();
             AppointmentDAO appointmentDAO = new AppointmentDAO();
             try {
+<<<<<<< HEAD
                 newprojects=newProjectDAO.viewProject();
                 appointments=appointmentDAO.retriveAppointments(userid);
+=======
+                newprojects=newProjectDAO.viewProject(userid);
+>>>>>>> cfb22e2cc1e163d94cf2cfb6cc238095611700dd
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

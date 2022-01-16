@@ -485,8 +485,77 @@ tr:nth-child(even) {
 }
 /*############### end of senal's part ########################=======================================================================================*/
 
+.new-content{
+    background-color: rgb(230, 228, 228);
+    padding: 30px;
+    width: 600px;
+    position: absolute;
+    left: 29%;
+    z-index: 2;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 10px 10px 8px #2e2e2d;
+
+}
+
+.close-btn{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: -25px;
+    background: white;
+    font-size: 20px;
+    color: #060000;
+    margin-left: 594px;
+
+}
+.close-btn:hover{
+    background: #f30707;
+    color: white;
+}
+
+.new-content input[type=text]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+#sentence {
+    font-size: 22px;
+    margin-top: -10px;
 
 
+}
+#checkbox{
+    size: 8px;
+    width: 26px;
+    height: 20px;
+    margin-left: 122px;
+}
+
+.new-content input[type="submit"]{
+
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 80px;
+    margin-left: 36vh;
+    font-size: 20px;
+}
+.new-content input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+/****************************************************************************************************************************/
 
 .users,.chat{
     margin: 10px 10px 10px 10px;

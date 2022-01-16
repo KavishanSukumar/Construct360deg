@@ -21,9 +21,12 @@ public class NewProjectServlet extends HttpServlet {
         int userid = (int) session.getAttribute("userid");
         int proposalid =Integer.parseInt(req.getParameter("proposalid"));
         int reqid = Integer.parseInt(req.getParameter("reqid"));
+        int cusid =Integer.parseInt(req.getParameter("cusid"));
+
         System.out.println("---------- newproject servlet -----------");
         System.out.println(proposalid);
         System.out.println(reqid);
+
 //        int projectid = (int) session.getAttribute("projectid");
         PrintWriter out = resp.getWriter();
 //        Newproject newproject = new Newproject();
@@ -34,7 +37,7 @@ public class NewProjectServlet extends HttpServlet {
         project.setProjectname(req.getParameter("projectname"));
         ProposalsDAO proposalsDAO = new ProposalsDAO();
         try {
-            if (newProjectDAO.addProject(project,reqid,proposalid )){
+            if (newProjectDAO.addProject(project,reqid,proposalid,cusid,userid)){
                 proposalsDAO.createproject(proposalid);
                 System.out.println("project added successfull");
                 out.println("<script type='text/javascript'>");
