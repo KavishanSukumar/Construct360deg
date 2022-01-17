@@ -175,7 +175,7 @@ input[type=date], select, textarea {
     background-color: #ff7200;
 }
 
-.vieworder{
+.viewappointment{
     display: none;
     position: fixed;
     background-color: #cccccc;

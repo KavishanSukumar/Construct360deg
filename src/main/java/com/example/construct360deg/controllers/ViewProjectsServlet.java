@@ -151,12 +151,11 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Appointment> appointments = new ArrayList<>();
             AppointmentDAO appointmentDAO = new AppointmentDAO();
             try {
-<<<<<<< HEAD
-                newprojects=newProjectDAO.viewProject();
+
                 appointments=appointmentDAO.retriveAppointments(userid);
-=======
+
                 newprojects=newProjectDAO.viewProject(userid);
->>>>>>> cfb22e2cc1e163d94cf2cfb6cc238095611700dd
+
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }

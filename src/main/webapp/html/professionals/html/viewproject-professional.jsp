@@ -188,6 +188,17 @@
 
 
 <body >
+<%--<div class="viewappointment">--%>
+<%--    <h1 id="appointmentid" style="text-align: center"></h1>--%>
+<%--    <h2 id="customerid" style="text-align: left"></h2>--%>
+<%--    <h3 id="timee" style="text-align: left"></h3>--%>
+<%--    <h3 id="date" style="text-align: left"></h3>--%>
+<%--    <h3 id="caption" style="text-align: left"></h3>--%>
+<%--    <h3 id="messagee" style="text-align: left"></h3>--%>
+
+<%--    <span><button class="btn" onclick="closeappointment(this)" style="text-align: right">Close</button>       <button class="btn" style="text-align: right">Print</button></span>--%>
+<%--</div>--%>
+
 
     <div class="container" id="blur">
         <%@include file="sidebar-professional.jsp"%>
@@ -453,7 +464,7 @@
                         <tbody>
                                             <%for(Appointment a:appointments){%>
                                             <%if(a.getAppointmentstatus().equals("Pending")){%>
-                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openappointment(this)" class="1stline">
                                                 <td><%=a.getAppoinmentid()%></td>
                                                 <td ><%=a.getCustomerid()%></td>
                                                 <td ><%=a.getTime()%></td>
@@ -462,7 +473,7 @@
                                                 <td ><%=a.getMessage()%></td>
 <%--                                                <td><%=a.getAppointmentstatus()%></td>--%>
 
-                                                <td><button class="btn" onclick=acceptappointment(this) id="<%=a.getAppoinmentid()%>">Accept</button> <button class="btn" onclick="appointmentreject(this)" id="<%=a.getAppoinmentid()%>">Reject</button></td>
+                                                <td><button class="btn" onclick="acceptappointment(this)" id="<%=a.getAppoinmentid()%>">Accept</button> <button class="btn" onclick="appointmentreject(this)" id="<%=a.getAppoinmentid()%>">Reject</button></td>
                                             </tr>
                                             <%}%>
                                             <%}%>
@@ -485,7 +496,7 @@
                         <tbody>
                                             <%for(Appointment a:appointments){%>
                                             <%if(a.getAppointmentstatus().equals("Confirmed")){%>
-                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openappointment(this)" class="1stline">
                                                 <td><%=a.getAppoinmentid()%></td>
                                                 <td ><%=a.getCustomerid()%></td>
                                                 <td ><%=a.getTime()%></td>
@@ -514,7 +525,7 @@
                         <tbody>
                                             <%for(Appointment a:appointments){%>
                                             <%if(a.getAppointmentstatus().equals("Rejected")){%>
-                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openorder(this)" class="1stline">
+                                            <tr id="<%=a.getAppoinmentid()%>" onclick="openappointment(this)" class="1stline">
                                                 <td><%=a.getAppoinmentid()%></td>
                                                 <td ><%=a.getCustomerid()%></td>
                                                 <td ><%=a.getTime()%></td>
@@ -594,5 +605,53 @@
             console.log("Hello2");
         }
     }
+
+    <%--function openappointment(ele){--%>
+    <%--    var appointmentid=ele.id;--%>
+    <%--    var customerid=null;--%>
+    <%--    var time=null;--%>
+    <%--    var date=null;--%>
+    <%--    var caption=null;--%>
+    <%--    var message=null;--%>
+
+    <%--    <%for(Appointment a:appointments){%>--%>
+    <%--    if(appointmentid==<%=a.getAppoinmentid()%>){--%>
+    <%--        customerid=<%=a.getCustomerid()%>;--%>
+    <%--        time="<%=a.getTime()%>";--%>
+    <%--        date="<%=a.getDate()%>";--%>
+    <%--        caption="<%=a.getCaption()%>";--%>
+    <%--        message="<%=a.getMessage()%>";--%>
+    <%--    }--%>
+    <%--    <%}%>--%>
+    <%--    document.getElementById("appointmentid").innerHTML=appointmentid;--%>
+    <%--    document.getElementById("customerid").innerHTML="Customer Id:"+customerid;--%>
+    <%--    document.getElementById("timee").innerHTML="Time:"+time;--%>
+    <%--    document.getElementById("date").innerHTML="Date:"+date;--%>
+    <%--    document.getElementById("caption").innerHTML="Caption:"+caption;--%>
+    <%--    document.getElementById("messagee").innerHTML="Message:"+message;--%>
+
+    <%--    var element1=document.getElementsByClassName("viewappointment");--%>
+    <%--    var element2=document.getElementsByClassName("container");--%>
+
+    <%--    for (var i=0;i<element1.length;i+=1){--%>
+    <%--        element1[i].style.display = 'block';--%>
+    <%--    }--%>
+    <%--    for (var i=0;i<element2.length;i+=1){--%>
+    <%--        element2[i].classList.add("blurer");--%>
+    <%--    }--%>
+    <%--}--%>
+
+    <%--function closeappointment(ele){--%>
+    <%--    var element3=document.getElementsByClassName("viewappointment");--%>
+    <%--    var element4=document.getElementsByClassName("container");--%>
+
+    <%--    for (var i=0;i<element3.length;i+=1){--%>
+    <%--        element3[i].style.display = 'none';--%>
+    <%--    }--%>
+
+    <%--    for (var i=0;i<element4.length;i+=1){--%>
+    <%--        element4[i].classList.remove("blurer");--%>
+    <%--    }--%>
+    <%--}--%>
 </script>
 </html>
