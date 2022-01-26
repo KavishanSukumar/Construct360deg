@@ -19,7 +19,7 @@
                     }
                 }
             });
-        },1000);
+        },25000);
     });
 </script>
 <header class="menu_bar" id="menu_bar">

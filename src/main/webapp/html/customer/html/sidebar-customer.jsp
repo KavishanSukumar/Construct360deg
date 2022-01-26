@@ -6,7 +6,6 @@
                 url:"<%=request.getContextPath()%>/instantnotification",
                 type:"POST",
                 success:function (data){
-                    console.log(data[0]);
                     if (data[0]!='0'){
                         $("#notification").addClass("mycolor");
                         $("#notificationtext").addClass("mycolor");
@@ -18,7 +17,7 @@
                     }
                 }
             });
-        },1000);
+        },25000);
     });
 </script>
 <header class="menu_bar">
@@ -27,6 +26,7 @@
             response.sendRedirect(request.getContextPath()+"/login");
         }
     %>
+
     <div class="left_area">
         <!--<h2 class="logoname">Construct360</h2>-->
         <img src="./html/customer/resources/images/Logo.png" id="logopic" sizes="100px">
