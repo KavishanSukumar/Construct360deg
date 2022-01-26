@@ -53,8 +53,9 @@ public class ChatboxServlet extends HttpServlet {
         else if (Integer.parseInt(req.getParameter("task"))==0){
             ArrayList<Chat> chats=new ArrayList<>();
             ChatDAO chatDAO=new ChatDAO();
+
             try {
-                chats=chatDAO.viewMessage(sender);
+                chats=chatDAO.viewMessage(sender,receiver);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
