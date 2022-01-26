@@ -2,6 +2,7 @@
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Requirement" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Chat" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -10,6 +11,7 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
+    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
 %>
 <head>
   <meta charset="UTF-8">
@@ -73,9 +75,9 @@
                   success:function (data){
                       for (let i in data){
                           if(data[i].sender==<%=userid%>){
-                              text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
+                              text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10; &#13;&#10;";
                           }else{
-                              text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                              text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10; &#13;&#10;";
                           }
                       }
                       if(text!=''){
@@ -213,22 +215,26 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser" id="67">
-                                <h4>Sukumar Kavishan</h4>
-                                <p>Date:2021-06-10</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Senal Punsara</h4>
-                                <p>Date:2021-05-19</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Imesh Udara</h4>
-                                <p>Date:2021-04-20</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Chathuri Priyangika</h4>
-                                <p>Date:2021-03-01</p>
-                            </div>
+                            <%for (Chat x:chats){%>
+                                <%if(x.getReceiver()==userid){
+                                    continue;
+                                }%>
+                                    <div class="chatuser" id="<%=x.getReceiver()%>">
+                                        <%
+                                            String name=null;
+                                            if(x.getCustomerindividualName()!=null){
+                                                name= x.getCustomerindividualName();
+                                            }else if(x.getCustomercomname()!=null){
+                                                name=x.getCustomercomname();
+                                            }else if(x.getIndividualprof()!=null){
+                                                name=x.getIndividualprof();
+                                            }else {
+                                                name=x.getProfessionalname();
+                                            }
+                                        %>
+                                        <h4><%=name%></h4>
+                                    </div>
+                            <%}%>
                         </div>
                     </div>
                     <div class="chat">

@@ -35,6 +35,10 @@
         function popuppic(){
             document.getElementById("pic").classList.toggle("active");
         }
+        function gotochat(ele){
+            chatid=ele.id;
+            location.href="<%=request.getContextPath()%>/chat?chat="+userid;
+        }
     </script>
 </head>
 
@@ -74,7 +78,7 @@
             <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2><br>
             <p>Customer</p>
             <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
-            <a href="#" class="button">Message</a>
+            <a href="#" id="<%=account.getUserid()%>" class="button" onclick="gotochat(this)">Message</a>
         </div>
         <div class="box2">
             <h3>Contact</h3>
