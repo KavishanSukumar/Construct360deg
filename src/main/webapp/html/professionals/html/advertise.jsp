@@ -26,14 +26,15 @@
             <form id="fill" class="details" action="<%=request.getContextPath()%>/advertise" method="post" enctype="multipart/form-data">
                 
                 <label for="url">Your web page's url (Optional) :</label>
-                    <input type="text" id="url" name="weburl" maxlength="60"><br>
+                    <input type="text" id="url" name="weburl" maxlength="50"><br>
                     <p id="weburl_wordcount"></p>
                 
                 <label for="headline">Headline:</label>
-                    <input type="text" id="headline" name="headline"  maxlength="60" required><br>
+                    <input type="text" id="headline" name="headline"  maxlength="50" required><br>
                     <p id="headline_wordcount"></p>
                 <label for="descrip">Description :</label><br>
-                    <textarea id="descrip" name="description" required></textarea><br><br>
+                    <textarea id="descrip" name="description" required maxlength="150"></textarea><br><br>
+                    <p id="descrip_wordcount"></p>
                 <p> Mesurements of the Advertisement :
                     <br>should be like this
                     <br>(Please upload an image file)
@@ -53,15 +54,37 @@
         
     
     <div class="preview-area">
-      <div class="preview"> 
-        <p>Preview </p> 
-        <div class="preview-img">
-          <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="">
-        </div> <br>
-        <input type="submit" value="Uplaod" form="fill">
+      <div class="preview">
+
+          <p>Preview </p>
+
+           <div class="preview-img">
+<%--             <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="">--%>
+               <div class="addpreview">
+                     <div class="padding">
+                      <div class="profinfo">
+                          <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="" id="profimg">
+                          <div class="minifacts">
+                              <p id="title"> this is test</p>
+                              <p id="name"> senal</p>
+                              <p id="date-time">on 2022/01/01 at 10:30</p>
+                          </div>
+                      </div>
+
+                       <p id="add-descript"> this is test</p>
+                       <div class="add">
+                           <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="" id="add-img">
+                       </div>
+                       <p id="add-url">www.senal.com</p>
+
+                     </div>
+               </div>
+           </div> <br>
+           <input type="submit" value="Uplaod" form="fill">
+
       </div>
-     
     </div>
+
   </div>
     <script>
         function fileValidation(){
@@ -77,7 +100,7 @@
     <script>
          var text_weburl = document.getElementById("url");
          var result1  = document.getElementById("weburl_wordcount");
-         var limit1 = 60;
+         var limit1 = 50;
          result1.textContent = 0 + "/" + limit1;
 
          text_weburl.addEventListener("input",function (){
@@ -90,12 +113,25 @@
     <script>
         var text_headline = document.getElementById("headline");
         var result2  = document.getElementById("headline_wordcount");
-        var limit2 = 60;
+        var limit2 = 50;
         result2.textContent = 0 + "/" + limit2;
 
         text_headline.addEventListener("input",function (){
             var textlen = text_headline.value.length;
             result2.textContent = textlen + "/" + limit2;
+
+
+        })
+    </script>
+    <script>
+        var text_description = document.getElementById("descrip");
+        var result3  = document.getElementById("descrip_wordcount");
+        var limit3 = 150;
+        result3.textContent = 0 + "/" + limit3;
+
+        text_description.addEventListener("input",function (){
+            var textlen = text_description.value.length;
+            result3.textContent = textlen + "/" + limit3;
 
 
         })

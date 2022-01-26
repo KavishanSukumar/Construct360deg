@@ -27,7 +27,7 @@
               $(this).addClass("active");
               $("#chatbox-btn").removeClass("active");
               $("#my-req-btn").removeClass("active");
-              $("#viewproject").css("display","grid");
+              $("#viewproject").css("display","block");
               $("#chatbox").css("display","none");
               $("#my_reqs").css("display","none");
           });
@@ -239,17 +239,19 @@
                 <a href="#" id="my-req-btn"><i class="fas fa-file-alt"></i> My requirements</a>
             </div>
             <div class="project" id="viewproject">
-                <div class="grid-item1">
-                    <div class="heading"><h2>Ongoing Projects</h2></div>
+                <div class="heading"><h2>Ongoing Projects</h2></div>
+                <div class="projects">
                     <%for(Project x:newprojects){%>
                     <%
                         System.out.println("888888888888888888888888888888888888888888888888888888888888888");
                         System.out.println(x.getProjectid());
                     %>
+
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >
                         <h3><%=x.getProjectname()%></h3>
                         <p style="color: red"><%=project.getDisplay()%></p>
                     </div>
+
                     <%}%>
                 </div>
             </div>
