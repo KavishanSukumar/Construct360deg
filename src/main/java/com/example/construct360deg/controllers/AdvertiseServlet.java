@@ -62,7 +62,14 @@ public class AdvertiseServlet extends HttpServlet {
             System.out.println("Professional_individual");
 
         } else if (userrole.equals("prod_com")) {
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/advertise.jsp");
+            try {
+                displayadds=advertiseDAO.displayownadds(userid);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                System.out.println("i am in prod_com catch block");
+            }
+            req.setAttribute("displayadds",displayadds);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/manageadds(productcom).jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Product company");
         }

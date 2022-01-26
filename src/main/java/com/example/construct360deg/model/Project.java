@@ -14,6 +14,35 @@ public class Project {
     private String land;
     private String reason;
     private String display;
+    private int proposalid;
+
+    public int getCusaccept() {
+        return cusaccept;
+    }
+
+    public void setCusaccept(int cusaccept) {
+        this.cusaccept = cusaccept;
+    }
+
+    private int cusaccept;
+
+    public int getProposalid() {
+        return proposalid;
+    }
+
+    public void setProposalid(int proposalid) {
+        this.proposalid = proposalid;
+    }
+
+    public int getReqid() {
+        return reqid;
+    }
+
+    public void setReqid(int reqid) {
+        this.reqid = reqid;
+    }
+
+    private int reqid;
 
     public int getUserid() {
         return this.userid;

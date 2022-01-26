@@ -222,25 +222,39 @@ form.example::after {
 }
 #viewproject{
     background-color:#e6e4e3;
-    display: grid;
+    display: block;
+
+}
+/*.grid-item1{*/
+/*    padding: 40px;*/
+/*    width: 550px;*/
+/*    display: grid;*/
+/*    grid-row-gap: 20px;*/
+/*    grid-template-rows: 50px 120px;*/
+/*    grid-template-areas:*/
+/*    'heading'*/
+/*    'project1';*/
+/*}*/
+.heading{
+    margin-left: 50px;
+}
+.projects{
     grid-column-gap: 50px;
     grid-template-columns: 600px 560px;
-    grid-template-areas: 'grid-item1  grid-item2';
+    grid-template-areas: 'grid-item1 grid-item2';
+    margin-top: -28px;
 }
-.grid-item1{
-    padding: 40px;
-    width: 550px;
-    display: grid;
-    grid-row-gap: 20px;
-    grid-template-rows: 50px 120px;
-    grid-template-areas:
-    'heading'
-    'project1';
-}
-.grid-item1 .project1{
-    padding: 10px;
+
+.project1{
     border-radius: 15px;
-    box-shadow: 5px 5px 5px 5px rgb(170, 170, 170);
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(170 170 170);
+    width: 500px;
+    height: 100px;
+    margin-left: 50px;
+    float: left;
+    margin-top: 40px;
 }
 #chatbox{
     background-color:#e6e4e3;}
@@ -485,8 +499,83 @@ tr:nth-child(even) {
 }
 /*############### end of senal's part ########################=======================================================================================*/
 
+.new-content{
+    background-color: rgb(230, 228, 228);
+    padding: 30px;
+    width: 600px;
+    position: absolute;
+    left: 29%;
+    z-index: 2;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 10px 10px 8px #2e2e2d;
+
+}
+
+.close-btn{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: -25px;
+    background: white;
+    font-size: 20px;
+    color: #060000;
+    margin-left: 594px;
+
+}
+.close-btn:hover{
+    background: #f30707;
+    color: white;
+}
+
+.new-content input[type=text]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+.project.active .background{display: block;}
+.project.active .new-content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
 
 
+#sentence {
+    font-size: 22px;
+    margin-top: -10px;
+
+
+}
+#checkbox{
+    size: 8px;
+    width: 26px;
+    height: 20px;
+    margin-left: 122px;
+}
+
+.new-content input[type="submit"]{
+
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 80px;
+    margin-left: 36vh;
+    font-size: 20px;
+}
+.new-content input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+/****************************************************************************************************************************/
 
 .users,.chat{
     margin: 10px 10px 10px 10px;
@@ -567,12 +656,12 @@ tr:nth-child(even) {
 #send-btn:hover{
     color: #ff7200;
 }
-#viewproject{display: grid;}
+#viewproject{display: block;}
 #chatbox{display: none;}
 
 .footer{
     border-top: 1px solid #ebebeb;
-    margin-top: -170px;
+    margin-top: 770px;
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;

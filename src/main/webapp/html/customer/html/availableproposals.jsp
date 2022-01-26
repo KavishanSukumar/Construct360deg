@@ -60,13 +60,27 @@
                             <p class="mini-info"  id="name"><%=x.getProfname()%></p>
                             <p class="mini-info" id="time">on <%=x.getProposal_upload_date()%> at <%=x.getProposal_upload_time()%></p>
                             <div class="mini-btns">
-                                <button id="accept" class="minibtns">Accept Proposal</button>
-                                <button id="reject" class="minibtns">Reject Proposal</button>
+                                <%if(x.getCustomeraccept()==1){%>
+                                    <form><button id="accept0" class="minibtns">You accepted the proposal</button></form>
+                                <%}else{%>
+                                <form method="post" action="<%=request.getContextPath()%>/availableproposals">
+                                    <button id="accept" class="minibtns">Accept Proposal</button>
+                                    <input type="hidden" value="1" name="choice">
+                                    <input type="hidden" value="<%=x.getProposalid()%>" name="pid">
+                                </form >
+                                <form method="post" action="<%=request.getContextPath()%>/availableproposals">
+                                    <button id="reject" class="minibtns">Reject Proposal</button>
+                                    <input type="hidden" value="0" name="choice">
+                                    <input type="hidden" value="<%=x.getProposalid()%>" name="pid">
+                                </form>
+
+                                <%}%>
+
                             </div>
                         </div>
                     </div>
                     <div class="descrip">
-                       <p id="proposal-descrip" style="font-size: 20px; font-weight: bold">Description</p>
+                       <p id="proposal-descrip" style="font-size: 20px; font-weight: bold; margin-top: -10px">Description</p>
 
                         <p style="width: 145vh; margin-left: 5px; margin-top: -15px"><%=x.getDescription()%></p>
                     </div>
@@ -110,6 +124,11 @@
 </div>
 
 </body>
+<script>
+    function rejectproposal(){
+        var choice = document.getElementById()
+    }
+</script>
 </html>
 
 <%--<div class="proposals" id="proposals">--%>

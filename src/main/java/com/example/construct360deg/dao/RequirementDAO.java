@@ -76,6 +76,47 @@ public class RequirementDAO {
         System.out.println("displayRequirement 2");
         return displayRequirements;
     }
+/////////////  this is for professional purpose////////////////////////////////////////////////////////
+    public ArrayList<Requirement> displayRequirement() throws SQLException {
+        ArrayList<Requirement> displayRequirements = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM `requirement`";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        System.out.println("displayRequirement");
+        while (resultSet.next()) {
+            Requirement displayRequirement = new Requirement();
+            displayRequirement.setRequirementid(resultSet.getInt("requirementid"));
+            displayRequirement.setUseridcus(resultSet.getInt("useridcus"));
+            displayRequirement.setReqname(resultSet.getString("reqname"));
+            displayRequirement.setDescription(resultSet.getString("description"));
+            displayRequirement.setContactnum(resultSet.getString("contactnum"));
+            displayRequirement.setFilename(resultSet.getString("filename"));
+            displayRequirement.setStreet(resultSet.getString("street"));
+            displayRequirement.setCity(resultSet.getString("city"));
+            displayRequirement.setDistrict(resultSet.getString("district"));
+            displayRequirement.setProvince(resultSet.getString("province"));
+            displayRequirement.setReq_upload_date(resultSet.getDate("submit_date"));
+            displayRequirement.setReq_upload_time(resultSet.getTime("submit_time"));
+            displayRequirement.setType(resultSet.getString("type"));
+            displayRequirement.setDisplay_on_prof(resultSet.getInt("display_on_prof"));
+            byte[] requirementfile = resultSet.getBytes("requirementfile");
+            displayRequirement.setRequirementfile(requirementfile);
+
+            displayRequirements.add(displayRequirement);
+        }
+        System.out.println("displayRequirement 2");
+        return displayRequirements;
+    }
+    /////////////  this is for professional purpose////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 
     public void display_req_in_prof(int reqid, int dis_on_prof) throws SQLException{

@@ -67,6 +67,15 @@
 
 }
 
+.common2{
+    margin-top: 5px;
+    margin-left: 135px;
+    height: 10px;
+    width: 55px;
+    border-radius: 3px;
+
+}
+
 #available_adds{
     background-color: #ff7200;
     font-size: 17px;
@@ -76,11 +85,23 @@
 }
 
 #make_adds{
-    font-size: 17px;
-    border-radius: 10px;
+    font-size: 12px;
+    border-radius: 6px;
     cursor: pointer;
-    width: 200px;
-    background-color: #c4c4c4;
+    width: 212px;
+    background-color: #ff7200;
+    height: 40px;
+    border: none;
+}
+
+#make_addspro{
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 212px;
+    background-color: #ff7200;
+    height: 40px;
+    border: none;
 }
 
 #rejected_adds{
@@ -89,8 +110,11 @@
     cursor: pointer;
 }
 #available_adds:hover, #make_adds:hover{
-    background-color: #ff7200;
-    color: white;
+    background-color: #ff9840;
+}
+
+#available_adds:hover, #make_addspro:hover{
+    background-color: #ff9840;
 }
 
 .from {

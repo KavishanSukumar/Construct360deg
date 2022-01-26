@@ -63,7 +63,8 @@ body{
 .ordertypes{
     grid-area: ordertypes;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-left: 21px;
 }
 .ordertable{
     grid-area:ordertable;
@@ -73,6 +74,7 @@ body{
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
     border: none;
+    border-radius: 6px;
 }
 .ordertypes > button:hover{
     background-color: #ff7200;
@@ -106,15 +108,18 @@ body{
 }
 
 .logTable{
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
     width: 90%;
     text-align: center;
+    margin-left: 30px;
+
 
 }
 
 .logTable td, .logTable th {
     border: 1px solid #ddd;
     padding: 8px;
+    border-radius: 6px;
 }
 
 
@@ -125,7 +130,7 @@ body{
 .logTable  th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #ffffff;
     color: #000000;
 }
@@ -170,7 +175,7 @@ input[type=date], select, textarea {
     background-color: #ff7200;
 }
 
-.vieworder{
+.viewappointment{
     display: none;
     position: fixed;
     background-color: #cccccc;

@@ -133,6 +133,28 @@ public class AllProfileDAO {
 
 
 
+    // senal's customer view ///////////////////////////////////////////////////////
+    public ArrayList<AllUsers> allcustomers() throws SQLException {
+        ArrayList<AllUsers> allcustomers = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM customers";
+        ResultSet resultSet;
+        preparedStatement = connection.prepareStatement(sql);
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            AllUsers customer = new AllUsers();
+            customer.setUserid(resultSet.getInt("userid"));
+            byte[] bytes = resultSet.getBytes("profilepic");
+            customer.setImgbytes(bytes);
+            customer.setCususername(resultSet.getString("username"));
+            allcustomers.add(customer);
+        }
+
+            return allcustomers;
+        }
+
+
 
 
 

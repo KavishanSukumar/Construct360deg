@@ -35,14 +35,15 @@ public class AppointmentDAO {
 
     }
 
-    public ArrayList<Appointment> retriveAppointments() throws SQLException{
+    public ArrayList<Appointment> retriveAppointments(int userid) throws SQLException{
         ArrayList<Appointment> appointments = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `allappointment`";
+        String sql = "SELECT * FROM `appointment` WHERE profid=?";
         ResultSet resultSet = null;
 
         preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
         resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()){
@@ -54,11 +55,29 @@ public class AppointmentDAO {
             appointment.setDate(resultSet.getString("date"));
             appointment.setCaption(resultSet.getString("caption"));
             appointment.setMessage(resultSet.getString("message"));
-            appointment.setCus_name(resultSet.getString("cus_name"));
-            appointment.setUser_role(resultSet.getString("user_role"));
+            appointment.setAppointmentstatus(resultSet.getString("appointmentstatus"));
+//            appointment.setCus_name(resultSet.getString("cus_name"));
+//            appointment.setUser_role(resultSet.getString("user_role"));
             appointments.add(appointment);
         }
         return appointments;
+    }
+
+    public void Appointmentstatus(int appoinmentid,int task) throws SQLException {
+        Connection connection=Database.getConnection();
+        String sql=null;
+        if(task==1){
+            sql="UPDATE `appointment` SET `appointmentstatus`='Confirmed' WHERE appoinmentid=?";
+        }
+        else if (task==0){
+            sql="UPDATE `appointment` SET `appointmentstatus`='Rejected' WHERE appoinmentid=?";
+        }
+        PreparedStatement preparedStatement=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,appoinmentid);
+        preparedStatement.executeUpdate();
+        System.out.println("test me");
     }
 
 }

@@ -4,6 +4,16 @@ import java.sql.Blob;
 
 public class AllUsers {
     private int userid;
+
+    public String getCususername() {
+        return cususername;
+    }
+
+    public void setCususername(String cususername) {
+        this.cususername = cususername;
+    }
+
+    String cususername;
     private Blob profilepic;
     private String profcompanyname;
     private boolean comlandflag;

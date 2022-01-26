@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class DisplayCusReqOnProfServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         HttpSession session=req.getSession();
         int profid = (int) session.getAttribute("userid");
         int cusid = Integer.parseInt(req.getParameter("cusid"));
@@ -57,6 +58,7 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
     }
     @Override
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("i am in DisplayCusReqOnProf post method ");
         PrintWriter out = resp.getWriter();
         ProposalsDAO proposalsDAO = new ProposalsDAO();
         Proposal proposal = new Proposal();
@@ -74,7 +76,8 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         }
         proposal.setProposal_upload_date(Date.valueOf(nowdate));
         proposal.setProposal_upload_time(Time.valueOf(nowtime));
-
+        proposal.setDescription(req.getParameter("description"));
+        System.out.println("i am in DisplayCusReqOnProf post method 2");
 
         try {
             if(proposalsDAO.uploadProposalToCustomer(proposal)){
@@ -93,6 +96,7 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        System.out.println("i am in DisplayCusReqOnProf post method 2");
    }
 
 
