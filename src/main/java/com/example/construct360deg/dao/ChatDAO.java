@@ -10,6 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ChatDAO {
+
+    public void createachat(){
+
+    }
+
     public void sendMessage(Chat chat) throws SQLException {
         Connection connection= Database.getConnection();
         String sql="INSERT INTO `chat`(`sender`, `receiver`, `datetime`, `message`) VALUES (?,?,?,?)";
@@ -33,15 +38,17 @@ public class ChatDAO {
 //        preparedStatement2.setInt(5,0);
 //        preparedStatement2.executeUpdate();
     }
-    public ArrayList<Chat> viewMessage(int sender) throws SQLException {
+    public ArrayList<Chat> viewMessage(int sender, int receiver) throws SQLException {
         ArrayList<Chat> chats=new ArrayList<>();
         Connection connection=Database.getConnection();
-        String sql="SELECT * FROM `chat` WHERE sender=? OR receiver=? ORDER BY datetime ASC";
+        String sql="SELECT * FROM `chat` WHERE (sender=? AND receiver=?) OR(sender=? AND receiver=?) ORDER BY datetime ASC";
         PreparedStatement preparedStatement=null;
         ResultSet resultSet;
         preparedStatement=connection.prepareStatement(sql);
         preparedStatement.setInt(1,sender);
-        preparedStatement.setInt(2,sender);
+        preparedStatement.setInt(2,receiver);
+        preparedStatement.setInt(3,receiver);
+        preparedStatement.setInt(4,sender);
         resultSet=preparedStatement.executeQuery();
         while (resultSet.next()){
             Chat chat=new Chat();
@@ -54,4 +61,39 @@ public class ChatDAO {
 
         return chats;
     }
+
+    public ArrayList<Chat> ViewChats(int sender) throws SQLException {
+        ArrayList<Chat> chats=new ArrayList<>();
+        String sql="SELECT * FROM mychats WHERE sender=? OR receiver=?";
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,sender);
+        preparedStatement.setInt(2,sender);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Chat chat=new Chat();
+            chat.setSender(resultSet.getInt("sender"));
+            chat.setReceiver(resultSet.getInt("receiver"));
+            chat.setCustomerindividualName(resultSet.getString("customerindividualName"));
+            chat.setCustomercomname(resultSet.getString("customercomname"));
+            chat.setIndividualprof(resultSet.getString("individualprof"));
+            chat.setProfessionalname(resultSet.getString("professionalname"));
+            chats.add(chat);
+        }
+        return chats;
+    }
+
 }
+
+/*
+DROP VIEW mychats;
+CREATE view mychats AS
+SELECT DISTINCT chat.sender AS 'sender',chat.receiver AS 'receiver', CONCAT(customerindividual.firstname," ",customerindividual.lastname) AS 'customerindividualName',
+customercompany.companyname AS 'customercomname', CONCAT(individualprof.firstname," ",individualprof.lastname) AS 'individualprof',companyprof.companyname AS
+'professionalname'
+FROM ((((chat LEFT JOIN customerindividual ON(chat.receiver=customerindividual.userid))LEFT JOIN customercompany ON (chat.receiver=customercompany.userid)) LEFT JOIN individualprof ON (chat.receiver=individualprof.userid))
+LEFT JOIN companyprof ON (chat.receiver=companyprof.userid) ) GROUP BY chat.receiver;
+ */
