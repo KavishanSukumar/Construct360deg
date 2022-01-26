@@ -1,7 +1,9 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.ChatDAO;
 import com.example.construct360deg.dao.MyProjectDAO;
 import com.example.construct360deg.dao.NewProjectDAO;
+import com.example.construct360deg.model.Chat;
 import com.example.construct360deg.model.Project;
 import com.example.construct360deg.dao.RequirementDAO;
 import com.example.construct360deg.model.Requirement;
@@ -27,6 +29,18 @@ public class ViewProjectsServlet extends HttpServlet {
 //        int projectid = (int) session.getAttribute("projectid");
         String userrole= (String) session.getAttribute("userrole");
         if (userrole.equals("cus_indiv")){
+
+            //chat
+            ChatDAO chatDAO=new ChatDAO();
+            ArrayList<Chat> chats=new ArrayList<>();
+
+            try {
+                chats=chatDAO.ViewChats(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("chats",chats);
+
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
@@ -62,6 +76,16 @@ public class ViewProjectsServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println("Customer");
         }else if (userrole.equals("cus_com")){
+            //chat
+            ChatDAO chatDAO=new ChatDAO();
+            ArrayList<Chat> chats=new ArrayList<>();
+
+            try {
+                chats=chatDAO.ViewChats(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("chats",chats);
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
@@ -98,6 +122,16 @@ public class ViewProjectsServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println("Customer");
         }else if(userrole.equals("prof_com")){
+            //chat
+            ChatDAO chatDAO=new ChatDAO();
+            ArrayList<Chat> chats=new ArrayList<>();
+
+            try {
+                chats=chatDAO.ViewChats(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("chats",chats);
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
@@ -123,6 +157,16 @@ public class ViewProjectsServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
         }else if (userrole.equals("prof_indiv")){
+            //chat
+            ChatDAO chatDAO=new ChatDAO();
+            ArrayList<Chat> chats=new ArrayList<>();
+
+            try {
+                chats=chatDAO.ViewChats(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("chats",chats);
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
