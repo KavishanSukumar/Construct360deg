@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
 <%@ page import="com.example.construct360deg.model.Project" %>
+<%@ page import="com.example.construct360deg.model.Chat" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -9,6 +10,7 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
+    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
 %>
 
 <head>
@@ -35,16 +37,19 @@
           });
 
             var receiver=null;
+            var name=null;
 
             $(".chatuser").click(function (){
                 receiver=this.id;
+                chatid="name"+receiver;
+                name=document.getElementById(chatid).innerText;
+                $("#chatname").empty();
+                $("#chatname").append(name);
             });
 
             $("#send-btn").click(function (){
                 var message= $("#message").val();
                 $("#message").val('');
-                console.log(message);
-                console.log(receiver);
                 $.ajax({
                     url:"<%=request.getContextPath()%>/chat",
                     type:"POST",
@@ -61,9 +66,9 @@
                     success:function (data){
                         for (let i in data){
                             if(data[i].sender==<%=userid%>){
-                                text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
+                                text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10; &#13;&#10;";
                             }else{
-                                text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                                text+=data[i].datetime+"     :"+data[i].message+"&#13;&#10; &#13;&#10;";
                             }
                         }
                         if(text!=''){
@@ -71,7 +76,6 @@
                             $("#messagearea").append(text);
                         }
                     }
-
                 });
             },2000)
     });
@@ -140,27 +144,31 @@
                             <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
                         </div>
                         <div class="chatarea">
-                            <div class="chatuser" id="66">
-                                <h4>Sukumar Kavishan</h4>
-                                <p>Date:2021-06-10</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Senal Punsara</h4>
-                                <p>Date:2021-05-19</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Imesh Udara</h4>
-                                <p>Date:2021-04-20</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Chathuri Priyangika</h4>
-                                <p>Date:2021-03-01</p>
-                            </div>
+                            <%for (Chat x:chats){%>
+                                <%if(x.getReceiver()==userid){
+                                    continue;
+                                }%>
+                                <div class="chatuser" id="<%=x.getReceiver()%>">
+                                    <%
+                                        String name=null;
+                                        if(x.getCustomerindividualName()!=null){
+                                            name= x.getCustomerindividualName();
+                                        }else if(x.getCustomercomname()!=null){
+                                            name=x.getCustomercomname();
+                                        }else if(x.getIndividualprof()!=null){
+                                            name=x.getIndividualprof();
+                                        }else {
+                                            name=x.getProfessionalname();
+                                        }
+                                    %>
+                                    <h4 id="name<%=x.getReceiver()%>"><%=name%></h4>
+                                </div>
+                            <%}%>
                         </div>
                     </div>
                     <div class="chat">
                         <div class="currentchatuser">
-                            <h4>Kavishan Sukumar</h4>
+                            <h4 id="chatname"></h4>
                         </div>
                         <div class="currentchat">
                             <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
