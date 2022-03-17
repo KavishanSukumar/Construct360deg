@@ -152,4 +152,138 @@ public class EditProfileServlet extends HttpServlet {
             System.out.println("hello"+userrole);
         }
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session=req.getSession();
+        int userid= (int) session.getAttribute("userid");
+        String userrole= (String) session.getAttribute("userrole");
+        Account account = new Account();
+
+        if(userrole.equals("admin")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/editdetails-admin.jsp");
+            requestDispatcher.forward(req,resp);
+            System.out.println(userrole);
+        }else if (userrole.equals("cus_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/editdetails-customer.jsp");
+            requestDispatcher.forward(req,resp);
+            System.out.println(userrole);
+        }else if (userrole.equals("cus_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/editdetails-customer.jsp");
+            requestDispatcher.forward(req,resp);
+            System.out.println(userrole);
+        }else if(userrole.equals("prof_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
+            requestDispatcher.forward(req,resp);
+
+            System.out.println(userrole);
+        }else if (userrole.equals("prof_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/edituserdetails.jsp");
+            requestDispatcher.forward(req,resp);
+
+            System.out.println(userrole);
+        }else if (userrole.equals("prod_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+            RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/editdetails-productcompany.jsp");
+            requestDispatcher.forward(req,resp);
+            System.out.println("hello"+userrole);
+        }
+    }
 }

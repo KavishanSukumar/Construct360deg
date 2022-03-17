@@ -86,7 +86,7 @@ public class RegistrationDAO {
 
         SendEmailDAO sendEmailDAO=new SendEmailDAO();
 
-        System.out.println(sendEmailDAO.sendEmail("kavishansukumar@gmail.com","Testing","Testing"));
+//        System.out.println(sendEmailDAO.sendEmail("kavishansukumar@gmail.com","Testing","Testing"));
 
         System.out.println("Regirstration DAO");
         return status;
