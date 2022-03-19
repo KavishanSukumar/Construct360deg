@@ -1,14 +1,10 @@
 <%@ page import="java.util.ArrayList" %>
-<%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
-<<<<<<< HEAD
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Chat" %>
-=======
 <%@ page import="java.sql.Time" %>
 <%@ page import="java.sql.Date" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.*" %>
->>>>>>> 65e49508e4cd7d784531b9284b23a248f94fa9f0
 <!DOCTYPE html>
 <html lang="en">
 <%
