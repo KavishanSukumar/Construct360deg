@@ -2,6 +2,7 @@ package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.GraphDAO;
 import com.example.construct360deg.dao.MyProjectDAO;
+import com.example.construct360deg.dao.NewProjectDAO;
 import com.example.construct360deg.model.Graph;
 import com.example.construct360deg.model.Project;
 
@@ -28,11 +29,15 @@ public class ViewMyProjectServlet extends HttpServlet {
 
         MyProjectDAO myProjectDAO = new MyProjectDAO();
         GraphDAO graphDAO=new GraphDAO();
+        NewProjectDAO newProjectDAO = new NewProjectDAO();
+
+        ArrayList<Project> projects = new ArrayList<>();
 
         ArrayList<Graph> proposedGraph=new ArrayList<>();
         ArrayList<Graph> ongoingGraph=new ArrayList<>();
         Project project = new Project();
         try {
+            projects = newProjectDAO.viewProject(userid);
             project = myProjectDAO.retriveDetails(userid);
             proposedGraph=graphDAO.getProposedGraph(projectid);
             ongoingGraph=graphDAO.getOngoingGraph(projectid);
@@ -43,6 +48,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         req.setAttribute("proposedGraph",proposedGraph);
         req.setAttribute("ongoingGraph",ongoingGraph);
         req.setAttribute("projects",project);
+        req.setAttribute("newprojects",projects);
 
         if(userrole.equals("prof_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
@@ -82,9 +88,9 @@ public class ViewMyProjectServlet extends HttpServlet {
         project.setEvent3(req.getParameter("event3"));
         project.setEvent4(req.getParameter("event4"));
         project.setOther(req.getParameter("other"));
-        project.setContractor(req.getParameter("contractor"));
-        project.setCustomer(req.getParameter("customer"));
-        project.setLand(req.getParameter("land"));
+//        project.setContractor(req.getParameter("contractor"));
+//        project.setCustomer(req.getParameter("customer"));
+//        project.setLand(req.getParameter("land"));
 
         try {
             if(myProjectDAO.addDetails(project)){

@@ -1,14 +1,11 @@
 <%@ page import="java.util.ArrayList" %>
 <%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
-<<<<<<< HEAD
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Chat" %>
-=======
 <%@ page import="java.sql.Time" %>
 <%@ page import="java.sql.Date" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.*" %>
->>>>>>> 65e49508e4cd7d784531b9284b23a248f94fa9f0
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -168,16 +165,59 @@
             });
 
         });
+        function showhide() {
+            const Div3 = document.getElementById("third");
+            const Div2 = document.getElementById("second");
+            const Div = document.getElementById("first");
+            if (Div.style.display !== "none") {
+                Div.style.display = "none";
+                Div2.style.display = "block";
+                Div3.style.display = "none";
+            }else if (Div2.style.display !== "none") {
+                    Div.style.display = "none";
+                    Div2.style.display = "none";
+                    Div3.style.display = "block";
+            } else {
+                Div3.style.display = "block";
+            }
+        }
 
     </script>
 </head>
 
 <div class="new-content" style="display: none" id="newcontent">
-<%--    <button class="close-btn" onclick="popupformclose()">&times;</button>--%>
     <button class="close-btn" onclick="popupformclose()">X</button>
     <form action="<%=request.getContextPath()%>/newproject" method="post">
-        <label for="new"> Add New Project :</label>
+        <div id="first">
+        <label for="new"><b>Project Name :</b></label>
         <input type="text" id="new" name="projectname" required>
+
+        <label for="new"><b>Project Members</b></label><br><br>
+        <label for="contractor">Contractor :</label>
+        <input type="text" id="contractor" name="contractor">
+        <label for="designer">Landscape Designer :</label>
+        <input type="text" id="designer" name="landscape">
+        <label for="customer">Customer :</label>
+        <input type="text" id="customer" name="customer">
+
+        <label for="address"><b>Project Address :</b></label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="start"><b>Expected Starting Date :</b></label>
+        <input type="date" id="start" name="starttime" required><br><br>
+
+        <label for="end"><b>Expected Finishing Date :</b></label>
+        <input type="date" id="end" name="finishtime" required><br><br>
+            <button id="btn1" onclick="showhide()">Next</button>
+        </div>
+
+        <div id="second" style="display: none">
+        <h3>Proposed Graph</h3>
+            <button id="btn2" onclick="showhide()">Next</button>
+        </div>
+
+        <div id="third" style="display: none">
+        <h3>Rules &  Regulations</h3>
         <div class="terms">
             <input type="checkbox" required="">
             <label id="terms2"><a href="www.google.com" target="www.google.com">Accept the rules &amp; regulations</a></label>
@@ -185,10 +225,32 @@
         <input id="proposalid" type="hidden" value="" name="proposalid">
         <input id="reqid"       type="hidden" value="" name="reqid">
         <input id="cusid" type="hidden" value="" name="cusid">
-
-        <input type="submit" value="submit">
+        <input type="submit" value="Submit">
+        </div>
     </form>
 </div>
+
+<%--<div class="new-content" style="display: none" id="graph" >--%>
+<%--    <button class="close-btn" onclick="popupformclose()">X</button>--%>
+<%--    <form action="<%=request.getContextPath()%>/newproject" method="post">--%>
+<%--        <h3>Proposed Graph</h3>--%>
+<%--        <input type="submit" id="next2-btn" value="Next" onclick="myfunction2()">--%>
+<%--    </form>--%>
+<%--</div>--%>
+<%--<div class="new-content" style="display: none" id="rules" >--%>
+<%--    <button class="close-btn" onclick="popupformclose()">X</button>--%>
+<%--    <form action="<%=request.getContextPath()%>/newproject" method="post">--%>
+<%--        <h3>Rules &  Regulations</h3>--%>
+<%--                <div class="terms">--%>
+<%--                    <input type="checkbox" required="">--%>
+<%--                    <label id="terms2"><a href="www.google.com" target="www.google.com">Accept the rules &amp; regulations</a></label>--%>
+<%--                </div>--%>
+<%--                <input id="proposalid" type="hidden" value="" name="proposalid">--%>
+<%--                <input id="reqid"       type="hidden" value="" name="reqid">--%>
+<%--                <input id="cusid" type="hidden" value="" name="cusid">--%>
+<%--        <input type="submit" value="Submit">--%>
+<%--    </form>--%>
+<%--</div>--%>
 
 
 
@@ -212,10 +274,6 @@
             <h3>Hi, Johns</h3>
             <p>Keep up the good work!</p>
         </div>
-<%--        <form class="example" action="/action_page.java">--%>
-<%--            <button type="submit"><i class="fa fa-search"></i></button>--%>
-<%--            <input type="text" placeholder="Search your project..." name="search">--%>
-<%--        </form>--%>
         <div class="img">
             <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
             <h3>Johns Robert</h3>

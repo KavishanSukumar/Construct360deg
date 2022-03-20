@@ -126,7 +126,7 @@ ul li a:hover,ul li i:hover{
 }
 .container{
     display: grid;
-    grid-template-rows: 65px 600px;
+    grid-template-rows: 65px auto;
     grid-template-areas: 
     'menu_bar'
     'content';
@@ -154,7 +154,7 @@ ul li a:hover,ul li i:hover{
     border-radius: 5px;
     padding: 20px;
     width: 810px;
-    height: 450px;
+    height: auto;
     margin-left: 500px;
     margin-top: -470px;
     /*grid-template-areas: 'user2 user5 user6';*/

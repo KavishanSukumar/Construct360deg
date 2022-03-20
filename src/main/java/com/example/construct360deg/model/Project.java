@@ -4,48 +4,25 @@ public class Project {
     private int userid;
     private int projectid;
     private String projectname;
+    private String contractor;
+    private String landscape;
+    private String customer;
+    private String address;
+    private String starttime;
+    private String finishtime;
     private String event1;
     private String event2;
     private String event3;
     private String event4;
     private String other;
-    private String contractor;
-    private String customer;
-    private String land;
     private String reason;
+//    private String land;
     private String display;
     private int proposalid;
-
-    public int getCusaccept() {
-        return cusaccept;
-    }
-
-    public void setCusaccept(int cusaccept) {
-        this.cusaccept = cusaccept;
-    }
-
     private int cusaccept;
 
-    public int getProposalid() {
-        return proposalid;
-    }
-
-    public void setProposalid(int proposalid) {
-        this.proposalid = proposalid;
-    }
-
-    public int getReqid() {
-        return reqid;
-    }
-
-    public void setReqid(int reqid) {
-        this.reqid = reqid;
-    }
-
-    private int reqid;
-
     public int getUserid() {
-        return this.userid;
+        return userid;
     }
 
     public void setUserid(int userid) {
@@ -66,6 +43,54 @@ public class Project {
 
     public void setProjectname(String projectname) {
         this.projectname = projectname;
+    }
+
+    public String getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(String contractor) {
+        this.contractor = contractor;
+    }
+
+    public String getLandscape() {
+        return landscape;
+    }
+
+    public void setLandscape(String landscape) {
+        this.landscape = landscape;
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getStarttime() {
+        return starttime;
+    }
+
+    public void setStarttime(String starttime) {
+        this.starttime = starttime;
+    }
+
+    public String getFinishtime() {
+        return finishtime;
+    }
+
+    public void setFinishtime(String finishtime) {
+        this.finishtime = finishtime;
     }
 
     public String getEvent1() {
@@ -108,40 +133,35 @@ public class Project {
         this.other = other;
     }
 
-    public String getContractor() {
-        return contractor;
-    }
-
-    public void setContractor(String contractor) {
-        this.contractor = contractor;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
-
-    public String getLand() {
-        return land;
-    }
-
-    public void setLand(String land) {
-        this.land = land;
-    }
-
     public String getReason() {
         return reason;
     }
+
     public void setReason(String reason) {
         this.reason = reason;
     }
+
     public String getDisplay() {
         return display;
     }
+
     public void setDisplay(String display) {
         this.display = display;
+    }
+
+    public int getProposalid() {
+        return proposalid;
+    }
+
+    public void setProposalid(int proposalid) {
+        this.proposalid = proposalid;
+    }
+
+    public int getCusaccept() {
+        return cusaccept;
+    }
+
+    public void setCusaccept(int cusaccept) {
+        this.cusaccept = cusaccept;
     }
 }
