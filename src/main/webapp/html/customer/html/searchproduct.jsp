@@ -47,7 +47,7 @@
         <div class="searchbar">
             <!-- <i class="fas fa-search"></i>
                 <input type="text" id="myInput" placeholder="Search here..."> -->
-                <form class="example" action=" ">
+                <form class="example" method="get" action="<%=request.getContextPath()%>/searchproduct">
                     <button type="submit"><i class="fa fa-search"></i></button>
                     <input type="text" placeholder="Search.." name="search">
                 </form> 
@@ -168,6 +168,20 @@
             console.log("false box");
         }
     }
+</script>
+
+<script>
+    const searchbar = document.getElementById('search');
+
+    searchbar.addEventListener('keyup',(e)=>{
+        const input = e.target.value;
+        if(input==""){
+            console.log("null value");
+        }else{
+            console.log("not null value");
+        }
+
+    })
 </script>
 </body>
 </html>

@@ -33,13 +33,20 @@ public class ProductDAO {
 
         return status;
     }
-    public ArrayList<Product> getProductDetails() throws SQLException {
+    public ArrayList<Product> getProductDetails(String searchval) throws SQLException {
         ArrayList<Product> products=new ArrayList<>();
         PreparedStatement preparedStatement=null;
         Connection connection= Database.getConnection();
-        String sql="SELECT * FROM `product`";
-        ResultSet resultSet=null;
+        String pattern = searchval;
+        String sql = null;
+        System.out.println(pattern);
 
+        if (pattern==null || pattern==""){
+            sql = "SELECT * FROM product";
+        }else {
+            sql = "SELECT * FROM product WHERE productname like '%"+pattern+"%'";
+        }
+        ResultSet resultSet;
         preparedStatement=connection.prepareStatement(sql);
         resultSet=preparedStatement.executeQuery();
 
@@ -179,6 +186,41 @@ public class ProductDAO {
             product.setProductdes(resultSet.getString("productdes"));
         }
         return product;
+
+    }
+    public ArrayList<Product> getProductDetailsComSerach(int userid,String searchval) throws SQLException {
+        ArrayList<Product> products=new ArrayList<>();
+        PreparedStatement preparedStatement=null;
+        Connection connection= Database.getConnection();
+        String pattern = searchval;
+        String sql = null;
+        System.out.println(pattern);
+        if(pattern==null || pattern=="" ){
+            sql="SELECT * FROM product WHERE companyid =?";
+        }else{
+            sql="SELECT * FROM product WHERE companyid =? AND productname like '%"+pattern+"%'";
+        }
+//        String sql="SELECT * FROM `product` WHERE companyid =?";
+        ResultSet resultSet=null;
+
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,userid);
+//        preparedStatement.setString(2,searchval);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Product product=new Product();
+            product.setProductName(resultSet.getString("productname"));
+            product.setQuantity(resultSet.getFloat("quantity"));
+            product.setPrice(resultSet.getFloat("productprice"));
+            product.setCompanyid(resultSet.getInt("companyid"));
+            product.setProductid(resultSet.getInt("productid"));
+            byte[] bytes=resultSet.getBytes("productimage");
+            product.setImgBytes(bytes);
+            product.setProductdes(resultSet.getString("productdes"));
+            products.add(product);
+        }
+        return products;
 
     }
 }
