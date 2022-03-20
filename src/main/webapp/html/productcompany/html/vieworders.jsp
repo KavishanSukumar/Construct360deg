@@ -17,8 +17,16 @@
   <link rel="stylesheet" href="./html/productcompany/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function (){
+        $('#mytable').DataTable();
+        $('#mytable1').DataTable();
+        $('#mytable2').DataTable();
+
         $("#neworder").click(function (){
             $("#neworder").addClass("active");
             $("#confirmorder").removeClass("active");
@@ -93,7 +101,7 @@
 
                 <!-- ///////////////////////////////////////////// -->
                 <div class="ordertable" id="neworders" >
-                    <table class="logTable">
+                    <table class="mytable" id="mytable">
                         <thead>
                         <tr class="headrow">
                             <th class="Date"><span>Order ID</span></th>
@@ -127,7 +135,7 @@
 
 
                 <div class="ordertable" id="confirmorders">
-                    <table class="logTable">
+                    <table class="mytable" id="mytable1">
                         <thead>
                         <tr class="headrow">
                             <th class="Date"><span>Order ID</span></th>
@@ -159,7 +167,7 @@
 
 
                 <div class="ordertable" id="rejectedorders">
-                    <table class="logTable">
+                    <table class="mytable" id="mytable2">
                         <thead>
                         <tr class="headrow">
                             <th class="Date"><span>Order ID</span></th>

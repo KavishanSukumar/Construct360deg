@@ -33,10 +33,8 @@ public class SendEmailDAO {
                 InternetAddress.parse(email)
         );
         message.setSubject(subject);
-        message.setText(content);
+        message.setContent(content,"text/html");
         Transport.send(message);
-
-        System.out.println("Email class");
         return status;
     }
 }

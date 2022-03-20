@@ -1,6 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
 
+<%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Chat" %>
 <%@ page import="java.sql.Time" %>
@@ -471,7 +471,7 @@
                         </thead>
                         <tbody>
                                             <%for(Appointment a:appointments){%>
-                                            <%if(a.getAppointmentstatus().equals("Pending")){%>
+                                            <%if(a.getAppointmentstatus().equals("pending")){%>
                                             <tr id="<%=a.getAppoinmentid()%>" onclick="openappointment(this)" class="1stline">
                                                 <td><%=a.getAppoinmentid()%></td>
                                                 <td ><%=a.getCustomerid()%></td>

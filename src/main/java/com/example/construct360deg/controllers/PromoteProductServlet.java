@@ -20,12 +20,13 @@ public class PromoteProductServlet extends HttpServlet {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
         int userid= (int) session.getAttribute("userid");
+        String searchval = req.getParameter("search");
         ProductDAO productDAO=new ProductDAO();
         ArrayList<Product> products=new ArrayList<>();
 
 
             try {
-                products=productDAO.getProductDetailsCom(userid);
+                products=productDAO.getProductDetailsComSerach(userid,searchval);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
