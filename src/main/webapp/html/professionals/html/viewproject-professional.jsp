@@ -1,14 +1,13 @@
 <%@ page import="java.util.ArrayList" %>
 <%--<%@ page import="com.example.construct360deg.model.Newproject" %>--%>
-<<<<<<< HEAD
+
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Chat" %>
-=======
 <%@ page import="java.sql.Time" %>
 <%@ page import="java.sql.Date" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.*" %>
->>>>>>> 65e49508e4cd7d784531b9284b23a248f94fa9f0
+
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -228,7 +227,7 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
 
                 <a href="#" id="myproposals"><i class="fas fa-file"></i></i> My proposals</a>
-
+                <a href="#" id="cusreq"><i class="fas fa-file"></i></i> Arrived Requirements</a>
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
 
             </div>

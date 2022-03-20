@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,6 +18,28 @@ import java.util.ArrayList;
 public class SearchProfessionalsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session=req.getSession();
+        String userrole= (String) session.getAttribute("userrole");
+        int userid = (int) session.getAttribute("userid");
+
+        int catchingtag = 0;
+        int tag = 0;
+        System.out.println();
+        System.out.println("this is  catching tag = "+catchingtag);
+        try{
+            int reqid = Integer.parseInt(req.getParameter("reqid"));
+             tag = Integer.parseInt(req.getParameter("tag"));
+            req.setAttribute("reqid",reqid);
+            req.setAttribute("tag",tag);
+            req.setAttribute("userid",userid);
+            System.out.println("this is reqid tag and userid "+"-"+reqid+"-"+tag+"-"+userid);
+        }catch(Exception e){
+            catchingtag = catchingtag+1;
+        }
+        System.out.println("this is  catching tag = "+catchingtag);
+        System.out.println("this is   tag = "+tag);
+        req.setAttribute("catchingtag",catchingtag);
+
         AllProfileDAO allProfileDAO=new AllProfileDAO();
         ArrayList<AllUsers> allprofs=new ArrayList<>();
         String searchval = req.getParameter("search");

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class RequirementDAO {
     public void uploadRequirement(Requirement requirement) throws SQLException {
+
         Boolean status=false;
         Connection connection= Database.getConnection();
         PreparedStatement preparedStatement=null;
@@ -42,11 +43,32 @@ public class RequirementDAO {
         }
 
     }
+
+    public void uploadRequirementToChooseProf(int reqid,int profid,int cusid) throws SQLException {
+        Connection connection= Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        String sql="INSERT INTO `professionalprivatereq` (`reqid`, `profid`, `cusid`) VALUES (?,?,?)";
+        int row = 0;
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,reqid);
+        preparedStatement.setInt(2,profid);
+        preparedStatement.setInt(3,cusid);
+        row=preparedStatement.executeUpdate();
+        if (row>=1){
+
+            System.out.println("uploadRequirementToChooseProf method in requirementDAO All queries successfully updated");
+        }else{
+
+            System.out.println("Error in uploadRequirementToChooseProf method in requirementDAO");
+        }
+
+    }
+
     public ArrayList<Requirement> displayownRequirement(int useridcus) throws SQLException {
         ArrayList<Requirement> displayRequirements = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `requirement` WHERE `useridcus` = ?";
+        String sql = "SELECT * FROM `requirement` WHERE `useridcus` = ? ORDER BY `submit_date` DESC";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,useridcus);
@@ -81,7 +103,7 @@ public class RequirementDAO {
         ArrayList<Requirement> displayRequirements = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `requirement`";
+        String sql = "SELECT * FROM `requirement` ORDER BY `submit_date` DESC";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();
