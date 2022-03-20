@@ -9,6 +9,17 @@
   <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/admin/resources/css/loginfile.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="./resources/js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#mytable').DataTable();
+        });
+    </script>
+
 </head>
 
 <body>
