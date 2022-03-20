@@ -43,7 +43,7 @@
     </div>
     <div  class="content">
         <h1>DESIGN YOU HOUSE</h1>
-        <P>Interior design is the art and science of enhancing the interior of a building to achieve a healthier and more aesthetically pleasing environment for the people using the space. <br>An interior designer is someone who plans, researches, coordinates, and manages such enhancement projects.</P>
+        <P>Our construction of the constitution is very different from that you quote.<br> It is that each department is truly independent of the others, and has an equal right to decide for itself what is the meaning of the constitution in the cases submitted to its action; <br>and especially, where it is to act ultimately and without appeal.</P>
         <div>
             <a href="<%=request.getContextPath()%>/login"><button><span></span>SIGN IN</button></a>
             <a href="<%=request.getContextPath()%>/registration"><button><span></span>JOIN WITH US</button></a>
@@ -86,7 +86,7 @@
             <img src="./resources/images/homepage/managemant.png" id="third">
             <div class="contentdetailsSer">
                 <h2>Construction Management</h2>
-                <p>Whether you’re just starting out in the industry or you’re an open-minded expert who wants to know how the role has changed and will continue to do so in this new decade, this definitive guide provides an overview of everything you need to grow as a construction manager.</p>
+                <p>Whether you are just starting out in the industry or you are an open-minded expert who wants to know how the role has changed and will continue to do so in this new decade, this definitive guide provides an overview of everything you need to grow as a construction manager.</p>
             </div>
         </div>
         <div id="Emptybox2">
@@ -100,19 +100,24 @@
     <!-- <div id="Servicestopic"></div> -->
     <div class="Projectcontent">
         <div id="Emptybox3">
-            <img src="./resources/images/homepage/p01.gif" id="secondP">
+            <img src="./resources/images/homepage/p01.jpg" id="secondP">
             <div class="contentdetails">
-                <h2>K118 Kopfbau Halle 118 / hauro in situ</h2>
-                <p>contractor : haubüro in situ <br> Area : 1100 m<sup>2</sup><br>Year : 2018
+                <h2>Railway Operation HQ & Train Control Centre at Maradana</h2>
+                <p>Client:Ministry of Transport
+                    <br><br>Completion Date:July 2023 (planned)
+                    <br><br>Location:Colombo 10
+                    <br><br>Contractor:Mr. Lochana Udawatta
                 </p>
             </div>
         </div>
         <div id="Project01">
-            <img src="./resources/images/homepage/p02.gif" id="firstP">
+            <img src="./resources/images/homepage/p02%20(2).jpg" id="firstP">
             <div class="contentdetails">
-                <h2>Fillia Kindergarten</h2>
+                <h2>Fairway Urban Homes</h2>
                 <p>
-                    contractor : Bennetts Associates <br> Area : 3125 m<sup>2</sup><br>Year : 2021
+                    Client:Fairway Urban Homes (Pvt) Ltd
+                    <br>Location:Koswatte, Colombo District
+                    <br>Contractor:Mr. N R Jayathilake
                 </p>
             </div>
 
@@ -122,27 +127,35 @@
                 <h1>PROJECTS</h1>
             </div>
             <div>
-                <img src="./resources/images/homepage/p03.gif" id="thirdP">
+                <img src="./resources/images/homepage/p03.jpg" id="thirdP">
                 <div class="contentdetails">
-                    <h2>Sports Hall King's Cross / Bennetts Associates</h2>
-                    <p>contractor : Bennetts Associates <br> Area : 2036 m<sup>2</sup><br>Year : 2019
+                    <h2>Prime Grand, Colombo 07</h2>
+                    <p>Client:Prime Group
+                        <br><br>Completion Date:November 2021
+                        <br><br>Location:Ward Place, Colombo 07
+                        <br><br>Contractor:Mr. Saman Mahawatta
 
                     </p>
                 </div>
             </div>
         </div>
         <div id="Project03">
-            <img src="./resources/images/homepage/p04.gif" id="forthP">
+            <img src="./resources/images/homepage/p04.png" id="forthP">
             <div class="contentdetails">
-                <h2>Heyuan Huilong</h2>
-                <p>contractor : YUANISM ARCHITECTS <br> Area : 2016 m<sup>2</sup><br>Year : 2021</p>
+                <h2>Fairway Latitude</h2>
+                <p>Client:Fairway Holdings (Pvt) Ltd
+                    <br>Location:Colombo 05
+                    <br>Contractor:Mr M A S Perera</p>
             </div>
         </div>
         <div id="Emptybox4">
-            <img src="./resources/images/homepage/p05.gif" id="fifthP">
+            <img src="./resources/images/homepage/p05.jpg" id="fifthP">
             <div class="contentdetails">
-                <h2>Community Development Center in Tapachula / Laboratorio de Acupuntura Urbana</h2>
-                <p>contractor : Laboratorio de Acupuntura Urbana <br> Area : 2076 m<sup>2</sup><br>Year : 2021
+                <h2>Galle Techno-Park</h2>
+                <p>Client:Ministry of Information Technology
+                    <br><br>Completion Date:July 2023
+                    <br><br>Location:Galle District
+                    <br><br>Contractor:Mr M S Amarasinghe
 
                 </p>
             </div>
@@ -163,9 +176,9 @@
             <div class="Aboutcontentdetails">
                 <h1>ABOUT US</h1>
                 <p>
-                    In 2021, while working as architects, our founders realized that there was no place for their peers to experience the latest projects, products, and trends. So, we decided to build it.
+                    In 2022, while working as architects, our founders realized that there was no place for their peers to experience the latest projects, products, and trends. So, we decided to build it.
 
-                    We began as a platform to collect and spread the most important information for architects seeking to build a better world. Today, we are an ever-evolving tool for anybody who has a passion and determination to shape the world around them, including the 13.6 million readers that visit ArchDaily every month.
+                    We began as a platform to collect and spread the most important information for architects seeking to build a better world. Today, we are an ever-evolving tool for anybody who has a passion and determination to shape the world around them, including the 13.6 million readers that visit Construct360deg every month.
 
                     We are proudly driven to help our users design a better world.
                 </p>
@@ -182,7 +195,8 @@
         <h1>CONTACT US</h1>
     </div>
     <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.5388800790092!2d176.20560372668282!3d-37.66004363851833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d6ddecdf83cff95%3A0xdfb0c7402b97fff5!2sNew%20Zealand%20Commercial%20Construction%20Limited!5e0!3m2!1sen!2slk!4v1632819910542!5m2!1sen!2slk" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902976854159!2d79.85896421474314!3d6.902205495012678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sUniversity%20of%20Colombo%20School%20of%20Computing!5e0!3m2!1sen!2slk!4v1647588492493!5m2!1sen!2slk" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<%--        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.902976854159!2d79.85896421474314!3d6.902205495012678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sUniversity%20of%20Colombo%20School%20of%20Computing!5e0!3m2!1sen!2slk!4v1647588492493!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>--%>
     </div>
     <div class="line03">
         <div class="inquiries">Inquiries</div>
@@ -190,15 +204,15 @@
     </div>
     <div id="line04">
         <div class="InqContent">
-            For any inquiries, questions or commendations, <br>please call: 123-456-7890 or fill out the following form
+            For any inquiries, questions or commendations, <br>please call: 0112581245 or fill out the following form
         </div>
         <div class="Homeoffcontent">
-            500 Terry Francois Street <br>San Francisco, CA 94158
+            Construct365 Building Complex, 35 Reid Ave,  <br>Colombo 00700
         </div>
     </div>
     <div class="line05">
         <div class="contactTop">Contact us</div>
-        <div class="contactmail">Tel: 123-456-7890 <br> Fax: 123-456-7890<br>info@mysite.com</div>
+        <div class="contactmail">Tel: 0112581245 <br> Fax: 0112581245<br>construct365@mysite.com</div>
     </div>
     <div id="contactform">
         <div class="container">

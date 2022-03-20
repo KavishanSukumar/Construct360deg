@@ -258,12 +258,13 @@ ul li a:hover{
 
 .content p{
     margin: 20px auto;
-    font-weight: 100;
+    /*font-weight: 100;*/
+    /*font-weight: bold;*/
     line-height: 25px;
+    font-family: 'Roboto', sans-serif;
 
 
-
-    /*font-size: 16px;*/
+    font-size: 16px;
 
 }
 
