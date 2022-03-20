@@ -468,7 +468,7 @@
                         </thead>
                         <tbody>
                                             <%for(Appointment a:appointments){%>
-                                            <%if(a.getAppointmentstatus().equals("Pending")){%>
+                                            <%if(a.getAppointmentstatus().equals("pending")){%>
                                             <tr id="<%=a.getAppoinmentid()%>" onclick="openappointment(this)" class="1stline">
                                                 <td><%=a.getAppoinmentid()%></td>
                                                 <td ><%=a.getCustomerid()%></td>
