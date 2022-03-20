@@ -3,11 +3,6 @@
     padding: 0;
 }
 
-
-
-
-
-
 .main{
     width: 100%;
     background: linear-gradient(to top,rgba(0,0,0,0.4)50%,rgba(0,0,0,0.4)50%);
@@ -97,6 +92,7 @@ ul li a:hover{
 }
 
 .btn{
+    cursor: pointer;
     width: 310px;
     height: 30px;
     background: #ff7200;
@@ -111,7 +107,6 @@ ul li a:hover{
 
 .btn:focus{
     outline: none;
-    
 }
 
 .srch:focus{
@@ -269,11 +264,33 @@ ul li a:hover{
 #account{
     color: #ff7200;
 }
+#forgotpassword{
+    z-index: 50;
+    width: 430px;
+    height: 390px;
+    top: 130px;
+    left: 540px;
+    text-align: left;
+}
+#forgotpassword > h1{
+    font-family:  'Roboto', sans-serif;
+    font-size: 50px;
+    padding-left: 10px;
+    margin-top: 9%;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: white;
+}
+input[type="radio"]{
+    width: 15px;
+    height: 15px;
+    margin: 15px 10px 15px 0px;
+}
 
-
-
-
-
+.mylable{
+    color: white;
+    font-family:  'Roboto', sans-serif;
+}
 
 
 
