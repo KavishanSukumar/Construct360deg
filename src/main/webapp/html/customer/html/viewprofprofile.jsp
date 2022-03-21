@@ -11,9 +11,25 @@
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
-    int profid = (int) request.getAttribute("profid");
+    int profid = -1;
+    int userid = (int)request.getAttribute("userid");
+
     Account account = (Account) request.getAttribute("accounts");
     Account account1 = (Account) request.getAttribute("changepic");
+    int tag = 0;
+    int count = 0;
+    try{
+
+        tag = (int) request.getAttribute("tag");
+    }catch (Exception e){
+        count++;
+    }
+    System.out.println("this is viewprofile count "+count+"if count==0 no exception");
+    int  reqid = -1;
+    if(count==0){
+        reqid = (int) request.getAttribute("reqid");
+        profid = (int) request.getAttribute("profid");
+    }
 %>
 
 <head>
@@ -53,8 +69,9 @@
             <a href="#" class="button">Message</a>
 
             <a  onclick="makeappointment(<%=profid%>)" class="button">Appointments</a>
-
-            <a href="#" class="button">Upload requirements</a>
+            <%if(count==0){%>
+            <a onclick="uploadreq(<%=profid%>,<%=reqid%>,<%=userid%>)" class="button">Upload requirements</a>
+            <%}%>
         </div>
 
         <div class="box2">
@@ -117,6 +134,18 @@
             location.href="<%=request.getContextPath()%>/Makeappointment?profid="+profid;
         }else {
             console.log("something wrong")
+        }
+    }
+
+    function  uploadreq(profid,reqid,userid) {
+        var profid1 = profid;
+        var reqid1 = reqid;
+        var userid = userid;
+        var out = confirm("you sure")
+        if (out==true){
+            location.href="<%=request.getContextPath()%>/sendreqtochooseprof?profid="+profid1+"&reqid="+reqid1+"&userid="+userid;
+        }else {
+            console.log("canceled the sending request")
         }
     }
 </script>

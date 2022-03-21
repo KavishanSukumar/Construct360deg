@@ -22,7 +22,22 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
         String userrole= (String) session.getAttribute("userrole");
         int userid = (int) session.getAttribute("userid");
         int profid=Integer.parseInt(req.getParameter("profid"));
+        System.out.println("this is view profile proffesional id "+profid);
         req.setAttribute("profid",profid);
+        int count = 0;
+        int tag = 0;
+        int reqid = -1;
+        try{
+            tag = Integer.parseInt(req.getParameter("tag"));
+            reqid = Integer.parseInt(req.getParameter("reqid"));
+            req.setAttribute("reqid",reqid);
+            req.setAttribute("tag",tag);
+            req.setAttribute("userid",userid);
+        }catch (Exception e){
+            count++;
+        }
+
+        System.out.println("req id-"+reqid+" tag-"+tag);
         Account account = new Account();
 
 //        if(userrole.equals("prof_indiv")||userrole.equals("prof_com")){
@@ -101,5 +116,6 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
 
         }
     }
+
 
 }

@@ -25,12 +25,13 @@ public class SearchProductServlet extends HttpServlet {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
         int userid= (int) session.getAttribute("userid");
+        String searchval = req.getParameter("search");
         ProductDAO productDAO=new ProductDAO();
         ArrayList<Product> products=new ArrayList<>();
 
         if(userrole.equals("cus_indiv")||userrole.equals("cus_com")){
             try {
-                products=productDAO.getProductDetails();
+                products=productDAO.getProductDetails(searchval);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -39,7 +40,7 @@ public class SearchProductServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
         }else if (userrole.equals("prod_com")){
             try {
-                products=productDAO.getProductDetailsCom(userid);
+                products=productDAO.getProductDetailsComSerach(userid,searchval);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

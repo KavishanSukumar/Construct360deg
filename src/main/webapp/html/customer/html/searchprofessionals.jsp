@@ -4,6 +4,19 @@
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java" %>
 <%
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
+    int tag = 0;
+    int count = 0;
+    try{
+        tag = (int) request.getAttribute("tag");
+    }catch (Exception e){
+        count++;
+    }
+    System.out.println("this is searchprofessional count "+count+"if count==0 no exception");
+    int  reqid = -1;
+    if(count==0){
+        reqid = (int) request.getAttribute("reqid");
+    }
+
 
 %>
 <!DOCTYPE html>
@@ -88,7 +101,7 @@
                     }
                 %>
                 <div class="gallery">
-                    <a target="" onclick="viewprofprofile(<%=x.getUserid()%>)">
+                    <a target="" onclick="viewprofprofile(<%=x.getUserid()%>,<%=reqid%>,<%=tag%>)">
                       <img src="data:image/jpeg;base64,<%=base64Encoded%>" style="cursor: pointer" class="user" >
 
 <%--                    <a target="" href="<%=request.getContextPath()%>/viewprofprofile">--%>
@@ -128,14 +141,29 @@
     </div>
     <%@include file="../../footer.jsp"%>
 <script>
-    function viewprofprofile(id){
+    function viewprofprofile(id,reqid,tag){
+        var d = 100;
+        var tag1 = tag;
         var profid = id
+        var reqid1 = reqid;
         console.log(profid);
+        console.log("this is tag and reqid"+tag1+reqid1)
         var out = confirm("viewproprofile");
-        if (out==true){
+       <%--if(out==true) {--%>
+       <%--     location.href="<%=request.getContextPath()%>/viewprofprofile?profid="+profid;--%>
+       <%-- }else{--%>
+       <%--     console.log("false");--%>
+       <%-- }--%>
+       //////////////////  senal changed above part to below part  /////////////////////////
+        if (out==true&&reqid1>0){
+            console.log("this is   if condition");
+            location.href="<%=request.getContextPath()%>/viewprofprofile?profid="+profid+"&reqid="+reqid1+"&tag="+tag1;
+
+        }else if(out==true&&reqid1==-1) {
             location.href="<%=request.getContextPath()%>/viewprofprofile?profid="+profid;
-        }else {
-            console.log("false")
+            console.log("this is  else if condition");
+        }else{
+            console.log("false");
         }
     }
 </script>

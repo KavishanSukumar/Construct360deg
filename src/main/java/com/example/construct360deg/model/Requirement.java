@@ -12,6 +12,7 @@ public class Requirement {
     private byte[] cusprofimg;
     private int requirementid;
     private int useridcus;
+    private int profid;
     private String reqname;
     private String description;
     private String type;
@@ -26,6 +27,15 @@ public class Requirement {
     private Date req_upload_date;
     private Time req_upload_time;
     private int display_on_prof;
+
+
+    public int getProfid() {
+        return profid;
+    }
+
+    public void setProfid(int profid) {
+        this.profid = profid;
+    }
 
     public String getCusname() {
         return cusname;

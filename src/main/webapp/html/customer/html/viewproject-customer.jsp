@@ -368,7 +368,12 @@
                                     </table>
                            </div>
                            <div class="btns">
-                               <button class="minibtns">Choose professional</button>
+
+                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
+                                   <button class="minibtns" id="chooseprof">Choose professional</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="100" name="tag">
+                               </form>
                                <% if(x.getDisplay_on_prof()==0){%>
                                <form action="<%=request.getContextPath()%>/sendrequirement-public" method="post"><button class="minibtns" id="uploadtopublic">Upload to public</button>
                                <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">

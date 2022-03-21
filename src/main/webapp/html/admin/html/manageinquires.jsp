@@ -13,9 +13,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inquires</title>
+
   <link rel="stylesheet" href="./html/admin/resources/css/manageinquires.css">
   <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="./resources/js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#mytable').DataTable();
+        });
+    </script>
 </head>
 
 <body>
@@ -34,7 +44,7 @@
     <div class="container">
         <%@include file="sidebar-admin.jsp"%>
         <div class="content">
-            <div class="second">
+            <div class="second" style="display: none">
                 <form action="">
                     <div class="from">
                         <label name="activityfrom">Show activities from</label> &ensp;
@@ -56,7 +66,7 @@
             <div class="third">
 
                 <!-- ///////////////////////////////////////////// -->
-                <table class="logTable">
+                <table class="mytable" id="mytable">
                     <thead>
                         <tr class="headrow">
                             <th class="Time"><span>Complain id</span></th>
