@@ -206,7 +206,7 @@ body{
           }
         form.example button {
             float: left;
-            width: 40px;
+            width: 111px;
             height: 34.5px;
             box-shadow: 0px 5px 10px 5px rgb(199 195 195);
             background: #bbbfc2;
@@ -214,10 +214,10 @@ body{
             font-size: 16px;
             border: none;
             cursor: pointer;
-            margin-left: 210px;
+            margin-left: 295px;
             margin-top: 6px;
           }
-        
+        /*888888888888*/
         form.example::after {
             content: "";
             clear: both;
@@ -319,11 +319,17 @@ body{
         .profile{
             display: flex;
             flex-direction:column ;
+            background-color: rgba(255, 105, 0, 0.2);
+            margin: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+        /*    88888888888888888888*/
         }
 
         .gallery{
             margin: 20px 20px 0px 20px;
             float: left;
+
         }
         .gallery img{
             box-shadow: 0 1px 5px rgb(104 104 104);
@@ -331,11 +337,23 @@ body{
             height: 200px;
         }
         .gallery .desc{
-            text-align: center;
-            width: 200px;
-            font-size: 15px;
-        }
+            text-align: left;
+            /*width: 200px;*/
+            font-size: 14px;
+            height: 76px;
+            margin-top: 22px;
 
+        /*    8888888888888888888888*/
+        }
+        .gallery .priceunit{
+            margin-top: -40px;
+            font-size: 12px;
+        }
+        .gallery .price{
+            font-size: 24px;
+            margin-top: 2px;
+        }
+        /*8888888888888888888888*/
         .addtocart{
             display: flex;
             flex-direction: row;
