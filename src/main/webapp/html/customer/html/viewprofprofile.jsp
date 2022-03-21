@@ -12,7 +12,7 @@
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
     int profid = -1;
-    int userid = (int)request.getAttribute("userid");
+    int userid = (int) session.getAttribute("userid");
 
     Account account = (Account) request.getAttribute("accounts");
     Account account1 = (Account) request.getAttribute("changepic");
