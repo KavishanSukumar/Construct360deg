@@ -323,6 +323,8 @@ body{
             margin: 30px;
             border-radius: 8px;
             cursor: pointer;
+            height: 400px;
+            width: 250px;
         /*    88888888888888888888*/
         }
 
