@@ -117,6 +117,9 @@ public class ProposalsDAO {
             availableproposal.setProposalid(resultSet.getInt("proposalid"));
             availableproposal.setCusid(resultSet.getInt("cusid"));
             availableproposal.setIsprojectcreated(resultSet.getInt("isprojectcreated"));
+            availableproposal.setProfid(resultSet.getInt("profid"));
+            availableproposal.setRequirementid(resultSet.getInt("reqid"));
+
 
             displayownproposals.add(availableproposal);
 
