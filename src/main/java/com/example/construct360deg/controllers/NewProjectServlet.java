@@ -21,7 +21,7 @@ public class NewProjectServlet extends HttpServlet {
         int userid = (int) session.getAttribute("userid");
         int proposalid =Integer.parseInt(req.getParameter("proposalid"));
         int reqid = Integer.parseInt(req.getParameter("reqid"));
-        int cusid =Integer.parseInt(req.getParameter("cusid"));
+        int cusid =Integer.parseInt(req.getParameter("cus_id"));
 
         System.out.println("---------- newproject servlet -----------");
         System.out.println(proposalid);
@@ -54,7 +54,7 @@ public class NewProjectServlet extends HttpServlet {
                 out.println("<script type='text/javascript'>");
                 out.println("alert('project added unsuccessfull');");
             }
-            out.println("location='" + req.getContextPath()+"/viewproject';");
+            out.println("location='"+req.getContextPath()+"/viewproject';");
             out.println("</script>");
         } catch (SQLException throwables) {
             throwables.printStackTrace();

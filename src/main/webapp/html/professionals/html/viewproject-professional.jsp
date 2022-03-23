@@ -895,16 +895,7 @@
         con.style.display="block";
         var val1= document.getElementById("proposalid").value=porpid;
         var val2= document.getElementById("reqid").value=reqid;
-        var val3 = document.getElementById("cusid").value=cusid;
-        console.log("----------------------------------------------")
-        console.log(porpid);
-        console.log(val1);
-        console.log(reqid);
-        console.log(val2);
-        console.log(val3);
-        console.log(cusid);
-        console.log("----------------------------------------------")
-
+        var val3 = document.getElementById("cus_id").value=cusid;
     }
     function popupformclose(){
         var blur = document.getElementById("blur");
@@ -1079,8 +1070,4 @@
     <%--    }--%>
     <%--}--%>
 </script>
-
-
-
-
 </html>

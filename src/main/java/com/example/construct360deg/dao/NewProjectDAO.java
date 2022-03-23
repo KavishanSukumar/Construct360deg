@@ -169,11 +169,16 @@ public class NewProjectDAO {
         preparedStatement.setString(3,fieldname);
         row=preparedStatement.executeUpdate();
 
+        String sql4="INSERT INTO `ongoinggraph`(`projectid`, `graphpoint`, `graphattribute`) VALUES (?,?,?)";
+        preparedStatement=connection.prepareStatement(sql4);
+        preparedStatement.setInt(1,projectid);
+        preparedStatement.setInt(2,0);
+        preparedStatement.setString(3,fieldname);
+        row+=preparedStatement.executeUpdate();
         if (row>0){
             return  true;
         }else {
             return  false;
         }
-
     }
 }

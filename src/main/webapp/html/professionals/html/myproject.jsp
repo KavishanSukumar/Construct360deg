@@ -14,6 +14,9 @@
 //    Project project1 = (Project) request.getAttribute("projects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
+    if(Integer.parseInt(request.getParameter("projectid"))!=projectid){
+        response.sendRedirect(request.getContextPath()+"/login");
+    }
 %>
 <head>
   <meta charset="UTF-8">
