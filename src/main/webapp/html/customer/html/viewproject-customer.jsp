@@ -3,6 +3,7 @@
 <%@ page import="com.example.construct360deg.model.Requirement" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.Chat" %>
+<%@ page import="com.example.construct360deg.model.Proposal" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -13,6 +14,7 @@
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
     ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
+    ArrayList<Proposal> proposals = (ArrayList<Proposal>) request.getAttribute("proposals");
 %>
 <head>
   <meta charset="UTF-8">
@@ -367,13 +369,18 @@
 
                                     </table>
                            </div>
-                           <div class="btns">
+                           <div class="bigclass">
+                               <%
+                                   int option = 0;
+                                   option = x.getRequirementid()+1;
 
-                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
-                                   <button class="minibtns" id="chooseprof">Choose professional</button>
-                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
-                                   <input type="hidden" value="100" name="tag">
-                               </form>
+                               %>
+
+                           <i class="fas fa-bars" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
+                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>
+
+                           <div class="btns hidden" id="<%=x.getRequirementid()%>">
+
                                <% if(x.getDisplay_on_prof()==0){%>
                                <form action="<%=request.getContextPath()%>/sendrequirement-public" method="post"><button class="minibtns" id="uploadtopublic">Upload to public</button>
                                <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
@@ -384,8 +391,13 @@
                                <% }else{%>
                                <button class="minibtns" id="uploadtopublic2" style="cursor: none">Requirement is Uploaded  to public</button>
                                <%}%>
+                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
+                                   <button class="minibtns" id="chooseprof">Choose professional</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="100" name="tag">
+                               </form>
 <%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
-                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" >Available proposals</button>
+                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" id="availableprop">Available proposals</button>
                                    <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
                                    <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
                                    <%   System.out.println("-------------------------------------");
@@ -393,7 +405,47 @@
                                        System.out.println("-------------------------------------");
                                    %>
                                </form>
-                               <button class="minibtns">Remove</button>
+                               <%
+                                   int tag1 = 0; //to check empty arraylist
+                                   for(Proposal a:proposals){
+                                       if(x.getRequirementid()==a.getRequirementid()) {
+                                           tag1++;
+                                           System.out.println("==+++++++++++ array is empty +++++++++++++");
+                                       }else{
+                                           System.out.println("==+++++++++++ array is not empty +++++++++++++");
+                                       }
+                                   }
+
+                                   int tag2 = 0;
+                                   int tag3 = 0;
+                                   for(Proposal a:proposals){
+                                       if(a.getRequirementid()==x.getRequirementid()&&a.getCustomeraccept()==1){
+                                         tag2++;
+                                       }else{
+                                           tag3++;
+                                       }
+                                   }
+                               %>
+                                  <%if(tag2>0){%>
+
+                                  <%}else{%>
+                                   <button class="minibtns" id="remove123" onclick="removereq(<%=tag1%>,<%=tag3%>,<%=x.getRequirementid()%>)">Delete</button>
+                                  <%}%>
+
+<%--                               <%if(tag2>0){%>--%>
+
+<%--                               <%}else if(tag1==0){%>--%>
+<%--                               <form action="<%=request.getContextPath()%>/deleteownreq" method="post">--%>
+<%--                                   <button class="minibtns" id="remove123" onclick="removereq1()">Delete</button>--%>
+<%--                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">--%>
+<%--                               </form>--%>
+<%--                               <%}else if(tag3>0){%>--%>
+<%--                               <form action="<%=request.getContextPath()%>/deleteownreq" method="post">--%>
+<%--                                   <button class="minibtns" id="remove1234" onclick="removereq2()">Delete</button>--%>
+<%--                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">--%>
+<%--                               </form>--%>
+<%--                               <%}%>--%>
+                           </div>
                            </div>
                        </div>
                        <%}%>
@@ -452,5 +504,40 @@
         var menubar = document.getElementById("menu_bar");
         menu_bar.style.filter="none";
     }
+    function  removereq(tag1,tag3,reqid){
+
+        console.log(tag1+" "+tag3+" "+reqid);
+        if(tag1==0){
+           var out = confirm("Do you want to delete this requirements");
+           if (out==true){
+               var xHTTP=new XMLHttpRequest();
+               xHTTP.open("POST","<%=request.getContextPath()%>/deleteownreq?reqid="+reqid,true);
+               console.log("deletereq function 1 ");
+               xHTTP.send();
+               console.log("deletereq function 2");
+               location="<%=request.getContextPath()%>/viewproject";
+               console.log("deletereq function 3");
+               <%--location.href="<%=request.getContextPath()%>/deleteownreq?reqid="+reqid;--%>
+           }
+        } else if(tag3>0) {
+            var out = confirm("Do you want to delete this requirements? \n Warrning! You have arrived proposals. Please check those before delete the requirement");
+            if (out==true){
+                var xHTTP=new XMLHttpRequest();
+                xHTTP.open("POST","<%=request.getContextPath()%>/deleteownreq?reqid="+reqid,true);
+                console.log("deletereq function 3 ");
+                xHTTP.send();
+                console.log("deletereq function 4");
+                location="<%=request.getContextPath()%>/viewproject";
+                <%--location.href="<%=request.getContextPath()%>/deleteownreq?reqid="+reqid;--%>
+            }
+        }
+    }
+    // function removereq1(){
+    //     var out = confirm("Do you want to delete this requirements");
+    // }
+    // function removereq2(){
+    //     var out = confirm("Do you want to delete this requirements? \n Warrning! You have arrived proposals. Please check those before delete the requirement");
+    //
+    // }
 </script>
 </html>

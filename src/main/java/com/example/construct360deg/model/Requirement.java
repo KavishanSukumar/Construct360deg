@@ -27,6 +27,45 @@ public class Requirement {
     private Date req_upload_date;
     private Time req_upload_time;
     private int display_on_prof;
+    private Date req_recived_date;
+    private int accept;
+    private int reject;
+
+    public int getDeletereq() {
+        return deletereq;
+    }
+
+    public void setDeletereq(int deletereq) {
+        this.deletereq = deletereq;
+    }
+
+    private int deletereq;
+
+    public int getAccept() {
+        return accept;
+    }
+
+    public void setAccept(int accept) {
+        this.accept = accept;
+    }
+
+    public int getReject() {
+        return reject;
+    }
+
+    public void setReject(int reject) {
+        this.reject = reject;
+    }
+
+
+    public Date getReq_recived_date() {
+        return req_recived_date;
+    }
+
+    public void setReq_recived_date(Date req_recived_date) {
+        this.req_recived_date = req_recived_date;
+    }
+
 
 
     public int getProfid() {

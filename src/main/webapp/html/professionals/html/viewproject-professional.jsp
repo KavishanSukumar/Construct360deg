@@ -19,6 +19,7 @@
     ArrayList<AllUsers> allcustomers =(ArrayList<AllUsers>)request.getAttribute("allcustomers");
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
     ArrayList<Proposal> displayownproposals =(ArrayList<Proposal>)request.getAttribute("displayownproposals");
+    ArrayList<Requirement> displayRequirementonprof = (ArrayList<Requirement>)request.getAttribute("displayRequirementonprof");
 %>
 
 <head>
@@ -41,9 +42,12 @@
             $("#myproposals").removeClass("active");
             $("#proposals").css("display","none");
             $("#appointment-btn").removeClass("active");
+            $("#cusreq").removeClass("active");
             $("#viewproject").css("display","block");
             $("#chatbox").css("display","none");
             $("#appointment").css("display","none");
+            $("#arrived_cusreq").css("display","none");
+
           });
           $("#chatbox-btn").click(function (){
             $(this).addClass("active");
@@ -51,30 +55,51 @@
             $("#myproposals").removeClass("active");
             $("#proposals").css("display","none");
             $("#appointment-btn").removeClass("active");
+            $("#cusreq").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","block");
             $("#appointment").css("display","none");
+            $("#arrived_cusreq").css("display","none");
+
           });
           $("#appointment-btn").click(function (){
             $(this).addClass("active");
             $("#home-btn").removeClass("active");
             $("#chatbox-btn").removeClass("active");
             $("#myproposals").removeClass("active");
+            $("#cusreq").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#appointment").css("display","block");
             $("#proposals").css("display","none");
+            $("#arrived_cusreq").css("display","none");
+
           });
         $("#myproposals").click(function (){
             $(this).addClass("active");
             $("#chatbox-btn").removeClass("active");
             $("#home-btn").removeClass("active");
             $("#appointment-btn").removeClass("active");
+            $("#cusreq").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#proposals").css("display","grid");
             $("#appointment").css("display","none");
+            $("#arrived_cusreq").css("display","none");
         });
+        $("#cusreq").click(function (){
+            $(this).addClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#home-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#myproposals").removeClass("active");
+            $("#viewproject").css("display","none");
+            $("#chatbox").css("display","none");
+            $("#proposals").css("display","none");
+            $("#appointment").css("display","none");
+            $("#arrived_cusreq").css("display","grid");
+        });
+
             var receiver=null;
             var name=null;
 
@@ -224,11 +249,53 @@
         </div>
         <input id="proposalid" type="hidden" value="" name="proposalid">
         <input id="reqid"       type="hidden" value="" name="reqid">
-        <input id="cusid" type="hidden" value="" name="cusid">
-        <input type="submit" value="Submit">
+
+        <input id="cus_id" type="hidden" value="" name="cus_id">
+
+        <input type="submit" value="submit">
+
         </div>
+
     </form>
 </div>
+<input type="hidden"  value="" name="reqid2" id="reqid2">
+<%
+
+%>
+
+
+<%-- -------------------- upload proposal popup -----------------------------%>
+<div class="filling" id="uploadproposal" style="display: none">
+    <button id="close" onclick="mypopupclose()">X</button>
+    <div class="img-area">
+        <p id="title" style="align-content: center">Upload your proposal to </p>
+        <p class="info" id="customername"></p>
+        <img id="profimg" src="" onerror="this.src='./resources/images/Avatar.png;'" style="border-radius: 10px">
+        <h2 class="info" id="custid1"> </h2>
+    </div>
+
+    <div class="up-area">
+        <form class="proposal" method="post" action="<%=request.getContextPath()%>/sendproposal" enctype="multipart/form-data">
+            <label class="a" id="desrip">Description :-</label><br>
+            <textarea id="text" style="" name="description" required></textarea>
+            <label class="a" for="uploadfile" id="up-proposal">Proposal :-</label>
+            <input type="file" id="uploadfile" name="uploadfile"  multiple onchange="processSelectedFiles(this)"  required accept="application/pdf,application/zip"/><br>
+            <label id="filetype">(Choose pdf or zip file)</label>
+            <input type="hidden" value="" id="profid" name="profid">
+            <input type="hidden" value="" id="cusid" name="cusid">
+            <input type="hidden" value="" name="filename" id="filename">
+            <input type="hidden"  value="" name="reqid3" id="reqid3">
+            <div class="upload">
+                <input id="submit" type="submit" value="Upload">
+            </div>
+            <%System.out.println("i am in the upload form end");%>
+        </form>
+    </div>
+
+</div>
+<%-- -------------------- end of  upload proposal popup -----------------------------%>
+
+
 
 <%--<div class="new-content" style="display: none" id="graph" >--%>
 <%--    <button class="close-btn" onclick="popupformclose()">X</button>--%>
@@ -254,7 +321,9 @@
 
 
 
-<body >
+
+
+<body>
 <%--<div class="viewappointment">--%>
 <%--    <h1 id="appointmentid" style="text-align: center"></h1>--%>
 <%--    <h2 id="customerid" style="text-align: left"></h2>--%>
@@ -285,8 +354,8 @@
                 <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
 
-                <a href="#" id="myproposals"><i class="fas fa-file"></i></i> My proposals</a>
-                <a href="#" id="cusreq"><i class="fas fa-file"></i></i> Arrived Requirements</a>
+                <a href="#" id="myproposals"><i class="fas fa-file"></i> My proposals</a>
+                <a href="#" id="cusreq"><i class="fa-solid fa-receipt"></i> Recieved Requirements</a>
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
 
             </div>
@@ -460,7 +529,7 @@
                                                  <%if(extention1.equals(".pdf")){%>
                                                  <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-pdf"></i> <%=reqfilename%></a>
                                                  <%}else {%>
-                                                 <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a>
+                                                 <a href="data:application/zip;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a>
 
                                                  <%}%>
                                              </div>
@@ -507,6 +576,149 @@
 
 
         </div>
+
+        <div class="project" id="arrived_cusreq" style="display: none">
+
+            <%for(Requirement x:displayRequirementonprof){%>
+            <%
+                int profid = x.getProfid();
+                int reqid = x.getRequirementid();
+                byte[] reqfile = x.getRequirementfile();
+                String reqfilename = x.getFilename();
+                byte[] cusprofimg = null;
+                String cususername = null;
+                System.out.println("----- this is prof id ----"+x.getProfid());
+
+            %>
+
+
+            <%for(AllUsers y:allcustomers){%>
+             <%if(y.getUserid()==x.getUseridcus()){%>
+
+            <%
+
+                cusprofimg = y.getImgbytes();
+                cususername = y.getCususername();
+                System.out.println("*************  new *******************");
+                System.out.println(cususername);
+                System.out.println("*************** new *****************");
+
+            %>
+            <%}%>
+
+            <%}%>
+            <%
+                String cusimg=null;
+                if(cusprofimg==null){
+
+                }else{
+                    byte[] img = cusprofimg;
+                    byte[] realimg = Base64.encodeBase64(img);
+                    cusimg = new String(realimg, "UTF-8");
+                }
+            %>
+            <%
+                String thereqfile=null;
+                if(reqfile==null){
+
+                }else{
+                    byte[] req = reqfile;
+                    byte[] realreq = Base64.encodeBase64(req);
+                    thereqfile = new String(realreq, "UTF-8");
+                }
+            %>
+
+
+
+            <div class="items-proposals">
+                <div class="items">
+                    <div class="prof-details">
+                        <h3 id="heading1"><%=x.getReqname()%></h3>
+                        <div class="test">
+                            <div class="prof-img-area">
+                                <img  src="data:image/jpeg;base64,<%=cusimg%>" onerror="this.src='./resources/images/Avatar.png;'" style="; border-radius: 10px; width: 118px; height: 122px; margin-top: -3px;">
+
+                                <div class="info">
+                                    <p class="mini-info"  id="name1" style="font-size: 25px; margin-top: -7px; font-weight: bold"><%=cususername%></p>
+                                    <p class="mini-info" id="time1" style="margin-top: -22px;"><b>Requested on </b><%=x.getReq_upload_date()%> <b>at</b> <%=x.getReq_upload_time()%> </p>
+                                    <p class="mini-info" id="type" style="margin-top: -10px;"><b>Type :-</b> <%=x.getType()%> </p>
+                                    <p class="mini-info" id="location" style="margin-top: -10px;"><b>Location :- </b><%=x.getStreet()%>, <%=x.getCity()%></p>
+                                    <div class="reqfile" style="margin-top: -11px;">
+                                        <%
+                                            String extention1 = reqfilename.substring(reqfilename.lastIndexOf("."));
+                                            System.out.println(extention1);
+                                        %>
+                                        <%if(extention1.equals(".pdf")){%>
+                                        <a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-pdf"></i> <%=reqfilename%></a>
+                                        <%}else {%>
+                                        <a href="data:application/zip;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a>
+
+                                        <%}%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="others">
+                                <p style="margin-top: 10px;font-size: 17px;"><b>Description : - </b><%=x.getDescription()%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+
+                        <%
+                            int count = 0;
+                            int profid1 = 0;
+                            int reqid1 = 0;
+                            for(Proposal y:displayownproposals) {
+                                 profid1 = y.getProfid();
+                                if (profid == y.getProfid()){
+                                    reqid1 = y.getRequirementid();
+                                    if (reqid == y.getRequirementid()) {
+                                        count++;
+                                    }
+                                }
+
+                          }
+                            System.out.println("profid = " + profid +" "+profid1 +"reqid = " + reqid+" "+ reqid1);
+
+                        %>
+                        <div class="mini-btns">
+                            <%if(count>0){%>
+                            <button id="pending" class="minibtn" style="cursor: none; background-color: #1fa11f">Proposal sent</button>
+                           <%}else{%>
+
+                          <%if(x.getAccept()==0&&x.getReject()==0) {%>
+                            <form style="display: inline"  action="<%=request.getContextPath()%>/rejectreq" method="post"><input type="hidden" >
+<%--                                <button class="reject1" class="minibtn" onclick="rejectreq(<%=x.getRequirementid()%>,<%=x.getProfid()%>)">Reject</button>--%>
+                                <button class="reject1" class="minibtn" onclick="">Reject</button>
+
+                                <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                <input type="hidden" value="<%=x.getProfid()%>" name="profid">
+                                <input type="hidden" value="1" name="reject">
+
+                            </form>
+
+                            <button id="remove1" class="minibtn" onclick="senddata(<%=x.getRequirementid()%>,'<%=cusimg%>','<%=cususername%>')">Send a Proposal</button>
+
+
+
+                          <%}else if(x.getAccept()==1){%>
+                            <button id="pending" class="minibtn" style="cursor: none; background-color: #1fa11f">Proposal sent</button>
+                          <%}else if(x.getReject()==1){%>
+                            <button class="reject1" class="minibtn" style="cursor: none">You Rejected this Requirement</button>
+                          <%}%>
+                        <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%}%>
+
+        </div>
+
+
+
 <%--            //////////////////////////////Appointment part//////////////////////////////////////////////--%>
             <div class="project" id="appointment">
                 <div class="ordertypes">
@@ -672,7 +884,91 @@
             console.log("Hello2");
         }
     }
+    function rejectreq(reqid,profid){
+        var reqid1 = reqid;
+        var profid1 = profid;
+        var out=confirm("Do you want to reject the Requirement!");
+        if (out==true){
+            console.log("test2");
+            var xHTTP=new XMLHttpRequest();
+            xHTTP.open("POST","<%=request.getContextPath()%>/rejectreq?reject=1&reqid="+reqid1+"&profid="+profid1,true);
+            console.log("rejectreq function 1 ");
+            xHTTP.send();
+            console.log("rejectreq function 2");
+            location="<%=request.getContextPath()%>/viewproject";
 
+        }
+    }
+    function mypopupclose(){
+        var filling =document.getElementById("uploadproposal");
+        filling.style.display="none";
+        var blur = document.getElementById("blur");
+        blur.style.filter="none";
+        var menubar = document.getElementById("menu_bar");
+        menubar.style.filter="none";
+    }
+    function processSelectedFiles(fileInput) {
+        let files = fileInput.files;
+        let val = document.querySelector("#filename");
+
+        for (let i = 0; i < files.length; i++) {
+            val.value += files[i].name;
+            console.log("============");
+            console.log(val.value);
+        }
+    }
+    function senddata(reqid,cusimg,cusname){
+        var reqid1 = reqid;
+        var cusname1 = cusname;
+
+        console.log("========== reqid =================="+reqid1)
+        var filling =document.getElementById("uploadproposal");
+        filling.style.display="block";
+        var blur = document.getElementById("blur");
+        blur.style.filter="blur(8px)";
+
+        var menubar = document.getElementById("menu_bar");
+        menubar.style.filter="blur(8px)";
+
+        // var cusimage = null;
+        var cusid = 0;
+        var profid = 0;
+        var realcusimg = null;
+        // var img = null;
+        // var realimg = null;
+        var filename = null;
+        <%for(Requirement x:displayRequirementonprof){%>
+        if(reqid1==<%=x.getRequirementid()%>){
+            cusname="<%=x.getCusname()%>";
+            <%--cusimage = "<%=x.getCusprofimg()%>";--%>
+            cusid = "<%=x.getUseridcus()%>";
+            profid = "<%=x.getProfid()%>";
+            filename = "<%=x.getFilename()%>"
+
+        }else{
+            console.log("------------ error error error---------------");
+        }
+        // if(cusimage==null){
+        //
+        // }else{
+        //     img = cusimage;
+        //     realimg = Base64.encodeBase64(img);
+        //     realcusimg = new String(realimg, "UTF-8");
+        // }
+        <%}%>
+       console.log(cusname1+cusid+realcusimg+profid+filename+reqid1);
+        document.getElementById("customername").innerHTML=cusname1;
+        document.getElementById("custid1").innerHTML="Customer ID :- "+cusid;
+        document.getElementById("profimg").source="data:image/jpeg;base64,cusimg"+cusimg;
+        document.getElementById("cusid").value=cusid;
+        document.getElementById("profid").value=profid;
+        document.getElementById("filename").value=filename;
+        document.getElementById("reqid3").value=reqid1;
+
+       console.log(document.getElementById("cusid").value+" "+document.getElementById("profid").value+" "+document.getElementById("filename").value+" "+ document.getElementById("reqid2").value);
+
+
+    }
     <%--function openappointment(ele){--%>
     <%--    var appointmentid=ele.id;--%>
     <%--    var customerid=null;--%>

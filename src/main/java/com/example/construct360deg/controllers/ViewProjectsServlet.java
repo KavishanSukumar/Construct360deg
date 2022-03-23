@@ -71,6 +71,14 @@ public class ViewProjectsServlet extends HttpServlet {
             }
             req.setAttribute("requirements", requirements);
 
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Proposal> proposals= new ArrayList<>();
+            try {
+                proposals=proposalsDAO.allavailableproposals();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("proposals", proposals);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);
 
@@ -117,6 +125,14 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("requirements", requirements);
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Proposal> proposals= new ArrayList<>();
+            try {
+                proposals=proposalsDAO.allavailableproposals();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("proposals", proposals);
 
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
@@ -163,12 +179,13 @@ public class ViewProjectsServlet extends HttpServlet {
             ProposalsDAO proposalsDAO = new ProposalsDAO();
             ArrayList<Appointment> appointments = new ArrayList<>();
             AppointmentDAO appointmentDAO = new AppointmentDAO();
-
+            ArrayList<Requirement> displayRequirementonprof = new ArrayList<>();
             try {
                 allcustomers=allProfileDAO.allcustomers();
                 displayRequirement = requirementDAO.displayRequirement();
                 displayownproposals = proposalsDAO.displayownproposals(userid);
                 appointments = appointmentDAO.retriveAppointments(userid);
+                displayRequirementonprof = requirementDAO.displayAvailableRequirementtoprof(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -176,6 +193,7 @@ public class ViewProjectsServlet extends HttpServlet {
             req.setAttribute("displayRequirement",displayRequirement);
             req.setAttribute("displayownproposals",displayownproposals);
             req.setAttribute("appointment",appointments);
+            req.setAttribute("displayRequirementonprof",displayRequirementonprof);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
@@ -237,17 +255,20 @@ public class ViewProjectsServlet extends HttpServlet {
             RequirementDAO requirementDAO = new RequirementDAO();
             ArrayList<Proposal>   displayownproposals = new ArrayList<>();
             ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Requirement> displayRequirementonprof = new ArrayList<>();
 
             try {
                 allcustomers=allProfileDAO.allcustomers();
                 displayRequirement = requirementDAO.displayRequirement();
                 displayownproposals = proposalsDAO.displayownproposals(userid);
+                displayRequirementonprof = requirementDAO.displayAvailableRequirementtoprof(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             req.setAttribute("allcustomers",allcustomers);
             req.setAttribute("displayRequirement",displayRequirement);
             req.setAttribute("displayownproposals",displayownproposals);
+            req.setAttribute("displayRequirementonprof",displayRequirementonprof);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
