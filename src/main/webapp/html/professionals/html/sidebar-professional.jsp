@@ -1,25 +1,25 @@
 <script src="./resources/js/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function (){
-        var myvar=setInterval(function (){
-            $.ajax({
-                url:"<%=request.getContextPath()%>/instantnotification",
-                type:"POST",
-                success:function (data){
-                    console.log(data[0]);
-                    if (data[0]!='0'){
-                        $("#notification").addClass("mycolor");
-                        $("#notificationtext").addClass("mycolor");
-                        $("#notificationtext").html("Notifications("+data[0]+")");
+        <%--var myvar=setInterval(function (){--%>
+        <%--    $.ajax({--%>
+        <%--        url:"<%=request.getContextPath()%>/instantnotification",--%>
+        <%--        type:"POST",--%>
+        <%--        success:function (data){--%>
+        <%--            console.log(data[0]);--%>
+        <%--            if (data[0]!='0'){--%>
+        <%--                $("#notification").addClass("mycolor");--%>
+        <%--                $("#notificationtext").addClass("mycolor");--%>
+        <%--                $("#notificationtext").html("Notifications("+data[0]+")");--%>
 
-                    }else{
-                        $("#notification").removeClass("mycolor");
-                        $("#notificationtext").removeClass("mycolor");
-                        $("#notificationtext").html("Notifications");
-                    }
-                }
-            });
-        },25000);
+        <%--            }else{--%>
+        <%--                $("#notification").removeClass("mycolor");--%>
+        <%--                $("#notificationtext").removeClass("mycolor");--%>
+        <%--                $("#notificationtext").html("Notifications");--%>
+        <%--            }--%>
+        <%--        }--%>
+        <%--    });--%>
+        <%--},25000);--%>
     });
 </script>
 <header class="menu_bar" id="menu_bar">

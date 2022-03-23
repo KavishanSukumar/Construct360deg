@@ -9,6 +9,7 @@
 %>
 <%
     Project project = (Project) request.getAttribute("projects");
+    int projectid = (int) request.getAttribute("projectid");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
 //    Project project1 = (Project) request.getAttribute("projects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
@@ -228,7 +229,7 @@
                                 <br>
                                 <label for="workinghours">Value(Working hours):</label>
                                 <input type="number" step="0.1" id="workinghours" name="graphpoint" required>
-                                <input type="hidden" name="projectid" value=1>
+                                <input type="hidden" name="projectid" value=<%=projectid%>>
                                 <br>
                                 <input type="submit">
                             </form>
@@ -245,7 +246,9 @@
 
                         <h3>Landscaping</h3>
                         <p><%=project.getEvent3()%><br><%=project.getEvent4()%><br></p>
-
+<%
+    System.out.println("this is project id="+projectid);
+%>
                         <h3>Another events</h3>
                         <p><%=project.getOther()%></p>
                     </div>
@@ -254,6 +257,7 @@
                     <div class="box2">
                         <h2>Project Members</h2>
                         <p> * Contractor : <%=z.getContractor()%><br> * Customer :<%=z.getCustomer()%><br> * Landscape Designer :<%=z.getLandscape()%></p>
+                        <h2>Another Members</h2>
                     </div>
                     <%}%>
 
@@ -283,16 +287,14 @@
                         <label for="other">Another Events: </label>
                         <input type="text" id="other" name="other" value="<%=project.getOther()%>">
 
-                        <h2>Add your project members:</h2>
-                        <label for="contractor">Contractor: </label>
-                        <input type="text" id="contractor" name="contractor">
-
-                        <label for="customer">Customer: </label>
-                        <input type="text" id="customer" name="customer">
-
-                        <label for="land">Landscape Designer: </label>
-                        <input type="text" id="land" name="landscape">
-
+                        <h2>Add members :</h2>
+                        <label for="member1"></label>
+                        <input type="text" id="member1" name="member1" value="<%=project.getMember1()%>">
+                        <label for="member2"></label>
+                        <input type="text" id="member2" name="member2" value="<%=project.getMember2()%>">
+                        <label for="member3"></label>
+                        <input type="text" id="member3" name="member3" value="<%=project.getMember3()%>">
+                        <input type="hidden" name="myprojectid" value="<%=projectid%>">
                         <input type="submit" value="Save">
                     </form>
                 </div>

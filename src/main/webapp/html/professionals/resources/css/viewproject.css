@@ -459,6 +459,7 @@ ul li a:hover,ul li i:hover{
 }
 #pending{
     margin-left: 215px;
+    color: white
 }
 #accept{
     background: #1fa11f;
@@ -500,7 +501,236 @@ ul li a:hover,ul li i:hover{
     color: white;
     cursor: none;
 }
+<<<<<<< HEAD
 .new-content #btn1, .new-content #btn2,.new-content #addfield{
+=======
+
+ /* arrvied cus requirments*/
+#arrived_cusreq{
+
+    background-color: #e6e4e3;
+    display: grid;
+    grid-template-areas: "a1 a2";
+    grid-template-columns: 50% 50%;
+
+}
+
+
+#heading1{
+    margin-top: 0px;
+    font-size: 26px;
+    text-align: center;
+    background: #c4c4c4;
+    border-radius: 10px;
+    padding: 2px;
+}
+.mini-btns{
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+#pending1{
+    margin-left: 215px;
+}
+#accept1{
+    background: #1fa11f;
+    color: white;
+    margin-left: 170px;
+}
+#makeproject1{
+    cursor: pointer;
+    margin-left: 10px;
+}
+#makeproject1:hover{
+    background: #ff7200 ;
+    color: white;
+
+}
+.reject1{
+    cursor: pointer;
+    background: #c4c4c4;
+    margin-left: 22vh;
+    width: 101px;
+    height: 32px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.reject1:hover{
+    color: white;
+    margin-left: 22vh;
+    background: red;
+}
+#remove1{
+    cursor: pointer;
+    margin-left: 10px;
+}
+#remove1:hover{
+    background: #ff7200;
+    color: white;
+}
+.minibtn{
+    height: 30px;
+    width: auto;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #c4c4c4;
+}
+
+#makeproject2{
+    background: #ff7200 ;
+    color: white;
+    cursor: none;
+}
+/*upload proposal*/
+#uploadproposal{
+    display: none;
+}
+
+
+.filling{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: #ffffff;
+    height: 609px;
+    width: 105vh;
+    /*margin-bottom: 10px;*/
+    /*margin-top: 15px;*/
+    /*border-radius: 18px;*/
+    /*box-sizing: border-box;*/
+    border: 5px solid #ff7200;
+    box-shadow: 5px 10px black;
+    margin: auto;
+    margin-left: 25%;
+    margin-top: 3%;
+}
+
+
+#close{
+    grid-area: b0;
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 718px;
+
+}
+#close:hover{
+    color: white;
+    background-color: red;
+    opacity: 1;
+}
+
+.img-area {
+    align-items: center;
+    grid-area: b1;
+    display: flex;
+    flex-direction: column;
+}
+#title{
+    grid-area: c1;
+    margin-top: 20px;
+    /*margin-left: 15px;*/
+    font-size: 48px;
+}
+#profimg{
+    /*margin-left: 20px;*/
+    grid-area: c2;
+    width: 185px;
+    height: 200px;
+    margin-top: -30px;
+
+}
+.a{
+    font-weight: bold;
+}
+#desrip{
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+#customername{
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -30px;
+}
+#cusid{
+    font-size: 26px;
+    margin-top: 1.5px;
+    font-weight: bold;
+
+}
+
+#text{
+    width: 723px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+    resize: none;
+}
+.up-area{
+    margin-top: 35px;
+    display: grid;
+    grid-area: b2;
+}
+.proposal{
+    margin-top: -67px;
+}
+
+
+
+#up-proposal{
+    font-size: 25px;
+    margin-left: 20px;
+}
+#filetype{
+    margin-left: 20px;
+}
+.up-area input[type=file]{
+    align-items: center;
+    font-size: 18px;
+    margin-left: 28px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.proposal input[type=submit] {
+    width: 206px;
+    height: 45px;
+    text-align: center;
+    font-size: 29px;
+    font-weight:bold;
+    border: none;
+    outline: none;
+    background: #a8a8a8;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    margin-left: 260px;
+}
+
+/* end of upload proposal */
+#submit:hover{
+    background-color: #ff7200;
+    color:white;
+}
+
+.new-content #btn1, .new-content #btn2{
+>>>>>>> de12a2b624f71f32dd5d1a6f9fcf5262fdc90556
     padding: 8px;
     width: 80px;
     border-radius: 5px;
@@ -509,6 +739,7 @@ ul li a:hover,ul li i:hover{
     background: #ff7200;
     color: white;
 }
+
 
 .footer{
     grid-column: 1 /-1;
@@ -525,3 +756,4 @@ ul li a:hover,ul li i:hover{
     text-align: center;
     color: rgb(255, 255, 255);
 }
+

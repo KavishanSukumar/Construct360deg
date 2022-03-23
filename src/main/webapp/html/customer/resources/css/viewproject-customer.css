@@ -453,6 +453,44 @@ tr:nth-child(even) {
     border: none;
     border-radius: 10px;
 }
+#uploadtopublic:hover,#chooseprof:hover,#availableprop:hover{
+    color: white;
+    background-color: #FF7200;
+}
+#uploadtopublic2{
+    color: white;
+    background-color: green;
+}
+#remove123:hover,#remove1234:hover{
+    color: white;
+    background-color: red;
+}
+.bigclass{
+    display: flex;
+    flex-direction: row;
+}
+#fa-bars1 {
+    z-index: 1;
+    color: black;
+    cursor: pointer;
+    left: 20px;
+    transition: 0.5s;
+    transition-property: color;
+    font-size: 34px;
+    margin-left: 20px;
+    margin-top: 7px;
+}
+.options{
+    margin-top: 10px;
+    margin-left: 6px;
+    font-size: 22px;
+}
+.hidden{
+    display: none;
+}
+.active{
+    display: flex;
+}
 /*+++++++++++++++++++++++++++++++++++ senal's available proposals ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 .proposals{
     align-items: center;

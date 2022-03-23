@@ -14,7 +14,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search for contractors</title>
+  <title>Search customers</title>
   <link rel="stylesheet" href="./html/professionals/resources/css/searchcustomer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -39,28 +39,28 @@
             <label class="box">Individual Customer
                 <input type="checkbox">
                 <span class="checkmark"></span>
-            </label>
-            <h4>Ranking :</h4>
-            <label class="box"><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+<%--            </label>--%>
+<%--            <h4>Ranking :</h4>--%>
+<%--            <label class="box"><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
         </div>
 
         <div class="container-4">

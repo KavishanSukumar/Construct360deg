@@ -128,18 +128,22 @@
                             <a target="_blank" onclick="viewdetails(<%=x.getProductid()%>)">
                                 <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/customer/resources/images/Avatar.png;'">
                             </a>
-                            <div class="desc"> <%=x.getProductName()%></div>
+                            <a target="_blank" onclick="viewdetails(<%=x.getProductid()%>)">
+                            <div class="desc" > <%=x.getProductName()%></div>
+                            <div class="priceunit">LKR </div>
+                            <div class="price"><%=x.getPrice()%></div>
+                            </a>
                         </div>
                         <div class="addtocart">
 <%--                          <button onclick="orderproduct(this);" value="<%=x.getProductid()%>" id="<%=x.getProductid()%>" class="order-btn">Order Now</button>--%>
-                            <form action="<%=request.getContextPath()%>/orderproduct" method="get">
-                                <input type="text" hidden value="<%=x.getProductid()%>" name="productid">
-                                <input type="text" hidden value="<%=x.getPrice()%>" name="productprice">
-                                <input type="text" hidden value="<%=x.getProductName()%>" name="productname">
-                                <input type="text" hidden value="<%=x.getQuantity()%>" name="productquantity">
-                                <input type="submit" value="Order Product" class="order-btn">
-                            </form>
-                            <button onclick="addtocart(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>
+<%--                            <form action="<%=request.getContextPath()%>/orderproduct" method="get">--%>
+<%--                                <input type="text" hidden value="<%=x.getProductid()%>" name="productid">--%>
+<%--                                <input type="text" hidden value="<%=x.getPrice()%>" name="productprice">--%>
+<%--                                <input type="text" hidden value="<%=x.getProductName()%>" name="productname">--%>
+<%--                                <input type="text" hidden value="<%=x.getQuantity()%>" name="productquantity">--%>
+<%--                                <input type="submit" value="Order Product" class="order-btn">--%>
+<%--                            </form>--%>
+<%--                            <button onclick="addtocart(this);" class="addtocart-btn" id="<%=x.getProductid()%>">Add to cart</button>--%>
                         </div>
 
                     </div>

@@ -168,6 +168,25 @@ tr:nth-child(even) {
     border: none;
     border-radius: 10px;
 }
+
+#notavai{
+    size: 30px;
+    height: 28px;
+    width: auto;
+    font-size: 15px;
+    cursor: none;
+    color: white;
+    background: #ff7200;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+
+
+
 #accept:hover{
     background-color: #36a736;
     color: white;

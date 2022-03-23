@@ -43,6 +43,17 @@ public class Proposal {
     private int customeraccept;
     private int customerreject;
 
+    public int getTag() {
+        return tag;
+    }
+
+    public void setTag(int tag) {
+        this.tag = tag;
+    }
+
+    private int tag;
+
+
     public int getIsprojectcreated() {
         return isprojectcreated;
     }
