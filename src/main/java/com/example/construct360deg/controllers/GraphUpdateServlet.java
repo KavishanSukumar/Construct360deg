@@ -21,9 +21,10 @@ public class GraphUpdateServlet extends HttpServlet {
         Graph graph=new Graph();
         GraphDAO graphDAO=new GraphDAO();
 
-        graph.setProjectid(Integer.parseInt(req.getParameter("projectid")));
+        graph.setProjectid(Integer.parseInt((req.getParameter("projectid"))));
         graph.setGraphattribute(req.getParameter("graphattribute"));
         graph.setGraphpoint(Float.parseFloat(req.getParameter("graphpoint")));
+        System.out.println(graph.getProjectid()+"  -kavishansukumar");
 
         try {
             if (graphDAO.updateGraph(graph)){
