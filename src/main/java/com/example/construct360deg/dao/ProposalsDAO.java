@@ -84,6 +84,7 @@ public class ProposalsDAO {
              availableproposal.setDescription(resultSet.getString("description"));
              availableproposal.setProposalid(resultSet.getInt("proposalid"));
              availableproposal.setProfid(resultSet.getInt("profid"));
+             availableproposal.setTag(resultSet.getInt("tag"));
 
              availableproposals.add(availableproposal);
 
@@ -92,6 +93,45 @@ public class ProposalsDAO {
 
         return availableproposals;
      }
+
+    public ArrayList<Proposal>   allavailableproposals() throws SQLException{
+        ArrayList<Proposal> availableproposals = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql ="SELECT * FROM `availableproposals` WHERE customerReject=0";
+        ResultSet resultSet = null;
+        preparedStatement = connection.prepareStatement(sql);
+
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            Proposal availableproposal = new Proposal();
+            int reqid1 = resultSet.getInt("reqid");
+            availableproposal.setRequirementid(reqid1);
+            byte[] profimg = resultSet.getBytes("profilepic");
+            availableproposal.setProfprofimg(profimg);
+            availableproposal.setProfname(resultSet.getString("username"));
+            availableproposal.setFilename(resultSet.getString("filename"));
+            byte[] proposal = resultSet.getBytes("file");
+            availableproposal.setProposal(proposal);
+            availableproposal.setCustomeraccept(resultSet.getInt("customerAccept"));
+            availableproposal.setCustomerreject(resultSet.getInt("customerReject"));
+            availableproposal.setProposal_upload_date(resultSet.getDate("submitDate"));
+            availableproposal.setProposal_upload_time(resultSet.getTime("submitTime"));
+            availableproposal.setDescription(resultSet.getString("description"));
+            availableproposal.setProposalid(resultSet.getInt("proposalid"));
+            availableproposal.setProfid(resultSet.getInt("profid"));
+            availableproposal.setCusid(resultSet.getInt("cusid"));
+            availableproposal.setTag(resultSet.getInt("tag"));
+
+            availableproposals.add(availableproposal);
+
+        }
+
+
+        return availableproposals;
+    }
+
+
     public ArrayList<Proposal>   displayownproposals(int profid) throws SQLException{
         ArrayList<Proposal> displayownproposals = new ArrayList<>();
         Connection connection = Database.getConnection();
@@ -134,11 +174,15 @@ public class ProposalsDAO {
 
                  Connection connection = Database.getConnection();
                  PreparedStatement preparedStatement = null;
+                 PreparedStatement preparedStatement2 = null;
                  String sql = "Update proposals SET customerAccept=1 where proposalid=?";
+                 String sql2 ="Update proposals SET tag=1 where proposalid<>?";
                  preparedStatement = connection.prepareStatement(sql);
                  preparedStatement.setInt(1, proposalid);
                  preparedStatement.executeUpdate();
-
+                 preparedStatement2= connection.prepareStatement(sql2);
+                 preparedStatement2.setInt(1, proposalid);
+                 preparedStatement2.executeUpdate();
                  System.out.println("accpet");
 
              }else{

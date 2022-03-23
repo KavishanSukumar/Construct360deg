@@ -71,6 +71,14 @@ public class ViewProjectsServlet extends HttpServlet {
             }
             req.setAttribute("requirements", requirements);
 
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Proposal> proposals= new ArrayList<>();
+            try {
+                proposals=proposalsDAO.allavailableproposals();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("proposals", proposals);
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");
             requestDispatcher.forward(req,resp);
 
@@ -117,6 +125,14 @@ public class ViewProjectsServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             req.setAttribute("requirements", requirements);
+            ProposalsDAO proposalsDAO = new ProposalsDAO();
+            ArrayList<Proposal> proposals= new ArrayList<>();
+            try {
+                proposals=proposalsDAO.allavailableproposals();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("proposals", proposals);
 
 
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/viewproject-customer.jsp");

@@ -9,6 +9,8 @@
 %>
 <%
     Project project = (Project) request.getAttribute("projects");
+    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
+//    Project project1 = (Project) request.getAttribute("projects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
 %>
@@ -249,10 +251,12 @@
                         <p><%=project.getOther()%></p>
                     </div>
 
+                    <%for (Project z:newprojects){%>
                     <div class="box2">
                         <h2>Project Members</h2>
-                        <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLand()%></p>
+                        <p> * Contractor : <%=z.getContractor()%><br> * Customer :<%=z.getCustomer()%><br> * Landscape Designer :<%=z.getLandscape()%></p>
                     </div>
+                    <%}%>
 
                 </div>
 
@@ -282,13 +286,13 @@
 
                         <h2>Add your project members:</h2>
                         <label for="contractor">Contractor: </label>
-                        <input type="text" id="contractor" name="contractor" value="<%=project.getContractor()%>">
+                        <input type="text" id="contractor" name="contractor">
 
                         <label for="customer">Customer: </label>
-                        <input type="text" id="customer" name="customer" value="<%=project.getCustomer()%>">
+                        <input type="text" id="customer" name="customer">
 
                         <label for="land">Landscape Designer: </label>
-                        <input type="text" id="land" name="land" value="<%=project.getLand()%>">
+                        <input type="text" id="land" name="landscape">
 
                         <input type="submit" value="Save">
                     </form>

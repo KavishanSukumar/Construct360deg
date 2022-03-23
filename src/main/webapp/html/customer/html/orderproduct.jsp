@@ -67,7 +67,7 @@
           <label>
             <span>Phone <span class="required">*</span></span>
             <!-- <input type="tel" name="city">  -->
-            <input type="tel" id="phone" name="phone" placeholder="xxx-xxxxxxx" pattern="[0-9]{3}-[0-9]{7}" required>
+            <input type="tel" id="phone" name="phone" placeholder="xxx-xxxxxxx" pattern="[0-9]{3}[0-9]{7}" required>
           </label>
           <label>
             <span>Email Address <span class="required">*</span></span>
@@ -75,7 +75,7 @@
           </label>
           <label>
             <span>Quantity <span class="required">*</span></span>
-            <input type="number" name="quantity" placeholder="" required min="1" max="<%=productquantity%>">
+            <input type="number" name="quantity" onchange="calculateAmount(this.value)" placeholder="" required min="1" max="<%=productquantity%>">
           </label>
         </div>
 
@@ -91,7 +91,9 @@
               </tr>
               <tr>
                 <td>Subtotal</td>
-                <td><%=productprice*productquantity%></td>
+                <td><input class="subtotalprice" name="tot_amount" id="tot_amount" type="text" readonly></td>
+                <td></td>
+<%--                <td><%=productprice*productquantity%></td>--%>
               </tr><br><br>
 
             </table><br>
@@ -113,6 +115,13 @@
   </div>
 </div>
 <%@include file="../../footer.jsp"%>
+<script>
+  function calculateAmount(val){
+    var tot_price = val * <%=productprice%>
+    var divobj = document.getElementById('tot_amount');
+    divobj.value = tot_price;
+  }
+</script>
 </body>
 
 

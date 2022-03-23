@@ -40,7 +40,18 @@
         </div>
         <div class="content2">
             <div class="proposals" id="proposals">
+                <%  int accepttag = 1;
+                    int propid = 0;
+                    for(Proposal x:proposals){
+                        if(accepttag==x.getCustomeraccept()){
+                            propid = x.getProposalid();
+                        }
+                    }
+                %>
+
                 <%for(Proposal x:proposals){%>
+
+
                 <div class="items-proposals">
                     <div class="prof-details">
                         <%
@@ -58,11 +69,12 @@
                         </div>
                         <div class="info">
                             <p class="mini-info"  id="name"><%=x.getProfname()%></p>
-                            <p class="mini-info" id="time">on <%=x.getProposal_upload_date()%> at <%=x.getProposal_upload_time()%></p>
+                            <p class="mini-info" id="time">Proposed on <%=x.getProposal_upload_date()%> at <%=x.getProposal_upload_time()%></p>
                             <div class="mini-btns">
                                 <%if(x.getCustomeraccept()==1){%>
-                                    <form><button id="accept0" class="minibtns">You accepted the proposal</button></form>
-                                <%}else{%>
+                                    <button id="accept0" class="minibtns">You accepted the proposal</button>
+                                     <br><br><br>
+                                <%}else if((x.getCustomeraccept()==0&&x.getCustomerreject()==0&&x.getTag()==0)){%>
                                 <form method="post" action="<%=request.getContextPath()%>/availableproposals">
                                     <button id="accept" class="minibtns">Accept Proposal</button>
                                     <input type="hidden" value="1" name="choice">
@@ -74,8 +86,10 @@
                                     <input type="hidden" value="<%=x.getProposalid()%>" name="pid">
                                 </form>
 
+                                <%} else if(x.getTag()==1){%>
+                                <button id="notavai" class="minibtns">The Proposal is not available</button>
+                                <br><br><br>
                                 <%}%>
-
                             </div>
                         </div>
                     </div>

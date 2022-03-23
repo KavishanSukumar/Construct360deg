@@ -3,10 +3,7 @@ package com.example.construct360deg.dao;
 import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.Project;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class NewProjectDAO {
@@ -14,15 +11,24 @@ public class NewProjectDAO {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
 //        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
-        String sql = "INSERT INTO `project`(`projectname`,`reqid`,`proposalid`,`cusid`,`profid`) VALUES (?,?,?,?,?)";
+//        String sql = "INSERT INTO `project`(`projectname`,`reqid`,`proposalid`,`cusid`,`profid`) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO `project`(`profid`, `projectname`, `contractor`, `landscape`, `customer`, `address`, `starttime`, `finishtime`, `proposalid`, `reqid`, `cusid`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         preparedStatement = connection.prepareStatement(sql);
         int row =0;
 
-        preparedStatement.setString(1,project.getProjectname());
-        preparedStatement.setInt(2,reqid);
-        preparedStatement.setInt(3,proposalid);
-        preparedStatement.setInt(4,cusid);
-        preparedStatement.setInt(5, profid);
+        preparedStatement.setInt(1,profid);
+        preparedStatement.setString(2,project.getProjectname());
+        preparedStatement.setString(3,project.getContractor());
+        preparedStatement.setString(4,project.getLandscape());
+        preparedStatement.setString(5,project.getCustomer());
+        preparedStatement.setString(6,project.getAddress());
+        preparedStatement.setString(7,project.getStarttime());
+        preparedStatement.setString(8,project.getFinishtime());
+//        preparedStatement.setDate(7, Date.valueOf(project.getStarttime()));
+//        preparedStatement.setDate(8, Date.valueOf(project.getFinishtime()));
+        preparedStatement.setInt(9,proposalid);
+        preparedStatement.setInt(10,reqid);
+        preparedStatement.setInt(11,cusid);
         row = preparedStatement.executeUpdate();
          if (row>0){
              return true;
@@ -31,6 +37,7 @@ public class NewProjectDAO {
          }
     }
 // this is for professionals ///////////////////////////////
+
     public ArrayList<Project> viewProject(int profid) throws SQLException {
         ArrayList<Project> newprojects = new ArrayList<>();
         Connection connection = Database.getConnection();
@@ -45,8 +52,14 @@ public class NewProjectDAO {
         while (resultSet.next()){
             Project project = new Project();
             project.setProjectname(resultSet.getString("projectname"));
+            project.setContractor(resultSet.getString("contractor"));
+            project.setLandscape(resultSet.getString("landscape"));
+            project.setCustomer(resultSet.getString("customer"));
+            project.setAddress(resultSet.getString("address"));
+            project.setStarttime(resultSet.getString("starttime"));
+            project.setFinishtime(resultSet.getString("finishtime"));
             project.setCusaccept(resultSet.getByte("cus_accept"));
-//            project.setProjectid(resultSet.getInt("projectid"));
+            project.setProjectid(resultSet.getInt("projectid"));
             newprojects.add(project);
         }
         return newprojects;
@@ -68,6 +81,12 @@ public class NewProjectDAO {
         while (resultSet.next()){
             Project project = new Project();
             project.setProjectname(resultSet.getString("projectname"));
+            project.setContractor(resultSet.getString("contractor"));
+            project.setLandscape(resultSet.getString("landscape"));
+            project.setCustomer(resultSet.getString("customer"));
+            project.setAddress(resultSet.getString("address"));
+            project.setStarttime(resultSet.getString("starttime"));
+            project.setFinishtime(resultSet.getString("finishtime"));
             project.setCusaccept(resultSet.getByte("cus_accept"));
             project.setProjectid(resultSet.getInt("projectid"));
             newprojects.add(project);

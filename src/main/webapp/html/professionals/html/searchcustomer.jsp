@@ -39,28 +39,28 @@
             <label class="box">Individual Customer
                 <input type="checkbox">
                 <span class="checkmark"></span>
-            </label>
-            <h4>Ranking :</h4>
-            <label class="box"><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
+<%--            </label>--%>
+<%--            <h4>Ranking :</h4>--%>
+<%--            <label class="box"><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
         </div>
 
         <div class="container-4">

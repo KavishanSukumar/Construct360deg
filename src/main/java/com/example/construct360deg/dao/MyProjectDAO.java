@@ -23,9 +23,10 @@ public class MyProjectDAO {
         preparedStatement.setString(3,project.getEvent3());
         preparedStatement.setString(4,project.getEvent4());
         preparedStatement.setString(5,project.getOther());
-        preparedStatement.setString(6,project.getContractor());
-        preparedStatement.setString(7,project.getCustomer());
-        preparedStatement.setString(8,project.getLand());
+//        preparedStatement.setString(6,project.getContractor());
+//        preparedStatement.setString(7,project.getCustomer());
+//        preparedStatement.setString(8,project.getLand());
+
 //        preparedStatement.setString(9,project.getProjectid());
         preparedStatement.setInt(9,project.getUserid());
         row = preparedStatement.executeUpdate();
@@ -41,6 +42,7 @@ public class MyProjectDAO {
         Connection connection = Database.getConnection();
         String sql = "SELECT * FROM `projectdetails` WHERE userid=?";
         Project project = new Project();
+//        Project project = new Project();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
@@ -49,13 +51,14 @@ public class MyProjectDAO {
         resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
             project.setEvent1(resultSet.getString("event1"));
-            project.setEvent2(resultSet.getString("event3"));
+            project.setEvent2(resultSet.getString("event2"));
             project.setEvent3(resultSet.getString("event3"));
             project.setEvent4(resultSet.getString("event4"));
             project.setOther(resultSet.getString("other"));
-            project.setContractor(resultSet.getString("contractor"));
-            project.setCustomer(resultSet.getString("customer"));
-            project.setLand(resultSet.getString("land"));
+//            project.setContractor(resultSet.getString("contractor"));
+//            project.setCustomer(resultSet.getString("customer"));
+//            project.setLand(resultSet.getString("land"));
+
 //            project.setProjectid(resultSet.getString("projectid"));
             project.setUserid(resultSet.getInt("userid"));
 //            projects.add(project);

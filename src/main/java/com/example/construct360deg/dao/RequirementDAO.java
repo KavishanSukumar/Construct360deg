@@ -71,10 +71,13 @@ public class RequirementDAO {
         ArrayList<Requirement> displayRequirements = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `requirement` WHERE `useridcus` = ? ORDER BY `submit_date` DESC";
+        int deletereq = 0;
+        String sql = "SELECT * FROM `requirement` WHERE `useridcus` = ? AND deletereq = ? ORDER BY `submit_date` DESC";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,useridcus);
+        preparedStatement.setInt(2,deletereq);
+
         resultSet = preparedStatement.executeQuery();
         System.out.println("displayRequirement");
         while (resultSet.next()) {
@@ -224,6 +227,21 @@ public class RequirementDAO {
         preparedStatement.setInt(2,reqid);
         preparedStatement.executeUpdate();
     }
+
+    public void deleteownreq(int reqid) throws SQLException{
+        int one = 1;
+        int zero = 0;
+        Connection connection = Database.getConnection();
+        String sql="UPDATE `requirement` SET `deletereq`=?, `display_on_prof`=? WHERE requirementid =?";
+        PreparedStatement preparedStatement = null;
+        preparedStatement=connection.prepareStatement(sql);
+
+        preparedStatement.setInt(1,one);
+        preparedStatement.setInt(2,zero);
+        preparedStatement.setInt(3,reqid);
+        preparedStatement.executeUpdate();
+    }
+
 
 
     public  ArrayList<Requirement> display_cus_in_prof_public() throws SQLException{

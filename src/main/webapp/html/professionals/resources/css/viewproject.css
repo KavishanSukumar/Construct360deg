@@ -433,12 +433,6 @@ ul li a:hover,ul li i:hover{
 .info{
     margin-left: 10px;
 }
-/*.test{*/
-/*    background:#c4c4c4 ;*/
-/*    padding: 5px;*/
-/*    border-radius: 10px;*/
-/*}*/
-
 
 #heading{
     margin-top: 0px;
@@ -497,6 +491,7 @@ ul li a:hover,ul li i:hover{
     color: white;
     cursor: none;
 }
+
  /* arrvied cus requirments*/
 #arrived_cusreq{
 
@@ -720,6 +715,17 @@ ul li a:hover,ul li i:hover{
     background-color: #ff7200;
     color:white;
 }
+
+.new-content #btn1, .new-content #btn2{
+    padding: 8px;
+    width: 80px;
+    border-radius: 5px;
+}
+.new-content #btn1:hover, .new-content #btn2:hover{
+    background: #ff7200;
+    color: white;
+}
+
 
 .footer{
     grid-column: 1 /-1;

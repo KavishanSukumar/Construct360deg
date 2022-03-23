@@ -31,6 +31,16 @@ public class Requirement {
     private int accept;
     private int reject;
 
+    public int getDeletereq() {
+        return deletereq;
+    }
+
+    public void setDeletereq(int deletereq) {
+        this.deletereq = deletereq;
+    }
+
+    private int deletereq;
+
     public int getAccept() {
         return accept;
     }

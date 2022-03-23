@@ -319,6 +319,12 @@ body{
         .profile{
             display: flex;
             flex-direction:column ;
+            background-color: rgba(255, 105, 0, 0.2);
+            margin: 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            height: 400px;
+            width: 250px;
         }
 
         .gallery{
@@ -334,6 +340,8 @@ body{
             text-align: center;
             width: 200px;
             font-size: 15px;
+            height: 76px;
+            margin-top: 22px;
         }
 
         .addtocart{

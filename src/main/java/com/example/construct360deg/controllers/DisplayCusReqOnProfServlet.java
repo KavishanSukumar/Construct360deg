@@ -96,7 +96,7 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        System.out.println("i am in DisplayCusReqOnProf post method 2");
+        System.out.println("i am in DisplayCusReqOnProf post method 22222");
    }
 
 

@@ -219,7 +219,7 @@
                 </div>
                 <div class="box2">
                     <h2>Project Members</h2>
-                    <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLand()%></p>
+                    <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLandscape()%></p>
                 </div>
             </div>
 
