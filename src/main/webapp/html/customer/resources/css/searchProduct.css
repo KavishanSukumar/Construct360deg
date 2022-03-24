@@ -244,10 +244,14 @@ body{
 
         .filter{
             grid-area:filter;
-            background-color: rgba(255, 255, 255, 0.733);
-            padding-left: 35px;
+            background-color: rgb(255, 244, 225);
+            padding-left: 52px;
             /* position: fixed; */
             /* margin-top: 62px; */
+            padding-top: 29px;
+            height: 534px;
+            margin-left: 10px;
+            border-radius: 11px;
         }
 
 

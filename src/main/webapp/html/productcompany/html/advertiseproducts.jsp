@@ -131,7 +131,7 @@
 <%--////////////////////////////////////////////////////////////////////////////////////////////////////--%>
 
                             <input type="hidden" name="mode" value="pinRequest"/>
-                            <label class="label-PIN"><b><br>Number of Pin</b></label>
+                            <label class="label-PIN"><b><br>Number of days</b></label>
                             <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
                                 <option value=" " disabled selected>Choose your option</option>
                                 <option value="1">7 days</option>
