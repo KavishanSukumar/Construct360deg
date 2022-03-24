@@ -145,12 +145,10 @@
 
         </div>
       </div>
-      <div id="addprof">
-        <div class="middle-content">
-gcgndmdmfgd
-        </div>
 
-      </div>
+
+
+
     </div>
 
   </div>
