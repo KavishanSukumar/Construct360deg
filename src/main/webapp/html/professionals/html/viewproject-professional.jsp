@@ -414,8 +414,7 @@
         <div class="content2">
             <div class="home">
                 <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
-                <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
-
+<%--                <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>--%>
                 <a href="#" id="myproposals"><i class="fas fa-file"></i> My proposals</a>
                 <a href="#" id="cusreq"><i class="fa-solid fa-receipt"></i> Recieved Requirements</a>
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
@@ -444,48 +443,21 @@
 <%--                </div>--%>
             </div>
 
-            <div class="project" id="chatbox">
-                <div class="chat-box-container" id="chat-box-container">
-                    <div class="users">
-                        <div class="searcharea">
-                            <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
-                        </div>
-                        <div class="chatarea">
-                            <%for (Chat x:chats){%>
-                                <%if(x.getReceiver()==userid){
-                                    continue;
-                                }%>
-                                <div class="chatuser" id="<%=x.getReceiver()%>">
-                                    <%
-                                        String name=null;
-                                        if(x.getCustomerindividualName()!=null){
-                                            name= x.getCustomerindividualName();
-                                        }else if(x.getCustomercomname()!=null){
-                                            name=x.getCustomercomname();
-                                        }else if(x.getIndividualprof()!=null){
-                                            name=x.getIndividualprof();
-                                        }else {
-                                            name=x.getProfessionalname();
-                                        }
-                                    %>
-                                    <h4 id="name<%=x.getReceiver()%>"><%=name%></h4>
-                                </div>
-                            <%}%>
-                        </div>
-                    </div>
-                    <div class="chat">
-                        <div class="currentchatuser">
-                            <h4 id="chatname"></h4>
-                        </div>
-                        <div class="currentchat">
-                            <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>
-                        </div>
-                        <div class="currentchattextbox">
-                            <input type="text" class="chatbar" id="message"><button class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<%--            <div class="project" id="chatbox">--%>
+<%--                <div class="chat-box-container" id="chat-box-container">--%>
+<%--                    <div class="chat">--%>
+<%--                        <div class="currentchatuser">--%>
+<%--                            <h4 id="chatname"></h4>--%>
+<%--                        </div>--%>
+<%--                        <div class="currentchat">--%>
+<%--                            <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>--%>
+<%--                        </div>--%>
+<%--                        <div class="currentchattextbox">--%>
+<%--                            <input type="text" class="chatbar" id="message"><button class="fa fa-paper-plane" aria-hidden="true" id="send-btn"></button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
             <div class="project" id="proposals" style="display: none">
 

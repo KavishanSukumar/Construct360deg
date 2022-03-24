@@ -113,11 +113,9 @@
                 $("#update_payment").css("display","none");
             });
 
-            var receiver=null;
+            var receiver=<%=p%>;
 
-            $(".chatuser").click(function (){
-                receiver=this.id;
-            });
+
 
             $("#send-btn").click(function (){
                 var message= $("#message").val();
