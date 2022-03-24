@@ -530,7 +530,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="project" id="proposals" style="display: none">
 
                    <%for(Proposal x:displayownproposals){%>
