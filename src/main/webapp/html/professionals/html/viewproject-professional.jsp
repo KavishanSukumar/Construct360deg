@@ -34,6 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
+  <script src="./resources/js/calander.js"></script>
   <script>
     $(document).ready(function (){
           $("#home-btn").click(function (){
@@ -43,10 +44,12 @@
             $("#proposals").css("display","none");
             $("#appointment-btn").removeClass("active");
             $("#cusreq").removeClass("active");
+            $("#timeslot-btn").removeClass("active");
             $("#viewproject").css("display","block");
             $("#chatbox").css("display","none");
             $("#appointment").css("display","none");
             $("#arrived_cusreq").css("display","none");
+            $("#timeslots").css("display","none");
 
           });
           $("#chatbox-btn").click(function (){
@@ -56,16 +59,19 @@
             $("#proposals").css("display","none");
             $("#appointment-btn").removeClass("active");
             $("#cusreq").removeClass("active");
+            $("#timeslot-btn").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","block");
             $("#appointment").css("display","none");
             $("#arrived_cusreq").css("display","none");
+            $("#timeslots").css("display","none");
 
           });
           $("#appointment-btn").click(function (){
             $(this).addClass("active");
             $("#home-btn").removeClass("active");
             $("#chatbox-btn").removeClass("active");
+              $("#timeslot-btn").removeClass("active");
             $("#myproposals").removeClass("active");
             $("#cusreq").removeClass("active");
             $("#viewproject").css("display","none");
@@ -73,11 +79,13 @@
             $("#appointment").css("display","block");
             $("#proposals").css("display","none");
             $("#arrived_cusreq").css("display","none");
+            $("#timeslots").css("display","none");
 
           });
         $("#myproposals").click(function (){
             $(this).addClass("active");
             $("#chatbox-btn").removeClass("active");
+            $("#timeslot-btn").removeClass("active");
             $("#home-btn").removeClass("active");
             $("#appointment-btn").removeClass("active");
             $("#cusreq").removeClass("active");
@@ -86,6 +94,7 @@
             $("#proposals").css("display","grid");
             $("#appointment").css("display","none");
             $("#arrived_cusreq").css("display","none");
+            $("#timeslots").css("display","none");
         });
         $("#cusreq").click(function (){
             $(this).addClass("active");
@@ -93,11 +102,27 @@
             $("#home-btn").removeClass("active");
             $("#appointment-btn").removeClass("active");
             $("#myproposals").removeClass("active");
+            $("#timeslot-btn").removeClass("active");
             $("#viewproject").css("display","none");
             $("#chatbox").css("display","none");
             $("#proposals").css("display","none");
             $("#appointment").css("display","none");
             $("#arrived_cusreq").css("display","grid");
+            $("#timeslots").css("display","none");
+        });
+        $("#timeslot-btn").click(function (){
+            $(this).addClass("active");
+            $("#chatbox-btn").removeClass("active");
+            $("#home-btn").removeClass("active");
+            $("#appointment-btn").removeClass("active");
+            $("#myproposals").removeClass("active");
+            $("#cusreq").removeClass("active");
+            $("#viewproject").css("display","none");
+            $("#chatbox").css("display","none");
+            $("#proposals").css("display","none");
+            $("#appointment").css("display","none");
+            $("#arrived_cusreq").css("display","none");
+            $("#timeslots").css("display","grid");
         });
 
             var receiver=null;
@@ -355,8 +380,9 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
 
                 <a href="#" id="myproposals"><i class="fas fa-file"></i> My proposals</a>
-                <a href="#" id="cusreq"><i class="fa-solid fa-receipt"></i> Recieved Requirements</a>
+                <a href="#" id="cusreq"><i class="fas fa-layer-group"></i> Received Requirements</a>
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
+                <a href="#" id="timeslot-btn"><i class="fas fa-clock"></i> Make Time Slots</a>
 
             </div>
             <div class="project" id="viewproject">
@@ -717,6 +743,61 @@
 
         </div>
 
+        <div class="project" id="timeslots" style="display: none">
+
+
+            <div id="container123">
+                <div id="topic">
+                    <h1 id="topic_name">Manage your time slots</h1>
+                </div>
+                <div id="cal">
+                <div id="header">
+
+
+                        <button id="backButton">Back</button>
+                        <div id="monthDisplay"></div>
+                        <button id="nextButton">Next</button>
+
+                </div>
+
+                <div id="weekdays">
+                    <div>Sunday</div>
+                    <div>Monday</div>
+                    <div>Tuesday</div>
+                    <div>Wednesday</div>
+                    <div>Thursday</div>
+                    <div>Friday</div>
+                    <div>Saturday</div>
+                </div>
+
+                <div id="calendar"></div>
+            </div>
+
+            <div id="newEventModal">
+                <h2>New Event</h2>
+
+                <input id="eventTitleInput" placeholder="Event Title" />
+
+                <button id="saveButton">Save</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+
+            <div id="deleteEventModal">
+                <h2>Event</h2>
+
+                <p id="eventText"></p>
+
+                <button id="deleteButton">Delete</button>
+                <button id="closeButton">Close</button>
+            </div>
+
+            <div id="modalBackDrop"></div>
+
+            </div>
+
+
+
+        </div>
 
 
 <%--            //////////////////////////////Appointment part//////////////////////////////////////////////--%>
@@ -1016,5 +1097,156 @@
     <%--        element4[i].classList.remove("blurer");--%>
     <%--    }--%>
     <%--}--%>
+</script>
+<script>
+    let nav = 0; //if we in a current month nav = 0  eg:- we in march so nav = 0, if we go previous month which is feb nav become -1,
+                 // janauary nav = -2, april nav = 1, may nav= 2;
+    let clicked = null;
+    let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+
+    const calendar = document.getElementById('calendar');
+    const newEventModal = document.getElementById('newEventModal');
+    const deleteEventModal = document.getElementById('deleteEventModal');
+    const backDrop = document.getElementById('modalBackDrop');
+    const eventTitleInput = document.getElementById('eventTitleInput');
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    function openModal(date) {
+        clicked = date;
+
+        const eventForDay = events.find(e => e.date === clicked);
+
+        if (eventForDay) {
+            document.getElementById('eventText').innerText = eventForDay.title;
+            deleteEventModal.style.display = 'block';
+        } else {
+            newEventModal.style.display = 'block';
+        }
+
+        backDrop.style.display = 'block';
+    }
+
+    function load() {
+        const dt = new Date();
+
+        if (nav !== 0) {
+            dt.setMonth(new Date().getMonth() + nav);
+        }
+
+        const day = dt.getDate();
+        const month = dt.getMonth();   // jan = 0 , feb = 1, ..... dec = 12
+        const year = dt.getFullYear();
+
+        const firstDayOfMonth = new Date(year, month, 1);
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        const dateString = firstDayOfMonth.toLocaleDateString('en-us', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+        });
+        const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
+
+        document.getElementById('monthDisplay').innerText =
+            `\${dt.toLocaleDateString('en-us', { month: 'long' })} \${year}`;
+
+        calendar.innerHTML = '';
+
+        for(let i = 1; i <= paddingDays + daysInMonth; i++) {
+            const daySquare = document.createElement('div');
+            daySquare.classList.add('day');
+
+            const dayString = `\${month + 1}/\${i - paddingDays}/\${year}`;
+
+            if (i > paddingDays) {
+
+                daySquare.innerText = i - paddingDays;
+                const eventForDay = events.find(e => e.date === dayString);
+                if(i - paddingDays < day && nav === 0){
+                    daySquare.style.opacity="0.5";
+                    daySquare.style.backgroundColor="black";
+                    daySquare.style.cursor="none";
+                    daySquare.onclick='';
+                    daySquare.style.color="white";
+                }
+                if (i - paddingDays === day && nav === 0) {
+                    daySquare.id = 'currentDay';
+                }
+
+                if (eventForDay) {
+                    const eventDiv = document.createElement('div');
+                    eventDiv.classList.add('event');
+                    eventDiv.innerText = eventForDay.title;
+                    daySquare.appendChild(eventDiv);
+                }
+
+                daySquare.addEventListener('click', () => openModal(dayString));
+            } else {
+                daySquare.classList.add('padding');
+            }
+
+            calendar.appendChild(daySquare);
+        }
+    }
+
+    function closeModal() {
+        eventTitleInput.classList.remove('error');
+        newEventModal.style.display = 'none';
+        deleteEventModal.style.display = 'none';
+        backDrop.style.display = 'none';
+        eventTitleInput.value = '';
+        clicked = null;
+        load();
+    }
+
+    function saveEvent() {
+        if (eventTitleInput.value) {
+            eventTitleInput.classList.remove('error');
+
+            events.push({
+                date: clicked,
+                title: eventTitleInput.value,
+            });
+
+            localStorage.setItem('events', JSON.stringify(events));
+            closeModal();
+        } else {
+            eventTitleInput.classList.add('error');
+        }
+    }
+
+    function deleteEvent() {
+        events = events.filter(e => e.date !== clicked);
+        localStorage.setItem('events', JSON.stringify(events));
+        closeModal();
+    }
+
+    function initButtons() {
+        document.getElementById('nextButton').addEventListener('click', () => {
+            nav++;
+            load();
+        });
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            nav--;
+            if(nav<0){
+                nav=0;
+                load()
+            }else{
+                load();
+            }
+
+
+        });
+
+        document.getElementById('saveButton').addEventListener('click', saveEvent);
+        document.getElementById('cancelButton').addEventListener('click', closeModal);
+        document.getElementById('deleteButton').addEventListener('click', deleteEvent);
+        document.getElementById('closeButton').addEventListener('click', closeModal);
+    }
+
+    initButtons();
+    load();
 </script>
 </html>
