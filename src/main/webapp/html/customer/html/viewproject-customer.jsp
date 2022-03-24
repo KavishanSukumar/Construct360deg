@@ -267,33 +267,33 @@
 
             <div class="project" id="chatbox">
                 <div class="chat-box-container" id="chat-box-container">
-                    <div class="users">
-                        <div class="searcharea">
-                            <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
-                        </div>
-                        <div class="chatarea">
-                            <%for (Chat x:chats){%>
-                                <%if(x.getReceiver()==userid){
-                                    continue;
-                                }%>
-                                    <div class="chatuser" id="<%=x.getReceiver()%>">
-                                        <%
-                                            String name=null;
-                                            if(x.getCustomerindividualName()!=null){
-                                                name= x.getCustomerindividualName();
-                                            }else if(x.getCustomercomname()!=null){
-                                                name=x.getCustomercomname();
-                                            }else if(x.getIndividualprof()!=null){
-                                                name=x.getIndividualprof();
-                                            }else {
-                                                name=x.getProfessionalname();
-                                            }
-                                        %>
-                                        <h4><%=name%></h4>
-                                    </div>
-                            <%}%>
-                        </div>
-                    </div>
+<%--                    <div class="users">--%>
+<%--                        <div class="searcharea">--%>
+<%--                            <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>--%>
+<%--                        </div>--%>
+<%--                        <div class="chatarea">--%>
+<%--                            <%for (Chat x:chats){%>--%>
+<%--                                <%if(x.getReceiver()==userid){--%>
+<%--                                    continue;--%>
+<%--                                }%>--%>
+<%--                                    <div class="chatuser" id="<%=x.getReceiver()%>">--%>
+<%--                                        <%--%>
+<%--                                            String name=null;--%>
+<%--                                            if(x.getCustomerindividualName()!=null){--%>
+<%--                                                name= x.getCustomerindividualName();--%>
+<%--                                            }else if(x.getCustomercomname()!=null){--%>
+<%--                                                name=x.getCustomercomname();--%>
+<%--                                            }else if(x.getIndividualprof()!=null){--%>
+<%--                                                name=x.getIndividualprof();--%>
+<%--                                            }else {--%>
+<%--                                                name=x.getProfessionalname();--%>
+<%--                                            }--%>
+<%--                                        %>--%>
+<%--                                        <h4><%=name%></h4>--%>
+<%--                                    </div>--%>
+<%--                            <%}%>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <div class="chat">
                         <div class="currentchatuser">
                             <h4>Kavishan Sukumar</h4>

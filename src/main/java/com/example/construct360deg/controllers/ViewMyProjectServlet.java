@@ -24,10 +24,9 @@ public class ViewMyProjectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session=req.getSession();
         String userrole= (String) session.getAttribute("userrole");
-//        String projectid = (String) session.getAttribute("projectid");
         int projectid = Integer.parseInt(req.getParameter("projectid"));
-        System.out.println("this is project id ======================"+projectid);
         int userid = (int) session.getAttribute("userid");
+        session.setAttribute("projectid",projectid);
 
         MyProjectDAO myProjectDAO = new MyProjectDAO();
         GraphDAO graphDAO=new GraphDAO();
@@ -81,11 +80,9 @@ public class ViewMyProjectServlet extends HttpServlet {
         HttpSession session = req.getSession();
         PrintWriter out = resp.getWriter();
         int userid = (int) session.getAttribute("userid");
-//        String projectid = (String) session.getAttribute("projectid");
         int projectid= Integer.parseInt(req.getParameter("myprojectid"));
         Project project = new Project();
         MyProjectDAO myProjectDAO = new MyProjectDAO();
-//        project.setUserid(userid);
         project.setProjectid(projectid);
         project.setEvent1(req.getParameter("event1"));
         project.setEvent2(req.getParameter("event2"));

@@ -135,6 +135,7 @@ ul li a:hover,ul li i:hover{
     'menu_bar'
     'content1'
     'content2';
+    margin-bottom: 300px;
 }
 .content1{
     margin-top: 73px;
