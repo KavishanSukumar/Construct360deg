@@ -92,7 +92,6 @@
            $("#qualification-btn").removeClass("active");
            $("#preproject-btn").removeClass("active");
            $("#preference-btn").removeClass("active");
-           $("#regdoc-btn").removeClass("active");
            $("#account").css("display","none");
            $("#preproject").css("display","none");
            $("#preference").css("display","none");

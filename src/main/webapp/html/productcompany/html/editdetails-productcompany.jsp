@@ -140,7 +140,15 @@
         </div>
       </div>
       <div class="middle-content" id="regdoc">
-        gcgndmdmfgd
+        <h1>Address verification</h1>
+        <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">
+        <form class="details" action="<%=request.getContextPath()%>/AllUserdocsServlet" method="post" enctype="multipart/form-data">
+          <label for="reqfile">Requirement</label>
+          <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf"><br>
+          <input  type="hidden" id="filename" name="filename" value="">
+          <label id="filetype">(Choose pdf )</label>
+          <input type="submit" value="Upload">
+        </form>
       </div>
 
 
@@ -152,5 +160,19 @@
     <p>All rights reserved &copy; 2020  Construct360deg.com<br>Design: Epic code</p>
   </div>
 </body>
+
+<script>
+  function processSelectedFiles(fileInput) {
+    let files = fileInput.files;
+    let val = document.querySelector("#filename");
+    let val2 = document.getElementById('reqfile');
+    console.log(val2.value);
+    for (let i = 0; i < files.length; i++) {
+      val.value += files[i].name;
+      console.log("blajjncuans");
+      console.log(val.value);
+    }
+  }
+</script>
 
 </html>
