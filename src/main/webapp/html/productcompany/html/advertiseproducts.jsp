@@ -29,14 +29,7 @@
 </head>
 
 <body>
-<%--<%--%>
-<%--    if(session.getAttribute("uname")==null){--%>
-<%--        response.sendRedirect(request.getContextPath()+"/login");--%>
-<%--    }--%>
-<%--%>--%>
 
-<!-- <input type="checkbox" id="check"> -->
-<!-- header area start -->
 <div class="container">+
     <%@include file="sidebar-productcompany.jsp"%>
     <!-- header area end -->
@@ -45,15 +38,14 @@
     <div class="content">
 
         <div class="searchbar">
-            <!-- <i class="fas fa-search"></i>
-                <input type="text" id="myInput" placeholder="Search here..."> -->
+
             <form class="example" method="get" action="<%=request.getContextPath()%>/promoteproduct">
                 <button type="submit"><i class="fa fa-search"></i></button>
-                <input type="text" placeholder="Search.." name="search">
+                <input type="text" placeholder="Search.." name="search" id>
             </form>
         </div>
         <div class="filter">
-<%--            <a href="<%=request.getContextPath()%>/addproduct"><button class="buttonCart">Add Product</button></a>--%>
+
 
             <ul>
                 <li><h2>Filter By</h2></li>
@@ -62,15 +54,8 @@
             </ul>
 
             <div class="filter-table hidden" id="ft">
-                <%--                <h4>Type :</h4>--%>
-                <%--                <label class="filterby">Landscape--%>
-                <%--                    <input type="checkbox" checked="checked">--%>
-                <%--                    <span class="checkmark"></span>--%>
-                <%--                  </label>--%>
-                <%--                <label class="filterby">Ordinary--%>
-                <%--                    <input type="checkbox">--%>
-                <%--                    <span class="checkmark"></span>--%>
-                <%--                </label>--%>
+
+
                 <h4>Customer Ranking :</h4>
                 <label class="filterby"><i class="fas fa-star"></i>
                     <input type="checkbox" checked="checked">
@@ -112,7 +97,7 @@
             </div>
         </div>
 
-        <div class="profiles">
+        <div class="profiles" id="pict">
             <%for (Product x: products){%>
             <%
                 String base64Encoded=null;
@@ -126,19 +111,53 @@
             %>
             <div class="profile">
                 <div class="gallery">
-                    <a target="_blank" href="user4.jpg">
+
+                    <a target="_blank" onclick="openForm()">
                         <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/productcompany/resources/images/Avatar.png;'">
                     </a>
                     <div class="desc"> <%=x.getProductName()%></div>
                 </div>
                 <div class="addtocart">
-                    <%--                            <a href="<%=request.getContextPath()%>/editproducts"><button   class="order-btn">Edit</button></a>--%>
-<%--                    <button onclick="editproduct(<%=x.getProductid()%>)" class="order-btn">Edit</button>--%>
-<%--                    <button onclick="deleteproduct(<%=x.getProductid()%>)" class="addtocart-btn" >Delete</button>--%>
-                        <button onclick="editproduct(<%=x.getProductid()%>)" class="order-btn">Advertise product</button>
+
+
+                        <button onclick="openForm()" class="order-btn">Advertise product</button>
                 </div>
+<%--                /////////////////////////////////////////////////////new popup window--%>
+                <div class="loginPopup">
+                    <div class="formPopup" id="popupForm">
+                        <form action=" " class="formContainer">
+                            <h2>Promote Your Product</h2>
+                            <p>Your product will be appear in the customer landing page</p>
+<%--////////////////////////////////////////////////////////////////////////////////////////////////////--%>
+
+                            <input type="hidden" name="mode" value="pinRequest"/>
+                            <label class="label-PIN"><b><br>Number of Pin</b></label>
+                            <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+                                <option value=" " disabled selected>Choose your option</option>
+                                <option value="1">7 days</option>
+                                <option value="2">8 days</option>
+                                <option value="3">9 days</option>
+                                <option value="4">10 days</option>
+                            </select>
+                            <label><b><br>Price(Rs.)</b></label>
+                            <input class="amountot" name="tot_amount" id="tot_amount" type="text" readonly>
+                            <button type="submit" class="btn">Promote Now</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                            <script>
+                                function calculateAmount(val){
+                                    var tot_price = val * 1000;
+                                    var divbob = document.getElementById('tot_amount')
+                                    divbob.value = tot_price;
+                                }
+                            </script>
+                        </form>
+                    </div>
+                </div>
+<%--                /////////////////////////////////////////////////////////--%>
+
 
             </div>
+
             <%}%>
         </div>
     </div>
@@ -177,6 +196,18 @@
         }
 
     })
+</script>
+<script>
+
+
+</script>
+<script>
+    function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+    }
+    function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+    }
 </script>
 </body>
 

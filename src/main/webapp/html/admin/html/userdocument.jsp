@@ -57,7 +57,7 @@
         <table class="logTable" id="mytable">
             <thead>
                 <tr class="headrow">
-                    <th class="Date"><span>Date</span></th>
+                    <th class="userid"><span>Date</span></th>
                     <th class="Time"><span>Time</span></th>
                     <th class="User"><span>User</span></th>
                     <th class="Userrole"><span>User role</span></th>

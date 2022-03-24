@@ -40,25 +40,25 @@
     <!-- sidebar start-->
 
     <div class="content">
-        
+
         <div class="searchbar">
             <!-- <i class="fas fa-search"></i>
                 <input type="text" id="myInput" placeholder="Search here..."> -->
                 <form class="example" method="get" action="<%=request.getContextPath()%>/searchproduct">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                    <input type="text" placeholder="Search.." name="search">
-                </form> 
+                    <input type="text" placeholder="Search.." name="search" id="search">
+                </form>
         </div>
         <div class="filter">
             <a href="<%=request.getContextPath()%>/addproduct"><button class="buttonCart">Add Product</button></a>
 
             <ul>
                 <li><h2>Filter By</h2></li>
-                <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
-                 
+<%--                <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>--%>
+
             </ul>
-           
-            <div class="filter-table hidden" id="ft">
+
+            <div class="filter-table" id="ft">
 <%--                <h4>Type :</h4>--%>
 <%--                <label class="filterby">Landscape--%>
 <%--                    <input type="checkbox" checked="checked">--%>
@@ -68,27 +68,27 @@
 <%--                    <input type="checkbox">--%>
 <%--                    <span class="checkmark"></span>--%>
 <%--                </label>--%>
-                <h4>Customer Ranking :</h4>
-                <label class="filterby"><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+<%--                <h4>Customer Ranking :</h4>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
                 <h4>Price :</h4>
                 <label class="filterby">Under Rs.1000.00
                     <input type="checkbox" checked="checked">
@@ -97,16 +97,16 @@
                 <label class="filterby">Rs1000.00-5000.00
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
-                </label> 
+                </label>
                 <label class="filterby">Rs5000.00-10000.00
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
-                </label> 
+                </label>
                 <label class="filterby">Over Rs10000.00
                     <input type="checkbox" checked="checked">
                     <span class="checkmark"></span>
-                </label>  
-            </div>    
+                </label>
+            </div>
         </div>
 
             <div class="profiles">
@@ -127,6 +127,8 @@
                                 <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./html/productcompany/resources/images/Avatar.png;'">
                             </a>
                             <div class="desc"> <%=x.getProductName()%></div>
+                            <div class="quantitypro">Unit <%=x.getQuantity()%></div>
+                            <div class="pricepro"> LKR <%=x.getPrice()%></div>
                         </div>
                         <div class="addtocart">
 <%--                            <a href="<%=request.getContextPath()%>/editproducts"><button   class="order-btn">Edit</button></a>--%>
@@ -175,5 +177,5 @@
     })
 </script>
 </body>
-<%@include file="../../footer.jsp"%>
+<%--<%@include file="../../footer.jsp"%>--%>
 </html>
