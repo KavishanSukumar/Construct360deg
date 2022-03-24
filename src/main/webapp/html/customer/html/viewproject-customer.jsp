@@ -313,7 +313,7 @@
                <div class="my_requirements" id="my_requirements">
 
                    <div class="header">
-                       <a href="#" id="creat-req-button" onclick="myfun()"><i class="far fa-plus-square"></i> Creat New Requirement</a>
+                       <a href="#" id="creat-req-button" onclick="myfun()"><i class="far fa-plus-square"></i> Create New Requirement</a>
                    </div>
 
                    <div class="item-container">
@@ -381,8 +381,8 @@
 
                                %>
 
-                           <i class="fas fa-bars" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
-                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>
+                           <i class="fa fa-angle-double-right" aria-hidden="true" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
+<%--                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>--%>
 
                            <div class="btns hidden" id="<%=x.getRequirementid()%>">
 
