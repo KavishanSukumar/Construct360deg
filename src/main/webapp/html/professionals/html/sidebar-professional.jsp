@@ -1,6 +1,9 @@
+<%--<% Account account = (Account) request.getAttribute("accounts");%>--%>
 <script src="./resources/js/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function (){
+        // $("#profile_name").value=profilename;
+
         <%--var myvar=setInterval(function (){--%>
         <%--    $.ajax({--%>
         <%--        url:"<%=request.getContextPath()%>/instantnotification",--%>
@@ -44,11 +47,13 @@
     </div>
     <div class="nav-panel hidden" id="nav">
         <ul>
-            <div>
-                <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/professionals/resources/images/user2.png" id="profile_image" alt="" ></a>
-                <h4 id="profile_name" style="margin-top: -5px;">Johns</h4>
-            </div>
+
+<%--                <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/professionals/resources/images/def.png" id="profile_image" alt="" ></a>--%>
+<%--                <h4 id="profile_name" onload="addprofilename(this)" style="margin-top: -5px;"></h4>--%>
+
+
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
+            <a href="<%=request.getContextPath()%>/viewprofile"><i class="fas fa-user"></i><h4 id="profile_name">My Profile</h4></a>
             <a href="<%=request.getContextPath()%>/viewproject"><i class="fas fa-hard-hat" id="hat"></i><h4>Projects</h4></a>
             <a href="<%=request.getContextPath()%>/manageadvertise(prof)"><i class="fas fa-ad" id="user"></i><h4>Advertise</h4></a>
             <a href="<%=request.getContextPath()%>/customer"><i class="fas fa-users" id="customers"></i><h4>Customers</h4></a>

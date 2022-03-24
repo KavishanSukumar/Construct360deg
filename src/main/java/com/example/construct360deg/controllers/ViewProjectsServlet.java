@@ -27,7 +27,25 @@ public class ViewProjectsServlet extends HttpServlet {
         int userid = (int) session.getAttribute("userid");
 //        int projectid = (int) session.getAttribute("projectid");
         String userrole= (String) session.getAttribute("userrole");
+        Account account = new Account();
         if (userrole.equals("cus_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
 
             //chat
             ChatDAO chatDAO=new ChatDAO();
@@ -85,6 +103,22 @@ public class ViewProjectsServlet extends HttpServlet {
 
             System.out.println("Customer");
         }else if (userrole.equals("cus_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             //chat
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
@@ -139,6 +173,22 @@ public class ViewProjectsServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println("Customer");
         }else if(userrole.equals("prof_com")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
             //chat
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
@@ -198,7 +248,26 @@ public class ViewProjectsServlet extends HttpServlet {
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);
             System.out.println("Professional");
+
         }else if (userrole.equals("prof_indiv")){
+            //Profile pic change
+            ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("changepic",account);
+
+            //Account details
+            AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+            try {
+                account = accountDetailsDAO.retriveDetails(userid, userrole);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            req.setAttribute("accounts",account);
+
             //chat
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
@@ -209,6 +278,7 @@ public class ViewProjectsServlet extends HttpServlet {
                 e.printStackTrace();
             }
             req.setAttribute("chats",chats);
+
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
