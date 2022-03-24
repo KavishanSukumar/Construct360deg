@@ -10,10 +10,23 @@ public class NewProjectDAO {
     public boolean addProject(Project project, int reqid, int proposalid, int cusid, int profid) throws SQLException {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
+        int projectid=0;
 //        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
 //        String sql = "INSERT INTO `project`(`projectname`,`reqid`,`proposalid`,`cusid`,`profid`) VALUES (?,?,?,?,?)";
-        String sql = "INSERT INTO `project`(`profid`, `projectname`, `contractor`, `landscape`, `customer`, `address`, `starttime`, `finishtime`, `proposalid`, `reqid`, `cusid`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        preparedStatement = connection.prepareStatement(sql);
+//        String sql = "INSERT INTO `project`(`profid`, `projectname`, `contractor`, `landscape`, `customer`, `address`, `starttime`, `finishtime`, `proposalid`, `reqid`, `cusid`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+        String sql1="SELECT `projectid`  FROM `project` WHERE `proposalid`=?";
+        preparedStatement=connection.prepareStatement(sql1);
+        preparedStatement.setInt(1,proposalid);
+        ResultSet resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            projectid=resultSet.getInt("projectid");
+        }
+
+        String sql2="UPDATE `project` SET `profid`=?,`projectname`=?,`contractor`=?,`landscape`=?,`customer`=?,`address`=?,`starttime`=?,`finishtime`=?,`reqid`=?,`cusid`=?, `projectid`=? WHERE `proposalid`=?";
+
+        preparedStatement = connection.prepareStatement(sql2);
         int row =0;
 
         preparedStatement.setInt(1,profid);
@@ -26,9 +39,11 @@ public class NewProjectDAO {
         preparedStatement.setString(8,project.getFinishtime());
 //        preparedStatement.setDate(7, Date.valueOf(project.getStarttime()));
 //        preparedStatement.setDate(8, Date.valueOf(project.getFinishtime()));
-        preparedStatement.setInt(9,proposalid);
-        preparedStatement.setInt(10,reqid);
-        preparedStatement.setInt(11,cusid);
+
+        preparedStatement.setInt(9,reqid);
+        preparedStatement.setInt(10,cusid);
+        preparedStatement.setInt(11,projectid);
+        preparedStatement.setInt(12,proposalid);
         row = preparedStatement.executeUpdate();
          if (row>0){
              return true;
@@ -107,6 +122,63 @@ public class NewProjectDAO {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public boolean addField( int proposalid, String fieldname, int fieldval) throws SQLException {
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        int row=0;
+        int projectid=0;
+        ResultSet resultSet=null;
+        String sql=null;
+        String sql1=null;
+        String sql2=null;
+        String sql3=null;
+
+
+        sql="SELECT `projectid`  FROM `project` WHERE `proposalid`=?";
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,proposalid);
+        resultSet=preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            projectid=resultSet.getInt("projectid");
+        }
+
+        if (projectid==0){
+            sql1="INSERT INTO `project`(`proposalid`) VALUES (?)";
+            preparedStatement=connection.prepareStatement(sql1);
+            preparedStatement.setInt(1,proposalid);
+            preparedStatement.executeUpdate();
+
+            sql2="SELECT `projectid`  FROM `project` WHERE `proposalid`=?";
+            preparedStatement=connection.prepareStatement(sql2);
+            preparedStatement.setInt(1,proposalid);
+            resultSet=preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                projectid=resultSet.getInt("projectid");
+            }
+        }
+
+        sql3="INSERT INTO `proposedgraph`(`projectid`, `graphpoint`, `graphattribute`) VALUES (?,?,?)";
+        preparedStatement=connection.prepareStatement(sql3);
+        preparedStatement.setInt(1,projectid);
+        preparedStatement.setInt(2,fieldval);
+        preparedStatement.setString(3,fieldname);
+        row=preparedStatement.executeUpdate();
+
+        String sql4="INSERT INTO `ongoinggraph`(`projectid`, `graphpoint`, `graphattribute`) VALUES (?,?,?)";
+        preparedStatement=connection.prepareStatement(sql4);
+        preparedStatement.setInt(1,projectid);
+        preparedStatement.setInt(2,0);
+        preparedStatement.setString(3,fieldname);
+        row+=preparedStatement.executeUpdate();
+        if (row>0){
+            return  true;
+        }else {
+            return  false;
         }
     }
 }

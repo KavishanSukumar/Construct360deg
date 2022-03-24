@@ -20,11 +20,9 @@
     </div>
     <div class="nav-panel hidden" id="nav">
         <ul>
-            <div>
-                <a href="<%=request.getContextPath()%>/viewprofile"><img src="./html/admin/resources/images/adminpic.jpg" id="profile_image" alt="" ></a>
-                <h4 id="profile_name" style="margin-top: -5px;">Pathum</h4>
-            </div>
+
             <!-- <a href="#"><i class="fas fa-laptop-house" id="house"></i><h4>Available Projects</h4></a> -->
+            <a href="<%=request.getContextPath()%>/viewprofile"><i class="fas fa-user"></i><h4 id="profile_name">My Profile</h4></a>
             <a href="<%=request.getContextPath()%>/searchprofile"><i class="fas fa-users" id="folder1"></i><h4>All Users</h4></a>
             <a href="<%=request.getContextPath()%>/userdocument"><i class="fas fa-folder-minus" id="folder"></i><h4>User Document</h4></a>
             <a href="<%=request.getContextPath()%>/inquires"><i class="fas fa-flag-checkered" id="flag"></i><h4>Inquires</h4></a>

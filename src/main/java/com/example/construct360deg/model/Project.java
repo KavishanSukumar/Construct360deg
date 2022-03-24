@@ -15,6 +15,9 @@ public class Project {
     private String event3;
     private String event4;
     private String other;
+    private String member1;
+    private String member2;
+    private String member3;
     private String reason;
 //    private String land;
     private String display;
@@ -131,6 +134,30 @@ public class Project {
 
     public void setOther(String other) {
         this.other = other;
+    }
+
+    public String getMember1() {
+        return member1;
+    }
+
+    public void setMember1(String member1) {
+        this.member1 = member1;
+    }
+
+    public String getMember2() {
+        return member2;
+    }
+
+    public void setMember2(String member2) {
+        this.member2 = member2;
+    }
+
+    public String getMember3() {
+        return member3;
+    }
+
+    public void setMember3(String member3) {
+        this.member3 = member3;
     }
 
     public String getReason() {

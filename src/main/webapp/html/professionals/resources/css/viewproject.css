@@ -296,6 +296,16 @@ ul li a:hover,ul li i:hover{
     box-sizing: border-box;
 
 }
+.new-content input[type=number]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
 .new-content input[type="submit"]{
     padding: 8px;
     margin-top: 10px;
@@ -491,6 +501,9 @@ ul li a:hover,ul li i:hover{
     color: white;
     cursor: none;
 }
+<<<<<<< HEAD
+.new-content #btn1, .new-content #btn2,.new-content #addfield{
+=======
 
  /* arrvied cus requirments*/
 #arrived_cusreq{
@@ -717,11 +730,12 @@ ul li a:hover,ul li i:hover{
 }
 
 .new-content #btn1, .new-content #btn2{
+>>>>>>> de12a2b624f71f32dd5d1a6f9fcf5262fdc90556
     padding: 8px;
     width: 80px;
     border-radius: 5px;
 }
-.new-content #btn1:hover, .new-content #btn2:hover{
+.new-content #btn1:hover, .new-content #btn2:hover,.new-content #addfield:hover{
     background: #ff7200;
     color: white;
 }

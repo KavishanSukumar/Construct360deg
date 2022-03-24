@@ -20,6 +20,8 @@
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
     ArrayList<Proposal> displayownproposals =(ArrayList<Proposal>)request.getAttribute("displayownproposals");
     ArrayList<Requirement> displayRequirementonprof = (ArrayList<Requirement>)request.getAttribute("displayRequirementonprof");
+    Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <head>
@@ -34,7 +36,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
+
   <script src="./resources/js/calander.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   <script>
     $(document).ready(function (){
           $("#home-btn").click(function (){
@@ -167,6 +173,21 @@
                     }
                 });
             },2000)
+
+            $("#addfield").click(function (){
+                var proposalid=$("#proposalid").val();
+                var fieldname=$("#fieldname").val();
+                var fieldval=$("#fieldval").val();
+
+               $.ajax({
+                   url:"<%=request.getContextPath()%>/updateproposedgraph",
+                   type:"POST",
+                   data:{"proposalid":proposalid,"fieldname":fieldname,"fieldval":fieldval},
+                   success:function (data){
+
+                   }
+               })
+            })
     });
     function popup(){
         document.getElementById("popup").classList.toggle("active");
@@ -260,12 +281,58 @@
         <input type="date" id="end" name="finishtime" required><br><br>
             <button id="btn1" onclick="showhide()">Next</button>
         </div>
+<%----------------------------------My proposal graph-------------------------------%>
 
         <div id="second" style="display: none">
-        <h3>Proposed Graph</h3>
+            <h3>Proposed Graph</h3>
+            <div id="proposed" style="width: 600px;height: 300px">
+
+            </div>
+
+            <label for="fieldname"><b>Field Name :</b></label>
+            <input type="text" id="fieldname" name="fieldname">
+            <br>
+            <label for="fieldval"><b>Field Value :</b></label>
+            <input type="number" id="fieldval" name="fieldval">
+            <button type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
             <button id="btn2" onclick="showhide()">Next</button>
         </div>
+        <script>
+            var xArray = [];
+            var yArray = [];
 
+            var data = [{
+                x:xArray,
+                y:yArray,
+                type:"bar",
+                orientation:"h",
+                marker: {color:"rgba(255,0,0,0.6)"}
+            }];
+
+            var layout = {title:"Proposed Graph"};
+            Plotly.newPlot("proposed", data, layout);
+
+            function addField(){
+                var proposalid=document.getElementById("proposalid").value;
+                var fieldname=document.getElementById("fieldname");
+                var fieldval=document.getElementById("fieldval");
+                xArray.push(fieldval.value);
+                yArray.push(fieldname.value);
+
+
+                var data = [{
+                    x:xArray,
+                    y:yArray,
+                    type:"bar",
+                    orientation:"h",
+                    marker: {color:"rgba(255,0,0,0.6)"}
+                }];
+
+                var layout = {title:"Proposed Graph"};
+                Plotly.newPlot("proposed", data, layout);
+            }
+        </script>
+<%----------------------------------------------------------------------------------%>
         <div id="third" style="display: none">
         <h3>Rules &  Regulations</h3>
         <div class="terms">
@@ -365,12 +432,22 @@
         <%@include file="sidebar-professional.jsp"%>
         <div class="content1">
         <div class="name">
-            <h3>Hi, Johns</h3>
+            <h3>Hi, <%=account.getFirstname()%></h3>
             <p>Keep up the good work!</p>
         </div>
         <div class="img">
-            <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
-            <h3>Johns Robert</h3>
+            <%
+                String base64Encoded2=null;
+                if (account1.getImgBytes()==null){
+
+                }else {
+                    byte[] bytes = account1.getImgBytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded2 = new String(encodeBase64, "UTF-8");
+                }
+            %>
+            <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user">
+            <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
             <p>Contractor</p>
         </div>
         </div>
@@ -380,7 +457,10 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
 
                 <a href="#" id="myproposals"><i class="fas fa-file"></i> My proposals</a>
+
                 <a href="#" id="cusreq"><i class="fas fa-layer-group"></i> Received Requirements</a>
+
+
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
                 <a href="#" id="timeslot-btn"><i class="fas fa-clock"></i> Make Time Slots</a>
 
@@ -585,7 +665,7 @@
                                 <%} else if(x.getCustomeraccept()==1 && x.getCustomerreject()==0){%>
                                 <button id="accept" class="minibtn" >Accepted</button>
                                    <%if(x.getIsprojectcreated()==0) {%>
-                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>,<%=cusid%>)">Creat project</button>
+                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>,<%=cusid%>)">Create project</button>
                                     <%} else{%>
                                     <button id="makeproject2" class="minibtn" id="createdproject">Project is created</button>
                                     <%}%>
@@ -914,16 +994,7 @@
         con.style.display="block";
         var val1= document.getElementById("proposalid").value=porpid;
         var val2= document.getElementById("reqid").value=reqid;
-        var val3 = document.getElementById("cusid").value=cusid;
-        console.log("----------------------------------------------")
-        console.log(porpid);
-        console.log(val1);
-        console.log(reqid);
-        console.log(val2);
-        console.log(val3);
-        console.log(cusid);
-        console.log("----------------------------------------------")
-
+        var val3 = document.getElementById("cus_id").value=cusid;
     }
     function popupformclose(){
         var blur = document.getElementById("blur");

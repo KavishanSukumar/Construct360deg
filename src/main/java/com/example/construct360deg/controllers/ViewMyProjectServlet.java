@@ -26,6 +26,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         String userrole= (String) session.getAttribute("userrole");
         int projectid = Integer.parseInt(req.getParameter("projectid"));
         int userid = (int) session.getAttribute("userid");
+        session.setAttribute("projectid",projectid);
 
         MyProjectDAO myProjectDAO = new MyProjectDAO();
         GraphDAO graphDAO=new GraphDAO();
@@ -38,7 +39,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         Project project = new Project();
         try {
             projects = newProjectDAO.viewProject(userid);
-            project = myProjectDAO.retriveDetails(userid);
+            project = myProjectDAO.retriveDetails(projectid);
             proposedGraph=graphDAO.getProposedGraph(projectid);
             ongoingGraph=graphDAO.getOngoingGraph(projectid);
         } catch (SQLException throwables) {
@@ -49,6 +50,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         req.setAttribute("ongoingGraph",ongoingGraph);
         req.setAttribute("projects",project);
         req.setAttribute("newprojects",projects);
+        req.setAttribute("projectid",projectid);
 
         if(userrole.equals("prof_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");
@@ -76,24 +78,24 @@ public class ViewMyProjectServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
-        int userid = (int) session.getAttribute("userid");
-//        String projectid = (String) session.getAttribute("projectid");
         PrintWriter out = resp.getWriter();
+        int userid = (int) session.getAttribute("userid");
+        int projectid= Integer.parseInt(req.getParameter("myprojectid"));
         Project project = new Project();
         MyProjectDAO myProjectDAO = new MyProjectDAO();
-        project.setUserid(userid);
-//        project.setProjectid(projectid);
+        project.setProjectid(projectid);
         project.setEvent1(req.getParameter("event1"));
         project.setEvent2(req.getParameter("event2"));
         project.setEvent3(req.getParameter("event3"));
         project.setEvent4(req.getParameter("event4"));
         project.setOther(req.getParameter("other"));
-//        project.setContractor(req.getParameter("contractor"));
-//        project.setCustomer(req.getParameter("customer"));
-//        project.setLand(req.getParameter("land"));
+        project.setMember1(req.getParameter("member1"));
+        project.setMember2(req.getParameter("member2"));
+        project.setMember3(req.getParameter("member3"));
+        System.out.println("test12345");
 
         try {
-            if(myProjectDAO.addDetails(project)){
+            if(myProjectDAO.addDetails(project,userid)){
                 System.out.println("Details added successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Details added successfull');");
@@ -102,7 +104,7 @@ public class ViewMyProjectServlet extends HttpServlet {
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Details added unsuccessfull');");
             }
-            out.println("location='"+req.getContextPath()+"/myproject';");
+            out.println("location='"+req.getContextPath()+"/myproject?projectid="+projectid+"';");
             out.println("</script>");
 
         } catch (SQLException throwables) {
