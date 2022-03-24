@@ -20,6 +20,8 @@
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
     ArrayList<Proposal> displayownproposals =(ArrayList<Proposal>)request.getAttribute("displayownproposals");
     ArrayList<Requirement> displayRequirementonprof = (ArrayList<Requirement>)request.getAttribute("displayRequirementonprof");
+    Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 
 <head>
@@ -340,12 +342,22 @@
         <%@include file="sidebar-professional.jsp"%>
         <div class="content1">
         <div class="name">
-            <h3>Hi, Johns</h3>
+            <h3>Hi, <%=account.getFirstname()%></h3>
             <p>Keep up the good work!</p>
         </div>
         <div class="img">
-            <img src="./html/professionals/resources/images/viewprofile/user2.png" class="user">
-            <h3>Johns Robert</h3>
+            <%
+                String base64Encoded2=null;
+                if (account1.getImgBytes()==null){
+
+                }else {
+                    byte[] bytes = account1.getImgBytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded2 = new String(encodeBase64, "UTF-8");
+                }
+            %>
+            <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user">
+            <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
             <p>Contractor</p>
         </div>
         </div>
@@ -355,7 +367,7 @@
                 <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>
 
                 <a href="#" id="myproposals"><i class="fas fa-file"></i> My proposals</a>
-                <a href="#" id="cusreq"><i class="fa-solid fa-receipt"></i> Recieved Requirements</a>
+                <a href="#" id="cusreq"><i class="fa-solid fa-receipt"></i> Received Requirements</a>
                 <a href="#" id="appointment-btn"><i class="fas fa-calendar-check"></i> Appointments</a>
 
             </div>
