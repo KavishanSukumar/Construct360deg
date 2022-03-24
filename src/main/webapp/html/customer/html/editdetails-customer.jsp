@@ -145,6 +145,7 @@
 
         </div>
       </div>
+<<<<<<< HEAD
       <div id="addprof">
         <div class="middle-content">
           <h1>Address verification</h1>
@@ -158,8 +159,12 @@
           </form>
 
         </div>
+=======
+>>>>>>> 1fbeb1bbcecc6fa2f25f9165e411b5c890f4b1a1
 
-      </div>
+
+
+
     </div>
 
   </div>

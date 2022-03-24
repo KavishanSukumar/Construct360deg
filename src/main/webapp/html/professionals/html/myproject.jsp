@@ -182,9 +182,11 @@
     <%@include file="sidebar-professional.jsp"%>
     <div class="container">
         <div class="content1">
+            <%for (Project x:newprojects){%>
           <div class="name">
-            <h2>Maharagama project two floors</h2>
+            <h2><%=x.getProjectname()%></h2>
           </div>
+            <%}%>
         </div>
         <div class="content2">
             <div class="home">
