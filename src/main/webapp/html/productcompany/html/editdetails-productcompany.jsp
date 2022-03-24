@@ -53,6 +53,7 @@
           $("#regdoc-btn").click(function (){
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account").css("display","none");
             $("#emails").css("display","none");
