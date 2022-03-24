@@ -138,7 +138,12 @@
     border-radius: 5px;
     /*margin-top: -40px;*/
     padding: 30px;
-    height: 660px;
+    height: 700px;
+}
+.middle-content button{
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 .middle-content label{font-size: 15px;}
 .middle-content i{
