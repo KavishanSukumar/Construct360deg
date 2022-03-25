@@ -76,6 +76,13 @@ pageEncoding="ISO-8859-1"%>
                     $(".customerblock").css("display","none");
                 }
             });
+
+            $("#cancelbtn").click(function (){
+                var status=confirm("Do you want to cancel ?");
+                if(status){
+                    location.href="<%=request.getContextPath()%>/login";
+                }
+            });
         })
     </script>
 </head>
@@ -136,7 +143,8 @@ pageEncoding="ISO-8859-1"%>
                     </div>
                     <br>
                     <div class="sbt-btn">
-                        <input type="submit" name="Submit" class="submit" required>
+                        <input type="submit" name="Submit" class="submit" >
+                        <input type="button" id="cancelbtn" name="cancel" class="cancel" value="Cancel">
                     </div>
                 </form>
             </div>

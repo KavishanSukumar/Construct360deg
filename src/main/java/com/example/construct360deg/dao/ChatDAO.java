@@ -17,7 +17,7 @@ public class ChatDAO {
 
     public void sendMessage(Chat chat) throws SQLException {
         Connection connection= Database.getConnection();
-        String sql="INSERT INTO `chat`(`sender`, `receiver`, `datetime`, `message`) VALUES (?,?,?,?)";
+        String sql="INSERT INTO `chat`(`sender`, `projectid`, `datetime`, `message`) VALUES (?,?,?,?)";
         PreparedStatement preparedStatement=null;
 
 
@@ -41,19 +41,16 @@ public class ChatDAO {
     public ArrayList<Chat> viewMessage(int sender, int receiver) throws SQLException {
         ArrayList<Chat> chats=new ArrayList<>();
         Connection connection=Database.getConnection();
-        String sql="SELECT * FROM `chat` WHERE (sender=? AND receiver=?) OR(sender=? AND receiver=?) ORDER BY datetime ASC";
+        String sql="SELECT * FROM `chat` WHERE projectid=? ORDER BY datetime ASC";
         PreparedStatement preparedStatement=null;
         ResultSet resultSet;
         preparedStatement=connection.prepareStatement(sql);
-        preparedStatement.setInt(1,sender);
-        preparedStatement.setInt(2,receiver);
-        preparedStatement.setInt(3,receiver);
-        preparedStatement.setInt(4,sender);
+        preparedStatement.setInt(1,receiver);
         resultSet=preparedStatement.executeQuery();
         while (resultSet.next()){
             Chat chat=new Chat();
             chat.setSender(resultSet.getInt("sender"));
-            chat.setReceiver(resultSet.getInt("receiver"));
+            chat.setReceiver(resultSet.getInt("projectid"));
             chat.setMessage(resultSet.getString("message"));
             chat.setDatetime(resultSet.getString("datetime"));
             chats.add(chat);
