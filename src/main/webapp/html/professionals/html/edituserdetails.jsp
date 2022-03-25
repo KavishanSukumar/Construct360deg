@@ -92,7 +92,6 @@
            $("#qualification-btn").removeClass("active");
            $("#preproject-btn").removeClass("active");
            $("#preference-btn").removeClass("active");
-           $("#regdoc-btn").removeClass("active");
            $("#account").css("display","none");
            $("#preproject").css("display","none");
            $("#preference").css("display","none");
@@ -243,12 +242,33 @@
       </div>
 
       <div class="middle-content" id="regdoc">
-       kdnojvs dvj djsnod snd kzj dv
+        <h1>Address verification</h1>
+        <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">
+        <form class="details" action="<%=request.getContextPath()%>/AllUserdocsServlet" method="post" enctype="multipart/form-data">
+          <label for="reqfile">Requirement</label>
+          <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf"><br>
+          <input  type="hidden" id="filename" name="filename" value="">
+          <label id="filetype">(Choose pdf )</label>
+          <input type="submit" value="Upload">
+        </form>
       </div>
 
     </div>
   </div>
   <%@include file="../../footer.jsp"%>
 </body>
+<script>
+  function processSelectedFiles(fileInput) {
+    let files = fileInput.files;
+    let val = document.querySelector("#filename");
+    let val2 = document.getElementById('reqfile');
+    console.log(val2.value);
+    for (let i = 0; i < files.length; i++) {
+      val.value += files[i].name;
+      console.log("blajjncuans");
+      console.log(val.value);
+    }
+  }
+</script>
 
 </html>

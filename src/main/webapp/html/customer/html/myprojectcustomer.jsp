@@ -11,6 +11,7 @@
     Project project = (Project) request.getAttribute("projects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
+    int projectid = (int) request.getAttribute("projectid");
 %>
 <head>
     <meta charset="UTF-8">
@@ -113,11 +114,9 @@
                 $("#update_payment").css("display","none");
             });
 
-            var receiver=null;
+            var receiver=<%=projectid%>;
 
-            $(".chatuser").click(function (){
-                receiver=this.id;
-            });
+
 
             $("#send-btn").click(function (){
                 var message= $("#message").val();
@@ -142,7 +141,7 @@
                             if(data[i].sender==<%=userid%>){
                                 text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
                             }else{
-                                text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                                text+=data[i].datetime+" "+"(Professional)"+":"+data[i].message+"&#13;&#10;";
                             }
                         }
                         if(text!=''){
@@ -254,32 +253,9 @@
 
         <div class="project" id="chatbox">
             <div class="chat-box-container" id="chat-box-container">
-                <div class="users">
-                    <div class="searcharea">
-                        <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
-                    </div>
-                    <div class="chatarea">
-                        <div class="chatuser" id="67">
-                            <h4>Sukumar Kavishan</h4>
-                            <p>Date:2021-06-10</p>
-                        </div>
-                        <div class="chatuser">
-                            <h4>Senal Punsara</h4>
-                            <p>Date:2021-05-19</p>
-                        </div>
-                        <div class="chatuser">
-                            <h4>Imesh Udara</h4>
-                            <p>Date:2021-04-20</p>
-                        </div>
-                        <div class="chatuser">
-                            <h4>Chathuri Priyangika</h4>
-                            <p>Date:2021-03-01</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="chat">
                     <div class="currentchatuser">
-                        <h4>Kavishan Sukumar</h4>
+                        <h4>My Chat</h4>
                     </div>
                     <div class="currentchat">
                         <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>

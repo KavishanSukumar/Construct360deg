@@ -132,6 +132,7 @@
                             <div class="desc" > <%=x.getProductName()%></div>
                             <div class="priceunit">LKR </div>
                             <div class="price"><%=x.getPrice()%></div>
+<%--                                <div class="quantitypr">Quntity<%=x.getQuantity()%></div>--%>
                             </a>
                         </div>
                         <div class="addtocart">
@@ -151,7 +152,7 @@
             </div>
    </div>
 </div>
-<%@include file="../../footer.jsp"%>
+<%--<%@include file="../../footer.jsp"%>--%>
 <script>
     function addtocart(ele){
         var out=confirm("Do you want to add the product to the cart");

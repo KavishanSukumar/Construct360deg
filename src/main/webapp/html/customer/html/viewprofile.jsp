@@ -78,7 +78,10 @@
             <h2><%=account.getFirstname()%> <%=account.getLastname()%></h2><br>
             <p>Customer</p>
             <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
-            <a href="#" id="<%=account.getUserid()%>" class="button" onclick="gotochat(this)">Message</a>
+
+<%--            <a href="#" id="<%=account.getUserid()%>" class="button" onclick="gotochat(this)">Message</a>--%>
+            <a href="#" id="" class="buttonaddverify" onclick="">Address proof</a>
+
         </div>
         <div class="box2">
             <h3>Contact</h3>

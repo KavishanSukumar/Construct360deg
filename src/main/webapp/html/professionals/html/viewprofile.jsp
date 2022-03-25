@@ -108,7 +108,7 @@
         <%for (Viewprofile x:addsummary){%>
         <p><%=x.getSummaryText()%></p>
         <%}%>
-        <a href="#" class="button">Message</a>
+<%--        <a href="#" class="button">Message</a>--%>
       </div>
 
       <div class="box2">

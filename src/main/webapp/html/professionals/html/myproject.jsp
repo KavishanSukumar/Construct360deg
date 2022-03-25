@@ -120,11 +120,7 @@
                 $("#update_payment").css("display","none");
             });
 
-            var receiver=null;
-
-            $(".chatuser").click(function (){
-                receiver=this.id;
-            });
+            var receiver=<%=projectid%>;
 
             $("#send-btn").click(function (){
                 var message= $("#message").val();
@@ -149,7 +145,7 @@
                             if(data[i].sender==<%=userid%>){
                                 text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
                             }else{
-                                text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                                text+=data[i].datetime+" "+"(Client)"+":"+data[i].message+"&#13;&#10;";
                             }
                         }
                         if(text!=''){
@@ -348,34 +344,11 @@
                 </div>
             </div>
 
-            <div class="project" id="chatbox">
+            <div class="project" id="chatbox" style="padding: 0px 240px;">
                 <div class="chat-box-container" id="chat-box-container">
-                    <div class="users">
-                        <div class="searcharea">
-                            <input type="text" class="searchbar"><i class="fa fa-search" aria-hidden="true" id="search"></i>
-                        </div>
-                        <div class="chatarea">
-                            <div class="chatuser" id="64">
-                                <h4>Sukumar Kavishan</h4>
-                                <p>Date:2021-06-10</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Senal Punsara</h4>
-                                <p>Date:2021-05-19</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Imesh Udara</h4>
-                                <p>Date:2021-04-20</p>
-                            </div>
-                            <div class="chatuser">
-                                <h4>Chathuri Priyangika</h4>
-                                <p>Date:2021-03-01</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="chat">
                         <div class="currentchatuser">
-                            <h4>Kavishan Sukumar</h4>
+                            <h4>My Chat</h4>
                         </div>
                         <div class="currentchat">
                             <textarea id="messagearea" style="width: 744px; height: 378px;" disabled></textarea>

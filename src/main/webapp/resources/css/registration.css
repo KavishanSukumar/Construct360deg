@@ -84,6 +84,12 @@ input:hover{
     margin: 0px 60px 20px 0px;
     text-align: right;
 }
+.cancel{
+    padding: 10px 50px ;
+    margin: 0px 60px 20px 0px;
+    text-align: right;
+}
+
 .terms{
     margin-top: 10px;
     margin-bottom: 0px;
@@ -104,7 +110,11 @@ input:hover{
     box-shadow: 8px 8px 0px black;
 }
 .sbt-btn{
+    display: flex;
+    flex-direction: row;
     text-align: right;
+    margin: 10px 10px;
+    padding: 10px 10px 10px 155px;
 }
 
 .container-2 > .par{
