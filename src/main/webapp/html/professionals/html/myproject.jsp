@@ -259,9 +259,9 @@
                         <h2>Project Members</h2>
                         <p> * Contractor : <%=z.getContractor()%><br> * Customer :<%=z.getCustomer()%><br> * Landscape Designer :<%=z.getLandscape()%></p>
                         <h2>Another Members</h2>
+                        <p>* <%=project.getMember1()%><br>* <%=project.getMember2()%><br>* <%=project.getMember3()%></p>
                     </div>
                     <%}%>
-
                 </div>
 
                 <button onclick="popupdetails()" class="addDetails">Add Details</button>
