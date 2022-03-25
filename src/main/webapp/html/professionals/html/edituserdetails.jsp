@@ -27,50 +27,76 @@
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
             $("#account").css("display","none");
             $("#qualification").css("display","none");
             $("#preproject").css("display","block");
             $("#preference").css("display","none");
+            $("#regdoc").css("display","none");
+
           });
           $("#preference-btn").click(function (){
             $(this).addClass("active");
             $("#preproject-btn").removeClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
             $("#account").css("display","none");
             $("#qualification").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","block");
+            $("#regdoc").css("display","none");
+
           });
           $("#account-btn").click(function (){
             $(this).addClass("active");
             $("#qualification-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
             $("#account").css("display","block");
             $("#qualification").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
+            $("#regdoc").css("display","none");
+
           });
           $("#qualification-btn").click(function (){
             $(this).addClass("active");
             $("#account-btn").removeClass("active");
             $("#preproject-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
             $("#qualification").css("display","block");
             $("#account").css("display","none");
             $("#preproject").css("display","none");
             $("#preference").css("display","none");
+            $("#regdoc").css("display","none");
+
           });
           $("#addproject-btn").click(function (){
             $(this).addClass("active");
             $("#account-btn").removeClass("active");
             $("#qualification-btn").removeClass("active");
             $("#preproject-btn").addClass("active");
+            $("#regdoc-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
             $("#account").css("display","none");
             $("#preproject").css("display","block");
             $("#preference").css("display","none");
+            $("#regdoc").css("display","none");
+          });
+           $("#regdoc-btn").click(function (){
+           $(this).addClass("active");
+           $("#account-btn").removeClass("active");
+           $("#qualification-btn").removeClass("active");
+           $("#preproject-btn").removeClass("active");
+           $("#preference-btn").removeClass("active");
+           $("#regdoc-btn").removeClass("active");
+           $("#account").css("display","none");
+           $("#preproject").css("display","none");
+           $("#preference").css("display","none");
+           $("#regdoc").css("display","block");
           });
     });
 
@@ -116,6 +142,7 @@
           <a id="qualification-btn" href="#">Qualifications</a>
           <a id="preproject-btn" href="#">Previous Projects</a>
           <a id="preference-btn" href="#">Account preferences</a>
+          <a id="regdoc-btn" href="#">User registration document</a>
         </div>
       </div>
 
@@ -144,6 +171,8 @@
               <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
               <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
               <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
+
+              <button>Address proof</button>
             </div>
             <input type="submit" id="submit" value="Save changes">
         </form>
@@ -211,6 +240,10 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <div class="middle-content" id="regdoc">
+       kdnojvs dvj djsnod snd kzj dv
       </div>
 
     </div>

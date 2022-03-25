@@ -24,6 +24,8 @@
             $(this).addClass("active");
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
+            $("#regdoc").css("display","none");
             $("#account").css("display","none");
             $("#emails").css("display","block");
             $("#preference").css("display","none");
@@ -32,6 +34,8 @@
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
+            $("#regdoc").css("display","none");
             $("#account").css("display","none");
             $("#emails").css("display","none");
             $("#preference").css("display","block");
@@ -40,9 +44,20 @@
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
+            $("#regdoc-btn").removeClass("active");
+            $("#regdoc").css("display","none");
             $("#account").css("display","block");
             $("#emails").css("display","none");
             $("#preference").css("display","none");
+          });
+          $("#regdoc-btn").click(function (){
+            $(this).addClass("active");
+            $("#email-btn").removeClass("active");
+            $("#preference-btn").removeClass("active");
+            $("#account").css("display","none");
+            $("#emails").css("display","none");
+            $("#preference").css("display","none");
+            $("#regdoc").css("display","block");
           });
     });
   </script>
@@ -76,6 +91,7 @@
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
           <a id="preference-btn" href="#">Account preferences</a>
+          <a id="regdoc-btn" href="#">User registration document</a>
         </div>
 
       </div>
@@ -100,6 +116,7 @@
             <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
             <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
             <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
+            <button>Registration Document</button>
           </div>
           <input type="submit" id="submit" value="Save changes">
         </form>
@@ -122,7 +139,13 @@
 
         </div>
       </div>
+      <div class="middle-content" id="regdoc">
+        gcgndmdmfgd
+      </div>
+
+
     </div>
+
 
   </div>
   <div class="footer">

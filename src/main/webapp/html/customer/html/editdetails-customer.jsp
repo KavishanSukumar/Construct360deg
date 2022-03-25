@@ -26,7 +26,9 @@
             $(this).addClass("active");
             $("#preference-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#addproofbtn").removeClass("active");
             $("#account").css("display","none");
+            $("#addprof").css("display","none");
             $("#emails").css("display","block");
             $("#preference").css("display","none");
           });
@@ -34,7 +36,9 @@
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#account-btn").removeClass("active");
+            $("#addproofbtn").removeClass("active");
             $("#account").css("display","none");
+            $("#addprof").css("display","none");
             $("#emails").css("display","none");
             $("#preference").css("display","block");
           });
@@ -42,10 +46,23 @@
             $(this).addClass("active");
             $("#email-btn").removeClass("active");
             $("#preference-btn").removeClass("active");
+            $("#addproofbtn").removeClass("active");
             $("#account").css("display","block");
+            $("#addprof").css("display","none");
             $("#emails").css("display","none");
             $("#preference").css("display","none");
+
           });
+          $("#addproofbtn").click(function (){
+           $(this).addClass("active");
+           $("#email-btn").removeClass("active");
+           $("#preference-btn").removeClass("active");
+            $("#account-btn").removeClass("active");
+            $("#addprof").css("display","block");
+           $("#account").css("display","none");
+           $("#emails").css("display","none");
+           $("#preference").css("display","none");
+      });
     });
   </script>
 </head>
@@ -77,6 +94,7 @@
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
           <a id="preference-btn" href="#">Account preferences</a>
+          <a id="addproofbtn" href="#">Address Proof</a>
         </div>
 
       </div>
@@ -127,6 +145,10 @@
 
         </div>
       </div>
+
+
+
+
     </div>
 
   </div>

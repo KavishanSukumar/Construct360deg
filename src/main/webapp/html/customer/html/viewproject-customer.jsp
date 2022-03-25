@@ -1,9 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.construct360deg.model.Project" %>
-<%@ page import="com.example.construct360deg.model.Requirement" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
-<%@ page import="com.example.construct360deg.model.Chat" %>
-<%@ page import="com.example.construct360deg.model.Proposal" %>
+<%@ page import="com.example.construct360deg.model.*" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -15,6 +12,8 @@
     ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
     ArrayList<Proposal> proposals = (ArrayList<Proposal>) request.getAttribute("proposals");
+    Account account = (Account) request.getAttribute("accounts");
+    Account account1 = (Account) request.getAttribute("changepic");
 %>
 <head>
   <meta charset="UTF-8">
@@ -222,17 +221,23 @@
 
         <div class="content1">
         <div class="name">
-            <h3>Hi, Kalum</h3>
+            <h3>Hi, <%=account.getFirstname()%></h3>
             <p>Keep up the good work!</p>
         </div>
-        
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search your project..." name="search">
-        </form>
+
         <div class="img">
-            <img src="./html/customer/resources/images/viewprofile/user2.png" class="user">
-            <h3>Kalum Perera</h3>
+            <%
+                String base64Encoded2=null;
+                if (account1.getImgBytes()==null){
+
+                }else {
+                    byte[] bytes = account1.getImgBytes();
+                    byte[] encodeBase64 = Base64.encodeBase64(bytes);
+                    base64Encoded2 = new String(encodeBase64, "UTF-8");
+                }
+            %>
+            <img src="data:image/jpeg;base64,<%=base64Encoded2%>" class="user">
+            <h3><%=account.getFirstname()%> <%=account.getLastname()%></h3>
             <p>Customer</p>
         </div>
         </div>
@@ -281,7 +286,7 @@
                <div class="my_requirements" id="my_requirements">
 
                    <div class="header">
-                       <a href="#" id="creat-req-button" onclick="myfun()"><i class="far fa-plus-square"></i> Creat New Requirement</a>
+                       <a href="#" id="creat-req-button" onclick="myfun()"><i class="far fa-plus-square"></i> Create New Requirement</a>
                    </div>
 
                    <div class="item-container">
@@ -349,8 +354,8 @@
 
                                %>
 
-                           <i class="fas fa-bars" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
-                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>
+                           <i class="fa fa-angle-double-right" aria-hidden="true" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
+<%--                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>--%>
 
                            <div class="btns hidden" id="<%=x.getRequirementid()%>">
 

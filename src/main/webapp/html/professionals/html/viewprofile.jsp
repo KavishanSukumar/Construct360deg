@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script>
+
+    <%--function addprofilename(data){--%>
+    <%--  data.value="<%=account.getFirstname()%>";--%>
+    <%--}--%>
     function summaryData(){
       let summaryText= document.getElementById("text").value;
       console.log(summaryText);
@@ -104,7 +108,7 @@
         <%for (Viewprofile x:addsummary){%>
         <p><%=x.getSummaryText()%></p>
         <%}%>
-        <a href="#" class="button">Message</a>
+<%--        <a href="#" class="button">Message</a>--%>
       </div>
 
       <div class="box2">

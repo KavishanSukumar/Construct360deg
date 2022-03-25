@@ -249,6 +249,10 @@ form.example::after {
     box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
     width: 210px;
     height: 200px;
+    transition: transform .2s;
+}
+.gallery .user:hover{
+    transform: scale(1.2);
 }
 .gallery .desc{
     text-align: center;

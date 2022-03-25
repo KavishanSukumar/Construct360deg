@@ -145,7 +145,7 @@
                             if(data[i].sender==<%=userid%>){
                                 text+=data[i].datetime+" (Me):"+data[i].message+"&#13;&#10;";
                             }else{
-                                text+=data[i].datetime+" "+data[i].receiver+":"+data[i].message+"&#13;&#10;";
+                                text+=data[i].datetime+" "+"(Client)"+":"+data[i].message+"&#13;&#10;";
                             }
                         }
                         if(text!=''){
@@ -178,9 +178,11 @@
     <%@include file="sidebar-professional.jsp"%>
     <div class="container">
         <div class="content1">
+            <%for (Project x:newprojects){%>
           <div class="name">
-            <h2>Maharagama project two floors</h2>
+            <h2><%=x.getProjectname()%></h2>
           </div>
+            <%}%>
         </div>
         <div class="content2">
             <div class="home">
