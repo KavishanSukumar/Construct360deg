@@ -162,11 +162,18 @@ ul li a:hover,ul li i:hover{
     margin-top: -10px;
 }
 .content2{
-    height: 660px;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
     margin-top: 80px;
+    grid-row-gap: 10px;
+}
+
+.project{
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .home{
     display: flex;
@@ -458,8 +465,9 @@ ul li a:hover,ul li i:hover{
     gap: 5px;
 }
 #pending{
-    margin-left: 215px;
-    color: white
+    margin-left: 151px;
+    color: white;
+
 }
 #accept{
     background: #1fa11f;
@@ -730,7 +738,7 @@ ul li a:hover,ul li i:hover{
 }
 
 .new-content #btn1, .new-content #btn2{
->>>>>>> de12a2b624f71f32dd5d1a6f9fcf5262fdc90556
+
     padding: 8px;
     width: 80px;
     border-radius: 5px;
@@ -757,6 +765,30 @@ ul li a:hover,ul li i:hover{
     color: white;
 }
 
+
+
+
+#selected_date_input{
+    font-size: 20px;
+    width: 103px;
+    margin-left: 35px;
+    height: 31px;
+    border-radius: 10px;
+    cursor: none;
+    border: none;
+    background-color: #e8f4fa;
+    font-weight: bold;
+}
+
+
+
+
+#saveButton{
+    background: #1fa11f;
+}
+#cancelButton:hover, #saveButton:hover{
+    background-color: black;
+}
 #header {
     padding: 10px;
     color: #d36c6c;
@@ -779,6 +811,7 @@ ul li a:hover,ul li i:hover{
 
 #topic_name{
     padding-left: 230px;
+    margin-top: 4px;
 }
 
 #cal{
@@ -867,11 +900,12 @@ ul li a:hover,ul li i:hover{
 #eventTitleInput.error {
     border: 2px solid red;
 }
-#cancelButton, #deleteButton {
+#deleteButton {
     background-color: #d36c6c;
 }
-#saveButton, #closeButton {
-    background-color: #92a1d1;
+#cancelButton {
+    background-color: #fe0000;
+    margin-left: 24px;
 }
 #eventText {
     font-size: 14px;
@@ -882,7 +916,7 @@ ul li a:hover,ul li i:hover{
     left: 0px;
     z-index: 10;
     width: 100vw;
-    height: 100vh;
+    height: 123vh;
     position: absolute;
     background-color: rgba(0,0,0,0.8);
 }
@@ -902,17 +936,29 @@ ul li a:hover,ul li i:hover{
     background-color: #cc611a;
     color: white;
 }
-
+#save-btn{
+    width: 75px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px grey;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
 
 .theday {
-    width: 160px;
-    height: 550px;
-    background-color: #c2c2f7;
-    padding:10px;
-    float:left;
-    margin-right:7px;
-    margin-bottom:5px;
+    width: 224px;
+    height: 515px;
+    background-color: #b6b6b6;
+    padding: 10px;
+    float: left;
+    /* margin-right: 7px; */
+    margin-bottom: 5px;
     border-radius: 10px;
+    /* margin: auto; */
+    margin-left: 46px;
+    margin-top: 14px;
 }
 
 .datelabel {
@@ -920,8 +966,8 @@ ul li a:hover,ul li i:hover{
 }
 
 .timeslot {
-    background-color: #ff0000;
-    width: 145px;
+    background-color: #5e5d5d;
+    width: 205px;
     height: 30px;
     color: white;
     padding: 8px;
@@ -930,6 +976,7 @@ ul li a:hover,ul li i:hover{
     border-radius: 12px;
     vertical-align: center;
     text-align: center;
+
 }
 
 .timeslot:hover {

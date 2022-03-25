@@ -241,6 +241,7 @@
         </div>
       </div>
 
+
       <div class="middle-content" id="regdoc">
         <h1>Address verification</h1>
         <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">

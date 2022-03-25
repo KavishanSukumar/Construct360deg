@@ -15,20 +15,23 @@
     <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="./html/admin/resources/css/viewprofile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <%@include file="sidebar-admin.jsp"%>
 <div class="container">
     <div class="content1">
-        <form class="example" action="/action_page.java">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <input type="text" placeholder="Search.." name="search">
-        </form>
-        <div class="main">
-            <a href="#"><i class="fa fa-home"></i></a>
-            <a href="#"><i class="fa fa-mail-bulk"></i></a>
-        </div>
+<%--        <form class="example" action="/action_page.java">--%>
+<%--            <button type="submit"><i class="fa fa-search"></i></button>--%>
+<%--            <input type="text" placeholder="Search.." name="search">--%>
+<%--        </form>--%>
+<%--        <div class="main">--%>
+<%--            <a href="#"><i class="fa fa-home"></i></a>--%>
+<%--            <a href="#"><i class="fa fa-mail-bulk"></i></a>--%>
+<%--        </div>--%>
     </div>
     <div class="content2">
         <div class="box1">

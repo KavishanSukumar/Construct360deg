@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
 
-  <script src="./resources/js/calander.js"></script>
+<%--  <script src="./resources/js/calander.js"></script>--%>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -276,13 +276,13 @@
         <input type="text" id="customer" name="customer">
 
         <label for="address"><b>Project Address :</b></label>
-        <input type="text" id="address" name="address" required>
+        <input type="text" id="address" name="address" >
 
         <label for="start"><b>Expected Starting Date :</b></label>
-        <input type="date" id="start" name="starttime" required><br><br>
+        <input type="date" id="start" name="starttime" ><br><br>
 
         <label for="end"><b>Expected Finishing Date :</b></label>
-        <input type="date" id="end" name="finishtime" required><br><br>
+        <input type="date" id="end" name="finishtime"><br><br>
             <button id="btn1" onclick="showhide()">Next</button>
         </div>
 <%----------------------------------My proposal graph-------------------------------%>
@@ -343,9 +343,9 @@
             <input type="checkbox" required="">
             <label id="terms2"><a href="www.google.com" target="www.google.com">Accept the rules &amp; regulations</a></label>
         </div>
+            <input id="projectid" type="hidden" value="" name="projectid">
         <input id="proposalid" type="hidden" value="" name="proposalid">
         <input id="reqid"       type="hidden" value="" name="reqid">
-
         <input id="cus_id" type="hidden" value="" name="cus_id">
 
         <input type="submit" value="submit">
@@ -685,7 +685,7 @@
                                 <%} else if(x.getCustomeraccept()==1 && x.getCustomerreject()==0){%>
                                 <button id="accept" class="minibtn" >Accepted</button>
                                    <%if(x.getIsprojectcreated()==0) {%>
-                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>,<%=cusid%>)">Create project</button>
+                                      <button id="makeproject" class="minibtn" onclick="popupform(<%=x.getProposalid()%>,<%=reqid%>,<%=cusid%>,<%=x.getProjectid()%>)">Create project</button>
                                     <%} else{%>
                                     <button id="makeproject2" class="minibtn" id="createdproject">Project is created</button>
                                     <%}%>
@@ -870,26 +870,30 @@
                     <div>Saturday</div>
                 </div>
 
-                <div id="calendar"></div>
+                <div id="calendar">
+
+                </div>
             </div>
 
             <div id="newEventModal">
                 <form action="<%=request.getContextPath()%>/updatetimeslots" method="post">
-                <input id="selected_date_input" name="selected_date">
+                    <button type="submit" id="saveButton">Save</button>
+                    <input id="selected_date_input"  name="selected_date">
+
+                    <button id="cancelButton" type="button">Cancel</button>
                 <div class="theday">
-                    <div class="timeslot"><input name="slots" type="checkbox" value="1"> &nbsp; 8:00 am  - 9.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="2"> &nbsp9:00 am  - 10.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="3"> &nbsp10:00 am - 11.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="4"> &nbsp11:00 am - 12.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="5"> &nbsp12:00 pm - 13.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="6"> &nbsp13:00 pm - 14.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="7"> &nbsp14:00 pm - 15.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="8"> &nbsp15:00 pm - 16.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="9"> &nbsp16:00 pm - 17.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="1">  &nbsp8:00 am  - 9.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="2">  &nbsp9:00 am  - 10.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="3">  &nbsp10:00 am - 11.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="4">  &nbsp11:00 am - 12.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="5">  &nbsp12:00 pm - 13.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="6">  &nbsp13:00 pm - 14.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="7">  &nbsp14:00 pm - 15.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="8">  &nbsp15:00 pm - 16.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="9">  &nbsp16:00 pm - 17.00 pm</div>
                     <div class="timeslot"><input name="slots" type="checkbox" value="10"> &nbsp17:00 pm - 18.00 pm</div>
                 </div>
-                <button type="submit" >Save</button>
-                <button id="cancelButton" type="button">Cancel</button>
+
                 </form>
 
             </div>
@@ -1012,14 +1016,14 @@
                 </div>
 
             </div>
-
+            <%@include file="../../footer.jsp"%>
     </div>
 
     </div>
-    <%@include file="../../footer.jsp"%>
+
 </body>
 <script>
-    function popupform(porpid,reqid,cusid){
+    function popupform(porpid,reqid,cusid,projectid){
         var blur = document.getElementById("blur");
         blur.style.filter="blur(8px)";
         var con = document.getElementById("newcontent");
@@ -1027,6 +1031,8 @@
         var val1= document.getElementById("proposalid").value=porpid;
         var val2= document.getElementById("reqid").value=reqid;
         var val3 = document.getElementById("cus_id").value=cusid;
+        var val4 = document.getElementById("projectid").value=projectid;
+        console.log("this is project id ---"+projectid);
     }
     function popupformclose(){
         var blur = document.getElementById("blur");
@@ -1238,6 +1244,7 @@
 
         let fixed_date =da.toISOString().substr(0,10)
         document.getElementById('selected_date_input').value = fixed_date;
+
 
         let sl = document.querySelectorAll("[name='slots']")
         

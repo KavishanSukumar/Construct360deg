@@ -132,6 +132,7 @@
     grid-template-rows: 72px auto;
     grid-template-areas:'nav'
                         'thecontent';
+    font-family: "Roboto", sans-serif;
 
 
 }
@@ -148,23 +149,26 @@
 .container-3{
 
     grid-area: c3;
-    box-shadow: 5px 5px 5px 5px rgb(199 195 195);
-    background-color: #e9e9e9;
+    box-shadow: 5px 5px 5px 5px rgb(239 237 237);
+    background-color: #ffffff;
     width: 270px;
     /* height: 392px; */
     padding: 20px;
     border-radius: 10px;
     /*margin-top: -117%;*/
-    margin-left: 20px
+    margin-left: 36px;
+    margin-bottom: 450px;
+
+
 }
 .container-4{
     grid-area: c4;
-    background-color: #e9e9e9;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 5px rgb(255, 255, 255);
     display: grid;
     border-radius: 5px;
     padding: 20px;
-    width: 1081px;
+    /*width: 1081px;*/
     height: auto;
     /*margin-left: 250px;*/
     margin-top: 2%;
@@ -175,7 +179,7 @@
 .content1{
     align-items: center;
     grid-area: a1;
-    background-color: #e9e9e9;
+    background-color: #ffffff;
     height: 50px;
     /*width: 1499px;*/
 
@@ -184,9 +188,9 @@ form.example input[type=text] {
     padding: 8px;
     font-size: 16px;
     border: none;
-    margin-top: 6px;
+    margin-top: 25px;
     width: 63%;
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
+    box-shadow: 0px 5px 10px 5px rgb(231, 231, 231);
 }
 form.example button {
     float: left;
@@ -197,8 +201,8 @@ form.example button {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    margin-left: 210px;
-    margin-top: 6px;
+    margin-left: 403px;
+    margin-top: 25px;
 }
 form.example button:hover {
     background: #d1cfcd;
@@ -253,6 +257,17 @@ form.example::after {
 }
 .container-3 i{
     color: rgb(217, 219, 92);
+}
+.profile{
+    display: flex;
+    flex-direction:column ;
+    background-color: rgb(255, 244, 225);
+    margin: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 318px;
+    width: 220px;
+    /*    88888888888888888888*/
 }
 .gallery{
     margin: 5px;

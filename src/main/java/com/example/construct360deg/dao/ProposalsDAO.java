@@ -159,6 +159,7 @@ public class ProposalsDAO {
             availableproposal.setIsprojectcreated(resultSet.getInt("isprojectcreated"));
             availableproposal.setProfid(resultSet.getInt("profid"));
             availableproposal.setRequirementid(resultSet.getInt("reqid"));
+            availableproposal.setProjectid(resultSet.getInt("projectid"));
 
 
             displayownproposals.add(availableproposal);
@@ -197,7 +198,7 @@ public class ProposalsDAO {
 
              }
       }
-    public void createproject (int proposalid ) throws SQLException {
+    public void createprojectforproposal (int proposalid ) throws SQLException {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
         int val = 1;
