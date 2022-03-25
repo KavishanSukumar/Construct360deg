@@ -231,12 +231,16 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Appointment> appointments = new ArrayList<>();
             AppointmentDAO appointmentDAO = new AppointmentDAO();
             ArrayList<Requirement> displayRequirementonprof = new ArrayList<>();
+            TimeSlotsDAO timeSlotsDAO = new TimeSlotsDAO();
+            ArrayList<TimeSlots> timeSlots = new ArrayList<>();
             try {
                 allcustomers=allProfileDAO.allcustomers();
                 displayRequirement = requirementDAO.displayRequirement();
                 displayownproposals = proposalsDAO.displayownproposals(userid);
                 appointments = appointmentDAO.retriveAppointments(userid);
                 displayRequirementonprof = requirementDAO.displayAvailableRequirementtoprof(userid);
+                timeSlots = timeSlotsDAO.getSlotsForProfessional(userid);
+
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -244,6 +248,7 @@ public class ViewProjectsServlet extends HttpServlet {
             req.setAttribute("displayRequirement",displayRequirement);
             req.setAttribute("displayownproposals",displayownproposals);
             req.setAttribute("appointment",appointments);
+            req.setAttribute("timeslots",timeSlots);
             req.setAttribute("displayRequirementonprof",displayRequirementonprof);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
@@ -327,12 +332,16 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Proposal>   displayownproposals = new ArrayList<>();
             ProposalsDAO proposalsDAO = new ProposalsDAO();
             ArrayList<Requirement> displayRequirementonprof = new ArrayList<>();
+            TimeSlotsDAO timeSlotsDAO = new TimeSlotsDAO();
+            ArrayList<TimeSlots> timeSlots = new ArrayList<>();
+
 
             try {
                 allcustomers=allProfileDAO.allcustomers();
                 displayRequirement = requirementDAO.displayRequirement();
                 displayownproposals = proposalsDAO.displayownproposals(userid);
                 displayRequirementonprof = requirementDAO.displayAvailableRequirementtoprof(userid);
+                timeSlots = timeSlotsDAO.getSlotsForProfessional(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -340,6 +349,7 @@ public class ViewProjectsServlet extends HttpServlet {
             req.setAttribute("displayRequirement",displayRequirement);
             req.setAttribute("displayownproposals",displayownproposals);
             req.setAttribute("displayRequirementonprof",displayRequirementonprof);
+            req.setAttribute("timeslots",timeSlots);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/viewproject-professional.jsp");
             requestDispatcher.forward(req,resp);

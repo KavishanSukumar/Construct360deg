@@ -887,6 +887,61 @@ ul li a:hover,ul li i:hover{
     background-color: rgba(0,0,0,0.8);
 }
 
+#updatetime{
+    margin-left: 36px;
+    margin-top: 13px;
+    background-color: rgb(165, 164, 164);
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+
+}
+#updatetime:hover{
+    background-color: #cc611a;
+    color: white;
+}
+
+
+.theday {
+    width: 160px;
+    height: 550px;
+    background-color: #c2c2f7;
+    padding:10px;
+    float:left;
+    margin-right:7px;
+    margin-bottom:5px;
+    border-radius: 10px;
+}
+
+.datelabel {
+    margin-bottom: 15px;
+}
+
+.timeslot {
+    background-color: #ff0000;
+    width: 145px;
+    height: 30px;
+    color: white;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 17px;
+    border-radius: 12px;
+    vertical-align: center;
+    text-align: center;
+}
+
+.timeslot:hover {
+    background-color: #cc611a;
+    cursor: pointer;
+}
+
+
+
+
+
+
 .footer{
     grid-column: 1 /-1;
     border-top: 1px solid #ebebeb;
