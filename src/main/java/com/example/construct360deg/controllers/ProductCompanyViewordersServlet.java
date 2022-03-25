@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -24,9 +25,27 @@ public class ProductCompanyViewordersServlet extends HttpServlet {
         System.out.println(orderid);
         System.out.println(task);
         OrderDAO orderDAO=new OrderDAO();
-
+        PrintWriter out=resp.getWriter();
+        String scripttag=null;
         try {
             orderDAO.Orderstatus(orderid,task);
+            if (task==1){
+                scripttag="<script type=\"text/javascript\">\n" +
+                        "    $(document).ready(function (){\n" +
+                        "    $.ajax({ url: \"https://meghaduta.dhahas.com/sms/sendSMS\"," +
+                        "    type: \"POST\"," +
+                        "    data: JSON.stringify({\"senders\": [ \"+94123456789\", \"+94123456788\" ]," +
+                        "    \"message\": \"Hi\", \"apiKey\": 623d4f613638d4002e306e74})," +
+                        "    dataType:'json',contentType: 'application/json', " +
+                        "    success: function (response) { console.log(response); }, " +
+                        "    error: function(error){ console.log(\"Something went wrong\", error); } });" +
+                        "    });\n" +
+                        "    location=\""+req.getContextPath()+"/searchorders"+
+                        "  </script>";
+            }else {
+
+            }
+            out.print(scripttag);
         } catch (SQLException e) {
             e.printStackTrace();
         }

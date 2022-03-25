@@ -258,7 +258,7 @@
 
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >
                         <h3><%=x.getProjectname()%></h3>
-                        <p style="color: red"><%=project.getDisplay()%></p>
+<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
                     </div>
 
                     <%}%>
