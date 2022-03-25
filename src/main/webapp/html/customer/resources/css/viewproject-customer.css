@@ -410,9 +410,9 @@ form.example::after {
     color: black;
     background: #ffffff;
     height: 23px;
-    width: 251px;
-    padding: 8px;
-    border-radius: 16px;
+    width: 256px;
+    padding: 11px;
+    border-radius: 5px;
 }
 #creat-req-button:hover{
     background-color: #FF7200;
@@ -467,13 +467,13 @@ tr:nth-child(even) {
     size: 30px;
     height: 41px;
     width: auto;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     color: black;
-    background: #bababa;
-    font-weight: bold;
+    background: #ffffff;
+    /* font-weight: bold; */
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 #uploadtopublic:hover,#chooseprof:hover,#availableprop:hover{
     color: white;
@@ -498,7 +498,7 @@ tr:nth-child(even) {
     left: 20px;
     transition: 0.5s;
     transition-property: color;
-    font-size: 34px;
+    font-size: 29px;
     margin-left: 20px;
     margin-top: 7px;
 }

@@ -57,40 +57,40 @@
             <a href="<%=request.getContextPath()%>/vieworders"><button class="buttonOrders">My Orders</button></a>
             <ul>
                 <li><h2>Filter By</h2></li>
-                <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>
+<%--                <li class="fas fa-angle-down" id="angle-down" onclick="document.querySelector('#ft').classList.toggle('hidden')"></li>--%>
             </ul>
 
-            <div class="filter-table hidden" id="ft">
-                <h4>Type :</h4>
-                <label class="filterby">Branded
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby">Unbranded
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <h4>Seller Ranking :</h4>
-                <label class="filterby"><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox" checked="checked">
-                    <span class="checkmark"></span>
-                  </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
-                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>
+            <div class="filter-table " id="ft">
+<%--                <h4>Type :</h4>--%>
+<%--                <label class="filterby">Branded--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby">Unbranded--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+<%--                <h4>Seller Ranking :</h4>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox" checked="checked">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                  </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
+<%--                <label class="filterby"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                    <input type="checkbox">--%>
+<%--                    <span class="checkmark"></span>--%>
+<%--                </label>--%>
                 <h4>Price :</h4>
                 <label class="filterby">Under Rs.1000.00
                     <input type="checkbox" checked="checked">

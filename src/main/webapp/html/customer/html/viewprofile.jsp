@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="./html/customer/resources/css/viewprofile-customer.css">
     <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script>
         function deleteimage(id){
             var userid = id;
@@ -80,7 +83,7 @@
             <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
 
 <%--            <a href="#" id="<%=account.getUserid()%>" class="button" onclick="gotochat(this)">Message</a>--%>
-            <a href="#" id="" class="buttonaddverify" onclick="">Address proof</a>
+<%--            <a href="#" id="" class="buttonaddverify" onclick="">Address proof</a>--%>
 
         </div>
         <div class="box2">
