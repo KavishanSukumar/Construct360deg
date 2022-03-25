@@ -1254,7 +1254,7 @@
                     daySquare.style.opacity="0.5";
                     daySquare.style.backgroundColor="black";
                     daySquare.style.cursor="none";
-                    daySquare.onclick='';
+                    daySquare.onclick="";
                     daySquare.style.color="white";
                 }
                 if (i - paddingDays === day && nav === 0) {

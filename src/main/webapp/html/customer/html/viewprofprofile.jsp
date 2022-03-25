@@ -11,7 +11,7 @@
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
-    int profid = -1;
+    int profid = (int) request.getAttribute("profid");
     int userid = (int) session.getAttribute("userid");
 
     Account account = (Account) request.getAttribute("accounts");
@@ -28,7 +28,7 @@
     int  reqid = -1;
     if(count==0){
         reqid = (int) request.getAttribute("reqid");
-        profid = (int) request.getAttribute("profid");
+
     }
 %>
 

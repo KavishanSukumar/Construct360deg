@@ -244,10 +244,14 @@ body{
 
         .filter{
             grid-area:filter;
-            background-color: rgba(255, 255, 255, 0.733);
-            padding-left: 35px;
+            background-color: rgb(255, 244, 225);
+            padding-left: 52px;
             /* position: fixed; */
             /* margin-top: 62px; */
+            padding-top: 29px;
+            height: 534px;
+            margin-left: 10px;
+            border-radius: 11px;
         }
 
 
@@ -319,11 +323,11 @@ body{
         .profile{
             display: flex;
             flex-direction:column ;
-            background-color: rgba(255, 105, 0, 0.2);
+            background-color: rgb(255, 244, 225);
             margin: 30px;
             border-radius: 8px;
             cursor: pointer;
-            height: 400px;
+            height: 360px;
             width: 250px;
         /*    88888888888888888888*/
         }
@@ -337,6 +341,10 @@ body{
             box-shadow: 0 1px 5px rgb(104 104 104);
             width: 210px;
             height: 200px;
+            transition: transform .2s;
+        }
+        .gallery img:hover{
+            transform: scale(1.5);
         }
         .gallery .desc{
             text-align: left;
@@ -355,6 +363,9 @@ body{
             font-size: 24px;
             margin-top: 2px;
         }
+        /*.gallery .quantitypr{*/
+        /*    font-size: 12px;*/
+        /*}*/
         /*8888888888888888888888*/
         .addtocart{
             display: flex;
