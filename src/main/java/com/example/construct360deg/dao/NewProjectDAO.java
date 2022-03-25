@@ -67,6 +67,35 @@ public class NewProjectDAO {
     }
 // this is for professionals ///////////////////////////////
 
+    public ArrayList<Project> viewProjects(int profid) throws SQLException {
+        ArrayList<Project> newprojects = new ArrayList<>();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        String sql ="SELECT * FROM `project` where profid=?";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,profid);
+//        preparedStatement.setInt(1,projectid);
+        ResultSet resultSet = null;
+        resultSet= preparedStatement.executeQuery();
+
+        while (resultSet.next()){
+            Project project = new Project();
+            project.setProjectname(resultSet.getString("projectname"));
+            project.setContractor(resultSet.getString("contractor"));
+            project.setLandscape(resultSet.getString("landscape"));
+            project.setCustomer(resultSet.getString("customer"));
+            project.setAddress(resultSet.getString("address"));
+            project.setStarttime(resultSet.getString("starttime"));
+            project.setFinishtime(resultSet.getString("finishtime"));
+            project.setCusaccept(resultSet.getByte("cus_accept"));
+            project.setProjectid(resultSet.getInt("projectid"));
+            newprojects.add(project);
+        }
+        return newprojects;
+
+    }
+/////////////// thus is for customers /////////////////////////////
+
     public ArrayList<Project> viewProject(int projectid) throws SQLException {
         ArrayList<Project> newprojects = new ArrayList<>();
         Connection connection = Database.getConnection();
@@ -94,7 +123,6 @@ public class NewProjectDAO {
         return newprojects;
 
     }
-/////////////// thus is for customers /////////////////////////////
 
     public ArrayList<Project> viewProjectcus(int cusid) throws SQLException {
         ArrayList<Project> newprojects = new ArrayList<>();

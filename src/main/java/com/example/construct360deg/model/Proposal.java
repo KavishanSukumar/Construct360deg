@@ -43,6 +43,17 @@ public class Proposal {
     private int customeraccept;
     private int customerreject;
 
+    public int getProjectid() {
+        return projectid;
+    }
+
+    public void setProjectid(int projectid) {
+        this.projectid = projectid;
+    }
+
+    private int projectid;
+
+
     public int getTag() {
         return tag;
     }

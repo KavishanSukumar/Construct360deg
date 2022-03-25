@@ -241,7 +241,7 @@
         </div>
       </div>
 
-      <div class="middle-content" id="regdoc">
+      <div class="middle-content" id="regdoc" style="display: none">
        kdnojvs dvj djsnod snd kzj dv
       </div>
 

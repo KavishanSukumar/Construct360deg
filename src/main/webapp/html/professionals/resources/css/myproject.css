@@ -214,12 +214,12 @@ ul li a:hover,ul li i:hover{
 }
 .grid-item2{
     padding: 20px;
-    display: grid;
-    grid-template-rows: 350px 230px;
-    grid-template-areas:
-    'box1'
-    'box2';
-    grid-row-gap: 30px;
+    /*display: grid;*/
+    /*grid-template-rows: 350px 230px;*/
+    /*grid-template-areas:*/
+    /*'box1'*/
+    /*'box2';*/
+    /*grid-row-gap: 30px;*/
     margin-top: -670px;
 }
 .box1, .box2{

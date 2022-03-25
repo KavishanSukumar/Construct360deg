@@ -19,6 +19,7 @@ public class NewProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
+//        int projectid =Integer.parseInt(req.getParameter("projectid"));
         int proposalid =Integer.parseInt(req.getParameter("proposalid"));
         int reqid = Integer.parseInt(req.getParameter("reqid"));
         int cusid =Integer.parseInt(req.getParameter("cus_id"));
@@ -42,10 +43,12 @@ public class NewProjectServlet extends HttpServlet {
         project.setStarttime(req.getParameter("starttime"));
         project.setFinishtime(req.getParameter("finishtime"));
 
+        System.out.println(" new project servlet 1 ---------------------");
+
         ProposalsDAO proposalsDAO = new ProposalsDAO();
         try {
             if (newProjectDAO.addProject(project,reqid,proposalid,cusid,userid)){
-                proposalsDAO.createproject(proposalid);
+                proposalsDAO.createprojectforproposal(proposalid);
                 System.out.println("project added successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('project added successfull');");
@@ -56,8 +59,8 @@ public class NewProjectServlet extends HttpServlet {
             }
             out.println("location='"+req.getContextPath()+"/viewproject';");
             out.println("</script>");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (Exception e) {
+           out.println(e);
         }
     }
 }

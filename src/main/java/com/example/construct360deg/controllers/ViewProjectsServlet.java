@@ -26,6 +26,7 @@ public class ViewProjectsServlet extends HttpServlet {
         HttpSession session=req.getSession();
         int userid = (int) session.getAttribute("userid");
 //        int projectid = (int) session.getAttribute("projectid");
+        String projectid = req.getParameter("projectid");
         String userrole= (String) session.getAttribute("userrole");
         Account account = new Account();
         if (userrole.equals("cus_indiv")){
@@ -203,7 +204,7 @@ public class ViewProjectsServlet extends HttpServlet {
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
-                newprojects=newProjectDAO.viewProject(userid);
+                newprojects=newProjectDAO.viewProjects(userid);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -298,7 +299,7 @@ public class ViewProjectsServlet extends HttpServlet {
             try {
 
 
-                newprojects=newProjectDAO.viewProject(userid);
+                newprojects=newProjectDAO.viewProjects(userid);
 
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

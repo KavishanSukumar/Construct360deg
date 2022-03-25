@@ -9,6 +9,7 @@
 %>
 <%
     Project project = (Project) request.getAttribute("projects");
+    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
     int projectid = (int) request.getAttribute("projectid");
@@ -173,9 +174,11 @@
 <%@include file="sidebar-customer.jsp"%>
 <div class="container">
     <div class="content1">
+        <%for (Project x:newprojects){%>
         <div class="name">
-            <h2>Maharagama project two floors</h2>
+            <h2><%=x.getProjectname()%></h2>
         </div>
+        <%}%>
     </div>
     <div class="content2">
         <div class="home">
@@ -216,12 +219,15 @@
                     <h3>Another events</h3>
                     <p><%=project.getOther()%></p>
                 </div>
+                <%for (Project z:newprojects){%>
                 <div class="box2">
                     <h2>Project Members</h2>
-                    <p> * Contractor : <%=project.getContractor()%><br> * Customer :<%=project.getCustomer()%><br> * Landscape Designer :<%=project.getLandscape()%></p>
+                    <p> * Contractor : <%=z.getContractor()%><br> * Customer :<%=z.getCustomer()%><br> * Landscape Designer :<%=z.getLandscape()%></p>
+                    <h2>Another Members</h2>
+                    <p>* <%=project.getMember1()%><br>* <%=project.getMember2()%><br>* <%=project.getMember3()%></p>
                 </div>
+                <%}%>
             </div>
-
         </div>
 
         <div class="project" id="uploadreq">

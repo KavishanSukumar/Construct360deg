@@ -38,7 +38,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         ArrayList<Graph> ongoingGraph=new ArrayList<>();
         Project project = new Project();
         try {
-            projects = newProjectDAO.viewProject(userid);
+            projects = newProjectDAO.viewProject(projectid);
             project = myProjectDAO.retriveDetails(projectid);
             proposedGraph=graphDAO.getProposedGraph(projectid);
             ongoingGraph=graphDAO.getOngoingGraph(projectid);
