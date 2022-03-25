@@ -1,6 +1,12 @@
+<%@ page import="com.example.construct360deg.model.AllUserdocs" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <!DOCTYPE html>
 <html lang="en">
+<%
+    ArrayList<AllUserdocs> allUserdocs= (ArrayList<AllUserdocs>) request.getAttribute("alldocuments");
 
+%>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +23,28 @@
         $(document).ready( function () {
             $('#mytable').DataTable();
         });
+        function verifydoc(data){
+            var docid=data.id;
+            var out=confirm("Do you want to make the document verified");
+            if (out==true){
+                var xHTTP=new XMLHttpRequest();
+                xHTTP.open("POST","<%=request.getContextPath()%>/userdocument?task=1&docid="+docid,true);
+                xHTTP.send();
+                location="<%=request.getContextPath()%>/userdocument";
+            }
+        }
+
+
+        function rejectdoc(data){
+            var docid=data.id;
+            var out=confirm("Do you want to reject the document");
+            if (out==true){
+                var xHTTP=new XMLHttpRequest();
+                xHTTP.open("POST","<%=request.getContextPath()%>/userdocument?task=0&docid="+docid,true);
+                xHTTP.send();
+                location="<%=request.getContextPath()%>/userdocument";
+            }
+        }
     </script>
 </head>
 
@@ -58,35 +86,51 @@
             <thead>
                 <tr class="headrow">
                     <th class="userid"><span>Date</span></th>
-                    <th class="Time"><span>Time</span></th>
                     <th class="User"><span>User</span></th>
                     <th class="Userrole"><span>User role</span></th>
-                    <th class="filetype"><span>File type</span></th>
-                    <th class="Activity"><span>File name</span></th>
+                    <th class="filetype"><span>File name</span></th>
+                    <th class="Activity"><span>File</span></th>
+                    <th class="status"><span>Document Status</span></th>
                 </tr>
             </thead>
             <tbody>
+            <%for (AllUserdocs x:allUserdocs){%>
                 <tr class="1stline">
-                    <td class="1stDate">01-08-2020</td>
-                    <td class="1sttime">16:00:09</td>
-                    <td class="1stUser">Nimali</td>
-                    <td class="1stUserrole">Customer-individual</td>
-                    <td class="1stfiletype">Address proof</td>
-                    <td class="1stActivity">Addressproof-2005.pdf</td>
+                    <td class="1stDate"><%=x.getUploaded_date()%></td>
+                    <td class="1stUser"><%=x.getUserid()%></td>
+                    <td class="1stUserrole"><%=x.getUser_role()%></td>
+                    <td class="1stfiletype"><%=x.getDoc_name()%></td>
+                    <%if(x.getDocument()!=null){%>
+                    <%
+                        byte[] theproposal = x.getDocument();
+                        byte[] realtheproposal = Base64.encodeBase64(theproposal);
+                        String thereqfile = new String(realtheproposal, "UTF-8");
+                    %>
+                    <%
+                        String reqfilename=x.getDoc_name();
+                        String extention1 = reqfilename.substring(reqfilename.lastIndexOf("."));
+                        System.out.println(extention1);
+                    %>
+                    <%if(extention1.equals(".pdf")){%>
+                    <td><a href="data:application/pdf;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-pdf"></i> <%=reqfilename%></a></td>
+                    <%}else {%>
+                    <td><a href="data:application/zip;base64,<%=thereqfile%>" download="<%=reqfilename%>" style="font-size: 15px; margin-top: 0px"><i class="fas fa-file-archive"></i> <%=reqfilename%></a></td>
+                    <%}%>
+                    <%}%>
+                    <%if (x.getTag()==0){%>
+                        <td><button id="<%=x.getDoc_id()%>" onclick="verifydoc(this)">Verify Doc</button>  <button id="<%=x.getDoc_id()%>" onclick="rejectdoc(this)">Reject Doc</button></td>
+                    <%}else{%>
+                        <%if (x.getVerified()==0){%>
+                        <td>Rejected</td>
+                        <%}else{%>
+                        <td>Verified</td>
+                        <%}%>
+                    <%}%>
                 </tr>
-                <tr class="2ndline">
-                    <td class="2ndDate">01-07-2021</td>
-                    <td class="2ndtime">13:10:09</td>
-                    <td class="2ndUser">Abans</td>
-                    <td class="2ndUserrole">Product company</td>
-                    <td class="2ndtfiletype">Registrationfile</td>
-                    <td class="2ndtActivity">Registrationfile-2000.pdf</td>
-                </tr>
-                
+            <%}%>
             </tbody>
 
         </table>
-        <!-- ///////////////////////////////////////////// -->
     </div>
 </div>
   
