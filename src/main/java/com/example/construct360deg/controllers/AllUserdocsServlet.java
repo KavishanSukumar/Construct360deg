@@ -33,7 +33,6 @@ public class AllUserdocsServlet extends HttpServlet {
         String userrole = (String) session.getAttribute("userrole");
         allUserdocs.setUser_role(userrole);
         allUserdocs.setDoc_name(request.getParameter("filename"));
-        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
         System.out.println(request.getParameter("filename"));
 
         Part filePart = request.getPart("reqfile");
@@ -47,14 +46,14 @@ public class AllUserdocsServlet extends HttpServlet {
             System.out.println("Requirement added is successfull");
             out.println("<script type='text/javascript'>");
             out.println("alert('Insert successful');");
-            out.println("location='"+request.getContextPath()+"/viewproject';");
+            out.println("location='"+request.getContextPath()+"/editprofile';");
             out.println("</script>");
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Requirement added is Unsuccessfull");
             out.println("<script type='text/javascript'>");
             out.println("alert('Insert Unsuccessful');");
-            out.println("location='"+request.getContextPath()+"/viewproject';");
+            out.println("location='"+request.getContextPath()+"/editprofile';");
             out.println("</script>");
         }
 
