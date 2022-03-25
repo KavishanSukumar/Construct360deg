@@ -152,7 +152,7 @@
         <label for="provin">Province</label>
         <input type="text" id="provin" name="province" required><br><br>
         <div class="uploadFile">
-            <input type="submit" value="Upload">
+            <input type="submit" id="create" value="Create">
             <!-- <input type="submit" value="Uplaod" style="float: right;"> -->
         </div>
     </form>
@@ -458,9 +458,10 @@
             </div>
                 <div id="output"></div>
             </div>
+            <%@include file="../../footer.jsp"%>
 <%--################################################################# end of senal's part########################################################--%>
     </div>
-        <%@include file="../../footer.jsp"%>
+
 </body>
 <script>
     function myfun(){
@@ -536,6 +537,18 @@
                 <%--location.href="<%=request.getContextPath()%>/deleteownreq?reqid="+reqid;--%>
             }
         }
+        var uploadField = document.getElementById("reqfile");
+
+        uploadField.onchange = function() {
+            if(this.files[0].size > 2097152){
+                alert("File is too big!");
+                this.value = "";
+            };
+        };
+
+
+
+
     }
     // function removereq1(){
     //     var out = confirm("Do you want to delete this requirements");

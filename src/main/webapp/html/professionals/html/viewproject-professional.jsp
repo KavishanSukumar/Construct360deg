@@ -5,6 +5,8 @@
 <%@ page import="java.sql.Date" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.*" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.example.construct360deg.dao.TimeSlotsDAO" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,8 @@
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
     ArrayList<Proposal> displayownproposals =(ArrayList<Proposal>)request.getAttribute("displayownproposals");
     ArrayList<Requirement> displayRequirementonprof = (ArrayList<Requirement>)request.getAttribute("displayRequirementonprof");
+    ArrayList<TimeSlots> timeslots = (ArrayList<TimeSlots>)request.getAttribute("timeslots");
+
     Account account = (Account) request.getAttribute("accounts");
     Account account1 = (Account) request.getAttribute("changepic");
 %>
@@ -853,12 +857,24 @@
             </div>
 
             <div id="newEventModal">
-                <h2>New Event</h2>
+                <form action="<%=request.getContextPath()%>/updatetimeslots" method="post">
+                <input id="selected_date_input" name="selected_date">
+                <div class="theday">
+                    <div class="timeslot"><input name="slots" type="checkbox" value="1"> &nbsp; 8:00 am  - 9.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="2"> &nbsp9:00 am  - 10.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="3"> &nbsp10:00 am - 11.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="4"> &nbsp11:00 am - 12.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="5"> &nbsp12:00 pm - 13.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="6"> &nbsp13:00 pm - 14.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="7"> &nbsp14:00 pm - 15.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="8"> &nbsp15:00 pm - 16.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="9"> &nbsp16:00 pm - 17.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="10"> &nbsp17:00 pm - 18.00 pm</div>
+                </div>
+                <button type="submit" >Save</button>
+                <button id="cancelButton" type="button">Cancel</button>
+                </form>
 
-                <input id="eventTitleInput" placeholder="Event Title" />
-
-                <button id="saveButton">Save</button>
-                <button id="cancelButton">Cancel</button>
             </div>
 
             <div id="deleteEventModal">
@@ -1180,17 +1196,51 @@
     const backDrop = document.getElementById('modalBackDrop');
     const eventTitleInput = document.getElementById('eventTitleInput');
     const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+<%--  <%--%>
+<%--       int profid=(int)session.getAttribute("userid");--%>
+<%--       ArrayList<HashMap<String,Object>> x = (new TimeSlotsDAO()).getSlotsForProfessional(profid); %>--%>
+<%--&lt;%&ndash;    let slots = ${x}&ndash;%&gt;--%>
 
+    let slots = {}
+    <%
+
+    for (TimeSlots x:timeslots) { %>
+        slots['<%=x.getDate()%>']= [ ...(slots['<%=x.getDate()%>']||[]), '<%=x.getSlotid()%>' ]
+        // out.println(x.getProfid()+" "+x.getDate()+" "+x.getSlotid()+" "+x.getTag());
+    <% } %>
+
+    console.log(slots)
+    
     function openModal(date) {
         clicked = date;
 
         const eventForDay = events.find(e => e.date === clicked);
+
+        let da =(new Date(date))
+        da.setDate(da.getDate()+1)
+
+        let fixed_date =da.toISOString().substr(0,10)
+        document.getElementById('selected_date_input').value = fixed_date;
+
+        let sl = document.querySelectorAll("[name='slots']")
+        
+        for (const x of sl) {
+            x.removeAttribute('checked')
+        }
+        console.log(slots,fixed_date,slots[fixed_date])
+
+        if(slots[fixed_date]) {
+            for (const x of slots[fixed_date]) {
+                document.querySelector("[name='slots'][value='"+x+"']").setAttribute('checked',true)
+            }
+        }
 
         if (eventForDay) {
             document.getElementById('eventText').innerText = eventForDay.title;
             deleteEventModal.style.display = 'block';
         } else {
             newEventModal.style.display = 'block';
+
         }
 
         backDrop.style.display = 'block';
@@ -1232,14 +1282,25 @@
             if (i > paddingDays) {
 
                 daySquare.innerText = i - paddingDays;
+
                 const eventForDay = events.find(e => e.date === dayString);
-                if(i - paddingDays < day && nav === 0){
+
+                let datein14days = new Date()
+                datein14days.setDate(datein14days.getDate()+14)
+
+
+                let isGT14days = (datein14days.getTime() < (new Date(`\${year}-\${month + 1}-\${i - paddingDays}`)).getTime())
+                console.log(datein14days,dt,isGT14days)
+
+                if((i - paddingDays < day && nav === 0) || isGT14days ){
                     daySquare.style.opacity="0.5";
                     daySquare.style.backgroundColor="black";
                     daySquare.style.cursor="none";
                     daySquare.onclick="";
                     daySquare.style.color="white";
+                    daySquare.style.pointerEvents ='none'
                 }
+
                 if (i - paddingDays === day && nav === 0) {
                     daySquare.id = 'currentDay';
                 }
@@ -1261,11 +1322,11 @@
     }
 
     function closeModal() {
-        eventTitleInput.classList.remove('error');
+        //eventTitleInput.classList.remove('error');
         newEventModal.style.display = 'none';
         deleteEventModal.style.display = 'none';
         backDrop.style.display = 'none';
-        eventTitleInput.value = '';
+        //eventTitleInput.value = '';
         clicked = null;
         load();
     }
@@ -1310,7 +1371,7 @@
 
         });
 
-        document.getElementById('saveButton').addEventListener('click', saveEvent);
+       // document.getElementById('saveButton').addEventListener('click', saveEvent);
         document.getElementById('cancelButton').addEventListener('click', closeModal);
         document.getElementById('deleteButton').addEventListener('click', deleteEvent);
         document.getElementById('closeButton').addEventListener('click', closeModal);

@@ -195,7 +195,7 @@ form.example::after {
     margin-top: -10px;
 }
 .content2{
-    height: 660px;
+    height: 115vh;
     display: grid;
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
@@ -229,7 +229,8 @@ form.example::after {
 #viewproject{
     background-color:#e6e4e3;
     display: block;
-
+    min-height: 102vh;
+    overflow: auto;
 }
 /*.grid-item1{*/
 /*    padding: 40px;*/
@@ -263,7 +264,8 @@ form.example::after {
     margin-top: 40px;
 }
 #chatbox{
-    background-color:#e6e4e3;}
+    background-color:#e6e4e3;
+    min-height: 102vh;}
 #chat-box-container{
     display: flex;
 }
@@ -272,7 +274,7 @@ form.example::after {
 .filling{
     grid-area: a2;
     background-color:#000000c5;
-    height: 680px;
+    height: 754px;
     border-radius: 2%;
     color:white;
     margin: auto;
@@ -336,17 +338,20 @@ form.example::after {
     height: 35px;
     text-align: center;
     font-size: 20px;
-    font-weight: 400;
     border: none;
     outline: none;
-    background: #ff7200;
+    background: #a5a4a3;
     color: black;
     border-radius: 5px;
     cursor: pointer;
     margin-left: 180px;
     margin-top: 10px;
+    font-weight: bold;
 }
-
+#create:hover{
+    background: #ff7200;
+    color: white;
+}
 
 #close,#close2{
     width: 29px;
@@ -705,13 +710,19 @@ tr:nth-child(even) {
 
 .footer{
     border-top: 1px solid #ebebeb;
-    margin-top: 770px;
-    padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
     font-size:14px;
     height: 50px;
     background: rgb(0, 0, 0);
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size: 14px;
+    background: rgb(0, 0, 0);
+    grid-column: 1 / -1;
+    margin-top: auto;
 }
 .footer p{
     margin-top: -5px;

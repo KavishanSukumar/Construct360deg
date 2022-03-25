@@ -167,11 +167,19 @@
     width: 100%;
     height: 120vh;
     align-items: normal;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 55% 45%;
     grid-template-areas: "add preview";
     grid-column-gap: 5px;
     grid-row-gap: 10px;
 }
+#preview{
+    margin-left: 259px;
+    /* margin-right: auto; */
+    display: block;
+    margin-top: -20px;
+    font-size: 39px;
+}
+
 
 .add-area{
     grid-area: add;
@@ -179,10 +187,23 @@
     /* background-color:#c4c4c4; */
 }
 
+#title{
+    margin-top: 3px;
+    font-size: 19px;
+    font-weight: bold;
+}
 
+#name{
+    margin-top: -16px;
+}
+
+#date-time{
+    margin-top: -13px;
+}
 .filling h2{
     margin-left: 240px;
 }
+
 .filling{
     width: 900px;
     margin-top: 20px;
@@ -276,13 +297,37 @@ input[type=text]{
     cursor: pointer;
     margin-top: 10px;
 }
+
+#upload{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 221px;
+    height: 50px;
+    font-size: 36px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background-color:#c4c4c4;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 28px;
+}
+#upload:hover{
+    background: #ff7200;
+    color: white;
+}
+
+
 .preview{
     padding: 23px;
 }
 
 #prof-img{
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 77px;
+    border-radius: 10px;
 }
 .addpreview{
     width: 100%;
@@ -309,8 +354,8 @@ input[type=text]{
 }
 
 #add-img{
-    width: 1000px;
-    height: 750px;
+    width: 200px;
+    height: 250px;
 }
 
 .footer{

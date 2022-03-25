@@ -42,11 +42,14 @@
                    <div class="imagetemp">
                        <img src="./html/professionals/resources/images/Advertise/addtemp.jpg" alt="">
                    </div> <br>
-                <div class="img-file">  
-                    <input type="file" id="imgfile" name="imgfile" onchange="return fileValidation()"/><br>
+                <div class="img-file" style="display: flex; flex-direction: row">
+                    <p style="margin-left: -215px;">Advertisement source file :</p>
+                    <div>
+                    <input type="file" id="imgfile" style="margin: 15px;" name="imgfile" onchange="return fileValidation()"/><br>
                     <label id="filetype">(Choose png / jpeg / jpg file)</label>
+                    </div>
                 </div>
-<%--                <input type="submit" value="Uplaod" form="fill">--%>
+                <input type="submit" id="upload" value="Uplaod" form="fill">
                 </form>
             </div>
 
@@ -56,14 +59,14 @@
     <div class="preview-area">
       <div class="preview">
 
-          <p>Preview </p>
+          <p id="preview">Preview </p>
 
            <div class="preview-img">
 <%--             <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="">--%>
                <div class="addpreview">
                      <div class="padding">
                       <div class="profinfo">
-                          <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="" id="profimg">
+                          <img src="./html/professionals/resources/images/Advertise/preview.jpg" alt="" id="prof-img" >
                           <div class="minifacts">
                               <p id="title"> this is test</p>
                               <p id="name"> senal</p>
@@ -80,7 +83,7 @@
                      </div>
                </div>
            </div> <br>
-           <input type="submit" value="Uplaod" form="fill">
+
 
       </div>
     </div>
