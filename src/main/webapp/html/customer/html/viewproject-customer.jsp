@@ -354,7 +354,7 @@
 
                                %>
 
-                           <i class="fa fa-angle-double-right" aria-hidden="true" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
+                           <i class="fa fa-angle-double-right" aria-hidden="true" title="Options" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
 <%--                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>--%>
 
                            <div class="btns hidden" id="<%=x.getRequirementid()%>">

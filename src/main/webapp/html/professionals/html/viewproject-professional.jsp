@@ -1012,11 +1012,11 @@
                 </div>
 
             </div>
-
+            <%@include file="../../footer.jsp"%>
     </div>
 
     </div>
-    <%@include file="../../footer.jsp"%>
+
 </body>
 <script>
     function popupform(porpid,reqid,cusid){

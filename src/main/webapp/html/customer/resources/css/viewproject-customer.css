@@ -374,6 +374,17 @@ form.example::after {
     opacity: 1;
 }
 
+
+#bars1[title]{
+    width: 10px;
+    height: 5px;
+    background: #ff7200;
+    color: white;
+
+}
+
+
+
 #my_reqs{
     background-color:#e6e4e3;
     display: none;
