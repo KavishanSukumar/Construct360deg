@@ -11,6 +11,7 @@ public class NewProjectDAO {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
         int projectid=0;
+        String sql2=null;
 //        String sql = "INSERT INTO `addproject`(`newproject`) VALUES (?)";
 //        String sql = "INSERT INTO `project`(`projectname`,`reqid`,`proposalid`,`cusid`,`profid`) VALUES (?,?,?,?,?)";
 //        String sql = "INSERT INTO `project`(`profid`, `projectname`, `contractor`, `landscape`, `customer`, `address`, `starttime`, `finishtime`, `proposalid`, `reqid`, `cusid`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
@@ -23,27 +24,40 @@ public class NewProjectDAO {
         while (resultSet.next()){
             projectid=resultSet.getInt("projectid");
         }
+        if (projectid!=0){
 
-        String sql2="UPDATE `project` SET `profid`=?,`projectname`=?,`contractor`=?,`landscape`=?,`customer`=?,`address`=?,`starttime`=?,`finishtime`=?,`reqid`=?,`cusid`=?, `projectid`=? WHERE `proposalid`=?";
-
-        preparedStatement = connection.prepareStatement(sql2);
-        int row =0;
-
-        preparedStatement.setInt(1,profid);
-        preparedStatement.setString(2,project.getProjectname());
-        preparedStatement.setString(3,project.getContractor());
-        preparedStatement.setString(4,project.getLandscape());
-        preparedStatement.setString(5,project.getCustomer());
-        preparedStatement.setString(6,project.getAddress());
-        preparedStatement.setString(7,project.getStarttime());
-        preparedStatement.setString(8,project.getFinishtime());
-//        preparedStatement.setDate(7, Date.valueOf(project.getStarttime()));
-//        preparedStatement.setDate(8, Date.valueOf(project.getFinishtime()));
-
-        preparedStatement.setInt(9,reqid);
-        preparedStatement.setInt(10,cusid);
+            sql2="UPDATE `project` SET `profid`=?,`projectname`=?,`contractor`=?,`landscape`=?,`customer`=?,`address`=?,`starttime`=?,`finishtime`=?,`reqid`=?,`cusid`=? WHERE `projectid`=?";
+            preparedStatement = connection.prepareStatement(sql2);
+            preparedStatement.setInt(1,profid);
+            preparedStatement.setString(2,project.getProjectname());
+            preparedStatement.setString(3,project.getContractor());
+            preparedStatement.setString(4,project.getLandscape());
+            preparedStatement.setString(5,project.getCustomer());
+            preparedStatement.setString(6,project.getAddress());
+            preparedStatement.setString(7,project.getStarttime());
+            preparedStatement.setString(8,project.getFinishtime());
+            preparedStatement.setInt(9,reqid);
+            preparedStatement.setInt(10,cusid);
         preparedStatement.setInt(11,projectid);
-        preparedStatement.setInt(12,proposalid);
+//            preparedStatement.setInt(11,proposalid);
+
+        }else {
+            sql2="INSERT INTO `project`(`profid`, `projectname`, `contractor`, `landscape`, `customer`, `address`, `starttime`, `finishtime`, `reqid`, `cusid`, `proposalid`) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            preparedStatement = connection.prepareStatement(sql2);
+            preparedStatement.setInt(1,profid);
+            preparedStatement.setString(2,project.getProjectname());
+            preparedStatement.setString(3,project.getContractor());
+            preparedStatement.setString(4,project.getLandscape());
+            preparedStatement.setString(5,project.getCustomer());
+            preparedStatement.setString(6,project.getAddress());
+            preparedStatement.setString(7,project.getStarttime());
+            preparedStatement.setString(8,project.getFinishtime());
+            preparedStatement.setInt(9,reqid);
+            preparedStatement.setInt(10,cusid);
+//        preparedStatement.setInt(11,projectid);
+            preparedStatement.setInt(11,proposalid);
+        }
+        int row =0;
         row = preparedStatement.executeUpdate();
          if (row>0){
              return true;
@@ -53,13 +67,13 @@ public class NewProjectDAO {
     }
 // this is for professionals ///////////////////////////////
 
-    public ArrayList<Project> viewProject(int profid) throws SQLException {
+    public ArrayList<Project> viewProject(int projectid) throws SQLException {
         ArrayList<Project> newprojects = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql ="SELECT * FROM `project` where profid=?";
+        String sql ="SELECT * FROM `project` where projectid=?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1,profid);
+        preparedStatement.setInt(1,projectid);
 //        preparedStatement.setInt(1,projectid);
         ResultSet resultSet = null;
         resultSet= preparedStatement.executeQuery();
