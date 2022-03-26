@@ -224,10 +224,10 @@ form.example::after {
 .home a.active{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #e6e4e3;
+    background-color: #FFF4E1FF;
 }
 #viewproject{
-    background-color:#e6e4e3;
+    background-color:#fcfcfc;
     display: block;
     min-height: 102vh;
     overflow: auto;
@@ -386,7 +386,7 @@ form.example::after {
 
 
 #my_reqs{
-    background-color:#e6e4e3;
+    background-color: rgb(255, 244, 225);
     display: none;
     height: auto;
     overflow-y: auto;
@@ -406,12 +406,12 @@ form.example::after {
 #creat-req-button{
     text-decoration: none;
     margin: 20px;
-    font-size: 20px;
+    font-size: 16px;
     color: black;
     background: #ffffff;
-    height: 23px;
-    width: 256px;
-    padding: 11px;
+    height: 21px;
+    width: 217px;
+    padding: 8px;
     border-radius: 5px;
 }
 #creat-req-button:hover{
@@ -429,22 +429,23 @@ form.example::after {
     margin-bottom: 10px;
 }
 table {
-    font-family: arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     border-collapse: collapse;
     width: 98%;
     table-layout: fixed;
     margin-left: 20px;
+    font-size: 13px;
 
 }
 
 td,th {
-    border: 1px solid #656565;
+    border: 1px none;
     text-align: left;
-    padding: 8px;
+    padding: 7px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #ffffff;
 }
 
 .field-name{
@@ -498,7 +499,7 @@ tr:nth-child(even) {
     left: 20px;
     transition: 0.5s;
     transition-property: color;
-    font-size: 29px;
+    font-size: 27px;
     margin-left: 20px;
     margin-top: 7px;
 }
@@ -740,3 +741,4 @@ tr:nth-child(even) {
     text-align: center;
     color: rgb(255, 255, 255);
 }
+/*////////////////////////////////////////////////*/

@@ -200,11 +200,12 @@ body{
     height: 38%;
     /* object-fit: cover; */
     position: absolute;
-    top: 224px;
-    left: 1042px;
+    top: 230px;
+    left: 1028px;
     border-radius: 5px;
     transition: transform .5s ease;
     display: none;
+
 }
 
 .brower_content .productimg:hover img{
