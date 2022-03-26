@@ -9,6 +9,7 @@ body{
     grid-template-rows: 72px auto;
     grid-template-areas: "nav"
                          "webpage";
+    z-index: 10;
 }
 .menu_bar{
     position: fixed;

@@ -12,9 +12,16 @@
   <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/customer/resources/css/pay-sub.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+  <source src="./html/customer/resources/images/paysub/rain.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
 <%@include file="sidebar-productcompany.jsp"%>
     <div class="container" id="container">
 

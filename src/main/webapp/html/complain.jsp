@@ -12,6 +12,10 @@
     <title>Report</title>
     <link rel="stylesheet" href="./resources/css/complain.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="./resources/js/jquery-3.6.0.js"></script>
     <script>
         $(document).ready(function (){
@@ -40,6 +44,10 @@
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="./html/customer/complain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
 <!-- <input type="checkbox" id="check"> -->
 <!-- header area start -->
 <div class="container">
