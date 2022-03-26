@@ -31,7 +31,7 @@ body{
 }
 .ammount{
     color: #ffffff;
-    background-color: #ff7200;
+    background-color: #ff720094;
 }
 h1{
     font-size: 60px;
@@ -52,7 +52,7 @@ h1{
 .sub-btn{
     padding: 13px 27px;
     border-radius: 8px;
-    background-color: #e7e7e7;
+    background-color: #e7e7e7a6;
     color: black;
     border-style: none;
 }
@@ -61,7 +61,7 @@ h1{
 }
 
 #secon{
-    background-color: #1fa11f;
+    background-color: #1fa11f87;
 }
 
 #myVideo {

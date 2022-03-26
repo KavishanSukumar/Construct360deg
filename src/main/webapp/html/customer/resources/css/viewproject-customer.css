@@ -409,6 +409,7 @@ form.example::after {
     min-height: 100vh;
     width: 99%;
     row-gap: 10px;
+    border-radius: 10px;
 }
 #my_requirements{
     display: grid;
@@ -735,7 +736,10 @@ tr:nth-child(even) {
 #send-btn:hover{
     color: #ff7200;
 }
-#viewproject{display: block;}
+#viewproject{
+    display: block;
+    border-radius: 10px;
+}
 #chatbox{display: none;}
 
 .footer{

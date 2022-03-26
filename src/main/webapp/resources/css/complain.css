@@ -14,11 +14,12 @@ body{
     grid-area: myform;
     display: flex;
     flex-direction: column;
-    margin: 7vh 50vh;
+    margin: 5vh 32vh;
     padding: 0px 65px;
-    background-color: rgb(250 250 250);
-    box-shadow: 5px 5px 5px  #cccccc;
-    border-radius: 15px
+    background-color: #55555578;
+    /* box-shadow: 5px 5px 5px #cccccc; */
+    border-radius: 8px;
+    color: white;
 }
 
 .myform >label{
@@ -34,6 +35,7 @@ body{
     text-align: left;
     font-size: 14px;
     border-style: none;
+    color: white;
 }
 
 #buttons{
@@ -63,6 +65,36 @@ body{
 }
 #complaineeuserid{
     display: none;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/*//////////////////////////////////////////////scroll bar///////////*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 

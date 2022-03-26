@@ -44,6 +44,10 @@
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="./html/customer/complain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
 <!-- <input type="checkbox" id="check"> -->
 <!-- header area start -->
 <div class="container">
