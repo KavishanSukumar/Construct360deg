@@ -317,7 +317,7 @@ public class AdvertiseDAO {
         ArrayList<Advertise> displayadds = new ArrayList<>();
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `displayadds`";
+        String sql = "SELECT * FROM `displayadds` ORDER BY `submit_date` DESC";
         ResultSet resultSet = null;
         preparedStatement = connection.prepareStatement(sql);
         resultSet = preparedStatement.executeQuery();

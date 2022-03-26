@@ -11,6 +11,8 @@
     ArrayList<Experience> experiences = (ArrayList<Experience>) request.getAttribute("experiences");
     ArrayList<Skills> skills = (ArrayList<Skills>) request.getAttribute("skills");
     ArrayList<AllUsers> allprofs= (ArrayList<AllUsers>) request.getAttribute("allprofs");
+    ArrayList<TimeSlots> timeSlots = (ArrayList<TimeSlots>) request.getAttribute("timeSlots");
+
     int profid = (int) request.getAttribute("profid");
     int userid = (int) session.getAttribute("userid");
 
@@ -43,43 +45,86 @@
 </head>
 
 <%---------------------- appointment - select date ----------------------------------%>
-<div class="appointment" id="appointment-timeslots" style="display: none">
-    <div class="part1">
-        <div class="part1_1">
-            <h1 id="ap-tittle">Select a Date</h1>
-            <button class="closebtnclass" id="closebtn" onclick="mypopupclose()">X</button>
-        </div>
-        <div class="part1_2">
-            <input type="date" id="choosedate" name="choosedate">
-            <input type="submit">
-        </div>
+        <form action="<%=request.getContextPath()%>/Makeappointment" method="get">
+              <div class="appointment" id="appointment-timeslots" style="display: none">
+                  <div class="part1">
+                      <div class="part1_1">
+                          <h1 id="ap-tittle">Select a Date</h1>
+                          <button  type="button" class="closebtnclass" id="closebtn" onclick="mypopupclose()">X</button>
+                      </div>
 
-    </div>
-    <div class="part2">
-        <h1 id="ap-tittle2">Available Time Slots</h1>
-        <div class="avai-timeslots">
-            <div class="notavai">
-                <h3 id="notavailable">Sorry Time slots are not Avilable</h3>
-<%--                <i class="fa fa-frown-o" aria-hidden="true"></i>--%>
-            </div>
-            <button class="timeslot" id="s1" val="1">8:00 am  - 9.00 am</button>
-            <button class="timeslot" id="s2" val="2">9:00 am  - 10.00 am</button>
-            <button class="timeslot" id="s3" val="3">10:00 am  - 11.00 am</button>
-            <button class="timeslot" id="s4" val="4">11:00 am  - 12.00 pm</button>
-            <button class="timeslot" id="s5" val="5">12:00 pm  - 13.00 pm</button>
-            <button class="timeslot" id="s6" val="6">13:00 pm  - 14.00 pm</button>
-            <button class="timeslot" id="s7" val="7">14:00 pm  - 15.00 pm</button>
-            <button class="timeslot" id="s8" val="8">15:00 pm  - 16.00 pm</button>
-            <button class="timeslot" id="s9" val="9">16:00 pm  - 17.00 pm</button>
-            <button class="timeslot" id="s10" val="10">17:00 pm  - 18.00 pm</button>
+                      <div class="part1_2">
+                          <input type="date" id="choosedate" name="choosedate">
+
+                      </div>
+
+                  </div>
 
 
-        </div>
+                  <div class="part2">
+                      <h1 id="ap-tittle2">Available Time Slots</h1>
+                      <div class="avai-timeslots">
+                          <div class="notavai">
+                              <h3 id="notavailable" style="display: none" >Sorry Time slots are not Available
+                                  <i class="fas fa-frown-open" aria-hidden="true"></i>
+                              </h3>
+                          </div>
 
-    </div>
+                              <input type="hidden" name="thechosedate" value="" id="selecteddate">
+                              <input type="hidden" name="profid" value="<%=profid%>">
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s1" value="1" >8:00 am  - 9.00 am</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s2" value="2">9:00 am  - 10.00 am</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s3" value="3">10:00 am  - 11.00 am</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s4" value="4">11:00 am  - 12.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s5" value="5">12:00 pm  - 13.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s6" value="6">13:00 pm  - 14.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s7" value="7">14:00 pm  - 15.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s8" value="8">15:00 pm  - 16.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s9" value="9">16:00 pm  - 17.00 pm</button>
+                          <button class="timeslot" name="thetimeslot" style="display: none" id="s10" value="10">17:00 pm  - 18.00 pm</button>
 
 
-</div>
+                      </div>
+
+
+                      <script>
+                          let thedate = document.getElementById("choosedate");
+                          let passdate =document.getElementById("choosedate");
+                          passdate.value=thedate.value;
+                          console.log(thedate+" passdate = "+passdate);
+                          let slots = {}
+                          let notavail = document.getElementById("notavailable")
+                          <%
+
+                         for (TimeSlots x:timeSlots) { %>
+                          slots['<%=x.getDate()%>']= [ ...(slots['<%=x.getDate()%>']||[]), '<%=x.getSlotid()%>' ]
+                          // out.println(x.getProfid()+" "+x.getDate()+" "+x.getSlotid()+" "+x.getTag());
+                          <% } %>
+                         let dateEl = document.getElementById("choosedate");
+
+                         dateEl.setAttribute("min",(new Date()).toISOString().substr(0,10))
+
+                         dateEl.addEventListener('change', () => {
+                             let sls = document.querySelectorAll('.timeslot')
+                             notavail.style.display='none';
+                             let at_least_oneSlot =false
+                             for (const x of sls) {
+                                 x.style.display = 'none';
+                                 if(slots[dateEl.value] && slots[dateEl.value].includes(x.id.replace('s',''))){
+                                     x.style.display = 'block';
+                                     at_least_oneSlot=true;
+                                 }
+                             }
+                             if(!at_least_oneSlot){
+                                 notavail.style.display='block'
+                             }
+                         })
+
+                      </script>
+                  </div>
+              </div>
+        </form>
+
 <body>
 <div class="container" id="blur">
     <%@include file="sidebar-customer.jsp"%>
@@ -204,6 +249,12 @@
         // var menubar = document.getElementById("menu_bar");
         // menubar.style.filter="none";
     }
+
+    var date = document.getElementById(choosedate).value;
+    if(date==null){
+        console.log("this is selected date ------ ")
+    }
+
 </script>
 </body>
 

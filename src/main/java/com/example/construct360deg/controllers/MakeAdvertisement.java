@@ -1,7 +1,12 @@
 package com.example.construct360deg.controllers;
 
+import com.example.construct360deg.dao.AccountDetailsDAO;
 import com.example.construct360deg.dao.AdvertiseDAO;
+import com.example.construct360deg.dao.AllProfileDAO;
+import com.example.construct360deg.dao.ViewProfileDAO;
+import com.example.construct360deg.model.Account;
 import com.example.construct360deg.model.Advertise;
+import com.example.construct360deg.model.Viewprofile;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,16 +29,51 @@ public class MakeAdvertisement extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws  IOException, ServletException {
         HttpSession session = req.getSession();
         String userrole = (String) session.getAttribute("userrole");
+        int userid = (int) session.getAttribute("userid");
+        ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+        Viewprofile viewprofile = new Viewprofile();
+        AccountDetailsDAO accountDetailsDAO = new AccountDetailsDAO();
+        Account account = new Account();
+        Account account1 = new Account();
 
         if (userrole.equals("prof_com")) {
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+                account1 = accountDetailsDAO.retriveDetails(userid,userrole);
+
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+            req.setAttribute("img",account);
+            req.setAttribute("name",account1);
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Professional");
         } else if (userrole.equals("prof_indiv")) {
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+                account1 = accountDetailsDAO.retriveDetails(userid,userrole);
+
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+            req.setAttribute("img",account);
+            req.setAttribute("name",account1);
+            req.setAttribute("userrole",userrole);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Professional");
         } else if (userrole.equals("prod_com")) {
+            try {
+                account = viewProfileDAO.viewImage(userid,userrole);
+                account1 = accountDetailsDAO.retriveDetails(userid,userrole);
+
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+            req.setAttribute("img",account);
+            req.setAttribute("name",account1);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/advertise.jsp");
             requestDispatcher.forward(req, resp);
             System.out.println("Product company");

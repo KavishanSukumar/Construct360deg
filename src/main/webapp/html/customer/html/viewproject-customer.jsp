@@ -466,6 +466,14 @@
             console.log("blajjncuans");
             console.log(val.value);
         }
+        var uploadField = document.getElementById("reqfile");
+
+
+            if(uploadField.files[0].size > 5242880){
+                alert("File is too big!");
+                uploadField.value = "";
+            };
+
     }
     function processAvailableProposals(reqid){
        var displayprposals = document.getElementById("proposals");
