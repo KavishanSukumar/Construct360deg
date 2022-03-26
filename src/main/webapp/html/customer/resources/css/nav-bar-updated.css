@@ -176,7 +176,7 @@ ul li a:hover,ul li i:hover{
 }
 
 .footer{
-    grid-area: footer;
+    /*grid-area: footer;*/
     border-top: 1px solid #ebebeb;
     padding-bottom: 2%;
     padding-top: 1%;
