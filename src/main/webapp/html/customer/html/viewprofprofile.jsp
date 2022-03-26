@@ -65,8 +65,10 @@
                       <h1 id="ap-tittle2">Available Time Slots</h1>
                       <div class="avai-timeslots">
                           <div class="notavai">
-                              <h3 id="notavailable" style="display: none" >Sorry Time slots are not Available
-                                  <i class="fas fa-frown-open" aria-hidden="true"></i>
+
+<%--                                   <i class="fas fa-face-meh"></i>--%>
+                              <h3 id="notavailable" style="display: none" > <i class="fas fa-frown-open" aria-hidden="true" style="margin: auto;margin-left: 87px;font-size: 72px;padding: 10px;color: dimgrey;}"></i><br>Sorry Time slots are not Available
+
                               </h3>
                           </div>
 
@@ -94,9 +96,8 @@
                           console.log(thedate+" passdate = "+passdate);
                           let slots = {}
                           let notavail = document.getElementById("notavailable")
-                          <%
 
-                         for (TimeSlots x:timeSlots) { %>
+                          <%for (TimeSlots x:timeSlots) { %>
                           slots['<%=x.getDate()%>']= [ ...(slots['<%=x.getDate()%>']||[]), '<%=x.getSlotid()%>' ]
                           // out.println(x.getProfid()+" "+x.getDate()+" "+x.getSlotid()+" "+x.getTag());
                           <% } %>

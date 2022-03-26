@@ -1,6 +1,37 @@
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <%
     int profid = (int) request.getAttribute("profid");
+    int slotid = (int) request.getAttribute("thetimeslot");
+    String date = (String) request.getAttribute("choosedate");
+    System.out.println(profid+" "+slotid+" "+date);
+
+    String timeperoid = null;
+
+    if(slotid==1){
+    timeperoid = "8:00 am - 9.00 am";
+    }else if(slotid==2){
+    timeperoid = "9:00 am - 10.00 am";
+    }else if(slotid==3){
+    timeperoid = "10:00 am - 11.00 am";
+    }else if(slotid==4){
+    timeperoid = "11:00 am - 12.00 pm";
+    }else if(slotid==5){
+    timeperoid = "12:00 pm - 13.00 pm";
+    }else if(slotid==6){
+    timeperoid = "13:00 pm - 14.00 pm";
+    }else if(slotid==7){
+    timeperoid = "14:00 pm - 15.00 pm";
+    }else if(slotid==8){
+    timeperoid = "15:00 pm - 16.00 pm";
+    }else if(slotid==9){
+    timeperoid = "16:00 pm - 17.00 pm";
+    }else if(slotid==10){
+    timeperoid = "17:00 pm - 18.00 pm";
+    }
+
+
+
+
 %>
 <!DOCTYPE html>
 <html >
@@ -46,11 +77,13 @@
 
             <div class="DATE">
                 <p>   Date</p>
-                <input type="date" name="date" required >
+<%--                <input type="date" name="date" required >--%>
+                <p><%=date%></p>
             </div>
             <div class="TIME">
                 <p>   Time</p>
-                <input type="time" name="time" required><br><br>
+<%--                <input type="time" name="time" required>--%>
+                <p><%=timeperoid%></p>
             </div>
 
             <div class="TELE">
