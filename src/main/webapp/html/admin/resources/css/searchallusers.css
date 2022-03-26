@@ -149,15 +149,15 @@
 .container-3{
 
     grid-area: c3;
-    box-shadow: 5px 5px 5px 5px rgb(239 237 237);
+    box-shadow: 0px 1px 5px 5px rgb(241 241 241);
     background-color: #ffffff;
     width: 270px;
-    /* height: 392px; */
+    height: 392px;
     padding: 20px;
-    border-radius: 10px;
-    /*margin-top: -117%;*/
+    border-radius: 6px;
+    /* margin-top: -117%; */
     margin-left: 36px;
-    margin-bottom: 450px;
+    margin-bottom: 272px;
 
 
 }
@@ -260,8 +260,9 @@ form.example::after {
 }
 .profile{
     display: flex;
-    flex-direction:column ;
-    background-color: rgb(255, 244, 225);
+    flex-direction: column;
+    /* background-color: rgb(249 249 249); */
+    box-shadow: 0px 1px 5px 5px rgb(231 231 231);
     margin: 30px;
     border-radius: 8px;
     cursor: pointer;

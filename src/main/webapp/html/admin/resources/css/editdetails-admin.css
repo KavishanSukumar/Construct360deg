@@ -10,6 +10,7 @@
     margin-top: 83px;
     height: 50px;
     width: 100%;
+    font-family: "Roboto", sans-serif;
 }
 form.example input[type=text] {
     padding: 8px;
@@ -67,7 +68,7 @@ form.example::after {
     margin-left: 60px;
     height: 375px;
     width: 300px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    box-shadow: 0px 1px 5px 5px rgb(231 231 231);
 }
 .setting i{
     margin-left: -30px;
@@ -143,26 +144,25 @@ form.example::after {
     font-size: 15px;
   }
 .middle-content input[type=submit] {
-    width: 100%;
-    background-color: #abafac;
+    background-color: #e6e6e6;
     color: black;
-    padding: 14px 20px;
+    padding: 13px 20px;
     margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-size: 15px;
+    margin-left: 431px;
   } 
 .middle-content input[type=submit]:hover {
     background-color: #ff7200;
     color: #fff;
 }
 .middle-content{
-    background-color: rgb(230, 228, 228);
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
+    box-shadow: 0px 5px 10px 5px rgb(226 226 226);
     border-radius: 5px;
     margin-top: 50px;
-    padding: 30px;
+    padding: 66px;
     height: 660px;
 }
 .middle-content label{font-size: 15px;}
@@ -222,5 +222,24 @@ form.example::after {
 .right-btn:hover{
     background: #ff7200;
     color: #fff;}
+/*/////////////////////////////////*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 

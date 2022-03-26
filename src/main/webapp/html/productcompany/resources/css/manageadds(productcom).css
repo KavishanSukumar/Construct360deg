@@ -39,21 +39,21 @@
     column-gap: 40px;
     background-color: rgb(255, 255, 255);
     height: 8vh;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 .second{
     grid-area: second_row;
     background-color: rgb(255, 255, 255);
     height: 5vh;
     width: 100%;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 .third{
     grid-area: third_row;
     background-color: rgb(255, 255, 255);
     height: 72vh;
     width: 100%;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 
 /* //////////////////////////////////////////////////////////////////////////// */
@@ -262,4 +262,25 @@ input[type=date], select, textarea {
 .footer p{
     text-align: center;
 
+}
+
+/*///////////////////////////////*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/customer/resources/css/pay-sub.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script>
       function basicplan(){
           var out=confirm("Do you want to reject the document");
@@ -29,6 +32,10 @@
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="./html/customer/resources/images/paysub/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
 <%@include file="sidebar-customer.jsp"%>
     <div class="container" id="container">
 
@@ -88,7 +95,7 @@
                 <input type="hidden" name="address" value="<%=user.getHouseno()+" "+user.getStreet()%>">
                 <input type="hidden" name="city" value="<%=user.getCity()%>">
                 <input type="hidden" name="country" value="Sri Lanka">
-              <div class="ammount">
+              <div class="ammount" id="secon">
                 <h1>500/<span style="font-size: 30px">Mo</span></h1>
               </div>
               <div class="facilities">

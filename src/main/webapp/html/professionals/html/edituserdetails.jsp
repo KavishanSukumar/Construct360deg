@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/adddetails.css">
   <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
@@ -103,6 +106,26 @@
       var x = document.getElementById("uploadproject").innerHTML;
       document.getElementById("preproject").innerHTML = x;
     }
+
+    <%--function delaccount(userid){--%>
+    <%--  // var userid = id;--%>
+    <%--  console.log(userid);--%>
+    <%--  var out=confirm("You can't delete account");--%>
+    <%--  if(out==true){--%>
+    <%--    location.href="<%=request.getContextPath()%>/editprofile?userid="+userid;--%>
+    <%--  }--%>
+    <%--}--%>
+
+    function deleteaccount(){
+      // var userid = id;
+      // console.log(userid);
+      var out=confirm("Delete Account");
+      if(out==true){
+        <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
+        location.href="<%=request.getContextPath()%>/deleteaccount";
+      }
+    }
+
   </script>
 </head>
 <body>
@@ -110,10 +133,6 @@
     <%@include file="sidebar-professional.jsp"%>
 
     <div class="content1">
-<%--      <form class="example" action="/action_page.java">--%>
-<%--        <button type="submit"><i class="fa fa-search"></i></button>--%>
-<%--        <input type="text" placeholder="Search.." name="search">--%>
-<%--      </form>--%>
       <div class="main">
         <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
         <a href="#"><i class="fa fa-mail-bulk"></i></a>
@@ -138,7 +157,6 @@
         <div class="menu">
           <h4>Account Settings</h4>
           <a id="account-btn" class="active" href="#">Account</a>
-          <a id="qualification-btn" href="#">Qualifications</a>
           <a id="preproject-btn" href="#">Previous Projects</a>
           <a id="preference-btn" href="#">Account preferences</a>
           <a id="regdoc-btn" href="#">User registration document</a>
@@ -170,15 +188,9 @@
               <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
               <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
               <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
-
-              <button>Address proof</button>
             </div>
             <input type="submit" id="submit" value="Save changes">
         </form>
-      </div>
-
-      <div class="middle-content" id="qualification">
-        <h3>Qualifications</h3>
       </div>
 
       <div class="middle-content" id="preproject">
@@ -231,22 +243,19 @@
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
           <div class="btn">
-            <a class="left-btn" href="<%=request.getContextPath()%>/viewprofile">
-              <span>Keep my account</span>
-            </a>
-            <a class="right-btn" href="#">
-              <span>Delete my account</span>
-            </a>
+<%--            <a class="right-btn" href="#">--%>
+            <button onclick="deleteaccount()">Delete Account</button>
+<%--            </a>--%>
           </div>
         </div>
       </div>
 
 
       <div class="middle-content" id="regdoc">
-        <h1>Address verification</h1>
+        <h2>User Registration Document</h2>
         <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">
         <form class="details" action="<%=request.getContextPath()%>/AllUserdocsServlet" method="post" enctype="multipart/form-data">
-          <label for="reqfile">Requirement</label>
+<%--          <label for="reqfile">Requirement</label>--%>
           <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf"><br>
           <input  type="hidden" id="filename" name="filename" value="">
           <label id="filetype">(Choose pdf )</label>

@@ -200,6 +200,7 @@ form.example::after {
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
     margin-top: 80px;
+    grid-row-gap: 10px;
 }
 .home{
     display: flex;
@@ -224,10 +225,10 @@ form.example::after {
 .home a.active{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #e6e4e3;
+    background-color: #ff720094;
 }
 #viewproject{
-    background-color:#e6e4e3;
+    background-color: rgb(250 250 250);
     display: block;
     min-height: 102vh;
     overflow: auto;
@@ -384,13 +385,31 @@ form.example::after {
 }
 
 
+/*body::-webkit-scrollbar-track {*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*    border-radius: 10px;*/
+/*    background-color: #F5F5F5;*/
+/*}*/
+/*body::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*    background-color: #F5F5F5;*/
+/*}*/
+/*body::-webkit-scrollbar-thumb {*/
+/*    border-radius: 10px;*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
+/*    background-color: #666666;*/
+/*}*/
+
 
 #my_reqs{
-    background-color:#e6e4e3;
+    background-color: rgb(250 250 250);
     display: none;
     height: auto;
     overflow-y: auto;
     min-height: 100vh;
+    width: 99%;
+    row-gap: 10px;
+    border-radius: 10px;
 }
 #my_requirements{
     display: grid;
@@ -406,12 +425,12 @@ form.example::after {
 #creat-req-button{
     text-decoration: none;
     margin: 20px;
-    font-size: 20px;
+    font-size: 16px;
     color: black;
     background: #ffffff;
-    height: 23px;
-    width: 256px;
-    padding: 11px;
+    height: 21px;
+    width: 217px;
+    padding: 8px;
     border-radius: 5px;
 }
 #creat-req-button:hover{
@@ -429,22 +448,23 @@ form.example::after {
     margin-bottom: 10px;
 }
 table {
-    font-family: arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     border-collapse: collapse;
     width: 98%;
     table-layout: fixed;
     margin-left: 20px;
+    font-size: 13px;
 
 }
 
 td,th {
-    border: 1px solid #656565;
+    border: 1px none;
     text-align: left;
-    padding: 8px;
+    padding: 7px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #ffffff;
 }
 
 .field-name{
@@ -498,7 +518,7 @@ tr:nth-child(even) {
     left: 20px;
     transition: 0.5s;
     transition-property: color;
-    font-size: 29px;
+    font-size: 27px;
     margin-left: 20px;
     margin-top: 7px;
 }
@@ -716,7 +736,10 @@ tr:nth-child(even) {
 #send-btn:hover{
     color: #ff7200;
 }
-#viewproject{display: block;}
+#viewproject{
+    display: block;
+    border-radius: 10px;
+}
 #chatbox{display: none;}
 
 .footer{
@@ -740,3 +763,25 @@ tr:nth-child(even) {
     text-align: center;
     color: rgb(255, 255, 255);
 }
+/*////////////////////////////////////////////////*/
+/*scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*//////////////////////////////////////*/

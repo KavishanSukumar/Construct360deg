@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.SQLException;
 
 @WebServlet("/Makeappointment")
@@ -21,6 +22,11 @@ public class MakeappointmentSevlet extends HttpServlet {
         int profid=Integer.parseInt(req.getParameter("profid"));
         req.setAttribute("profid",profid);
         System.out.println(profid);
+        String choosedate = req.getParameter("choosedate");
+        int  thetimeslot = Integer.parseInt(req.getParameter("thetimeslot"));
+        req.setAttribute("choosedate",choosedate);
+        req.setAttribute("thetimeslot",thetimeslot);
+        System.out.println(profid+" "+choosedate+" "+thetimeslot);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/makeappoinments.jsp");
         requestDispatcher.forward(req,resp);
     }

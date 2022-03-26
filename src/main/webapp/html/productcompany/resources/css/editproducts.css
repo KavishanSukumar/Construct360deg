@@ -241,7 +241,7 @@
     padding-left: 38px;
     border: 1px solid ;
     cursor: pointer;
-    /*border-radius: 25px;*/
+    border-radius: 6px;
 }
 
 .DeleteandCloseButton .btndel:hover{
@@ -259,7 +259,7 @@
     padding-left: 36px;
     border: 1px solid ;
     cursor: pointer;
-    /*border-radius: 25px;*/
+    border-radius: 6px;
 }
 
     .DeleteandCloseButton .btnclo:hover{

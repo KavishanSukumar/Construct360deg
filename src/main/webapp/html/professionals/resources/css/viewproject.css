@@ -201,7 +201,7 @@ ul li a:hover,ul li i:hover{
     background-color: #e6e4e3;
 }
 #viewproject{
-    background-color:#e6e4e3;
+    background-color:#fcfcfc;
     display: block;
 }
 .heading{margin-left: 50px;}
@@ -332,7 +332,7 @@ ul li a:hover,ul li i:hover{
 #chatbox{
     background-color:#e6e4e3;}
 #appointment{
-    background-color:#e6e4e3;}
+    background-color:#fcfcfc;}
 #chat-box-container{
     display: flex;
 }
@@ -422,7 +422,7 @@ ul li a:hover,ul li i:hover{
 /*######################### senal's CSS #############################################*/
 #proposals{
 
-    background-color: #e6e4e3;
+    background-color:#fcfcfc;
     display: grid;
     grid-template-areas: "a1 a2";
     grid-template-columns: 50% 50%;
@@ -516,7 +516,7 @@ ul li a:hover,ul li i:hover{
  /* arrvied cus requirments*/
 #arrived_cusreq{
 
-    background-color: #e6e4e3;
+    background-color:#fcfcfc;
     display: grid;
     grid-template-areas: "a1 a2";
     grid-template-columns: 50% 50%;
@@ -748,7 +748,7 @@ ul li a:hover,ul li i:hover{
     color: white;
 }
 #timeslots{
-    background-color: #e6e4e3;
+    background-color:#fcfcfc;
     display: grid;
 }
 

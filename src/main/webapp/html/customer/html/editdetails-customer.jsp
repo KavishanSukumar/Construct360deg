@@ -67,8 +67,8 @@
   </script>
 </head>
 <body>
-<%@include file="sidebar-customer.jsp"%>
   <div class="container">
+    <%@include file="sidebar-customer.jsp"%>
     <div class="content1">
       <div class="main">
           <a href="<%=request.getContextPath()%>/viewprofile"><i class="fa fa-home"></i></a>
