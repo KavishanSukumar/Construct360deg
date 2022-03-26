@@ -9,7 +9,6 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
-    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
     ArrayList<Proposal> proposals = (ArrayList<Proposal>) request.getAttribute("proposals");
     Account account = (Account) request.getAttribute("accounts");
@@ -326,8 +325,8 @@
                                         </tr>
 
                                         <%
-//                                            String extention = x.getFilename().split(("[.]"))[1];
-                                           String extention = x.getFilename().substring(x.getFilename().lastIndexOf("."));
+//                                          String extention = x.getFilename().split(("[.]"))[1];
+                                            String extention = x.getFilename().substring(x.getFilename().lastIndexOf("."));
                                             System.out.println(extention);
                                         %>
                                         <%

@@ -3,7 +3,9 @@ package com.example.construct360deg.controllers;
 import com.example.construct360deg.dao.GraphDAO;
 import com.example.construct360deg.dao.MyProjectDAO;
 import com.example.construct360deg.dao.NewProjectDAO;
+import com.example.construct360deg.dao.ProjectDAO;
 import com.example.construct360deg.model.Graph;
+import com.example.construct360deg.model.Payment;
 import com.example.construct360deg.model.Project;
 
 import javax.servlet.RequestDispatcher;
@@ -28,9 +30,13 @@ public class ViewMyProjectServlet extends HttpServlet {
         int userid = (int) session.getAttribute("userid");
         session.setAttribute("projectid",projectid);
 
+
         MyProjectDAO myProjectDAO = new MyProjectDAO();
         GraphDAO graphDAO=new GraphDAO();
         NewProjectDAO newProjectDAO = new NewProjectDAO();
+
+        ProjectDAO projectDAO=new ProjectDAO();
+        ArrayList<Payment> payments=new ArrayList<>();
 
         ArrayList<Project> projects = new ArrayList<>();
 
@@ -42,6 +48,8 @@ public class ViewMyProjectServlet extends HttpServlet {
             project = myProjectDAO.retriveDetails(projectid);
             proposedGraph=graphDAO.getProposedGraph(projectid);
             ongoingGraph=graphDAO.getOngoingGraph(projectid);
+            payments=projectDAO.getAllpayment(projectid);
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -51,6 +59,7 @@ public class ViewMyProjectServlet extends HttpServlet {
         req.setAttribute("projects",project);
         req.setAttribute("newprojects",projects);
         req.setAttribute("projectid",projectid);
+        req.setAttribute("payments",payments);
 
         if(userrole.equals("prof_com")){
             RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/myproject.jsp");

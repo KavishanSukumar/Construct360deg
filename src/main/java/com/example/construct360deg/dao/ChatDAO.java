@@ -59,29 +59,29 @@ public class ChatDAO {
         return chats;
     }
 
-    public ArrayList<Chat> ViewChats(int sender) throws SQLException {
-        ArrayList<Chat> chats=new ArrayList<>();
-        String sql="SELECT * FROM mychats WHERE sender=? OR receiver=?";
-        Connection connection=Database.getConnection();
-        PreparedStatement preparedStatement=null;
-        ResultSet resultSet;
-        preparedStatement=connection.prepareStatement(sql);
-        preparedStatement.setInt(1,sender);
-        preparedStatement.setInt(2,sender);
-        resultSet=preparedStatement.executeQuery();
-
-        while (resultSet.next()){
-            Chat chat=new Chat();
-            chat.setSender(resultSet.getInt("sender"));
-            chat.setReceiver(resultSet.getInt("receiver"));
-            chat.setCustomerindividualName(resultSet.getString("customerindividualName"));
-            chat.setCustomercomname(resultSet.getString("customercomname"));
-            chat.setIndividualprof(resultSet.getString("individualprof"));
-            chat.setProfessionalname(resultSet.getString("professionalname"));
-            chats.add(chat);
-        }
-        return chats;
-    }
+//    public ArrayList<Chat> ViewChats(int sender) throws SQLException {
+//        ArrayList<Chat> chats=new ArrayList<>();
+//        String sql="SELECT * FROM mychats WHERE sender=? OR receiver=?";
+//        Connection connection=Database.getConnection();
+//        PreparedStatement preparedStatement=null;
+//        ResultSet resultSet;
+//        preparedStatement=connection.prepareStatement(sql);
+//        preparedStatement.setInt(1,sender);
+//        preparedStatement.setInt(2,sender);
+//        resultSet=preparedStatement.executeQuery();
+//
+//        while (resultSet.next()){
+//            Chat chat=new Chat();
+//            chat.setSender(resultSet.getInt("sender"));
+//            chat.setReceiver(resultSet.getInt("receiver"));
+//            chat.setCustomerindividualName(resultSet.getString("customerindividualName"));
+//            chat.setCustomercomname(resultSet.getString("customercomname"));
+//            chat.setIndividualprof(resultSet.getString("individualprof"));
+//            chat.setProfessionalname(resultSet.getString("professionalname"));
+//            chats.add(chat);
+//        }
+//        return chats;
+//    }
 
 }
 

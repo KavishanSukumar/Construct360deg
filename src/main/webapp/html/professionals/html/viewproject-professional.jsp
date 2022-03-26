@@ -16,7 +16,6 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
-    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Appointment> appointments = (ArrayList<Appointment>) request.getAttribute("appointment");
     ArrayList<AllUsers> allcustomers =(ArrayList<AllUsers>)request.getAttribute("allcustomers");
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
