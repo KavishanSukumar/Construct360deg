@@ -67,6 +67,13 @@ public class OrderDAO {
         LocalDate lt = LocalDate.now();
         preparedStatement.setString(11, String.valueOf(lt));
         row=preparedStatement.executeUpdate();
+
+        String sql2="UPDATE `product` SET `quantity`=`quantity`-? WHERE `productid`=?";
+        preparedStatement=connection.prepareStatement(sql2);
+        preparedStatement.setFloat(1,order.getQuantity());
+        preparedStatement.setInt(2,order.getProductid());
+        row+=preparedStatement.executeUpdate();
+
         if(row>0){
             status=true;
         }
