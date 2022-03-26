@@ -23,6 +23,15 @@ public class Project {
     private String display;
     private int proposalid;
     private int cusaccept;
+    private int isclosed;
+
+    public int getIsclosed() {
+        return isclosed;
+    }
+
+    public void setIsclosed(int isclosed) {
+        this.isclosed = isclosed;
+    }
 
     public int getUserid() {
         return userid;

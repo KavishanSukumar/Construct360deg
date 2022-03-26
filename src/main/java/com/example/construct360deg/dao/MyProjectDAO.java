@@ -84,33 +84,41 @@ public class MyProjectDAO {
         return project;
     }
 
-    public boolean insertData(Project project) throws SQLException {
+    public void closeproject(Project project, int userid) throws SQLException {
         Connection connection = Database.getConnection();
+        int tag = 1;
         int row = 0;
-        String sql = "INSERT INTO `closeproject`(`userid`, `reason`, `display`) VALUES (?,?,?)";
+        String sql = "INSERT INTO `closeproject`(`projectid`, `userid`, `reason`) VALUES (?,?,?)";
+        String sql2 = "UPDATE `project` SET `isclosed`=? WHERE projectid=?";
+//        String sql = "INSERT INTO `closeproject`(`userid`, `reason`, `display`) VALUES (?,?,?)";
         PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement2 = null;
         preparedStatement = connection.prepareStatement(sql);
+        preparedStatement2 = connection.prepareStatement(sql2);
 
-        preparedStatement.setInt(1, project.getUserid());
-        preparedStatement.setString(2,project.getReason());
-        preparedStatement.setString(3,project.getDisplay());
+        preparedStatement.setInt(1,project.getProjectid());
+        preparedStatement.setInt(2, project.getUserid());
+        preparedStatement.setString(3,project.getReason());
+//        preparedStatement.setString(4,project.getDisplay());
         row = preparedStatement.executeUpdate();
 
-        if (row > 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+
+        preparedStatement2.setInt(1,tag);
+        preparedStatement2.setInt(2, project.getProjectid());
+        preparedStatement2.executeUpdate();
+
+
     }
 
 
 
-    public Project displayData(int userid) throws SQLException {
+    public Project displayData(int projectid) throws SQLException {
         Connection connection = Database.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM `closeproject` WHERE userid=?";
+        String sql = "SELECT * FROM `closeproject` WHERE projectid=?";
         preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1,userid);
+        preparedStatement.setInt(1,projectid);
         ResultSet resultSet = null;
         resultSet = preparedStatement.executeQuery();
         Project project = new Project();
@@ -118,7 +126,7 @@ public class MyProjectDAO {
         while (resultSet.next()){
             project.setReason(resultSet.getString("reason"));
             project.setDisplay(resultSet.getString("display"));
-            project.setUserid(resultSet.getInt("userid"));
+            project.setProjectid(resultSet.getInt("projectid"));
         }
         return project;
     }
