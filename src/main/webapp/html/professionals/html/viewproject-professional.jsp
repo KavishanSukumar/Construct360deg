@@ -1125,7 +1125,7 @@
         var menubar = document.getElementById("menu_bar");
         menubar.style.filter="blur(8px)";
 
-        // var cusimage = null;
+         var cusimage = null;
         var cusid = 0;
         var profid = 0;
         var realcusimg = null;
@@ -1135,7 +1135,7 @@
         <%for(Requirement x:displayRequirementonprof){%>
         if(reqid1==<%=x.getRequirementid()%>){
             cusname="<%=x.getCusname()%>";
-            <%--cusimage = "<%=x.getCusprofimg()%>";--%>
+            cusimage = "<%=x.getCusprofimg()%>";
             cusid = "<%=x.getUseridcus()%>";
             profid = "<%=x.getProfid()%>";
             filename = "<%=x.getFilename()%>"
@@ -1154,7 +1154,8 @@
        console.log(cusname1+cusid+realcusimg+profid+filename+reqid1);
         document.getElementById("customername").innerHTML=cusname1;
         document.getElementById("custid1").innerHTML="Customer ID :- "+cusid;
-        document.getElementById("profimg").source="data:image/jpeg;base64,cusimg"+cusimg;
+        console.log('EEEEE',cusimg)
+        document.getElementById("profimg").src="data:image/jpeg;base64,"+cusimg;
         document.getElementById("cusid").value=cusid;
         document.getElementById("profid").value=profid;
         document.getElementById("filename").value=filename;

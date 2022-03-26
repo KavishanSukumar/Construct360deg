@@ -55,15 +55,15 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
 
 //            req.setAttribute("allprofs",allprofs);
             //Profile pic change
-
+            ArrayList<TimeSlots> timeSlots = new ArrayList<>();
             TimeSlotsDAO timeSlotsDAO = new TimeSlotsDAO();
             try {
-                timeSlotsDAO.getSlotsForProfessional(profid);
+                timeSlots=timeSlotsDAO.getSlotsForProfessional(profid);
                 System.out.println("----------------------- view prof profile servlet try block");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-
+            req.setAttribute("timeSlots",timeSlots);
 
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
