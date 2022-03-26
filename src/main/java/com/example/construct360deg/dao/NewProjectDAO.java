@@ -89,6 +89,7 @@ public class NewProjectDAO {
             project.setFinishtime(resultSet.getString("finishtime"));
             project.setCusaccept(resultSet.getByte("cus_accept"));
             project.setProjectid(resultSet.getInt("projectid"));
+            project.setIsclosed(resultSet.getInt("isclosed"));
             newprojects.add(project);
         }
         return newprojects;

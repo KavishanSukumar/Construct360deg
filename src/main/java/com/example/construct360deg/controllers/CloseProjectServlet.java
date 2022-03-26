@@ -22,28 +22,30 @@ public class CloseProjectServlet extends HttpServlet {
         HttpSession session = req.getSession();
         PrintWriter out = resp.getWriter();
         int userid = (int) session.getAttribute("userid");
+        int projectid= Integer.parseInt(req.getParameter("projectid"));
+        System.out.println("projectid   "+projectid);
         Project project = new Project();
-//        CloseProjectDAO closeProjectDAO = new CloseProjectDAO();
         MyProjectDAO myProjectDAO = new MyProjectDAO();
-        project.setUserid(userid);
+        project.setProjectid(projectid);
+//        project.setUserid(userid);
         project.setReason(req.getParameter("reason"));
         project.setDisplay(req.getParameter("display"));
 
         try {
-            if (myProjectDAO.insertData(project)){
-                System.out.println("Details added successfull");
-                out.println("<script type = 'text/javascript'>");
-                out.println("alert('Details added succesfull');");
-            }else {
-                System.out.println("Details added unsuccessfull");
-                out.println("<script type = 'text/javascript'>");
-                out.println("alert('Details added unsuccesfull');");
-            }
-            out.println("location='"+req.getContextPath()+"/viewproject';");
-            out.println("</script>");
+            myProjectDAO.closeproject(project,userid);
+            System.out.println("Details added successfull");
+            out.println("<script type = 'text/javascript'>");
+            out.println("alert('Details added succesfull');");
+
 
         } catch (SQLException throwables) {
+            System.out.println("Details added unsuccessfull");
+            out.println("<script type = 'text/javascript'>");
+            out.println("alert('Details added unsuccesfull');");
             throwables.printStackTrace();
         }
+        out.println("location='"+req.getContextPath()+"/viewproject?projectid="+projectid+"';");
+//            out.println("location='"+req.getContextPath()+"/viewproject';");
+        out.println("</script>");
     }
 }
