@@ -51,9 +51,7 @@
             $("#confirmorders").css("display","none");
             $("#rejectedorders").css("display","block");
         });
-
     });
-
   </script>
 </head>
 

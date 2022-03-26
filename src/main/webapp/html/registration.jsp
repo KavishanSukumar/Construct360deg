@@ -143,8 +143,8 @@ pageEncoding="ISO-8859-1"%>
                     </div>
                     <br>
                     <div class="sbt-btn">
-                        <input type="submit" name="Submit" class="submit" >
                         <input type="button" id="cancelbtn" name="cancel" class="cancel" value="Cancel">
+                        <input type="submit" name="Submit" class="submit" >
                     </div>
                 </form>
             </div>
