@@ -55,6 +55,16 @@ public class ViewProfessionalProfileServlet extends HttpServlet {
 
 //            req.setAttribute("allprofs",allprofs);
             //Profile pic change
+
+            TimeSlotsDAO timeSlotsDAO = new TimeSlotsDAO();
+            try {
+                timeSlotsDAO.getSlotsForProfessional(profid);
+                System.out.println("----------------------- view prof profile servlet try block");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
                 account = viewProfileDAO.viewImage(profid,userrole="prof_indiv");

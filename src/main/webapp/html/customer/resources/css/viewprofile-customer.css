@@ -5,6 +5,7 @@
     'menu_bar'
     'content1'
     'content2';
+    font-family:  'Roboto', sans-serif;
 }
 .content1{
     margin-top: 83px;
@@ -31,7 +32,7 @@
     display: grid;
     box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
     grid-template-rows: 500px 360px;
-    background-color: rgb(222, 225, 226);
+    background-color: rgb(255, 255, 255);
     width: 900px;
     height: 860px;
     margin-left: 300px;

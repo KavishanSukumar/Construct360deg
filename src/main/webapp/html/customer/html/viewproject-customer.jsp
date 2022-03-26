@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="./html/customer/resources/css/viewproject-customer.css">
     <link rel="stylesheet" href="./html/customer/resources/css/chatbox.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
       $(document).ready(function (){
@@ -258,7 +261,7 @@
 
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >
                         <h3><%=x.getProjectname()%></h3>
-                        <p style="color: red"><%=project.getDisplay()%></p>
+<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
                     </div>
 
                     <%}%>
@@ -294,14 +297,14 @@
                        <div class="item">
                            <div class="text">
 
-                                    <table id="myreqtable">
+                                    <table  class="styled-table">
 
                                         <tr>
                                             <td class=field-name" style="width: 30vh"><h3  class="h3header">Requirement name</h3></td>
                                             <td><%=x.getReqname()%></td>
 
                                         </tr>
-                                        <tr>
+                                        <tr class="active-row">
                                             <td class=field-name"><h3 class="h3header">Type</h3></td>
                                             <td><%=x.getType()%></td>
 
@@ -345,7 +348,7 @@
 
                                         </tr>
 
-                                    </table>
+                                    </table >
                            </div>
                            <div class="bigclass">
                                <%
@@ -354,7 +357,7 @@
 
                                %>
 
-                           <i class="fa fa-angle-double-right" aria-hidden="true" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
+                           <i class="fa fa-angle-double-right" aria-hidden="true" title="Options" id="fa-bars1" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')"></i>
 <%--                           <h3 class="options active" id="option" style="cursor: pointer" onclick="document.getElementById('<%=x.getRequirementid()%>').classList.toggle('hidden')">Options</h3>--%>
 
                            <div class="btns hidden" id="<%=x.getRequirementid()%>">

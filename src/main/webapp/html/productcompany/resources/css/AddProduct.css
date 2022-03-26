@@ -53,13 +53,15 @@ body{
 #name{
     margin-left: 16px;
     margin-right: 20px;
-    border: 2px solid gray;
+    border: 1px solid gray;
     height: 35px;
+    border-radius: 5px;
 }
 .row6{
     margin-top: 20px;
     margin-left: 38px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 .custom-select{
     margin-top: 20px;
@@ -77,11 +79,16 @@ body{
 }
 #Price{
     margin-left: 83px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 6px;
 }
 #stock{
     margin-left: 2px;
-    border: 2px solid gray;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 6px;
+    padding-right: 27px;
 }
 .row11{
     /* border: 2px solid black; */
@@ -139,6 +146,7 @@ body{
     padding-left: 10px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     
 }
 
@@ -160,6 +168,7 @@ body{
     padding-left: 36px;
     border: 1px solid black;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .col15 .btnsub:hover {
@@ -178,7 +187,8 @@ body{
 
 .brower_content{
     /* float: left; */
-    border: 2px solid black;    
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .brower_content .productimg{
@@ -190,11 +200,12 @@ body{
     height: 38%;
     /* object-fit: cover; */
     position: absolute;
-    top: 224px;
-    left: 1042px;
+    top: 230px;
+    left: 1028px;
     border-radius: 5px;
     transition: transform .5s ease;
     display: none;
+
 }
 
 .brower_content .productimg:hover img{

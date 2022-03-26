@@ -135,8 +135,10 @@ ul li a:hover,ul li i:hover{
 .content{
     grid-area: content;
     display: grid;
+    min-height: 91vh;
     grid-template-columns: 1fr 3fr;
     grid-template-areas:'container-3 container-4';
+    grid-row-gap: 9px
 }
 .container-3{
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
@@ -260,12 +262,13 @@ form.example::after {
     width: 200px;
     font-size: 15px;
 }
-.footer{
+.footer {
+    grid-column: 1 /-1;
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;
     padding-top: 1%;
     padding-left: 0%;
-    font-size:14px;
+    font-size: 14px;
     height: 50px;
     background: rgb(0, 0, 0);
 }

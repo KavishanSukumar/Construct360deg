@@ -52,8 +52,8 @@
               <textarea class="row6" rows="10" cols="56" id="description" name="desc" required style="resize:none"></textarea>
             </div>
             <div class="col7">
-              <label for="category">Category</label>
-              <select class="custom-select" id="category">
+              <label for="category" hidden>Category</label>
+              <select class="custom-select" id="category" hidden>
                 <option selected>Select category</option>
                 <option value="1">Branded</option>
                 <option value="2">Non branded</option>

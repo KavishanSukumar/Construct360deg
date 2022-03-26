@@ -31,7 +31,7 @@
                     <form class="proposal">
 
                         <label for="uploadfile" id="up-proposal">Proposal :-</label>
-                        <input type="file" id="uploadfile" name="uploadfile" onchange="return fileValidation()"/><br>
+                        <input type="file" id="uploadfile" name="uploadfile" onchange="return fileValidation()"><br>
                         <label id="filetype">(Choose pdf or zip file)</label>
                         <div class="upload">
                             <input type="submit" value="Upload">
@@ -46,6 +46,7 @@
         </div>
         <script>
             function fileValidation(){
+
                 var fileInput = document.getElementById('uploadfile');
                 var filePath = fileInput.value;
                 var allowedExtensions = /(\.pdf|\.zip)$/i;

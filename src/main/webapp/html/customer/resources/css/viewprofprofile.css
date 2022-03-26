@@ -91,6 +91,152 @@
 .box4 h3{margin-left: 30px;}
 .box4 p{margin-left: 100px;}
 
+/*---------- appointment select date ----------------------*/
+#appointment-timeslots{
+    position: absolute;
+    z-index: 100;
+    margin-left: 63vh;
+    margin-top: 71px;
+}
+
+.appointment{
+
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: aqua;
+    border-radius: 10px;
+    margin: auto;
+
+}
+.part1{
+    display: flex;
+    flex-direction: column;
+}
+
+.part1_1 ,.part1_2{
+
+    display: flex;
+    flex-direction: row;
+}
+#ap-tittle{
+    padding-left: 10px;
+    margin: auto;
+}
+#ap-tittle2{
+    margin: auto;
+    margin-left: 106px;
+    margin-top: 20px;
+}
+
+.avai-timeslots{
+    margin: auto;
+    margin-left: 147px;
+    row-gap: 5px;
+    display: grid;
+    grid-row-gap: 6px;
+    padding-bottom: 21px;
+
+}
+
+#notavailable{
+    margin: auto;
+    margin-left: -28px;
+
+}
+#closebtn{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 4px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 29pc;
+}
+
+#closebtn:hover{
+    background-color: #f30707;
+    color: white;
+
+}
+.part1_2{
+    margin: auto;
+    margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+#updatetime{
+    margin-left: 36px;
+    margin-top: 13px;
+    background-color: rgb(165, 164, 164);
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+
+}
+#updatetime:hover{
+    background-color: #cc611a;
+    color: white;
+}
+
+
+.theday {
+    width: 160px;
+    height: 550px;
+    background-color: #c2c2f7;
+    padding:10px;
+    float:left;
+    margin-right:7px;
+    margin-bottom:5px;
+    border-radius: 10px;
+}
+
+.datelabel {
+    margin-bottom: 15px;
+}
+
+.timeslot {
+    background-color: #10d11a;
+    width: 188px;
+    height: 40px;
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    vertical-align: center;
+    text-align: center;
+}
+
+.timeslot:hover {
+    background-color: #e4640f;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .footer{
     border-top: 1px solid #ebebeb;
     padding-bottom: 0%;

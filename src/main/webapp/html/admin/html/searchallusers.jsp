@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="./html/admin/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/admin/resources/css/searchallusers.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 </head>
 
@@ -51,28 +54,28 @@
             </label>
 
 
-            <h4>Ranking :</h4>
-            <label class="box"><i class="fas fa-star"></i>
-                <input type="checkbox" name="1" value="1">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox" name="2" value="2">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox" name="3" value="3">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox" name="4" value="4">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox" name="5" value="5">
-                <span class="checkmark"></span>
-            </label>
-             <button id="usertypesinput" ></button>
+<%--            <h4>Ranking :</h4>--%>
+<%--            <label class="box"><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox" name="1" value="1">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox" name="2" value="2">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox" name="3" value="3">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox" name="4" value="4">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox" name="5" value="5">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--             <button id="usertypesinput" ></button>--%>
          </form>
         </div>
 
@@ -88,6 +91,7 @@
                         base64Encoded = new String(encodeBase64, "UTF-8");
                     }
                 %>
+            <div class="profile">
                 <div class="gallery" id="gal">
                     <a target="_blank" href="user4.png">
                       <img src="data:image/jpeg;base64,<%=base64Encoded%>" onerror="this.src='./resources/images/Avatar.png;'" >
@@ -131,6 +135,7 @@
                         <p id="post"><%=post%></p>
                     </div>
                 </div>
+            </div>
             <%}%>
         </div>
           <%@include file="../../footer.jsp"%>

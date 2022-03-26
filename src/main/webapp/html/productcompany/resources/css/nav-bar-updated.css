@@ -18,6 +18,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
+    z-index: 10;
 }
 
 #logopic{

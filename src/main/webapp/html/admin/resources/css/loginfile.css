@@ -46,21 +46,22 @@ body{
   grid-area: first_row;
   background-color: rgb(255, 255, 255);
   height: 5vh;
-  width: 199.9vh;
+  /*width: 199.9vh;*/
 }
 .second{
     grid-area: second_row;
     background-color: rgb(255, 255, 255);
     height: 5vh;
     width: 100%; 
-    width: 199.9vh; 
+    /*width: 199.9vh; */
   }
   .third{
     grid-area: third_row;
     background-color: rgb(255, 255, 255);
     height: 86vh;
     width: 100%; 
-    width: 176vh;
+    /*width: 176vh;*/
+      z-index: -1;
   }
 
   /* //////////////////////////////////////////////////////////////////////////// */

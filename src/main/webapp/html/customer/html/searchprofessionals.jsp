@@ -137,9 +137,11 @@
                 </div>
             <%}%>
         </div>
+          <%@include file="../../footer.jsp"%>
       </div>
+
     </div>
-    <%@include file="../../footer.jsp"%>
+
 <script>
     function viewprofprofile(id,reqid,tag){
         var d = 100;

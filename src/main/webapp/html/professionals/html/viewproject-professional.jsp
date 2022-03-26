@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
 
-  <script src="./resources/js/calander.js"></script>
+<%--  <script src="./resources/js/calander.js"></script>--%>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
@@ -480,6 +480,7 @@
                         <%}else{%>
                         <p style="color: red">Project closed</p>
                         <%}%>
+<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
                     </div>
                     <%}%>
 <%--                </div>--%>
@@ -874,26 +875,30 @@
                     <div>Saturday</div>
                 </div>
 
-                <div id="calendar"></div>
+                <div id="calendar">
+
+                </div>
             </div>
 
             <div id="newEventModal">
                 <form action="<%=request.getContextPath()%>/updatetimeslots" method="post">
-                <input id="selected_date_input" name="selected_date">
+                    <button type="submit" id="saveButton">Save</button>
+                    <input id="selected_date_input"  name="selected_date">
+
+                    <button id="cancelButton" type="button">Cancel</button>
                 <div class="theday">
-                    <div class="timeslot"><input name="slots" type="checkbox" value="1"> &nbsp; 8:00 am  - 9.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="2"> &nbsp9:00 am  - 10.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="3"> &nbsp10:00 am - 11.00 am</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="4"> &nbsp11:00 am - 12.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="5"> &nbsp12:00 pm - 13.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="6"> &nbsp13:00 pm - 14.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="7"> &nbsp14:00 pm - 15.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="8"> &nbsp15:00 pm - 16.00 pm</div>
-                    <div class="timeslot"><input name="slots" type="checkbox" value="9"> &nbsp16:00 pm - 17.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="1">  &nbsp8:00 am  - 9.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="2">  &nbsp9:00 am  - 10.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="3">  &nbsp10:00 am - 11.00 am</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="4">  &nbsp11:00 am - 12.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="5">  &nbsp12:00 pm - 13.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="6">  &nbsp13:00 pm - 14.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="7">  &nbsp14:00 pm - 15.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="8">  &nbsp15:00 pm - 16.00 pm</div>
+                    <div class="timeslot"><input name="slots" type="checkbox" value="9">  &nbsp16:00 pm - 17.00 pm</div>
                     <div class="timeslot"><input name="slots" type="checkbox" value="10"> &nbsp17:00 pm - 18.00 pm</div>
                 </div>
-                <button type="submit" >Save</button>
-                <button id="cancelButton" type="button">Cancel</button>
+
                 </form>
 
             </div>
@@ -1016,11 +1021,11 @@
                 </div>
 
             </div>
-
+            <%@include file="../../footer.jsp"%>
     </div>
 
     </div>
-    <%@include file="../../footer.jsp"%>
+
 </body>
 <script>
     function popupform(porpid,reqid,cusid,projectid){
@@ -1244,6 +1249,7 @@
 
         let fixed_date =da.toISOString().substr(0,10)
         document.getElementById('selected_date_input').value = fixed_date;
+
 
         let sl = document.querySelectorAll("[name='slots']")
         
