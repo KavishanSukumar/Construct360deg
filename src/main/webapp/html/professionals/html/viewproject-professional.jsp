@@ -334,6 +334,8 @@
 
                 var layout = {title:"Proposed Graph"};
                 Plotly.newPlot("proposed", data, layout);
+                fieldname.value="";
+                fieldval.value="";
             }
         </script>
 <%----------------------------------------------------------------------------------%>
