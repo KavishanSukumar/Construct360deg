@@ -126,6 +126,7 @@ ul li a:hover,ul li i:hover{
 }
 .container{
     display: grid;
+    margin-bottom: 30vh;
     grid-template-rows: 65px auto;
     grid-template-areas: 
     'menu_bar'
@@ -152,15 +153,19 @@ ul li a:hover,ul li i:hover{
 .container-4{
     background-color: #e9e9e9;
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    /*display: grid;*/
+    display: grid;
     border-radius: 5px;
     padding: 20px;
     width: 810px;
 
     margin-left: 500px;
     margin-top: -470px;
-    min-height: 100vh
+
+    min-height: 100vh;
     /*grid-template-areas: 'user2 user5 user6';*/
+
+    grid-template-areas: 'user2 user5 user6';
+
 }
 .content1{
     background-color: #e9e9e9;

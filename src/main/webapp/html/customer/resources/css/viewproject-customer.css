@@ -225,10 +225,10 @@ form.example::after {
 .home a.active{
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
-    background-color: #FFF4E1FF;
+    background-color: #ff720094;
 }
 #viewproject{
-    background-color:#fcfcfc;
+    background-color: rgb(250 250 250);
     display: block;
     min-height: 102vh;
     overflow: auto;
@@ -402,13 +402,14 @@ form.example::after {
 
 
 #my_reqs{
-    background-color: rgb(255, 244, 225);
+    background-color: rgb(250 250 250);
     display: none;
     height: auto;
     overflow-y: auto;
     min-height: 100vh;
     width: 99%;
     row-gap: 10px;
+    border-radius: 10px;
 }
 #my_requirements{
     display: grid;
@@ -735,7 +736,10 @@ tr:nth-child(even) {
 #send-btn:hover{
     color: #ff7200;
 }
-#viewproject{display: block;}
+#viewproject{
+    display: block;
+    border-radius: 10px;
+}
 #chatbox{display: none;}
 
 .footer{
@@ -760,3 +764,24 @@ tr:nth-child(even) {
     color: rgb(255, 255, 255);
 }
 /*////////////////////////////////////////////////*/
+/*scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*//////////////////////////////////////*/

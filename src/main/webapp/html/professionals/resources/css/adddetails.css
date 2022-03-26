@@ -35,7 +35,7 @@
     border-radius: 8px;
     /*margin-top: 48px;*/
     margin-left: 60px;
-    height: 460px;
+    height: 386px;
     width: 300px;
     box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
 }
@@ -182,8 +182,11 @@
 #preference{
     display: none;
 }
-#preproject button {
-    background-color: #acabab;
+#regdoc{
+    display: none;
+}
+#preproject button, #preference button {
+    background-color: #c9c9c9;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -193,9 +196,9 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 20px;
+    /*border-radius: 20px;*/
 }
-#preproject button:hover{
+#preproject button:hover,#preference button:hover{
     background: #ff7200;
     color: white;
 }
