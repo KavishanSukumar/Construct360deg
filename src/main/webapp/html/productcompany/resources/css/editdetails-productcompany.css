@@ -167,6 +167,9 @@
 #preference{
     display: none;
 }
+#regdoc{
+    display: none;
+}
 .btn a{
     text-decoration: none;
     text-align: center;

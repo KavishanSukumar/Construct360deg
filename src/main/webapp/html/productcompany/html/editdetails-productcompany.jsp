@@ -117,7 +117,6 @@
             <input type="text" id="pprovince" name="province" value="<%=account.getProvince()%>">
             <input type="text" id="email" name="email" value="<%=account.getEmail()%>">
             <input type="text" id="contactnum" name="contactno" value="<%=account.getContactno()%>">
-            <button>Registration Document</button>
           </div>
           <input type="submit" id="submit" value="Save changes">
         </form>
