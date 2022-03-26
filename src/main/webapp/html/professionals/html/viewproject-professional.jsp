@@ -469,10 +469,9 @@
 
             </div>
             <div class="project" id="viewproject">
-<%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <%for (Project y:newprojects){%>
 
+                    <%for (Project y:newprojects){%>
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                         <h3><%=y.getProjectname()%></h3>
 
@@ -481,20 +480,10 @@
                         <%}else{%>
                         <p style="color: red">Project closed</p>
                         <%}%>
-<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
                     </div>
                     <%}%>
-<%--                </div>--%>
-<%--                <button onclick="popupadd()">Add Project</button>--%>
+
                 <div class="background"></div>
-<%--                <div class="new-content">--%>
-<%--                    <div class="close-btn" onclick="popupadd()">&times;</div>--%>
-<%--                    <form action="<%=request.getContextPath()%>/newproject" method="post">--%>
-<%--                        <label for="new"> Add New Project :</label>--%>
-<%--                        <input type="text" id="new" name="projectname">--%>
-<%--                        <input type="submit" value="submit">--%>
-<%--                    </form>--%>
-<%--                </div>--%>
             </div>
 
 <%--            <div class="project" id="chatbox">--%>

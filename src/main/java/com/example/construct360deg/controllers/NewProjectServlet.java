@@ -19,7 +19,6 @@ public class NewProjectServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
         int userid = (int) session.getAttribute("userid");
-//        int projectid =Integer.parseInt(req.getParameter("projectid"));
         int proposalid =Integer.parseInt(req.getParameter("proposalid"));
         int reqid = Integer.parseInt(req.getParameter("reqid"));
         int cusid =Integer.parseInt(req.getParameter("cus_id"));
@@ -27,13 +26,9 @@ public class NewProjectServlet extends HttpServlet {
         System.out.println("---------- newproject servlet -----------");
         System.out.println(proposalid);
         System.out.println(reqid);
-
-//        int projectid = (int) session.getAttribute("projectid");
         PrintWriter out = resp.getWriter();
-//        Newproject newproject = new Newproject();
         Project project = new Project();
         project.setUserid(userid);
-//        project.setProjectid(projectid);
         NewProjectDAO newProjectDAO = new NewProjectDAO();
         project.setProjectname(req.getParameter("projectname"));
         project.setContractor(req.getParameter("contractor"));

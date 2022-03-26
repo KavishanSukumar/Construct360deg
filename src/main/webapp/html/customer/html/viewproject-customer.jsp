@@ -247,25 +247,40 @@
         <div class="content2">
             <div class="home">
                 <a href="#" class="active" id="home-btn"><i class="fas fa-home"></i> Home</a>
-<%--                <a href="#" id="chatbox-btn"><i class="fas fa-inbox"></i> Chatbox</a>--%>
                 <a href="#" id="my-req-btn"><i class="fas fa-file-alt"></i> My requirements</a>
             </div>
+<%--            <div class="project" id="viewproject">--%>
+<%--                <div class="heading"><h2>Ongoing Projects</h2></div>--%>
+<%--                <div class="projects">--%>
+<%--                    <%for(Project x:newprojects){%>--%>
+<%--                    <%--%>
+<%--                        System.out.println("888888888888888888888888888888888888888888888888888888888888888");--%>
+<%--                        System.out.println(x.getProjectid());--%>
+<%--                    %>--%>
+
+<%--                    <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >--%>
+<%--                        <h3><%=x.getProjectname()%></h3>--%>
+<%--                    </div>--%>
+
+<%--                    <%}%>--%>
+<%--                </div>--%>
+<%--            </div>--%>
             <div class="project" id="viewproject">
                 <div class="heading"><h2>Ongoing Projects</h2></div>
-                <div class="projects">
-                    <%for(Project x:newprojects){%>
-                    <%
-                        System.out.println("888888888888888888888888888888888888888888888888888888888888888");
-                        System.out.println(x.getProjectid());
-                    %>
 
-                    <div class="project1" style="cursor: pointer" onclick="openproject(<%=x.getCusaccept()%>,<%=x.getProjectid()%>)" >
-                        <h3><%=x.getProjectname()%></h3>
-<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
-                    </div>
+                <%for (Project y:newprojects){%>
+                <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
+                    <h3><%=y.getProjectname()%></h3>
 
+                    <%if(y.getIsclosed()==0){%>
+
+                    <%}else{%>
+                    <p style="color: red">Project closed</p>
                     <%}%>
                 </div>
+                <%}%>
+
+                <div class="background"></div>
             </div>
 
 <%--            <div class="project" id="chatbox">--%>
