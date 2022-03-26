@@ -24,6 +24,7 @@
     grid-template-rows: 40px 60px auto auto;
     grid-row-gap: 10px;
     overflow-y: auto;
+    font-family: "Roboto", sans-serif;
 }
 .headline{
 
@@ -39,21 +40,21 @@
     column-gap: 40px;
     background-color: rgb(255, 255, 255);
     height: 8vh;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 .second{
     grid-area: second_row;
     background-color: rgb(255, 255, 255);
     height: 5vh;
     width: 100%;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 .third{
     grid-area: third_row;
     background-color: rgb(255, 255, 255);
     height: 72vh;
     width: 100%;
-    width: 199.9vh;
+    /*width: 199.9vh;*/
 }
 
 /* //////////////////////////////////////////////////////////////////////////// */
@@ -76,11 +77,13 @@
 }
 
 #make_adds{
-    font-size: 17px;
+    font-size: 14px;
     border-radius: 10px;
     cursor: pointer;
-    width: 200px;
-    background-color: #c4c4c4;
+    width: 160px;
+    background-color: #efefef;
+    border-style: none;
+    height: 53px;
 }
 
 #rejected_adds{
@@ -238,4 +241,23 @@ input[type=date], select, textarea {
 .footer p{
     text-align: center;
 
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

@@ -157,10 +157,15 @@ ul li a:hover,ul li i:hover{
     border-radius: 5px;
     padding: 20px;
     width: 810px;
-    height: auto;
+
     margin-left: 500px;
     margin-top: -470px;
+
+    min-height: 100vh;
+    /*grid-template-areas: 'user2 user5 user6';*/
+
     grid-template-areas: 'user2 user5 user6';
+
 }
 .content1{
     background-color: #e9e9e9;
