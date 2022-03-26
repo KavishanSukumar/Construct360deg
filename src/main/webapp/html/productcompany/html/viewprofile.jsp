@@ -76,7 +76,6 @@
             <h2><%=account.getCompanyname()%></h2><br>
             <p>Product Company</p>
             <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
-            <a href="#" class="button">Message</a>
         </div>
         <div class="box2">
             <h3>Contact</h3>

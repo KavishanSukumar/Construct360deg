@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="./html/professionals/resources/css/adddetails.css">
   <link rel="stylesheet" href="./html/professionals/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   <script src="./resources/js/jquery-3.6.0.js"></script>
   <script>
     $(document).ready(function (){
@@ -249,10 +252,10 @@
 
 
       <div class="middle-content" id="regdoc">
-        <h1>Address verification</h1>
+        <h2>User Registration Document</h2>
         <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">
         <form class="details" action="<%=request.getContextPath()%>/AllUserdocsServlet" method="post" enctype="multipart/form-data">
-          <label for="reqfile">Requirement</label>
+<%--          <label for="reqfile">Requirement</label>--%>
           <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf"><br>
           <input  type="hidden" id="filename" name="filename" value="">
           <label id="filetype">(Choose pdf )</label>

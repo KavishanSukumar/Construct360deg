@@ -104,7 +104,8 @@ form.example::after {
     border: 1px solid rgb(54, 54, 54);
     margin-left: 30px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 7px;
+    border-style: none;
 }
 .button:hover{
     background: #ff7200;
@@ -133,4 +134,24 @@ form.example::after {
     margin-top: -5px;
     text-align: center;
     color: rgb(255, 255, 255);
+}
+
+/*////////////////////////////*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

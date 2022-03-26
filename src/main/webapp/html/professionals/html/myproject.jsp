@@ -171,6 +171,7 @@
     function UpdateGraph(){
         document.getElementById("updategraph").classList.toggle("activeupdate");
     }
+
   </script>
 </head>
 

@@ -475,6 +475,7 @@
 
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                         <h3><%=y.getProjectname()%></h3>
+
                         <%if(y.getIsclosed()==0){%>
                         
                         <%}else{%>

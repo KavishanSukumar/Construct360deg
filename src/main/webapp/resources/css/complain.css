@@ -36,7 +36,14 @@ body{
     font-size: 14px;
     border-style: none;
     color: white;
+    background-color: #1b1b1b;
 }
+
+/*.category{*/
+/*    height: 200px;*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*}*/
 
 #buttons{
   margin: 10px 10px 20px 0px;
@@ -44,6 +51,9 @@ body{
 .btn{
     width: 100px;
     height: 35px;
+    border-radius: 6px;
+    background-color: white;
+    border-style: none;
 }
 
 .footer{
