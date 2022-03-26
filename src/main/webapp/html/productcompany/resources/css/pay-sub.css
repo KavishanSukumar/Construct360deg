@@ -22,6 +22,7 @@ body{
     border: 1px;
     box-shadow: 2px 2px 1px gray;
     border-radius: 5px;
+    background-color: #100c0cc2;
 
 }
 .monthly:hover,.annual:hover,.free:hover{

@@ -89,7 +89,7 @@
                             <td id="totalvalue">0.00</td>
                         </tr>
                     </table>
-                    <div class="">
+                    <div class="" id="downloadbutton">
                         <button type="button" class="dwn-btn"><i class="fa fa-download" aria-hidden="true"></i>Download</button>
                     </div>
                 </div>
