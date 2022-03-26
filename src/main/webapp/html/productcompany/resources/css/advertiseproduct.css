@@ -3,6 +3,7 @@ body{
     padding: 0;
     font-family: "Roboto", sans-serif;
     background-color: white;
+    font-family: "Roboto", sans-serif;
 }
 .container{
     display: grid;
@@ -318,13 +319,20 @@ form.example::after {
 }
 .profile{
     display: flex;
-    flex-direction:column ;
-    background-color: rgb(255, 244, 225);
+    flex-direction: column;
+    /* background-color: rgb(255, 244, 225); */
+    /* margin: 30px; */
+    /* border-radius: 8px; */
+    /* cursor: pointer; */
+    height: 400px;
+    width: 250px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* background-color: rgb(249 249 249); */
+    box-shadow: 0px 1px 5px 5px rgb(231 231 231);
     margin: 30px;
     border-radius: 8px;
     cursor: pointer;
-    height: 360px;
-    width: 250px;
 }
 
 .gallery{

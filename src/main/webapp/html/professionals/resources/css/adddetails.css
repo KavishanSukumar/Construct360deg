@@ -120,14 +120,15 @@
   }
 .middle-content input[type=submit] {
     /*width: 100%;*/
-    background-color: #abafac;
+    background-color: #eaeaea;
     color: black;
-    padding: 14px 20px;
+    padding: 12px 16px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 15px;
+    margin-left: 224px;
+    font-size: 14px;
   } 
 .middle-content input[type=submit]:hover {
     background-color: #ff7200;
@@ -195,7 +196,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     margin: 4px 2px;
     cursor: pointer;
     /*border-radius: 20px;*/
@@ -252,5 +253,25 @@
 .right-btn:hover{
     background: #ff7200;
     color: #fff;}
+
+/*//////////////////////////*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 

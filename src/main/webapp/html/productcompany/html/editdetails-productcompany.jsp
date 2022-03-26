@@ -140,10 +140,10 @@
         </div>
       </div>
       <div class="middle-content" id="regdoc">
-        <h1>Address verification</h1>
+        <h2>User Registration Document</h2>
         <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">
         <form class="details" action="<%=request.getContextPath()%>/AllUserdocsServlet" method="post" enctype="multipart/form-data">
-          <label for="reqfile">Requirement</label>
+<%--          <label for="reqfile">Requirement</label>--%>
           <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf"><br>
           <input  type="hidden" id="filename" name="filename" value="">
           <label id="filetype">(Choose pdf )</label>

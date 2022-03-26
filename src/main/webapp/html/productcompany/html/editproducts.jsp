@@ -80,8 +80,8 @@
               <textarea class="row6" rows="19" cols="56" id="description" name="desc" required><%=x.getProductdes()%></textarea>
             </div>
             <div class="col7">
-              <label for="category">Category</label>
-              <select class="custom-select" id="category" >
+              <label for="category" hidden>Category</label>
+              <select class="custom-select" id="category" hidden >
                 <option selected>Select category</option>
                 <option value="1">Branded</option>
                 <option value="2">Non branded</option>
@@ -99,7 +99,7 @@
               </div>
             </div>
           <div class="DeleteandCloseButton">
-            <button type="button" class="btndel">Delete</button>
+            <button type="submit" class="btndel" >OK</button>
             <a href="<%=request.getContextPath()%>/searchproduct"><button type="button" class="btnclo">Close</button></a>
           </div>
         </div>
@@ -142,7 +142,7 @@
                 
                 
                 <div class="col-12">
-                  <button type="submit" class="btnsub">OK</button>
+                  <button type="submit" class="btnsub" hidden>OK</button>
                 </div>
               
               
