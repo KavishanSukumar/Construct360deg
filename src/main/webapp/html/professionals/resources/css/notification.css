@@ -5,14 +5,14 @@ body{
 }
 
 .content{
-    margin: 10px 10px;
+    margin: 16px 0px;
 }
 
 .notifications{
     height: auto;
     width: 1000px;
     text-align: center;
-    background: #c4c4c4;
+    background: #f7f7f7;
     /*box-shadow: 5px 5px 5px 5px #888888;*/
     border-radius: 5px;
 }

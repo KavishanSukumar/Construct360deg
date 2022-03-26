@@ -5,6 +5,7 @@
     'menu_bar'
     'content1'
     'content2';
+    font-family: "Roboto", sans-serif;
 }
 .content1{
     margin-top: 83px;
@@ -32,12 +33,12 @@
     margin-top: 70px;
 }
 .setting{
-    border-radius: 8px;
-    /*margin-top: 48px;*/
-    margin-left: 60px;
-    height: 386px;
+    border-radius: 5px;
+    /* margin-top: 48px; */
+    margin-left: 62px;
+    height: 442px;
     width: 300px;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
+    box-shadow: 0px 1px 14px 7px rgb(245 245 245);
 }
 .setting i{
     margin-left: -30px;
@@ -118,7 +119,7 @@
     font-size: 15px;
   }
 .middle-content input[type=submit] {
-    width: 100%;
+    /*width: 100%;*/
     background-color: #abafac;
     color: black;
     padding: 14px 20px;
@@ -133,12 +134,13 @@
     color: #fff;
 }
 .middle-content{
-    background-color: rgb(230, 228, 228);
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
+    box-shadow: 0px 5px 10px 5px rgb(239 239 239);
     border-radius: 5px;
-    /*margin-top: -40px;*/
-    padding: 30px;
+    /* margin-top: -40px; */
+    padding: 70px;
     height: 700px;
+    font-family: "Roboto", sans-serif;
+    padding-left: 166px;
 }
 .middle-content button{
     padding: 8px;
@@ -186,7 +188,7 @@
     display: none;
 }
 #preproject button, #preference button {
-    background-color: #c9c9c9;
+    background-color: #e8e8e8;
     border: none;
     color: black;
     padding: 15px 32px;
@@ -197,6 +199,7 @@
     margin: 4px 2px;
     cursor: pointer;
     /*border-radius: 20px;*/
+    font-family: "Roboto", sans-serif;
 }
 #preproject button:hover,#preference button:hover{
     background: #ff7200;
