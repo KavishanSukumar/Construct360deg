@@ -11,7 +11,6 @@
     Project project = (Project) request.getAttribute("projects");
     int projectid = (int) request.getAttribute("projectid");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
-//    Project project1 = (Project) request.getAttribute("projects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
     if(Integer.parseInt(request.getParameter("projectid"))!=projectid){

@@ -1,10 +1,12 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.AccountDetailsDAO;
+import com.example.construct360deg.dao.NewProjectDAO;
 import com.example.construct360deg.dao.PreviousProjectDAO;
 import com.example.construct360deg.dao.ViewProfileDAO;
 import com.example.construct360deg.model.Account;
 import com.example.construct360deg.model.PreviousProject;
+import com.example.construct360deg.model.Project;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,7 +26,9 @@ public class EditProfileServlet extends HttpServlet {
         HttpSession session=req.getSession();
         int userid= (int) session.getAttribute("userid");
         String userrole= (String) session.getAttribute("userrole");
+//        int profid = Integer.parseInt(req.getParameter("profid"));
         Account account = new Account();
+        ArrayList<Project> newprojects = new ArrayList<>();
 
         if(userrole.equals("admin")){
             //Profile pic change
@@ -47,6 +51,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_indiv")){
+            //delete account
+            NewProjectDAO newProjectDAO = new NewProjectDAO();
+            try {
+                newprojects = newProjectDAO.viewProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("newprojects",newprojects);
+
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
@@ -67,6 +80,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if (userrole.equals("cus_com")){
+            //delete account
+            NewProjectDAO newProjectDAO = new NewProjectDAO();
+            try {
+                newprojects = newProjectDAO.viewProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("newprojects",newprojects);
+
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
@@ -87,6 +109,15 @@ public class EditProfileServlet extends HttpServlet {
             requestDispatcher.forward(req,resp);
             System.out.println(userrole);
         }else if(userrole.equals("prof_com")){
+            //delete account
+            NewProjectDAO newProjectDAO = new NewProjectDAO();
+                try {
+                    newprojects = newProjectDAO.viewProjects(userid);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            req.setAttribute("newprojects",newprojects);
+
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
@@ -109,6 +140,15 @@ public class EditProfileServlet extends HttpServlet {
 
             System.out.println(userrole);
         }else if (userrole.equals("prof_indiv")){
+            //delete account
+            NewProjectDAO newProjectDAO = new NewProjectDAO();
+            try {
+                newprojects = newProjectDAO.viewProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("newprojects",newprojects);
+
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {
@@ -131,6 +171,15 @@ public class EditProfileServlet extends HttpServlet {
 
             System.out.println(userrole);
         }else if (userrole.equals("prod_com")){
+            //delete account
+            NewProjectDAO newProjectDAO = new NewProjectDAO();
+            try {
+                newprojects = newProjectDAO.viewProjects(userid);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            req.setAttribute("newprojects",newprojects);
+
             //Profile pic change
             ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
             try {

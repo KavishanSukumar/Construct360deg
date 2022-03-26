@@ -196,7 +196,7 @@
                     <h1>WARNING..!</h1>
                     <h3>You can't delete this project.
                         <br>You are currently working on this project.you have to complete project then you can remove the project.
-                        <br>If you want to remove the project, you must first close the project.</h3>
+                        <br>If you want you can close the project.</h3>
                     <div class="ok-btn" onclick="popup()">OK</div>
                 </div>
             </div>
