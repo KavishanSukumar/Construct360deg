@@ -1,6 +1,7 @@
 <%@ page import="com.example.construct360deg.model.AllUsers" %>
 <%
     AllUsers user= (AllUsers) request.getAttribute("user");
+    String paymentyype= (String) request.getAttribute("paymentyype");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,18 @@
   <link rel="stylesheet" href="./html/customer/resources/css/nav-bar-updated.css">
   <link rel="stylesheet" href="./html/customer/resources/css/pay-sub.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script>
+      function basicplan(){
+          var out=confirm("Do you want to reject the document");
+          if (out==true){
+              var xHTTP=new XMLHttpRequest();
+              xHTTP.open("GET","<%=request.getContextPath()%>/paymentstatusupdate?status=3&userid=<%=user.getUserid()%>",true);
+              xHTTP.send();
+              location="<%=request.getContextPath()%>/paysubscription";
+          }
+      }
+
+  </script>
 </head>
 
 <body>
@@ -33,7 +46,10 @@
             </ul>
           </div>
           <div class="sub">
-            <button value="freesubscription" class="sub-btn" disabled>Your Plan</button>
+              <%if(!paymentyype.equals("Basic")){%>
+                 <button value="freesubscription" onclick="basicplan()" class="sub-btn">Your Plan</button>
+              <%}%>
+
           </div>
         </div>
 
@@ -41,8 +57,8 @@
             <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
                 <%--        monthly--%>
                 <input type="hidden" name="merchant_id" value="1219380">
-                <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
-                <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+                <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paymentstatusupdate?status=1&userid=<%=user.getUserid()%>">
+                <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paymentstatusupdate?status=0&userid=<%=user.getUserid()%>">
                 <input type="hidden" name="notify_url" value="">
                 <%--            <br><br>Item Details<br>--%>
                 <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
@@ -84,7 +100,9 @@
                 </ul>
               </div>
               <div class="sub">
-                <button type="submit" target="_blank" value="monthlysubscription" class="sub-btn" >Choose Plan</button>
+                  <%if(!paymentyype.equals("Monthly")){%>
+                     <button type="submit" target="_blank" value="monthlysubscription" class="sub-btn">Choose Plan</button>
+                  <%}%>
               </div>
             </form>
           </div>
@@ -93,8 +111,8 @@
             <form method="post" action="https://sandbox.payhere.lk/pay/checkout">
               <%--        annual--%>
                   <input type="hidden" name="merchant_id" value="1219380">
-                  <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
-                  <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paysubscription">
+                  <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/paymentstatusupdate?status=2&userid=<%=user.getUserid()%>">
+                  <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/paymentstatusupdate?status=0&userid=<%=user.getUserid()%>">
                   <input type="hidden" name="notify_url" value="">
                   <%--            <br><br>Item Details<br>--%>
                   <input type="hidden" name="order_id" value="<%=user.getUserid()%>mon">
@@ -136,7 +154,9 @@
                   </ul>
                 </div>
                 <div class="sub">
-                  <button type="submit" target="_blank" value="monthlysubscription" class="sub-btn">Choose Plan</button>
+                    <%if(!paymentyype.equals("Annual")){%>
+                    <button type="submit" target="_blank" value="annualsubscription" class="sub-btn">Choose Plan</button>
+                    <%}%>
                 </div>
               <%--        annual--%>
             </form>

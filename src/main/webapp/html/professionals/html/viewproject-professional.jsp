@@ -957,7 +957,7 @@
                     </table>
                 </div>
 
-                <div class="ordertable" id="confirmappointments">
+                <div class="ordertable" id="confirmappointments" style="display: none">
                     <table class="logTable">
                         <thead>
                         <tr class="headrow">
@@ -986,7 +986,7 @@
                     </table>
                 </div>
 
-                <div class="ordertable" id="rejectedappointments">
+                <div class="ordertable" id="rejectedappointments" style="display: none">
                     <table class="logTable">
                         <thead>
                         <tr class="headrow">

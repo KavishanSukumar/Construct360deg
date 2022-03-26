@@ -33,7 +33,7 @@
                 data:{"orderid":orderid},
                 success: function (data){
                     for (let i in data){
-                        text="<tr><td>"+data[i].productName+"</td><td>"+data[i].quantity+"</td><td>"+ data[i].quantity*data[i].price +"</td></tr>";
+                        text="<tr><td>"+data[i].productName+"</td><td>"+data[i].quantity+"</td><td>"+ data[i].quantity*data[i].price +"</td><td><button id='"+orderid+"'>Cancel</button></td></tr>";
                         $("#orderdetailsrows").append(text);
                         total+=data[i].quantity*data[i].price;
                     }
@@ -78,6 +78,7 @@
                             <th>Item name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody id="orderdetailsrows">

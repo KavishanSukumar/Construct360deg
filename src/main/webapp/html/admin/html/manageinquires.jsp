@@ -63,34 +63,33 @@
                       </div>
                 </form>
             </div>
-            <div class="third">
+
 
                 <!-- ///////////////////////////////////////////// -->
-                <table class="mytable" id="mytable">
-                    <thead>
-                        <tr class="headrow">
-                            <th class="Time"><span>Complain id</span></th>
-                            <th class="Date"><span>Date</span></th>
-                            <th class="Time"><span>Time</span></th>
-                            <th class="complainername"><span>Complainer Name</span></th>
-                            <th class="complaintype"><span>Complain Type</span></th>
-                            <th class="message"><span>Message</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%for (Complain x:complains){%>
-                            <tr class="1stline" onclick="openinqury(this)" id="<%=x.getComplainid()%>">
-                                <td><%=x.getComplainid()%></td>
-                                <td>05-09-2020</td>
-                                <td>13:10:01</td>
-                                <td><%=x.getFullname()%></td>
-                                <td><%=x.getCategory()%></td>
-                                <td><%=x.getMessage()%></td>
-                            </tr>
-                        <%}%>
-                    </tbody>
-                </table>
-            </div>
+            <table class="mytable" id="mytable">
+                <thead>
+                <tr class="headrow">
+                    <th class="Time"><span>Complain id</span></th>
+                    <th class="Date"><span>Date</span></th>
+                    <th class="Time"><span>Time</span></th>
+                    <th class="complainername"><span>Complainer Name</span></th>
+                    <th class="complaintype"><span>Complain Type</span></th>
+                    <th class="message"><span>Message</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for (Complain x:complains){%>
+                <tr class="1stline" onclick="openinqury(this)" id="<%=x.getComplainid()%>">
+                    <td><%=x.getComplainid()%></td>
+                    <td>05-09-2020</td>
+                    <td>13:10:01</td>
+                    <td><%=x.getFullname()%></td>
+                    <td><%=x.getCategory()%></td>
+                    <td><%=x.getMessage()%></td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
         </div>
     </div>
     <%@include file="../../footer.jsp"%>

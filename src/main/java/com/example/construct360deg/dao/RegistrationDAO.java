@@ -5,11 +5,14 @@ import com.example.construct360deg.model.UserRegistration;
 
 import javax.mail.MessagingException;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class RegistrationDAO {
     public boolean userRegistration(UserRegistration userRegistration) throws SQLException, MessagingException {
         boolean status=false;
         int row;
+        int userid=0;
         String sql="INSERT INTO `login`( `username`, `password`,`user_role`) VALUES (?,?,?);";
         Connection connection=Database.getConnection();
         PreparedStatement preparedStatement;
@@ -28,7 +31,7 @@ public class RegistrationDAO {
 
         if(resultSet.next()){
 
-            int userid=resultSet.getInt("userid");
+            userid=resultSet.getInt("userid");
             String sql5="INSERT INTO `users`(`userid`) VALUES (?)";
             PreparedStatement preparedStatement2;
             preparedStatement2=connection.prepareStatement(sql5);
@@ -83,12 +86,17 @@ public class RegistrationDAO {
         if (row!=0){
             status=true;
         }
+        java.util.Date date = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        java.sql.Time sqlTime = new java.sql.Time(date.getTime());
 
-        SendEmailDAO sendEmailDAO=new SendEmailDAO();
+        String sql5="INSERT INTO `subscriptionpayment`(`datetime`, `amount`, `userid`) VALUES (?,?,?)";
+        preparedStatement=connection.prepareStatement(sql5);
+        preparedStatement.setString(1,sqlDate + " " + sqlTime);
+        preparedStatement.setFloat(2,0);
+        preparedStatement.setInt(3,userid);
+        preparedStatement.executeUpdate();
 
-//        System.out.println(sendEmailDAO.sendEmail("kavishansukumar@gmail.com","Testing","Testing"));
-
-        System.out.println("Regirstration DAO");
         return status;
     }
     public boolean getEmail(String data,String field) throws SQLException {
