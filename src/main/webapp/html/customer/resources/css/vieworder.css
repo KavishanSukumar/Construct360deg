@@ -15,11 +15,11 @@ body{
 .container-3{
     display: flex;
     flex-direction: column;
-    background-color: #cccccc;
+    background-color: #ffffff;
     width: 300px;
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    border-radius: 20px;
-    padding-top:20px
+    box-shadow: 0px 5px 6px 5px rgb(233 233 233);
+    border-radius: 8px;
+    padding-top: 20px;
 }
 .ordercolm{
     display: block;
@@ -46,8 +46,8 @@ body{
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
-    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px rgb(229 229 229);
+    border-radius: 8px;
     padding: 20px 35px 20px 35px;
 }
 
@@ -59,9 +59,9 @@ body{
     border-spacing: 12px;
 }
 .dwn-btn{
-    padding-right: 12px;
-    margin-left: 614px;
-    font-size: 15px;
+    padding: 10px;
+    border-style: none;
+    border-radius: 7px;
 }
 
 .dwn-btn:hover{
@@ -86,4 +86,14 @@ body{
 
 .content{
     margin-bottom: 360px;
+}
+
+.dwn-btn{
+    padding: 20px;
+}
+#downloadbutton{
+    padding: 15px;
+    border-style: none;
+    border-radius: 24px;
+    font-size: 13px;
 }

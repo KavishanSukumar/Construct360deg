@@ -23,6 +23,7 @@ body{
     font-family: "Roboto", sans-serif;
     color: white;
     font-size: 47px;
+    background-color: #100c0cc2;
 
 }
 .monthly:hover,.annual:hover,.free:hover{

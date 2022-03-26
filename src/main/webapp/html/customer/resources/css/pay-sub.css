@@ -25,6 +25,7 @@ body{
     color: white;
     font-size: 47px;
     font-weight: 3;
+    background-color: #100c0cc2;
 
 }
 .monthly:hover,.annual:hover,.free:hover{
