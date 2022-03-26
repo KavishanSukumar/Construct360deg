@@ -16,6 +16,10 @@
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="./html/customer/resources/images/paysub/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
 <%@include file="sidebar-customer.jsp"%>
     <div class="container" id="container">
 
@@ -72,7 +76,7 @@
                 <input type="hidden" name="address" value="<%=user.getHouseno()+" "+user.getStreet()%>">
                 <input type="hidden" name="city" value="<%=user.getCity()%>">
                 <input type="hidden" name="country" value="Sri Lanka">
-              <div class="ammount">
+              <div class="ammount" id="secon">
                 <h1>500/<span style="font-size: 30px">Mo</span></h1>
               </div>
               <div class="facilities">

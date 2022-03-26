@@ -15,21 +15,23 @@ body{
     display: flex;
     flex-direction: row;
     margin-top: 10%;
+    font-family: "Roboto", sans-serif;
 }
 .monthly,.annual,.free{
-    width: 500px;
     margin: 20px;
     border: 1px;
-    box-shadow: 2px 2px 1px gray;
     border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    font-size: 47px;
 
 }
 .monthly:hover,.annual:hover,.free:hover{
-    box-shadow: 10px 10px 5px gray;
+    box-shadow: 5px 5px 5px 5px rgba(255, 114, 0, 0.22);
 }
 .ammount{
-    color: #cccccc;
-    background-color: black;
+    color: #ffffff;
+    background-color: #ff7200;
 }
 h1{
     font-size: 60px;
@@ -43,19 +45,35 @@ h1{
     padding: 30px 0px 0px 0px;
 }
 .sub{
-    text-align: right;
+    text-align: center;
     padding: 10px 10px 10px 10px;
-    margin: 1px 25px 20px 1px;
+    margin: 1px 10px 20px 1px;
 }
 .sub-btn{
-    padding: 10px 50px;
-    border-radius: 25px;
-    background-color: #cccccc;
+    padding: 13px 27px;
+    border-radius: 8px;
+    background-color: #e7e7e7;
     color: black;
+    border-style: none;
 }
 .sub-btn:hover{
     background-color: #ff7200;
 }
+
+#secon{
+    background-color: #1fa11f;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+/*//////////////////////////////////////////////scroll bar///////////*/
 
 ::-webkit-scrollbar {
     width: 10px;
