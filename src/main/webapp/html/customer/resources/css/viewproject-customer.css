@@ -200,6 +200,7 @@ form.example::after {
     grid-template-columns: 250px auto;
     grid-template-areas: 'home project';
     margin-top: 80px;
+    grid-row-gap: 10px;
 }
 .home{
     display: flex;
@@ -384,6 +385,21 @@ form.example::after {
 }
 
 
+/*body::-webkit-scrollbar-track {*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*    border-radius: 10px;*/
+/*    background-color: #F5F5F5;*/
+/*}*/
+/*body::-webkit-scrollbar {*/
+/*    width: 5px;*/
+/*    background-color: #F5F5F5;*/
+/*}*/
+/*body::-webkit-scrollbar-thumb {*/
+/*    border-radius: 10px;*/
+/*    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);*/
+/*    background-color: #666666;*/
+/*}*/
+
 
 #my_reqs{
     background-color: rgb(255, 244, 225);
@@ -391,6 +407,8 @@ form.example::after {
     height: auto;
     overflow-y: auto;
     min-height: 100vh;
+    width: 99%;
+    row-gap: 10px;
 }
 #my_requirements{
     display: grid;

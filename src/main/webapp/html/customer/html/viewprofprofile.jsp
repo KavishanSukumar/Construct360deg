@@ -42,9 +42,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
+<%---------------------- appointment - select date ----------------------------------%>
+<div class="appointment" id="appointment-timeslots" style="display: none">
+    <div class="part1">
+        <div class="part1_1">
+            <h1 id="ap-tittle">Select a Date</h1>
+            <button class="closebtnclass" id="closebtn" onclick="mypopupclose()">X</button>
+        </div>
+        <div class="part1_2">
+            <input type="date" id="choosedate" name="choosedate">
+            <input type="submit">
+        </div>
 
+    </div>
+    <div class="part2">
+        <h1 id="ap-tittle2">Available Time Slots</h1>
+        <div class="avai-timeslots">
+            <div class="notavai">
+                <h3 id="notavailable">Sorry Time slots are not Avilable</h3>
+<%--                <i class="fa fa-frown-o" aria-hidden="true"></i>--%>
+            </div>
+            <button class="timeslot" id="s1" val="1">8:00 am  - 9.00 am</button>
+            <button class="timeslot" id="s2" val="2">9:00 am  - 10.00 am</button>
+            <button class="timeslot" id="s3" val="3">10:00 am  - 11.00 am</button>
+            <button class="timeslot" id="s4" val="4">11:00 am  - 12.00 pm</button>
+            <button class="timeslot" id="s5" val="5">12:00 pm  - 13.00 pm</button>
+            <button class="timeslot" id="s6" val="6">13:00 pm  - 14.00 pm</button>
+            <button class="timeslot" id="s7" val="7">14:00 pm  - 15.00 pm</button>
+            <button class="timeslot" id="s8" val="8">15:00 pm  - 16.00 pm</button>
+            <button class="timeslot" id="s9" val="9">16:00 pm  - 17.00 pm</button>
+            <button class="timeslot" id="s10" val="10">17:00 pm  - 18.00 pm</button>
+
+
+        </div>
+
+    </div>
+
+
+</div>
 <body>
-<div class="container">
+<div class="container" id="blur">
     <%@include file="sidebar-customer.jsp"%>
     <div class="content1">
     </div>
@@ -68,7 +105,8 @@
             <%}%><br>
             <a href="#" class="button">Message</a>
 
-            <a  onclick="makeappointment(<%=profid%>)" class="button">Appointments</a>
+<%--            <a  onclick="makeappointment(<%=profid%>)" class="button">Appointments</a>--%>
+            <a  onclick="gettimeslots()" class="button">Appointments</a>
             <%if(count==0){%>
             <a onclick="uploadreq(<%=profid%>,<%=reqid%>,<%=userid%>)" class="button">Upload requirements</a>
             <%}%>
@@ -147,6 +185,24 @@
         }else {
             console.log("canceled the sending request")
         }
+    }
+    function gettimeslots(){
+        var slots =document.getElementById("appointment-timeslots");
+        slots.style.display="block";
+        var blur = document.getElementById("blur");
+        blur.style.filter="blur(8px)";
+
+        // var menubar = document.getElementById("menu_bar");
+        // menubar.style.filter="blur(8px)";
+
+    }
+    function mypopupclose(){
+        var slots =document.getElementById("appointment-timeslots");
+        slots.style.display="none";
+        var blur = document.getElementById("blur");
+        blur.style.filter="none";
+        // var menubar = document.getElementById("menu_bar");
+        // menubar.style.filter="none";
     }
 </script>
 </body>
