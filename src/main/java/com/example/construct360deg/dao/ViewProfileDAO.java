@@ -121,7 +121,29 @@ public class ViewProfileDAO {
         }
         return account;
     }
-}
+    public Account viewImageuser(int userid) throws SQLException {
+        Account account = new Account();
+        Connection connection = Database.getConnection();
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+
+            String sql = "SELECT * FROM `users` WHERE userid=?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, userid);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                account.setUserid(resultSet.getInt("userid"));
+                byte[] bytes = resultSet.getBytes("profilepic");
+                account.setImgBytes(bytes);
+            }
+
+        return account;
+        }
+
+    }
+
 //    public boolean deleteImage(int userid) throws SQLException {
 //        boolean status= false;
 //        Connection connection = Database.getConnection();

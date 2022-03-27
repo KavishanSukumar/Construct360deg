@@ -360,8 +360,14 @@
 
                                         </tr>
 
-                                        <%}%>
 
+
+                                        <%}%>
+                                        <tr>
+                                            <td class="filed-name"><h3 class="h3header">Created Date</h3></td>
+                                            <td>on <%=x.getReq_upload_date()%> at <%=x.getReq_upload_time()%></td>
+
+                                        </tr>
 
                                         <tr>
                                             <td class=field-name"><h3 class="h3header">Location</h3></td>
@@ -393,20 +399,6 @@
                                <% }else{%>
                                <button class="minibtns" id="uploadtopublic2" style="cursor: none">Requirement is Uploaded  to public</button>
                                <%}%>
-                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
-                                   <button class="minibtns" id="chooseprof">Choose professional</button>
-                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
-                                   <input type="hidden" value="100" name="tag">
-                               </form>
-<%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
-                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" id="availableprop">Available proposals</button>
-                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
-                                   <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
-                                   <%   System.out.println("-------------------------------------");
-                                       System.out.println(x.getReqname());
-                                       System.out.println("-------------------------------------");
-                                   %>
-                               </form>
                                <%
                                    int tag1 = 0; //to check empty arraylist
                                    for(Proposal a:proposals){
@@ -422,12 +414,32 @@
                                    int tag3 = 0;
                                    for(Proposal a:proposals){
                                        if(a.getRequirementid()==x.getRequirementid()&&a.getCustomeraccept()==1){
-                                         tag2++;
+                                           tag2++;
                                        }else{
                                            tag3++;
                                        }
                                    }
                                %>
+                               <%if(tag2>0){%>
+
+                               <%}else{%>
+                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
+                                   <button class="minibtns" id="chooseprof">Choose professional</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="100" name="tag">
+                               </form>
+                               <%}%>
+
+<%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
+                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" id="availableprop">Available proposals</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
+                                   <%   System.out.println("-------------------------------------");
+                                       System.out.println(x.getReqname());
+                                       System.out.println("-------------------------------------");
+                                   %>
+                               </form>
+
                                   <%if(tag2>0){%>
 
                                   <%}else{%>
