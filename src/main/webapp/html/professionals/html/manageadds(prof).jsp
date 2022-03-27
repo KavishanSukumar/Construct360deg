@@ -57,7 +57,7 @@
 
     <div class="content">
         <div class="headline">
-            <h1 id="title">Your Avertisements</h1>
+            <h1 id="title">Your Advertisements</h1>
         </div>
         <div class="first">
 
@@ -67,23 +67,23 @@
 
         </div>
         <div class="second">
-            <form action="" >
-                <div class="from">
-                    <label name="activityfrom">Show activities from</label> &ensp;
-                    <input id="activityfrom" name="activityfrom" type="date" size = "59"class="form-control validate" />
-                </div>
-                <div class="to">
-                    <label name="activityTo">to</label> &ensp;
-                    <input id="activityTo" name="activityTo" type="date" size = "59"class="form-control validate" />
-                </div>
-                <div class="By_option">
-                    <label name="By">by</label> &ensp;
-                    <input id="By" name="By" type="text" size = "59"class="form-control validate" />
-                </div>
-                <div class="OK">
-                    <button type="button" class="okbtn">GO</button>
-                </div>
-            </form>
+<%--            <form action="" >--%>
+<%--                <div class="from">--%>
+<%--                    <label name="activityfrom">Show activities from</label> &ensp;--%>
+<%--                    <input id="activityfrom" name="activityfrom" type="date" size = "59"class="form-control validate" />--%>
+<%--                </div>--%>
+<%--                <div class="to">--%>
+<%--                    <label name="activityTo">to</label> &ensp;--%>
+<%--                    <input id="activityTo" name="activityTo" type="date" size = "59"class="form-control validate" />--%>
+<%--                </div>--%>
+<%--                <div class="By_option">--%>
+<%--                    <label name="By">by</label> &ensp;--%>
+<%--                    <input id="By" name="By" type="text" size = "59"class="form-control validate" />--%>
+<%--                </div>--%>
+<%--                <div class="OK">--%>
+<%--                    <button type="button" class="okbtn">GO</button>--%>
+<%--                </div>--%>
+<%--            </form>--%>
         </div>
         <div class="third">
 
@@ -134,7 +134,7 @@
 
                       <div class="popup" id="popupid<%=x.getAddid()%>">
                           <div class="popup-content">
-                              <button c="close" onclick="mypopupclose('popupid<%=x.getAddid()%>')">X</button>
+                              <button id="close" onclick="mypopupclose('popupid<%=x.getAddid()%>')">X</button>
                               <img src="data:image/jpeg;base64,<%=base64Encoded1%>" onerror="this.src='./resources/images/Avatar.png;'" id="addimg" style="width: 600px; height: 500px; padding: 8px">
                           </div>
                       </div>

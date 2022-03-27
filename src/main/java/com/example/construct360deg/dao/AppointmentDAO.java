@@ -11,7 +11,7 @@ public class AppointmentDAO {
     public boolean makeappointment(Appointment appointment) throws SQLException {
         Connection connection = Database.getConnection();
         String sql = "INSERT INTO `appointment`(`customerid`, `profid`, `time`, `date`, `caption`, `message`) VALUES (?,?,?,?,?,?)";
-       // String sql2 = "update `profavailabletimeslots` SET iscustomerbooked = ? where profid=? AND slotid=? AND date = ?";
+        String sql2 = "update `profavailabletimeslots` SET iscustomerbooked = ? where `profid`=? AND `slotid`=? AND `date` = ?";
         PreparedStatement preparedStatement = null;
         PreparedStatement preparedStatement2 = null;
 
@@ -25,20 +25,25 @@ public class AppointmentDAO {
         preparedStatement.setString(6,appointment.getMessage());
         row = preparedStatement.executeUpdate();
 
-//        int row1 = 0;
-//        String thedate = appointment.getDate();
-//        Date date=Date.valueOf(thedate);
-//        preparedStatement2 = connection.prepareStatement(sql2);
-//        preparedStatement2.setInt(1,1);
-//        preparedStatement2.setInt(2,appointment.getProfid());
-//        preparedStatement2.setInt(3, appointment.getSlotid());
-//        preparedStatement2.setDate(4,date);
-//        row = preparedStatement2.executeUpdate();
+        int row1 = 0;
+        int one = 1;
+        String thedate = appointment.getDate();
+        Date date=Date.valueOf(thedate);
+        preparedStatement2 = connection.prepareStatement(sql2);
+        preparedStatement2.setInt(1,one);
+        preparedStatement2.setInt(2,appointment.getProfid());
+        preparedStatement2.setInt(3, appointment.getSlotid());
+        preparedStatement2.setDate(4,date);
+        row1 = preparedStatement2.executeUpdate();
 
-        if (row>0){
+        if (row>0&&row1>0){
+            System.out.println("true");
             return true;
+
         }else {
+            System.out.println("false");
             return false;
+
         }
 
     }

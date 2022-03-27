@@ -146,9 +146,12 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #7c7c7c;
-    color: white;
+    background-color: #e6e6e661;
+    color: black;
     margin-left: 50px;
+    /* gap: 20px; */
+    padding: 8px;
+    /* border-style: none;
 }
 
 .headrow th{

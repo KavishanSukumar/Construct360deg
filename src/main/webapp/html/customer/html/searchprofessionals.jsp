@@ -54,7 +54,7 @@
           <input type="text" placeholder="Search.." name="search">
         </form>
         </div>
-        <div class="container-3">
+        <div class="container-3" style="display: block">
             <h3>Filter By</h3>
             <h4>Professional :</h4>
             <label class="box">Contractor

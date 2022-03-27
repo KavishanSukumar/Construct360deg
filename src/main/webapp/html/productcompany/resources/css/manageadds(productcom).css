@@ -196,7 +196,37 @@ tr{
 
 .managebtn{
     cursor: pointer;
+
 }
+
+
+#close,#close2,#close3{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 573px;
+    opacity: 0.5;
+}
+#close:hover,#close2:hover,#close3:hover{
+    color: white;
+    background-color: red;
+    opacity: 1;
+}
+
+
+
+
+
+
+
 .popup{
     position: absolute;
     z-index: 1;

@@ -53,6 +53,7 @@
             <label class="a" for="uploadfile" id="up-proposal">Proposal :-</label>
             <input type="file" id="uploadfile" name="uploadfile"  multiple onchange="processSelectedFiles(this)"  required accept="application/pdf,application/zip"/><br>
             <label id="filetype">(Choose pdf or zip file)</label>
+            <a href="./html/professionals/resources/Docs/proposal_template.docx" title="click here to download" style="margin-left: 10px">Proposal_template</a>
             <input type="hidden" value="<%=profid%>" name="profid">
             <input type="hidden" value="<%=cusid%>" name="cusid">
             <input type="hidden" value="" name="filename" id="filename">
