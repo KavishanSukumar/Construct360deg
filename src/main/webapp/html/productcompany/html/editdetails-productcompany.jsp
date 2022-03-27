@@ -10,14 +10,13 @@
   ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
   int count = 0;
 
-
-  for (Project x:newprojects){
-    if(x.getIsclosed()==0){
-      count++;
-    }
-
-  }
-  System.out.println("count ="+count);
+//  for (Project x:newprojects){
+//    if(x.getIsclosed()==0){
+//      count++;
+//    }
+//
+//  }
+//  System.out.println("count ="+count);
 %>
 
 <!DOCTYPE html>
