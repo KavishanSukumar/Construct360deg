@@ -133,6 +133,23 @@
             $("#arrived_cusreq").css("display","none");
             $("#timeslots").css("display","grid");
         });
+        $(function (){
+            var dtToday = new Date();
+            var month1 = dtToday.getMonth()+1;
+            var month2 = dtToday.getMonth()+2;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month1 < 10)
+                month1 = '0' + month1.toString();
+            if(month2 < 10)
+                month2 = '0' + month2.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var minDate1 = year + '-' + month1 + '-' + day;
+            var minDate2 = year + '-' + month2 + '-' + day;
+            $("#start").attr("min",minDate1);
+            $("#end").attr("min",minDate2);
+        });
 
             var receiver=null;
             var name=null;
@@ -267,22 +284,22 @@
         <label for="new"><b>Project Name :</b></label>
         <input type="text" id="new" name="projectname" required>
 
-        <label for="new"><b>Project Members</b></label><br><br>
-        <label for="contractor">Contractor :</label>
-        <input type="text" id="contractor" name="contractor">
-        <label for="designer">Landscape Designer :</label>
-        <input type="text" id="designer" name="landscape">
-        <label for="customer">Customer :</label>
-        <input type="text" id="customer" name="customer">
+<%--        <label for="new"><b>Project Members</b></label><br><br>--%>
+<%--        <label for="contractor">Contractor :</label>--%>
+        <input type="hidden" id="contractor" name="contractor" value="<%=account.getFirstname()%> <%=account.getLastname()%>">
+<%--        <label for="designer">Landscape Designer :</label>--%>
+<%--        <input type="text" id="designer" name="landscape">--%>
+<%--        <label for="customer">Customer :</label>--%>
+<%--        <input type="text" id="customer" name="customer">--%>
 
         <label for="address"><b>Project Address :</b></label>
         <input type="text" id="address" name="address" >
 
         <label for="start"><b>Expected Starting Date :</b></label>
-        <input type="date" id="start" name="starttime" ><br><br>
+        <input type="date" id="start" name="starttime" min="2022-03-29"><br><br>
 
         <label for="end"><b>Expected Finishing Date :</b></label>
-        <input type="date" id="end" name="finishtime"><br><br>
+        <input type="date"  id="end" name="finishtime"><br><br>
             <button id="btn1" onclick="showhide()">Next</button>
         </div>
 <%----------------------------------My proposal graph-------------------------------%>
