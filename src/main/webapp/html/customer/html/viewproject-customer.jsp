@@ -98,15 +98,17 @@
       function popup(){
           document.getElementById("popup").classList.toggle("active");
       }
-      function openproject(cusaccept,theprojectid){
+      function openproject(theprojectid,cusaccept){
           var projectid=theprojectid;
           console.log(projectid);
+          console.log(cusaccept);
           if(cusaccept==0){
                document.getElementById("newcontent").style.display="block";
                document.getElementById("blur").style.filter="blur(8px)";
                document.getElementById("projectid").value=theprojectid;
           }else {
-              location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
+              console.log("senalpunsara");
+              location.href = "<%=request.getContextPath()%>/myproject?projectid="+projectid;
           }
       }
 
@@ -270,7 +272,12 @@
                 <%for (Project y:newprojects){%>
                 <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                     <h3><%=y.getProjectname()%></h3>
+<%
+    System.out.println(y.getProjectid());
+    System.out.println(y.getUserid());
+    System.out.println(y.getCusaccept());
 
+%>
                     <%if(y.getIsclosed()==0){%>
 
                     <%}else{%>

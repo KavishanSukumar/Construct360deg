@@ -26,7 +26,7 @@ public class ViewProjectsServlet extends HttpServlet {
         HttpSession session=req.getSession();
         int userid = (int) session.getAttribute("userid");
 //        int projectid = (int) session.getAttribute("projectid");
-        String projectid = req.getParameter("projectid");
+//        String projectid = req.getParameter("projectid");
         String userrole= (String) session.getAttribute("userrole");
         Account account = new Account();
         if (userrole.equals("cus_indiv")){
@@ -64,8 +64,11 @@ public class ViewProjectsServlet extends HttpServlet {
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProjectcus(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                System.out.println("i am in try block");
+            } catch (Exception e) {
+//                throwables.printStackTrace();
+                System.out.println("i am in error block");
+                System.out.println(e);
             }
             req.setAttribute("newprojectscus",newprojects);
 
@@ -129,8 +132,11 @@ public class ViewProjectsServlet extends HttpServlet {
             NewProjectDAO newProjectDAO = new NewProjectDAO();
             try {
                 newprojects=newProjectDAO.viewProjectcus(userid);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+                System.out.println("i am in try block");
+            } catch (Exception e) {
+//                throwables.printStackTrace();
+                System.out.println("i am in error block");
+                System.out.println(e);
             }
             req.setAttribute("newprojectscus",newprojects);
 

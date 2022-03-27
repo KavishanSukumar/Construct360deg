@@ -197,6 +197,7 @@
     }
     function openproject(project_id,cus_accept){
         var projectid=project_id;
+
         var cusaccept = cus_accept;
         if(cusaccept==1) {
             location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
