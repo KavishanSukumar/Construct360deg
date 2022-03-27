@@ -57,7 +57,7 @@
 
     <div class="content">
         <div class="headline">
-            <h1 id="title">Your Avertisements</h1>
+            <h1 id="title">Your Advertisements</h1>
         </div>
         <div class="first">
 

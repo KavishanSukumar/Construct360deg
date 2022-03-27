@@ -128,7 +128,8 @@
                         <form  method="post" action="https://sandbox.payhere.lk/pay/checkout" class="formContainer">
 
                             <input type="hidden" name="merchant_id" value="1219380">
-                            <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/promoteproduct">
+                            <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/productadvertise?productid=<%=x.getProductid()%>&productname=<%=x.getProductName()%>
+                            &price=<%=x.getPrice()%>&img=<%=x.getImgBytes()%>">
                             <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/promoteproduct">
                             <input type="hidden" name="notify_url" value="">
                             <%--            <br><br>Item Details<br>--%>

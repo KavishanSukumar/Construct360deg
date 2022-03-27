@@ -187,6 +187,7 @@ tr{
 #view{
    background-color: #ff7200;
     color: white;
+    margin-left: 18px;
 }
 #delete{
     background-color: #d21212;

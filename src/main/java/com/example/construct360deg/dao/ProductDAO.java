@@ -217,6 +217,8 @@ public class ProductDAO {
             product.setProductid(resultSet.getInt("productid"));
             byte[] bytes=resultSet.getBytes("productimage");
             product.setImgBytes(bytes);
+
+            product.setPrice(resultSet.getFloat("productprice"));
             product.setProductdes(resultSet.getString("productdes"));
             products.add(product);
         }
