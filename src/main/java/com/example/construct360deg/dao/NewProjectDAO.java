@@ -149,6 +149,7 @@ public class NewProjectDAO {
             project.setFinishtime(resultSet.getString("finishtime"));
             project.setCusaccept(resultSet.getByte("cus_accept"));
             project.setProjectid(resultSet.getInt("projectid"));
+            project.setUserid(resultSet.getInt("cusid"));
             newprojects.add(project);
         }
         return newprojects;

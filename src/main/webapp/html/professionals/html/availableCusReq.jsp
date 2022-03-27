@@ -2,6 +2,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.Proposal" %>
+<%@ page import="com.example.construct360deg.model.Account" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -12,6 +13,7 @@
     String cusname = (String) request.getAttribute("cusname");
     int cusid = (int) request.getAttribute("cusid");
     int profid = (int) request.getAttribute("profid");
+    Account account = (Account) request.getAttribute("account");
 %>
 <head>
     <meta charset="UTF-8">
@@ -26,11 +28,11 @@
 <body>
 <%
     String base64Encoded2=null;
-    if(cusprofimg==null){
+    if(account.getImgBytes()==null){
 
     }else{
 
-        byte[] realcusimg = Base64.encodeBase64(cusprofimg);
+        byte[] realcusimg = Base64.encodeBase64(account.getImgBytes());
         base64Encoded2 = new String(realcusimg, "UTF-8");
     }
 %>
@@ -70,7 +72,7 @@
         <div class="cus-details">
              <div class="area-b1">
 
-                 <img src="data:image/jpeg;base64,<%=base64Encoded2%>" onerror="this.src='./resources/images/Avatar.png;'" style="width: 150px; height: 150px; margin: auto;">
+                 <img src="data:image/jpeg;base64,<%=base64Encoded2%>" onerror="this.src='./resources/images/Avatar.png;'" style="width: 150px; height: 150px; margin: auto; border-radius: 10px">
                  <p id="cusname" style="margin: auto;"><%=cusname%></p>
              </div>
 

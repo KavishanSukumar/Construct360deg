@@ -3,9 +3,8 @@ package com.example.construct360deg.controllers;
 import com.example.construct360deg.dao.AdvertiseDAO;
 import com.example.construct360deg.dao.ProposalsDAO;
 import com.example.construct360deg.dao.RequirementDAO;
-import com.example.construct360deg.model.Advertise;
-import com.example.construct360deg.model.Proposal;
-import com.example.construct360deg.model.Requirement;
+import com.example.construct360deg.dao.ViewProfileDAO;
+import com.example.construct360deg.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,6 +31,8 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         int profid = (int) session.getAttribute("userid");
         int cusid = Integer.parseInt(req.getParameter("cusid"));
         byte[] cusprofimg = (req.getParameter("cusprofpic")).getBytes();
+        ViewProfileDAO viewProfileDAO = new ViewProfileDAO();
+        Account account = new Account();
         String cusname = req.getParameter("cusname");
         System.out.println("-=======================      DisplayCusReqOnProfsevlet    =============================");
         System.out.println(cusid);
@@ -42,6 +43,7 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         ArrayList<Proposal> proposals = new ArrayList<>();
         ProposalsDAO proposalsDAO = new ProposalsDAO();
         try {
+            account=viewProfileDAO.viewImageuser(cusid);
             requirements=requirementDAO.displayownRequirement(cusid);
             proposals=proposalsDAO.checkAleadySendaProposal(profid);
         } catch (SQLException throwables) {
@@ -53,6 +55,8 @@ public class DisplayCusReqOnProfServlet extends HttpServlet {
         req.setAttribute("cusname",cusname);
         req.setAttribute("cusid",cusid);
         req.setAttribute("profid",profid);
+        req.setAttribute("account",account);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/availableCusReq.jsp");
         requestDispatcher.forward(req, resp);
     }
