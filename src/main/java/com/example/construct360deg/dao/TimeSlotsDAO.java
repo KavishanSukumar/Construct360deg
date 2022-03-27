@@ -64,7 +64,7 @@ public class TimeSlotsDAO {
           timeSlot.setSlotid(resultSet.getInt("slotid"));
           timeSlot.setProfid(resultSet.getInt("profid"));
           timeSlot.setDate(resultSet.getDate("date"));
-          timeSlot.setTag(resultSet.getInt("tag"));
+          timeSlot.setTag(resultSet.getInt("iscustomerbooked"));
           timeSlots.add(timeSlot);
 
 

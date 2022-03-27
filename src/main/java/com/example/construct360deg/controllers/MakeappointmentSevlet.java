@@ -42,6 +42,8 @@ public class MakeappointmentSevlet extends HttpServlet {
 
 
         int profid = Integer.parseInt(req.getParameter("profid"));
+        int slotid =Integer.parseInt(req.getParameter("slotid"));
+        System.out.println("slotid "+slotid);
         String caption = req.getParameter("caption");
         String date = req.getParameter("date");
         String time = req.getParameter("time");
@@ -54,6 +56,7 @@ public class MakeappointmentSevlet extends HttpServlet {
         appointment.setTime(time);
         appointment.setCaption(caption);
         appointment.setMessage(message);
+        appointment.setSlotid(slotid);
         System.out.println("Hello World2");
 
         try {

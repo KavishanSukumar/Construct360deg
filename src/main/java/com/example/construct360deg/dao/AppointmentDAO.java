@@ -4,17 +4,17 @@ import com.example.construct360deg.database.Database;
 import com.example.construct360deg.model.Appointment;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AppointmentDAO {
     public boolean makeappointment(Appointment appointment) throws SQLException {
         Connection connection = Database.getConnection();
         String sql = "INSERT INTO `appointment`(`customerid`, `profid`, `time`, `date`, `caption`, `message`) VALUES (?,?,?,?,?,?)";
+       // String sql2 = "update `profavailabletimeslots` SET iscustomerbooked = ? where profid=? AND slotid=? AND date = ?";
         PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement2 = null;
+
         int row = 0;
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,appointment.getCustomerid());
@@ -25,7 +25,15 @@ public class AppointmentDAO {
         preparedStatement.setString(6,appointment.getMessage());
         row = preparedStatement.executeUpdate();
 
-
+//        int row1 = 0;
+//        String thedate = appointment.getDate();
+//        Date date=Date.valueOf(thedate);
+//        preparedStatement2 = connection.prepareStatement(sql2);
+//        preparedStatement2.setInt(1,1);
+//        preparedStatement2.setInt(2,appointment.getProfid());
+//        preparedStatement2.setInt(3, appointment.getSlotid());
+//        preparedStatement2.setDate(4,date);
+//        row = preparedStatement2.executeUpdate();
 
         if (row>0){
             return true;

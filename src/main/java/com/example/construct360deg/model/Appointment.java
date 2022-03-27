@@ -12,6 +12,18 @@ public class Appointment {
     private String cus_name;
     private String user_role;
 
+    public int getSlotid() {
+        return slotid;
+    }
+
+    public void setSlotid(int slotid) {
+        this.slotid = slotid;
+    }
+
+    private int slotid;
+
+
+
 
     public int getAppoinmentid() {
         return appoinmentid;
