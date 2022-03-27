@@ -2,11 +2,23 @@
 <%@ page import="com.example.construct360deg.model.PreviousProject" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@ page import="com.example.construct360deg.model.Account" %>
+<%@ page import="com.example.construct360deg.model.Project" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
   Account account = (Account) request.getAttribute("accounts");
   Account account1 = (Account) request.getAttribute("changepic");
+  ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
+  int count = 0;
+
+
+  for (Project x:newprojects){
+    if(x.getIsclosed()==0){
+      count++;
+    }
+
+  }
+  System.out.println("count ="+count);
 %>
 
 <!DOCTYPE html>
@@ -117,8 +129,6 @@
     <%--}--%>
 
     function deleteaccount(){
-      // var userid = id;
-      // console.log(userid);
       var out=confirm("Delete Account");
       if(out==true){
         <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
@@ -233,6 +243,8 @@
         </form>
         </div>
 
+
+
       <div id="preference">
         <div class="middle-content">
           <h2>Delete Your Account</h2>
@@ -242,11 +254,11 @@
           <p>* If you're sick of getting email notifications from us, you can disable them here.
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
+          <%if(count==0){%>
           <div class="btn">
-<%--            <a class="right-btn" href="#">--%>
             <button onclick="deleteaccount()">Delete Account</button>
-<%--            </a>--%>
           </div>
+          <%}%>
         </div>
       </div>
 

@@ -33,7 +33,7 @@
                 data:{"orderid":orderid},
                 success: function (data){
                     for (let i in data){
-                        text="<tr><td>"+data[i].productName+"</td><td>"+data[i].quantity+"</td><td>"+ data[i].quantity*data[i].price +"</td></tr>";
+                        text="<tr><td>"+data[i].productName+"</td><td>"+data[i].quantity+"</td><td>"+ data[i].quantity*data[i].price +"</td><td><button class='cancel-btn' onclick='cancelorder("+orderid+")' id='"+orderid+"'>Cancel</button></td></tr>";
                         $("#orderdetailsrows").append(text);
                         total+=data[i].quantity*data[i].price;
                     }
@@ -41,6 +41,19 @@
                     $("#totalvalue").append(total);
                 }
             });
+        }
+
+        function cancelorder(data){
+            $.ajax({
+                url:"<%=request.getContextPath()%>/cancelorder",
+                type: 'POST',
+                data:{"orderid":data},
+                success: function (data){
+                    location.href="<%=request.getContextPath()%>/vieworders";
+                }
+            });
+
+
         }
     </script>
 </head>
@@ -78,6 +91,7 @@
                             <th>Item name</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th>Status</th>
                         </tr>
                         </thead>
                         <tbody id="orderdetailsrows">
@@ -88,7 +102,7 @@
                             <td id="totalvalue">0.00</td>
                         </tr>
                     </table>
-                    <div class="">
+                    <div class="" id="downloadbutton">
                         <button type="button" class="dwn-btn"><i class="fa fa-download" aria-hidden="true"></i>Download</button>
                     </div>
                 </div>

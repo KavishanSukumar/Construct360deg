@@ -27,16 +27,9 @@ public class UpdatePaymentServlet extends HttpServlet {
         Payment payment=new Payment();
         ProjectDAO projectDAO=new ProjectDAO();
         PrintWriter out=resp.getWriter();
-        payment.setAmmount(Float.parseFloat(req.getParameter("paymentamount")));
 
         payment.setPaymentName(req.getParameter("paymentname"));
-
-        payment.setPayee(Integer.parseInt(req.getParameter("payee")));
-
-        payment.setPayer(Integer.parseInt(req.getParameter("payer")));
-
         payment.setProjectid(Integer.parseInt(req.getParameter("projectid")));
-
         DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now=LocalDateTime.now();
         String datetime=dtf.format(now);

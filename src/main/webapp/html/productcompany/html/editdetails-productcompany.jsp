@@ -1,10 +1,23 @@
 <%@ page import="com.example.construct360deg.model.Account" %>
 <%@ page import="org.apache.commons.codec.binary.Base64" %>
+<%@ page import="com.example.construct360deg.model.Project" %>
+<%@ page import="java.util.ArrayList" %>
 <%@page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
 
 <%
   Account account = (Account) request.getAttribute("accounts");
   Account account1 = (Account) request.getAttribute("changepic");
+  ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
+  int count = 0;
+
+
+  for (Project x:newprojects){
+    if(x.getIsclosed()==0){
+      count++;
+    }
+
+  }
+  System.out.println("count ="+count);
 %>
 
 <!DOCTYPE html>
@@ -61,6 +74,13 @@
             $("#regdoc").css("display","block");
           });
     });
+    function deleteaccount(){
+      var out=confirm("Delete Account");
+      if(out==true){
+        <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
+        location.href="<%=request.getContextPath()%>/deleteaccount";
+      }
+    }
   </script>
 </head>
 <body>
@@ -131,14 +151,14 @@
           <p>* If you're sick of getting email notifications from us, you can disable them here.
             <br><br>* If you want to change your username, you can do that here.
             <br><br>* Account deletion is final. There will be no way to restore your account. </p>
+          <%if(count==0){%>
           <div class="btn">
-            <a class="right-btn" href="#">
-              <span>Delete my account</span>
-            </a>
+            <button onclick="deleteaccount()">Delete Account</button>
           </div>
-
+          <%}%>
         </div>
       </div>
+
       <div class="middle-content" id="regdoc">
         <h2>User Registration Document</h2>
         <img src="./html/customer/resources/images/edit profile/R.gif" class="addresgif"  style="cursor: pointer;width: 200px;height: 181px;margin-top: 30px;margin-left: 53px;">

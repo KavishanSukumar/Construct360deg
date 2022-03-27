@@ -1,6 +1,7 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.AllProfileDAO;
+import com.example.construct360deg.dao.PaySubDAO;
 import com.example.construct360deg.dao.PreviousProjectDAO;
 import com.example.construct360deg.model.AllUsers;
 import com.example.construct360deg.model.PreviousProject;
@@ -25,9 +26,21 @@ public class SubscriptionPaymentSevlet extends HttpServlet {
         int userid= (int) session.getAttribute("userid");
         AllProfileDAO allProfileDAO=new AllProfileDAO();
         AllUsers allUsers=new AllUsers();
+        PaySubDAO paySubDAO=new PaySubDAO();
+        String paymentyype=null;
+
+        try {
+            paymentyype=paySubDAO.getThesubtype(userid);
+            req.setAttribute("paymentyype",paymentyype);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         try {
             allUsers=allProfileDAO.getuser(userid);
             req.setAttribute("user",allUsers);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

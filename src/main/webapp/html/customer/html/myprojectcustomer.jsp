@@ -1,6 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.construct360deg.model.Project" %>
 <%@ page import="com.example.construct360deg.model.Graph" %>
+<%@ page import="com.example.construct360deg.model.Payment" %>
+<%@ page import="org.apache.commons.codec.binary.Base64" %>
 <%@page pageEncoding="ISO-8859-1" contentType="text/html; ISO-8859-1" language="java"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +14,8 @@
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
     ArrayList<Graph> proposedGraph= (ArrayList<Graph>) request.getAttribute("proposedGraph");
     ArrayList<Graph> ongoingGraph=(ArrayList<Graph>) request.getAttribute("ongoingGraph");
+    ArrayList<Payment> payments = (ArrayList<Payment>) request.getAttribute("payments");
+
     int projectid = (int) request.getAttribute("projectid");
 %>
 <head>
@@ -154,7 +158,7 @@
             },2000)
 
             $('#addpaymentbtn').click(function(){
-                var string="<hr><form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='text' name='paymentamount' placeholder='Enter the payment amount'> <input type='file' name='paymentfile'><input type='hidden' name='payee' value=67 ><input type='hidden' name='payer' value=66><input type='hidden' name='projectid' value=1 ><button type='submit'>Submit</button></form><hr>";
+                var string="<hr><form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='file' name='paymentfile'><input type='hidden' name='projectid' value=<%=projectid%> ><button type='submit'>Submit</button></form><hr>";
                 $('#newpayment').append(string);
             });
 
@@ -196,7 +200,7 @@
                     <h1>WARNING..!</h1>
                     <h3>You can't delete this project.
                         <br>You are currently working on this project.you have to complete project then you can remove the project.
-                        <br>If you want to remove the project, you must first close the project.</h3>
+                        <br>If you want you can close the project.</h3>
                     <div class="ok-btn" onclick="popup()">OK</div>
                 </div>
             </div>
@@ -235,6 +239,22 @@
         </div>
 
         <div class="update_payment" id="update_payment">
+            <div>
+                <%for(Payment x:payments){%>
+
+                <%
+                    String base64Encoded1=null;
+                    if(x.getImagebyte()==null){
+
+                    }else{
+                        byte[] reqfile = x.getImagebyte();
+                        byte[] realreqfile = Base64.encodeBase64(reqfile);
+                        base64Encoded1 = new String(realreqfile, "UTF-8");
+                    }
+                %>
+                <a href="data:application/jpeg;base64,<%=base64Encoded1%>" download="<%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%>"><i class="fas fa-file-pdf"></i><%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%></a>
+                <%}%>
+            </div>
             <div class="newpayment" id="newpayment">
             </div>
             <div>

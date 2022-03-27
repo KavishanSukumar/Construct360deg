@@ -52,12 +52,12 @@ public class ViewProjectsServlet extends HttpServlet {
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
 
-            try {
-                chats=chatDAO.ViewChats(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("chats",chats);
+//            try {
+//                chats=chatDAO.ViewChats(userid);
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            req.setAttribute("chats",chats);
 
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
@@ -124,12 +124,6 @@ public class ViewProjectsServlet extends HttpServlet {
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
 
-            try {
-                chats=chatDAO.ViewChats(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("chats",chats);
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
@@ -194,12 +188,7 @@ public class ViewProjectsServlet extends HttpServlet {
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
 
-            try {
-                chats=chatDAO.ViewChats(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("chats",chats);
+
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();
             NewProjectDAO newProjectDAO = new NewProjectDAO();
@@ -278,12 +267,6 @@ public class ViewProjectsServlet extends HttpServlet {
             ChatDAO chatDAO=new ChatDAO();
             ArrayList<Chat> chats=new ArrayList<>();
 
-            try {
-                chats=chatDAO.ViewChats(userid);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("chats",chats);
 
             //Add project
             ArrayList<Project> newprojects = new ArrayList<>();

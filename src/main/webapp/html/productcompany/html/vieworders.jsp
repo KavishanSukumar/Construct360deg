@@ -202,6 +202,12 @@
 <script>
     function orderconfirm(ele){
         var orderid=ele.id;
+        var contactnum=null;
+        <%for(Order a:orders){%>
+        if(orderid==<%=a.getOrderid()%>){
+            contactnum="<%=a.getPhone()%>";
+        }
+        <%}%>
         var out=confirm("Do you want to confirm the order!");
         if(out==true){
             console.log("test")
@@ -211,11 +217,19 @@
             location="<%=request.getContextPath()%>/ViewAllOrders";
             console.log("Hello1");
         }
+        console.log(contactnum);
+        location="<%=request.getContextPath()%>/sendmessage?option=1&contactnum="+contactnum;
     }
 
     function orderreject(ele){
         var orderid=ele.id;
         var out=confirm("Do you want to reject the order!");
+        var contactnum=null;
+        <%for(Order a:orders){%>
+            if(orderid==<%=a.getOrderid()%>){
+                contactnum="<%=a.getPhone()%>";
+            }
+        <%}%>
         if (out==true){
             console.log("test2")
             var xHTTP=new XMLHttpRequest();
@@ -224,6 +238,7 @@
             location="<%=request.getContextPath()%>/ViewAllOrders";
             console.log("Hello2");
         }
+        location="<%=request.getContextPath()%>/sendmessage?option=2&contactnum="+contactnum;
     }
 
     function openorder(ele){

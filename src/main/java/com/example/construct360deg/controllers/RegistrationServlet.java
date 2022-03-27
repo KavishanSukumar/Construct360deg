@@ -1,6 +1,7 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.RegistrationDAO;
+import com.example.construct360deg.dao.SendEmailDAO;
 import com.example.construct360deg.dao.UserloginDAO;
 import com.example.construct360deg.model.UserRegistration;
 import com.example.construct360deg.model.Userlogin;
@@ -53,6 +54,14 @@ public class RegistrationServlet extends HttpServlet {
                     session.setAttribute("uname",username);
                     session.setAttribute("userid",userlogin.getUserid());
                     session.setAttribute("userrole",userlogin.getUserrole());
+
+                    SendEmailDAO sendEmailDAO=new SendEmailDAO();
+                    String subject="Successfully Registered";
+                    String content="<h1>Welcome to Construct360deg.</h1>\n" +
+                            "<p>Construct360deg is a construction management system where you can manage your construction process</p>\n" +
+                            "<p>You can get logged in using the below link</p>\n" +
+                            "<a href=\"http://localhost:8080/Construct360deg_war_exploded/login\">LoginIn</a>";
+                    sendEmailDAO.sendEmail(email,subject,content);
                     RequestDispatcher requestDispatcher=req.getRequestDispatcher("/editprofile");
                     requestDispatcher.forward(req,resp);
                     System.out.println("Successful");

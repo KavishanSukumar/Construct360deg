@@ -19,7 +19,36 @@ import java.sql.SQLException;
 
 public class DeleteAccountServlet extends HttpServlet {
     @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        int userid = (int) session.getAttribute("userid");
+        PrintWriter out=resp.getWriter();
+        Account account = new Account();
+        account.setUserid(userid);
+        DeleteAccountDAO deleteAccountDAO = new DeleteAccountDAO();
+        try {
+            if (deleteAccountDAO.deleteaccount(userid)){
+                session.removeAttribute("uname");
+                System.out.println("Successfully deleted account");
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Delete successful');");
+                out.println("location='"+req.getContextPath()+"/login';");
+//                location.href="<%=request.getContextPath()%>/registration?userid="+userid;
+                out.println("</script>");
+            }else {
+                out.println("<script type='text/javascript'>");
+                out.println("alert('Can't delete account you have ongoing project');");
+                out.println("location='"+req.getContextPath()+"/editprofile';");
+                out.println("</script>");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+
+    }
+
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        HttpSession session = req.getSession();
 //        int userid = (int) session.getAttribute("userid");
 //        PrintWriter out=resp.getWriter();
@@ -37,42 +66,14 @@ public class DeleteAccountServlet extends HttpServlet {
 //                out.println("</script>");
 //            }else {
 //                out.println("<script type='text/javascript'>");
-//                out.println("alert('Can't delete account you have ongoing project');");
+//                out.println("alert('Can't delete account, you have ongoing project');");
 //                out.println("location='"+req.getContextPath()+"/registration';");
 //                out.println("</script>");
 //            }
 //        } catch (SQLException e) {
 //            e.printStackTrace();
 //        }
+//        System.out.println("chathuri12345");
 //
 //    }
-
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        int userid = (int) session.getAttribute("userid");
-        PrintWriter out=resp.getWriter();
-        Account account = new Account();
-        account.setUserid(userid);
-        DeleteAccountDAO deleteAccountDAO = new DeleteAccountDAO();
-        try {
-            if (deleteAccountDAO.deleteaccount(userid)){
-                session.removeAttribute("uname");
-                System.out.println("Successfully deleted account");
-                out.println("<script type='text/javascript'>");
-                out.println("alert('Delete successful');");
-                out.println("location='"+req.getContextPath()+"/registration';");
-//                location.href="<%=request.getContextPath()%>/registration?userid="+userid;
-                out.println("</script>");
-            }else {
-                out.println("<script type='text/javascript'>");
-                out.println("alert('Can't delete account, you have ongoing project');");
-                out.println("location='"+req.getContextPath()+"/registration';");
-                out.println("</script>");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println("chathuri12345");
-
-    }
 }

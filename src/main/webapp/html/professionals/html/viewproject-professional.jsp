@@ -16,7 +16,6 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
-    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Appointment> appointments = (ArrayList<Appointment>) request.getAttribute("appointment");
     ArrayList<AllUsers> allcustomers =(ArrayList<AllUsers>)request.getAttribute("allcustomers");
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
@@ -334,6 +333,8 @@
 
                 var layout = {title:"Proposed Graph"};
                 Plotly.newPlot("proposed", data, layout);
+                fieldname.value="";
+                fieldval.value="";
             }
         </script>
 <%----------------------------------------------------------------------------------%>
@@ -469,10 +470,9 @@
 
             </div>
             <div class="project" id="viewproject">
-<%--                <div class="grid-item1">--%>
                     <div class="heading"><h2>Ongoing Projects</h2></div>
-                    <%for (Project y:newprojects){%>
 
+                    <%for (Project y:newprojects){%>
                     <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                         <h3><%=y.getProjectname()%></h3>
 
@@ -481,20 +481,10 @@
                         <%}else{%>
                         <p style="color: red">Project closed</p>
                         <%}%>
-<%--                        <p style="color: red"><%=project.getDisplay()%></p>--%>
                     </div>
                     <%}%>
-<%--                </div>--%>
-<%--                <button onclick="popupadd()">Add Project</button>--%>
+
                 <div class="background"></div>
-<%--                <div class="new-content">--%>
-<%--                    <div class="close-btn" onclick="popupadd()">&times;</div>--%>
-<%--                    <form action="<%=request.getContextPath()%>/newproject" method="post">--%>
-<%--                        <label for="new"> Add New Project :</label>--%>
-<%--                        <input type="text" id="new" name="projectname">--%>
-<%--                        <input type="submit" value="submit">--%>
-<%--                    </form>--%>
-<%--                </div>--%>
             </div>
 
 <%--            <div class="project" id="chatbox">--%>
@@ -963,7 +953,7 @@
                     </table>
                 </div>
 
-                <div class="ordertable" id="confirmappointments">
+                <div class="ordertable" id="confirmappointments" style="display: none">
                     <table class="logTable">
                         <thead>
                         <tr class="headrow">
@@ -992,7 +982,7 @@
                     </table>
                 </div>
 
-                <div class="ordertable" id="rejectedappointments">
+                <div class="ordertable" id="rejectedappointments" style="display: none">
                     <table class="logTable">
                         <thead>
                         <tr class="headrow">

@@ -29,22 +29,6 @@ public class ProductCompanyViewordersServlet extends HttpServlet {
         String scripttag=null;
         try {
             orderDAO.Orderstatus(orderid,task);
-            if (task==1){
-                scripttag="<script type=\"text/javascript\">\n" +
-                        "    $(document).ready(function (){\n" +
-                        "    $.ajax({ url: \"https://meghaduta.dhahas.com/sms/sendSMS\"," +
-                        "    type: \"POST\"," +
-                        "    data: JSON.stringify({\"senders\": [ \"+94123456789\", \"+94123456788\" ]," +
-                        "    \"message\": \"Hi\", \"apiKey\": 623d4f613638d4002e306e74})," +
-                        "    dataType:'json',contentType: 'application/json', " +
-                        "    success: function (response) { console.log(response); }, " +
-                        "    error: function(error){ console.log(\"Something went wrong\", error); } });" +
-                        "    });\n" +
-                        "    location=\""+req.getContextPath()+"/searchorders"+
-                        "  </script>";
-            }else {
-
-            }
             out.print(scripttag);
         } catch (SQLException e) {
             e.printStackTrace();
