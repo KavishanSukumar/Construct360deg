@@ -293,10 +293,10 @@
 
             </div>
 
-            <label for="fieldname"><b>Field Name :</b></label>
+            <label for="fieldname"><b>Contruction Component :</b></label>
             <input type="text" id="fieldname" name="fieldname">
             <br>
-            <label for="fieldval"><b>Field Value :</b></label>
+            <label for="fieldval"><b>Component Time Period(Days) :</b></label>
             <input type="number" id="fieldval" name="fieldval">
             <button class="addfield-btn" type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
             <button id="btn2" onclick="showhide()">Next</button>
@@ -323,6 +323,9 @@
                 xArray.push(fieldval.value);
                 yArray.push(fieldname.value);
 
+                var xHTTP=new XMLHttpRequest();
+                xHTTP.open("POST","<%=request.getContextPath()%>/updateregistrationgraph?proposalid="+proposalid+"&fieldname="+fieldname.value+"&fieldval="+fieldval.value,true);
+                xHTTP.send();
 
                 var data = [{
                     x:xArray,
@@ -343,7 +346,7 @@
         <h3>Rules &  Regulations</h3>
         <div class="terms">
             <input type="checkbox" required="">
-            <label id="terms2"><a href="www.google.com" target="www.google.com">Accept the rules &amp; regulations</a></label>
+            <label id="terms2"><a href="" target="www.google.com">Accept the rules &amp; regulations</a></label>
         </div>
             <input id="projectid" type="hidden" value="" name="projectid">
         <input id="proposalid" type="hidden" value="" name="proposalid">
