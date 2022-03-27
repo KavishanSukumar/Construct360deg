@@ -97,3 +97,10 @@ body{
     border-radius: 24px;
     font-size: 13px;
 }
+
+.cancel-btn{
+    padding: 15px;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 13px;
+}

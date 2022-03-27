@@ -222,6 +222,15 @@ public class OrderDAO {
         return orders;
     }
 
+    public void cancelOrders(int orderid) throws SQLException {
+        Connection connection=Database.getConnection();
+        PreparedStatement preparedStatement=null;
+        String sql="DELETE FROM `orders` WHERE `orderid`=?";
+        preparedStatement=connection.prepareStatement(sql);
+        preparedStatement.setInt(1,orderid);
+        preparedStatement.executeUpdate();
+    }
+
 }
 /*
 SELECT product.companyid,product.productname,product.productprice,CONCAT(customerindividual.firstname," ",customerindividual.lastname) AS cusindivname,customercompany.companyname,orders.* FROM

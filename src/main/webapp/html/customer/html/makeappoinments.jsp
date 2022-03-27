@@ -78,20 +78,23 @@
             <div class="DATE">
                 <p>   Date</p>
 <%--                <input type="date" name="date" required >--%>
-                <p><%=date%></p>
+                <p id="date" ><%=date%></p>
+                <input type="hidden" name="date" value="<%=date%>">
             </div>
             <div class="TIME">
                 <p>   Time</p>
 <%--                <input type="time" name="time" required>--%>
-                <p><%=timeperoid%></p>
+                <p id="time" name="time"><%=timeperoid%></p>
+                <input type="hidden" name="time" value="<%=timeperoid%>">
             </div>
 
             <div class="TELE">
+                <p>   Description</p>
             <textarea id="message" name="message" rows="8" cols="50" type="area">
 
             </textarea><br><br>
             </div>
-
+            <input type="hidden" value="<%=slotid%>" name="slotid">
             <button class="btn">Submit</button>
         </form>
     </div>

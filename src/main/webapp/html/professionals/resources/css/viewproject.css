@@ -152,6 +152,7 @@ ul li a:hover,ul li i:hover{
 }
 .img .user{
     width: 50px;
+    height: 50px;
     border-radius: 50px;
     margin-top: 10px;
 }
@@ -738,7 +739,7 @@ ul li a:hover,ul li i:hover{
     color:white;
 }
 
-.new-content #btn1, .new-content #btn2{
+.new-content #btn1, .new-content #btn2,.new-content .addfield-btn{
 
     padding: 8px;
     width: 80px;

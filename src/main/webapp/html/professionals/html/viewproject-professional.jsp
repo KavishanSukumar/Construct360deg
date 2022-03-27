@@ -16,7 +16,6 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
-    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Appointment> appointments = (ArrayList<Appointment>) request.getAttribute("appointment");
     ArrayList<AllUsers> allcustomers =(ArrayList<AllUsers>)request.getAttribute("allcustomers");
     ArrayList<Requirement> displayRequirement = (ArrayList<Requirement>)request.getAttribute("displayRequirement");
@@ -198,6 +197,7 @@
     }
     function openproject(project_id,cus_accept){
         var projectid=project_id;
+
         var cusaccept = cus_accept;
         if(cusaccept==1) {
             location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
@@ -298,7 +298,7 @@
             <br>
             <label for="fieldval"><b>Field Value :</b></label>
             <input type="number" id="fieldval" name="fieldval">
-            <button type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
+            <button class="addfield-btn" type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
             <button id="btn2" onclick="showhide()">Next</button>
         </div>
         <script>
@@ -334,6 +334,8 @@
 
                 var layout = {title:"Proposed Graph"};
                 Plotly.newPlot("proposed", data, layout);
+                fieldname.value="";
+                fieldval.value="";
             }
         </script>
 <%----------------------------------------------------------------------------------%>

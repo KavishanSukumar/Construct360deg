@@ -9,7 +9,6 @@
 <%
     Project project = (Project) request.getAttribute("closeprojects");
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
-    ArrayList<Chat> chats= (ArrayList<Chat>) request.getAttribute("chats");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
     ArrayList<Proposal> proposals = (ArrayList<Proposal>) request.getAttribute("proposals");
     Account account = (Account) request.getAttribute("accounts");
@@ -99,15 +98,17 @@
       function popup(){
           document.getElementById("popup").classList.toggle("active");
       }
-      function openproject(cusaccept,theprojectid){
+      function openproject(theprojectid,cusaccept){
           var projectid=theprojectid;
           console.log(projectid);
+          console.log(cusaccept);
           if(cusaccept==0){
                document.getElementById("newcontent").style.display="block";
                document.getElementById("blur").style.filter="blur(8px)";
                document.getElementById("projectid").value=theprojectid;
           }else {
-              location.href = "<%=request.getContextPath()%>/myproject?projectid=" + projectid;
+              console.log("senalpunsara");
+              location.href = "<%=request.getContextPath()%>/myproject?projectid="+projectid;
           }
       }
 
@@ -271,7 +272,12 @@
                 <%for (Project y:newprojects){%>
                 <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                     <h3><%=y.getProjectname()%></h3>
+<%
+    System.out.println(y.getProjectid());
+    System.out.println(y.getUserid());
+    System.out.println(y.getCusaccept());
 
+%>
                     <%if(y.getIsclosed()==0){%>
 
                     <%}else{%>
@@ -326,8 +332,8 @@
                                         </tr>
 
                                         <%
-//                                            String extention = x.getFilename().split(("[.]"))[1];
-                                           String extention = x.getFilename().substring(x.getFilename().lastIndexOf("."));
+//                                          String extention = x.getFilename().split(("[.]"))[1];
+                                            String extention = x.getFilename().substring(x.getFilename().lastIndexOf("."));
                                             System.out.println(extention);
                                         %>
                                         <%
@@ -354,8 +360,14 @@
 
                                         </tr>
 
-                                        <%}%>
 
+
+                                        <%}%>
+                                        <tr>
+                                            <td class="filed-name"><h3 class="h3header">Created Date</h3></td>
+                                            <td>on <%=x.getReq_upload_date()%> at <%=x.getReq_upload_time()%></td>
+
+                                        </tr>
 
                                         <tr>
                                             <td class=field-name"><h3 class="h3header">Location</h3></td>
@@ -387,20 +399,6 @@
                                <% }else{%>
                                <button class="minibtns" id="uploadtopublic2" style="cursor: none">Requirement is Uploaded  to public</button>
                                <%}%>
-                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
-                                   <button class="minibtns" id="chooseprof">Choose professional</button>
-                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
-                                   <input type="hidden" value="100" name="tag">
-                               </form>
-<%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
-                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" id="availableprop">Available proposals</button>
-                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
-                                   <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
-                                   <%   System.out.println("-------------------------------------");
-                                       System.out.println(x.getReqname());
-                                       System.out.println("-------------------------------------");
-                                   %>
-                               </form>
                                <%
                                    int tag1 = 0; //to check empty arraylist
                                    for(Proposal a:proposals){
@@ -416,12 +414,32 @@
                                    int tag3 = 0;
                                    for(Proposal a:proposals){
                                        if(a.getRequirementid()==x.getRequirementid()&&a.getCustomeraccept()==1){
-                                         tag2++;
+                                           tag2++;
                                        }else{
                                            tag3++;
                                        }
                                    }
                                %>
+                               <%if(tag2>0){%>
+
+                               <%}else{%>
+                               <form action="<%=request.getContextPath()%>/searchprofessionals" method="post">
+                                   <button class="minibtns" id="chooseprof">Choose professional</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="100" name="tag">
+                               </form>
+                               <%}%>
+
+<%--                               <button class="minibtns" onclick="processAvailableProposals(<%=x.getRequirementid()%>)">Available proposals</button>--%>
+                               <form action="<%=request.getContextPath()%>/availableproposals" method="get"><button class="minibtns" id="availableprop">Available proposals</button>
+                                   <input type="hidden" value="<%=x.getRequirementid()%>" name="reqid">
+                                   <input type="hidden" value="<%=x.getReqname()%>" name="reqname1">
+                                   <%   System.out.println("-------------------------------------");
+                                       System.out.println(x.getReqname());
+                                       System.out.println("-------------------------------------");
+                                   %>
+                               </form>
+
                                   <%if(tag2>0){%>
 
                                   <%}else{%>

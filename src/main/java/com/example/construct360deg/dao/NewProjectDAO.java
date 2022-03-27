@@ -1,8 +1,10 @@
 package com.example.construct360deg.dao;
 
 import com.example.construct360deg.database.Database;
+import com.example.construct360deg.model.Payment;
 import com.example.construct360deg.model.Project;
 
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -147,6 +149,7 @@ public class NewProjectDAO {
             project.setFinishtime(resultSet.getString("finishtime"));
             project.setCusaccept(resultSet.getByte("cus_accept"));
             project.setProjectid(resultSet.getInt("projectid"));
+            project.setUserid(resultSet.getInt("cusid"));
             newprojects.add(project);
         }
         return newprojects;
@@ -224,4 +227,6 @@ public class NewProjectDAO {
             return  false;
         }
     }
+
+
 }
