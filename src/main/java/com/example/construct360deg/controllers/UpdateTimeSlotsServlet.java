@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet("/updatetimeslots")
 public class UpdateTimeSlotsServlet extends HttpServlet {
@@ -19,7 +20,9 @@ public class UpdateTimeSlotsServlet extends HttpServlet {
         int profid=(int)session.getAttribute("userid");
         String date = req.getParameter("selected_date");
         String[] active_slots = req.getParameterValues("slots");
-
+        if(active_slots == null){
+            active_slots = new String[0];
+        }
         TimeSlotsDAO slotsDAO = new TimeSlotsDAO();
         try {
             slotsDAO.updatetimeslots(profid, date, active_slots);

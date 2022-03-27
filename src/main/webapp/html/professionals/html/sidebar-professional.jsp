@@ -60,8 +60,7 @@
             <a href="<%=request.getContextPath()%>/notification" ><i class="fas fa-bell" aria-hidden="true" id="notification"></i><h4 id="notificationtext">Notifications</h4></a>
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payments & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="chek"></i><h4>Lodge Complains</h4></a>
-            <a href="#"><i class="fas fa-hands-helping" id="head"></i><h4>Help and Support</h4></a>
-            <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
+             <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
         </ul>
     </div>
 </header>
