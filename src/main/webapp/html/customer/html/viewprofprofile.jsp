@@ -149,7 +149,7 @@
             <%for (Viewprofile x:addsummary){%>
             <p><%=x.getSummaryText()%></p>
             <%}%><br>
-            <a href="#" class="button">Message</a>
+<%--            <a href="#" class="button">Message</a>--%>
 
 <%--            <a  onclick="makeappointment(<%=profid%>)" class="button">Appointments</a>--%>
             <a  onclick="gettimeslots()" class="button">Appointments</a>

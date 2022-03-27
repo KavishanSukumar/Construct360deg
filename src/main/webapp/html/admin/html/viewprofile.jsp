@@ -40,7 +40,7 @@
             <a href="<%=request.getContextPath()%>/editprofile"><i class="fa fa-pencil-alt"></i></a>
             <h2>Admin</h2>
             <p><%=account.getDistrict()%> District, <%=account.getProvince()%>, Sri Lanka.</p>
-            <a href="#" class="button">Message</a>
+<%--            <a href="#" class="button">Message</a>--%>
         </div>
         <div class="box2">
             <a href="#"><i class="fa fa-camera"></i></a>

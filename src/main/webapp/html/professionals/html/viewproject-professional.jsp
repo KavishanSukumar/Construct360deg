@@ -297,7 +297,7 @@
             <br>
             <label for="fieldval"><b>Field Value :</b></label>
             <input type="number" id="fieldval" name="fieldval">
-            <button type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
+            <button class="addfield-btn" type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
             <button id="btn2" onclick="showhide()">Next</button>
         </div>
         <script>

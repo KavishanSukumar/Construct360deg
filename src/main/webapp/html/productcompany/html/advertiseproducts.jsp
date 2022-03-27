@@ -125,7 +125,27 @@
 <%--                /////////////////////////////////////////////////////new popup window--%>
                 <div class="loginPopup">
                     <div class="formPopup" id="popupForm">
-                        <form action=" " class="formContainer">
+                        <form  method="post" action="https://sandbox.payhere.lk/pay/checkout" class="formContainer">
+
+                            <input type="hidden" name="merchant_id" value="1219380">
+                            <input type="hidden" name="return_url" value="http://localhost:8080/Construct360deg_war_exploded/promoteproduct">
+                            <input type="hidden" name="cancel_url" value="http://localhost:8080/Construct360deg_war_exploded/promoteproduct">
+                            <input type="hidden" name="notify_url" value="">
+                            <%--            <br><br>Item Details<br>--%>
+                            <input type="hidden" name="order_id" value="">
+                            <input type="hidden" name="items" value="Monthly Subscription">
+                            <input type="hidden" name="currency" value="LKR">
+<%--                            <input type="hidden" name="amount" value="40">--%>
+                            <input type="hidden" name="first_name" value=<%=x.getProductName()%>>
+                            <input type="hidden" name="last_name" value=" ">
+                            <input type="hidden" name="email" value="construct360deg@gmail.com">
+                            <input type="hidden" name="phone" value="+94775844312">
+                            <input type="hidden" name="address" value=" ">
+                            <input type="hidden" name="city" value=" ">
+                            <input type="hidden" name="country" value="Sri Lanka">
+
+
+
                             <h2>Promote Your Product</h2>
                             <p>Your product will be appear in the customer landing page</p>
 <%--////////////////////////////////////////////////////////////////////////////////////////////////////--%>
@@ -141,13 +161,16 @@
                             </select>
                             <label><b><br>Price(Rs.)</b></label>
                             <input class="amountot" name="tot_amount" id="tot_amount" type="text" readonly>
+                            <input type="hidden" name="amount" value="" id="payval"/>
                             <button type="submit" class="btn">Promote Now</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                             <script>
                                 function calculateAmount(val){
                                     var tot_price = val * 1000;
-                                    var divbob = document.getElementById('tot_amount')
+                                    var divbob = document.getElementById('tot_amount');
+                                    var payval=document.getElementById('payval');
                                     divbob.value = tot_price;
+                                    payval.value=tot_price;
                                 }
                             </script>
                         </form>

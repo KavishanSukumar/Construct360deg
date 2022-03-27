@@ -737,7 +737,7 @@ ul li a:hover,ul li i:hover{
     color:white;
 }
 
-.new-content #btn1, .new-content #btn2{
+.new-content #btn1, .new-content #btn2,.new-content .addfield-btn{
 
     padding: 8px;
     width: 80px;

@@ -158,7 +158,7 @@
             },2000)
 
             $('#addpaymentbtn').click(function(){
-                var string="<hr><form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='file' name='paymentfile'><input type='hidden' name='projectid' value=<%=projectid%> ><button type='submit'>Submit</button></form><hr>";
+                var string="<hr><form action='<%=request.getContextPath()%>/uploadpayment' method='post' enctype='multipart/form-data'><input type='text' name='paymentname' placeholder='Enter the payment name'><input type='file' name='paymentfile' required accept='application/jpeg,application/jpg,application/png,application/pdf'><input type='hidden' name='projectid' value=<%=projectid%> ><button type='submit'>Submit</button></form><hr>";
                 $('#newpayment').append(string);
             });
 
@@ -252,7 +252,7 @@
                         base64Encoded1 = new String(realreqfile, "UTF-8");
                     }
                 %>
-                <a href="data:application/jpeg;base64,<%=base64Encoded1%>" download="<%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%>"><i class="fas fa-file-pdf"></i><%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%></a>
+                <a href="application/jpeg,application/jpg,application/png,application/pdf;base64,<%=base64Encoded1%>" download="<%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%>"><i class="fas fa-file-pdf"></i><%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%></a>
                 <%}%>
             </div>
             <div class="newpayment" id="newpayment">
