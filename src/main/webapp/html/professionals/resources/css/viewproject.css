@@ -11,6 +11,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
+    z-index: 100;
 }
 #logopic{
     width: 100px;
@@ -770,11 +771,12 @@ ul li a:hover,ul li i:hover{
 
 
 #selected_date_input{
-    font-size: 20px;
+    font-size: 17px;
+    padding-left: 17px;
     width: 103px;
     margin-left: 35px;
-    height: 31px;
-    border-radius: 10px;
+    height: 33px;
+    border-radius: 5px;
     cursor: none;
     border: none;
     background-color: #e8f4fa;
@@ -808,6 +810,7 @@ ul li a:hover,ul li i:hover{
 #container123 {
     width: 770px;
     padding-left: 234px;
+    font-family: "Roboto", sans-serif;
 }
 
 #topic_name{
@@ -879,14 +882,14 @@ ul li a:hover,ul li i:hover{
     display: none;
     z-index: 20;
     padding: 25px;
-    background-color: #e8f4fa;
+    background-color: rgb(255 255 255 );
     box-shadow: 0px 0px 3px black;
     border-radius: 5px;
     width: 350px;
     top: 100px;
     left: calc(50% - 175px);
     position: absolute;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 #eventTitleInput {
     padding: 10px;
@@ -951,8 +954,8 @@ ul li a:hover,ul li i:hover{
 .theday {
     width: 224px;
     height: 515px;
-    background-color: #b6b6b6;
-    padding: 10px;
+    background-color: #ffffff;
+    padding: 25px;
     float: left;
     /* margin-right: 7px; */
     margin-bottom: 5px;
@@ -967,22 +970,24 @@ ul li a:hover,ul li i:hover{
 }
 
 .timeslot {
-    background-color: #5e5d5d;
+    background-color: #dadada9e;
     width: 205px;
     height: 30px;
-    color: white;
+    color: black;
     padding: 8px;
     margin-top: 5px;
     font-size: 17px;
-    border-radius: 12px;
+    border-radius: 1px;
     vertical-align: center;
     text-align: center;
+    transition: transform .2s;
 
 }
 
 .timeslot:hover {
-    background-color: #cc611a;
+    background-color: rgba(255, 132, 53, 0.71);
     cursor: pointer;
+    transform: scale(1.5);
 }
 
 
