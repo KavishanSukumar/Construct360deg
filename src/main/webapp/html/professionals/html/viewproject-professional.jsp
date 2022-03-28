@@ -133,6 +133,23 @@
             $("#arrived_cusreq").css("display","none");
             $("#timeslots").css("display","grid");
         });
+        $(function (){
+            var dtToday = new Date();
+            var month1 = dtToday.getMonth()+1;
+            var month2 = dtToday.getMonth()+2;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month1 < 10)
+                month1 = '0' + month1.toString();
+            if(month2 < 10)
+                month2 = '0' + month2.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            var minDate1 = year + '-' + month1 + '-' + day;
+            var minDate2 = year + '-' + month2 + '-' + day;
+            $("#start").attr("min",minDate1);
+            $("#end").attr("min",minDate2);
+        });
 
             var receiver=null;
             var name=null;
@@ -267,22 +284,22 @@
         <label for="new"><b>Project Name :</b></label>
         <input type="text" id="new" name="projectname" required>
 
-        <label for="new"><b>Project Members</b></label><br><br>
-        <label for="contractor">Contractor :</label>
-        <input type="text" id="contractor" name="contractor">
-        <label for="designer">Landscape Designer :</label>
-        <input type="text" id="designer" name="landscape">
-        <label for="customer">Customer :</label>
-        <input type="text" id="customer" name="customer">
+<%--        <label for="new"><b>Project Members</b></label><br><br>--%>
+<%--        <label for="contractor">Contractor :</label>--%>
+        <input type="hidden" id="contractor" name="contractor" value="<%=account.getFirstname()%> <%=account.getLastname()%>">
+<%--        <label for="designer">Landscape Designer :</label>--%>
+<%--        <input type="text" id="designer" name="landscape">--%>
+<%--        <label for="customer">Customer :</label>--%>
+<%--        <input type="text" id="customer" name="customer">--%>
 
         <label for="address"><b>Project Address :</b></label>
         <input type="text" id="address" name="address" >
 
         <label for="start"><b>Expected Starting Date :</b></label>
-        <input type="date" id="start" name="starttime" ><br><br>
+        <input type="date" id="start" name="starttime" min="2022-03-29"><br><br>
 
         <label for="end"><b>Expected Finishing Date :</b></label>
-        <input type="date" id="end" name="finishtime"><br><br>
+        <input type="date"  id="end" name="finishtime"><br><br>
             <button id="btn1" onclick="showhide()">Next</button>
         </div>
 <%----------------------------------My proposal graph-------------------------------%>
@@ -293,10 +310,10 @@
 
             </div>
 
-            <label for="fieldname"><b>Field Name :</b></label>
+            <label for="fieldname"><b>Contruction Component :</b></label>
             <input type="text" id="fieldname" name="fieldname">
             <br>
-            <label for="fieldval"><b>Field Value :</b></label>
+            <label for="fieldval"><b>Component Time Period(Days) :</b></label>
             <input type="number" id="fieldval" name="fieldval">
             <button class="addfield-btn" type="button" name="addfield" id="addfield" onclick="addField()">Add Field</button>
             <button id="btn2" onclick="showhide()">Next</button>
@@ -323,6 +340,9 @@
                 xArray.push(fieldval.value);
                 yArray.push(fieldname.value);
 
+                var xHTTP=new XMLHttpRequest();
+                xHTTP.open("POST","<%=request.getContextPath()%>/updateregistrationgraph?proposalid="+proposalid+"&fieldname="+fieldname.value+"&fieldval="+fieldval.value,true);
+                xHTTP.send();
 
                 var data = [{
                     x:xArray,
@@ -343,7 +363,7 @@
         <h3>Rules &  Regulations</h3>
         <div class="terms">
             <input type="checkbox" required="">
-            <label id="terms2"><a href="www.google.com" target="www.google.com">Accept the rules &amp; regulations</a></label>
+            <label id="terms2"><a href="" target="www.google.com">Accept the rules &amp; regulations</a></label>
         </div>
             <input id="projectid" type="hidden" value="" name="projectid">
         <input id="proposalid" type="hidden" value="" name="proposalid">
@@ -379,6 +399,7 @@
             <label class="a" for="uploadfile" id="up-proposal">Proposal :-</label>
             <input type="file" id="uploadfile" name="uploadfile"  multiple onchange="processSelectedFiles(this)"  required accept="application/pdf,application/zip"/><br>
             <label id="filetype">(Choose pdf or zip file)</label>
+            <a href="./html/professionals/resources/Docs/proposal_template.docx" title="click here to download" style="margin-left: 10px">Proposal_template</a>
             <input type="hidden" value="" id="profid" name="profid">
             <input type="hidden" value="" id="cusid" name="cusid">
             <input type="hidden" value="" name="filename" id="filename">

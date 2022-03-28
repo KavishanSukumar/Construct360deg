@@ -143,7 +143,13 @@
 /*}*/
 .manageadds{
     margin-left: 50px;
+    margin-top: -50px;
+
 }
+
+
+
+
 .manageadds td, .manageadds th {
     border: 1px solid #ddd;
     padding: 8px;
@@ -175,6 +181,21 @@ tr{
 
 .managebtn{
     cursor: pointer;
+    width: 79px;
+    border-radius: 5px;
+}
+#view{
+   background-color: #ff7200;
+    color: white;
+    margin-left: 18px;
+}
+#delete{
+    background-color: #d21212;
+    color: white;
+}
+#view:hover,#delete:hover{
+    background-color: #000000;
+    color: white;
 }
 .popup{
     position: absolute;
@@ -212,7 +233,10 @@ tr{
     margin-left: 565px;
 }
 
-
+#close:hover{
+    background-color:#d21212 ;
+    color: white;
+}
 
 input[type=text], select, textarea {
 

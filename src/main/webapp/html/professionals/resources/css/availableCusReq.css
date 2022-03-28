@@ -16,6 +16,7 @@
 
     grid-template-areas: "a1 a2";
     grid-template-columns: 200px auto;
+    font-family: "Roboto", sans-serif;
 }
 .cus-details{
     min-block-size: -webkit-fill-available;
@@ -81,7 +82,7 @@
     margin-bottom: 10px;
 }
 table {
-    font-family: arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     border-collapse: collapse;
     width: 98%;
     table-layout: fixed;
@@ -90,9 +91,9 @@ table {
 }
 
 td,th {
-    border: 1px solid #656565;
+    border: 9px #ededed;
     text-align: left;
-    padding: 8px;
+    padding: 5px;
 }
 
 tr:nth-child(even) {
@@ -117,15 +118,16 @@ tr:nth-child(even) {
 
 .minibtns{
     size: 30px;
-    height: 41px;
-    width: auto;
-    font-size: 18px;
+    height: 42px;
+    width: 173px;
+    font-size: 15px;
     cursor: pointer;
     color: black;
-    background: #bababa;
+    background: #e2e2e2;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
+    font-family: "Roboto", sans-serif;
 }
 
 
@@ -144,17 +146,18 @@ tr:nth-child(even) {
     align-items: center;
     align-content: center;
     background-color: #ffffff;
-    height: 580px;
+    height: 657px;
     width: 105vh;
-    /*margin-bottom: 10px;*/
-    /*margin-top: 15px;*/
-    /*border-radius: 18px;*/
-    /*box-sizing: border-box;*/
-    border: 5px solid #ff7200;
-    box-shadow: 5px 10px black;
+    /* margin-bottom: 10px; */
+    /* margin-top: 15px; */
+    /* border-radius: 18px; */
+    /* box-sizing: border-box; */
+    border: none;
+    box-shadow: 0px 0px 5px 5px #cdcdcd;
     margin: auto;
     margin-left: 25%;
     margin-top: 3%;
+    font-family: "Roboto", sans-serif;
 }
 
 
@@ -204,17 +207,17 @@ tr:nth-child(even) {
     font-weight: bold;
 }
 #desrip{
-    font-size: 25px;
+    font-size: 18px;
     margin-left: 20px;
 }
 
 #customername{
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     margin-top: -30px;
 }
 #cusid{
-    font-size: 26px;
+    font-size: 10px;
     margin-top: 1.5px;
     font-weight: bold;
 
@@ -239,7 +242,7 @@ tr:nth-child(even) {
 
 
 #up-proposal{
-    font-size: 25px;
+    font-size: 20px;
     margin-left: 20px;
 }
 #filetype{
@@ -258,17 +261,17 @@ tr:nth-child(even) {
     width: 206px;
     height: 45px;
     text-align: center;
-    font-size: 29px;
-    font-weight:bold;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
     outline: none;
     background: #a8a8a8;
     color: black;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 6px;
     margin-bottom: 35px;
-    margin-left: 260px;
+    margin-left: 286px;
 }
 
 /* end of upload proposal */

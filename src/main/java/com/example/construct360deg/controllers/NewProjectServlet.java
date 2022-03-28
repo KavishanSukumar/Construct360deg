@@ -32,8 +32,8 @@ public class NewProjectServlet extends HttpServlet {
         NewProjectDAO newProjectDAO = new NewProjectDAO();
         project.setProjectname(req.getParameter("projectname"));
         project.setContractor(req.getParameter("contractor"));
-        project.setLandscape(req.getParameter("landscape"));
-        project.setCustomer(req.getParameter("customer"));
+        project.setLandscape("none");
+        project.setCustomer("none");
         project.setAddress(req.getParameter("address"));
         project.setStarttime(req.getParameter("starttime"));
         project.setFinishtime(req.getParameter("finishtime"));

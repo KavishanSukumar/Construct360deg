@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="./html/professionals/resources/css/availableCusReq.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -53,6 +56,7 @@
             <label class="a" for="uploadfile" id="up-proposal">Proposal :-</label>
             <input type="file" id="uploadfile" name="uploadfile"  multiple onchange="processSelectedFiles(this)"  required accept="application/pdf,application/zip"/><br>
             <label id="filetype">(Choose pdf or zip file)</label>
+            <a href="./html/professionals/resources/Docs/proposal_template.docx" title="click here to download" style="margin-left: 10px">Proposal_template</a>
             <input type="hidden" value="<%=profid%>" name="profid">
             <input type="hidden" value="<%=cusid%>" name="cusid">
             <input type="hidden" value="" name="filename" id="filename">

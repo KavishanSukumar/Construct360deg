@@ -11,6 +11,7 @@ body{
     height: 73px;
     box-sizing: border-box;
     grid-area:navbar;
+    z-index: 100;
 }
 #logopic{
     width: 100px;
@@ -262,15 +263,15 @@ ul li a:hover,ul li i:hover{
 /*    border-radius: 10px;*/
 /*}*/
 .new-content{
-    background-color: rgb(230, 228, 228);
-    padding: 30px;
-    width: 600px;
+    background-color: rgb(255 255 255);
+    padding: 50px;
+    width: 603px;
     position: absolute;
     left: 29%;
     z-index: 2;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 25px;
-    box-shadow: 10px 10px 8px #888888;
+    box-shadow: 0px 1px 5px 5px #dbdbdb;
 
 }
 
@@ -436,10 +437,10 @@ ul li a:hover,ul li i:hover{
     height: 285px;
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 35px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 10px 10px 8px #888888;
+    box-shadow: 0px 1px 5px 6px #e5e5e5;
 }
 
 
@@ -454,10 +455,10 @@ ul li a:hover,ul li i:hover{
 
 #heading{
     margin-top: 0px;
-    font-size: 26px;
+    font-size: 24px;
     text-align: center;
-    background: #c4c4c4;
-    border-radius: 10px;
+    background: #ededed;
+    border-radius: 5px;
     padding: 2px;
 }
 .mini-btns{
@@ -578,10 +579,11 @@ ul li a:hover,ul li i:hover{
     color: white;
 }
 .minibtn{
-    height: 30px;
-    width: auto;
-    font-size: 20px;
+    height: 37px;
+    width: 113px;
+    font-size: 15px;
     border-radius: 5px;
+    border-style: none;
     background: #c4c4c4;
 }
 
@@ -605,7 +607,7 @@ ul li a:hover,ul li i:hover{
     align-items: center;
     align-content: center;
     background-color: #ffffff;
-    height: 609px;
+    height: 686px;
     width: 105vh;
     /*margin-bottom: 10px;*/
     /*margin-top: 15px;*/
@@ -743,6 +745,7 @@ ul li a:hover,ul li i:hover{
     padding: 8px;
     width: 80px;
     border-radius: 5px;
+    border-style: none;
 }
 .new-content #btn1:hover, .new-content #btn2:hover,.new-content #addfield:hover{
     background: #ff7200;
@@ -770,11 +773,12 @@ ul li a:hover,ul li i:hover{
 
 
 #selected_date_input{
-    font-size: 20px;
+    font-size: 17px;
+    padding-left: 17px;
     width: 103px;
     margin-left: 35px;
-    height: 31px;
-    border-radius: 10px;
+    height: 33px;
+    border-radius: 5px;
     cursor: none;
     border: none;
     background-color: #e8f4fa;
@@ -808,6 +812,7 @@ ul li a:hover,ul li i:hover{
 #container123 {
     width: 770px;
     padding-left: 234px;
+    font-family: "Roboto", sans-serif;
 }
 
 #topic_name{
@@ -879,14 +884,14 @@ ul li a:hover,ul li i:hover{
     display: none;
     z-index: 20;
     padding: 25px;
-    background-color: #e8f4fa;
+    background-color: rgb(255 255 255 );
     box-shadow: 0px 0px 3px black;
     border-radius: 5px;
     width: 350px;
     top: 100px;
     left: calc(50% - 175px);
     position: absolute;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 #eventTitleInput {
     padding: 10px;
@@ -951,8 +956,8 @@ ul li a:hover,ul li i:hover{
 .theday {
     width: 224px;
     height: 515px;
-    background-color: #b6b6b6;
-    padding: 10px;
+    background-color: #ffffff;
+    padding: 25px;
     float: left;
     /* margin-right: 7px; */
     margin-bottom: 5px;
@@ -967,22 +972,24 @@ ul li a:hover,ul li i:hover{
 }
 
 .timeslot {
-    background-color: #5e5d5d;
+    background-color: #dadada9e;
     width: 205px;
     height: 30px;
-    color: white;
+    color: black;
     padding: 8px;
     margin-top: 5px;
     font-size: 17px;
-    border-radius: 12px;
+    border-radius: 1px;
     vertical-align: center;
     text-align: center;
+    transition: transform .2s;
 
 }
 
 .timeslot:hover {
-    background-color: #cc611a;
+    background-color: rgba(255, 132, 53, 0.71);
     cursor: pointer;
+    transform: scale(1.5);
 }
 
 

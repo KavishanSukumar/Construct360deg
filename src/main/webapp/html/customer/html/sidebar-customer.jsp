@@ -1,23 +1,23 @@
 <script src="./resources/js/jquery-3.6.0.js"></script>
 <script>
     $(document).ready(function (){
-        var myvar=setInterval(function (){
-            $.ajax({
-                url:"<%=request.getContextPath()%>/instantnotification",
-                type:"POST",
-                success:function (data){
-                    if (data[0]!='0'){
-                        $("#notification").addClass("mycolor");
-                        $("#notificationtext").addClass("mycolor");
-                        $("#notificationtext").html("Notifications("+data[0]+")");
-                    }else{
-                        $("#notification").removeClass("mycolor");
-                        $("#notificationtext").removeClass("mycolor");
-                        $("#notificationtext").html("Notifications");
-                    }
-                }
-            });
-        },25000);
+        <%--var myvar=setInterval(function (){--%>
+        <%--    $.ajax({--%>
+        <%--        url:"<%=request.getContextPath()%>/instantnotification",--%>
+        <%--        type:"POST",--%>
+        <%--        success:function (data){--%>
+        <%--            if (data[0]!='0'){--%>
+        <%--                $("#notification").addClass("mycolor");--%>
+        <%--                $("#notificationtext").addClass("mycolor");--%>
+        <%--                $("#notificationtext").html("Notifications("+data[0]+")");--%>
+        <%--            }else{--%>
+        <%--                $("#notification").removeClass("mycolor");--%>
+        <%--                $("#notificationtext").removeClass("mycolor");--%>
+        <%--                $("#notificationtext").html("Notifications");--%>
+        <%--            }--%>
+        <%--        }--%>
+        <%--    });--%>
+        <%--},25000);--%>
     });
 </script>
 <header class="menu_bar">
@@ -52,7 +52,7 @@
             <a href="<%=request.getContextPath()%>/notification"><i class="fas fa-bell" aria-hidden="true" id="notification"></i><h4 id="notificationtext">Notifications</h4></a>
             <a href="<%=request.getContextPath()%>/paysubscription"><i class="fas fa-dollar-sign" id="payment"></i><h4>Payment & Pricing</h4></a>
             <a href="<%=request.getContextPath()%>/complains"><i class="fas fa-flag-checkered" id="report"></i><h4>Lodge Complains</h4></a>
-            <a href="#"><i class="fas fa-hands-helping" id="help"></i><h4>Help and Support</h4></a>
+<%--            <a href="#"><i class="fas fa-hands-helping" id="help"></i><h4>Help and Support</h4></a>--%>
             <a href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt" id="logout"></i><h4>Logout</h4></a>
         </ul>
     </div>

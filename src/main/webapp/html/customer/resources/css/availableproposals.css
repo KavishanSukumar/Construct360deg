@@ -15,7 +15,8 @@
                          "x2";
     grid-template-rows: 122px auto;
     align-items: start;
-   background-color: #c4c4c4;
+   background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
 
 }
 .content1{
@@ -49,7 +50,7 @@
     display: grid;
     grid-area: z2;
     padding: 10px;
-    background: #525252;
+    /*background: #525252;*/
     border-radius: 10px;
     width: 154vh;
     gap: 15px;
@@ -64,11 +65,12 @@
 }
 .items-proposals{
     display: grid;
-    grid-template-areas:  "a1"
-                          "a2"
-                          "a3";
+    grid-template-areas:
+        "a1"
+        "a2"
+        "a3";
     grid-template-rows: 107px auto 100px;
-    padding: 5px;
+    padding: 24px;
     background: white;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -76,7 +78,8 @@
     flex-direction: column;
     border-radius: 10px;
     width: 150vh;
-    box-shadow: -1px 0px 4px 5px #ff7200;
+    box-shadow: -1px 0px 4px 5px #e6e6e6;
+    font-family: "Roboto", sans-serif;
 
 }
 .prof-details{
@@ -145,28 +148,27 @@ tr:nth-child(even) {
 
 }
 .minibtns{
-    size: 30px;
-    height: 28px;
-    width: auto;
+    height: 36px;
+    width: 159px;
     font-size: 15px;
     cursor: pointer;
     color: black;
-    background: #bababa;
+    background: #bababa75;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 #accept0{
-    size: 30px;
-    height: 28px;
-    width: auto;
-    font-size: 15px;
+    height: 35px;
+    width: 195px;
+    font-size: 13px;
     cursor: none;
     color: white;
-    background: #36a736;
+    background: #399239;
     font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
 }
 
 #notavai{

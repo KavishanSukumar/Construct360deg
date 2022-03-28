@@ -316,6 +316,7 @@
 
                    <div class="header">
                        <a href="#" id="creat-req-button" onclick="myfun()"><i class="far fa-plus-square"></i> Create New Requirement</a>
+                       <a href="./html/customer/resources/Docs/Requirement_template.docx" title="click here to download" style="margin-top: 25px;">Requirement_template</a>
                    </div>
 
                    <div class="item-container">

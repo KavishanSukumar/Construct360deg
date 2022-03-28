@@ -487,7 +487,7 @@ ul li a:hover,ul li i:hover{
 .update_payment{
     box-shadow:2px 2px 2px 2px #cccccc;
     height: auto;
-    width: 300px;
+    width: 420px;
     margin: 10px 10px;
 }
 
@@ -496,6 +496,7 @@ ul li a:hover,ul li i:hover{
     margin: 10px 10px;
     padding: 10px 10px;
     border-style: double;
+    width: 280px;
 }
 .newpayment input[type="text"],.newpayment input[type="submit"],.newpayment input[type="file"]{
     margin: 10px 10px;
@@ -525,4 +526,9 @@ ul li a:hover,ul li i:hover{
     margin-top: -5px;
     text-align: center;
     color: rgb(255, 255, 255);
+}
+
+.uploadpayment{
+    padding: 10px 10px;
+    margin: 10px 10px;
 }
