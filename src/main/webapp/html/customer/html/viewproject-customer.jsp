@@ -11,6 +11,7 @@
     ArrayList<Requirement> requirements = (ArrayList<Requirement>) request.getAttribute("requirements");
     ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojectscus");
     ArrayList<Proposal> proposals = (ArrayList<Proposal>) request.getAttribute("proposals");
+//    ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
     Account account = (Account) request.getAttribute("accounts");
     Account account1 = (Account) request.getAttribute("changepic");
 %>
@@ -272,16 +273,20 @@
                 <%for (Project y:newprojects){%>
                 <div class="project1" style="cursor: pointer" onclick="openproject(<%=y.getProjectid()%>,<%=y.getCusaccept()%>)" id=<%=y.getProjectid()%>>
                     <h3><%=y.getProjectname()%></h3>
-<%
-    System.out.println(y.getProjectid());
-    System.out.println(y.getUserid());
-    System.out.println(y.getCusaccept());
+<%--<%--%>
+<%--    System.out.println(y.getProjectid());--%>
+<%--    System.out.println(y.getUserid());--%>
+<%--    System.out.println(y.getCusaccept());--%>
 
-%>
+<%--%>--%>
                     <%if(y.getIsclosed()==0){%>
 
                     <%}else{%>
                     <p style="color: red">Project closed</p>
+                    <script>
+                        const closeproject = document.getElementById('<%=y.getProjectid()%>')
+                        closeproject.style.pointerEvents ='none';
+                    </script>
                     <%}%>
                 </div>
                 <%}%>

@@ -11,13 +11,13 @@
   int count = 0;
 
 
-  for (Project x:newprojects){
-    if(x.getIsclosed()==0){
-      count++;
-    }
-
-  }
-  System.out.println("count ="+count);
+//  for (Project x:newprojects){
+//    if(x.getIsclosed()==0){
+//      count++;
+//    }
+//
+//  }
+//  System.out.println("count ="+count);
 %>
 
 <!DOCTYPE html>
@@ -75,7 +75,7 @@
           });
     });
     function deleteaccount(){
-      var out=confirm("Delete Account");
+      var out=confirm("Are you sure?");
       if(out==true){
         <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
         location.href="<%=request.getContextPath()%>/deleteaccount";

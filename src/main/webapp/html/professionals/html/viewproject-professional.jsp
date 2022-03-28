@@ -481,6 +481,10 @@
                         
                         <%}else{%>
                         <p style="color: red">Project closed</p>
+                        <script>
+                            const closeproject = document.getElementById('<%=y.getProjectid()%>')
+                            closeproject.style.pointerEvents ='none';
+                        </script>
                         <%}%>
                     </div>
                     <%}%>

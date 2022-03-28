@@ -150,6 +150,7 @@ public class NewProjectDAO {
             project.setCusaccept(resultSet.getByte("cus_accept"));
             project.setProjectid(resultSet.getInt("projectid"));
             project.setUserid(resultSet.getInt("cusid"));
+            project.setIsclosed(resultSet.getInt("isclosed"));
             newprojects.add(project);
         }
         return newprojects;
