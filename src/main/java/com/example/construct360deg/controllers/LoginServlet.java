@@ -158,7 +158,7 @@ public class LoginServlet extends HttpServlet {
                 }else if (userlogin.getUserrole().equals("prod_com")){
 
                     if (status.equals("Basic")){
-                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage-sub.jsp");
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
                         requestDispatcher.forward(req,resp);
                     }else {
                         RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
