@@ -141,7 +141,7 @@ ul li a:hover,ul li i:hover{
     grid-row-gap: 9px
 }
 .container-3{
-    box-shadow: 0px 0px 5px 5px rgb(245 245 245);
+    /*box-shadow: 0px 0px 5px 5px rgb(245 245 245);*/
     background-color: #ffffff;
     width: 270px;
     height: 380px;
@@ -248,7 +248,7 @@ form.example::after {
 .gallery .user{
     background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
     overflow: hidden;
-    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    box-shadow: 0 1px 5px rgb(104 104 104 );
     width: 210px;
     height: 200px;
     transition: transform .2s;

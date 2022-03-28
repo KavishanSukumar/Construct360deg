@@ -54,8 +54,7 @@
           <input type="text" placeholder="Search.." name="search">
         </form>
         </div>
-<<<<<<< HEAD
-        <div class="container-3">
+<%--        <div class="container-3">--%>
 <%--            <h3>Filter By</h3>--%>
 <%--            <h4>Professional :</h4>--%>
 <%--            <label class="box" hidden>Contractor--%>
@@ -87,40 +86,39 @@
 <%--                <input type="checkbox">--%>
 <%--                <span class="checkmark"></span>--%>
 <%--            </label>--%>
-=======
+<%--=======--%>
         <div class="container-3" style="display: block">
-            <h3>Filter By</h3>
-            <h4>Professional :</h4>
-            <label class="box">Contractor
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box">Landscape Designer
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <h4>Ranking :</h4>
-            <label class="box"><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
-            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>
->>>>>>> f4dfb4c52cad1ff0c53355b1ca3dc6d13ee0a074
+<%--            <h3>Filter By</h3>--%>
+<%--            <h4>Professional :</h4>--%>
+<%--            <label class="box">Contractor--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box">Landscape Designer--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <h4>Ranking :</h4>--%>
+<%--            <label class="box"><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--              </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
+<%--            <label class="box"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>--%>
+<%--                <input type="checkbox">--%>
+<%--                <span class="checkmark"></span>--%>
+<%--            </label>--%>
         </div>
 
         <div class="container-4">
