@@ -36,35 +36,38 @@
 
       <div class="displyitems">
           <%for(Advertise x:displayadds){%>
-          <%
-              String base64Encoded1=null;
-              if(x.getProfimg()==null){
 
-              }else{
-                  byte[] profimg = x.getProfimg();
-                  byte[] realprofimg = Base64.encodeBase64(profimg);
-                  base64Encoded1 = new String(realprofimg, "UTF-8");
-              }
-          %>
-          <%
-              String base64Encoded2=null;
-              if(x.getAddimg()==null){
-
-              }else{
-                  byte[] addimg = x.getAddimg();
-                  byte[] realaddimg = Base64.encodeBase64(addimg);
-                  base64Encoded2 = new String(realaddimg, "UTF-8");
-              }
-          %>
-
+          <%if(x.getIsproduct()==0){%>
           <div class="item">
+              <%
+                  String base64Encoded1=null;
+                  if(x.getProfimg()==null){
+
+                  }else{
+                      byte[] profimg = x.getProfimg();
+                      byte[] realprofimg = Base64.encodeBase64(profimg);
+                      base64Encoded1 = new String(realprofimg, "UTF-8");
+                  }
+              %>
+              <%
+                  String base64Encoded2=null;
+                  if(x.getAddimg()==null){
+
+                  }else{
+                      byte[] addimg = x.getAddimg();
+                      byte[] realaddimg = Base64.encodeBase64(addimg);
+                      base64Encoded2 = new String(realaddimg, "UTF-8");
+                  }
+                  System.out.println("this is is product "+x.getIsproduct());
+              %>
 
 <%--              <img src="./html/customer/resources/images/landingpage/home.jpg" style="width: 900px">--%>
               <div class="ad-header">
                   <img src="data:image/jpeg;base64,<%=base64Encoded1%>" onerror="this.src='./resources/images/Avatar.png;'"  class="profimg">
-                  <h2 class="topic"><%=x.getHeadline()%></h2>
-                  <h3 class="username"><%=x.getUsername()%></h3>
-
+                  <h2 class="topic" style="margin-left: 10px"><%=x.getHeadline()%></h2>
+                  <h3 class="username" style="margin-left: 10px"><%=x.getUsername()%></h3>
+                  <p class="datetime" style="grid-area: b2;margin-left: 10px;margin-top: 49px;">on <%=x.getTodaydate()%> at <%=x.getNowtime()%></p>
+                    <br>
 
               </div>
               <div class="advertisement">
@@ -79,7 +82,52 @@
 
               </div>
 
-           </div>
+          </div>
+
+          <%}else{%>
+          <div class="item">
+              <%
+                  String base64Encoded1=null;
+                  if(x.getProfimg()==null){
+
+                  }else{
+                      byte[] profimg = x.getProfimg();
+                      byte[] realprofimg = Base64.encodeBase64(profimg);
+                      base64Encoded1 = new String(realprofimg, "UTF-8");
+                  }
+              %>
+              <%
+                  String base64Encoded2=null;
+                  if(x.getAddimg()==null){
+
+                  }else{
+                      byte[] addimg = x.getAddimg();
+                      byte[] realaddimg = Base64.encodeBase64(addimg);
+                      base64Encoded2 = new String(realaddimg, "UTF-8");
+                  }
+                  System.out.println("this is is proguct "+x.getIsproduct());
+              %>
+
+              <%--              <img src="./html/customer/resources/images/landingpage/home.jpg" style="width: 900px">--%>
+              <div class="ad-header">
+                  <img src="data:image/jpeg;base64,<%=base64Encoded1%>" onerror="this.src='./resources/images/Avatar.png;'"  class="profimg">
+                  <h2 class="topic" style="margin-left: 10px"><%=x.getHeadline()%></h2>
+                  <h3 class="username" style="margin-left: 10px"><%=x.getUsername()%></h3>
+                  <p class="datetime" style="grid-area: b2;margin-left: 10px;margin-top: 49px;">on <%=x.getTodaydate()%> at <%=x.getNowtime()%></p>
+                  <br>
+
+              </div>
+              <div class="advertisement">
+                  <img src="data:image/jpeg/png;base64,<%=base64Encoded2%>" onerror="this.src='./resources/images/ad_Error.jpg;'" class="ad-img">
+
+
+
+              </div>
+
+          </div>
+          <% }%>
+
+
            <%}%>
       </div>
         <%@include file="../../footer.jsp"%>

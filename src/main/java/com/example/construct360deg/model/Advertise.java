@@ -25,6 +25,37 @@ public class Advertise {
     private byte[] profimg;
     private byte[] addimg;
 
+    public int getIsproduct() {
+        return isproduct;
+    }
+
+    public void setIsproduct(int isproduct) {
+        this.isproduct = isproduct;
+    }
+
+    private int isproduct;
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    private float price;
+
+
+    public int getProductid() {
+        return productid;
+    }
+
+    public void setProductid(int productid) {
+        this.productid = productid;
+    }
+
+    private int productid;
+
     public byte[] getProfimg() {
         return profimg;
     }

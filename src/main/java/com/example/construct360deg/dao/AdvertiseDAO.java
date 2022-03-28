@@ -157,25 +157,25 @@ public class AdvertiseDAO {
 
 
         if((activityfrom!="" && activityfrom!=null) && (activityTo!="" && activityTo!=null)){
-            System.out.println("tada ");
+            System.out.println("addver 1");
             if(searchinput=="" || searchinput==null){
-                System.out.println("tada tada");
-                sql = "SELECT * FROM `alladdsview` WHERE  submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )";
+                System.out.println("addver 2");
+                sql = "SELECT * FROM `alladdsview` WHERE isproduct=0 and submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )";
                 System.out.println(sql);
             }else {
-                sql = "SELECT * FROM `alladdsview` WHERE  submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )" +
+                sql = "SELECT * FROM `alladdsview` WHERE  isproduct=0 and submit_date >= CAST('"+ activityfrom + "' AS date )   AND submit_date <= CAST('"+activityTo+"' AS date )" +
                         "AND (submit_time like '%" + searchinput + "%' OR CONVERT(username, CHAR(30)) like '%" + searchinput + "%'" +
                         "OR CONVERT(role, CHAR(30)) like '%" + searchinput + "%' OR CONVERT(addid, CHAR(30)) like '%" + searchinput + "%')";
-                System.out.println("blah blah ");
+                System.out.println("addver 3");
             }
         }else{
             if(searchinput=="" || searchinput==null){
-                sql = "SELECT * FROM `alladdsview`";
-                System.out.println("blah blah balh ");
+                sql = "SELECT * FROM `alladdsview` where isproduct=0";
+                System.out.println("addver 4");
             }else{
-                sql = "SELECT * FROM `alladdsview` WHERE " +"CONVERT(submit_time, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(username, CHAR(30)) like '%"+searchinput+"%'" +
+                sql = "SELECT * FROM `alladdsview` WHERE   isproduct=0 and  " +"CONVERT(submit_time, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(username, CHAR(30)) like '%"+searchinput+"%'" +
                         "OR CONVERT(role, CHAR(30)) like '%"+searchinput+"%' OR CONVERT(addid, CHAR(30)) like '%"+searchinput+"%'";
-                System.out.println("blah blah balh balh");
+                System.out.println("addver 5");
             }
 
         }
@@ -330,11 +330,16 @@ public class AdvertiseDAO {
             displayadd.setWeburl(resultSet.getString("ad_url"));
             displayadd.setHeadline(resultSet.getString("ad_topic"));
             displayadd.setUsername(resultSet.getString("username"));
+            displayadd.setPrice(resultSet.getFloat("price"));
             byte[] img1=resultSet.getBytes("profilepic");
             displayadd.setProfimg(img1);
             byte[] img2=resultSet.getBytes("ad_img");
             displayadd.setAddimg(img2);
             displayadds.add(displayadd);
+            displayadd.setDescription(resultSet.getString("description"));
+            displayadd.setNowtime(resultSet.getTime("submit_time"));
+            displayadd.setTodaydate(resultSet.getDate("submit_date"));
+            displayadd.setIsproduct(resultSet.getInt("isproduct"));
         }
         System.out.println("hello 2");
      return displayadds;
@@ -362,6 +367,7 @@ public class AdvertiseDAO {
             displayadd.setTodaydate(resultSet.getDate("submit_date"));
             displayadd.setNowtime(resultSet.getTime("submit_time"));
             displayadd.setEvodate(resultSet.getDate("evaluated_date"));
+
             byte[] img = resultSet.getBytes("image");
             displayadd.setAddimg(img);
             System.out.println(img);
@@ -369,6 +375,38 @@ public class AdvertiseDAO {
         }
         System.out.println("displayownadds(prof) 2");
         return displayadds;
+    }
+
+    public void sendproducttoaddtable(Advertise advertise) throws SQLException {
+         String sql1 = "select * from product where productid = ?";
+        PreparedStatement preparedStatement = null;
+        Connection connection = Database.getConnection();
+        preparedStatement = connection.prepareStatement(sql1);
+        preparedStatement.setInt(1,advertise.getProductid());
+        ResultSet resultSet = null;
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            advertise.setImgblob(resultSet.getBlob("productimage"));
+            advertise.setPrice(resultSet.getFloat("productprice"));
+            advertise.setDescription(resultSet.getString("productdes"));
+        }
+        System.out.println("this is send product add dao === "+advertise.getProductid()+" "+advertise.getTodaydate()+" "+advertise.getNowtime());
+        System.out.println("this is send product add dao === "+advertise.getPrice()+" "+advertise.getDescription()+" "+advertise.getImgblob());
+      String sql2 = "INSERT INTO `advertisement` (`submit_date`, `submit_time`, `userid`,  `description`,  `isproduct`, `price`,`image`,`addstatus`) " +
+                     "VALUES (?,?,?,?,?,?,?,?)";
+        PreparedStatement preparedStatement2 = null;
+
+        preparedStatement2 =connection.prepareStatement(sql2);
+        preparedStatement2.setDate(1,advertise.getTodaydate());
+        preparedStatement2.setTime(2,advertise.getNowtime());
+        preparedStatement2.setInt(3,advertise.getUserid());
+        preparedStatement2.setString(4,advertise.getDescription());
+        preparedStatement2.setInt(5,1);
+        preparedStatement2.setFloat(6,advertise.getPrice());
+        preparedStatement2.setBlob(7,advertise.getImgblob());
+        preparedStatement2.setString(8,"accepted");
+        preparedStatement2.executeUpdate();
+
     }
 
 

@@ -68,8 +68,8 @@
 
 .profimg{
     grid-area: b1;
-    width: 60px;
-    height: 55px;
+    width: 66px;
+    height: 67px;
     padding: 3px;
     border-radius: 10px;
 }
@@ -81,6 +81,7 @@
 .username{
     grid-area: b3;
     margin: 2px;
+    margin-top: -2px;
 }
 
 .ad-img{
