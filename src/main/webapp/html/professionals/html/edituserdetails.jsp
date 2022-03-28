@@ -129,7 +129,7 @@
     <%--}--%>
 
     function deleteaccount(){
-      var out=confirm("Delete Account");
+      var out=confirm("Are you sure? ");
       if(out==true){
         <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
         location.href="<%=request.getContextPath()%>/deleteaccount";

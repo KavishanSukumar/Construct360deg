@@ -9,6 +9,7 @@
   Account account1 = (Account) request.getAttribute("changepic");
   ArrayList<Project> newprojects = (ArrayList<Project>) request.getAttribute("newprojects");
   int count = 0;
+
 //  for (Project x:newprojects){
 //    if(x.getIsclosed()==0){
 //      count++;
@@ -73,7 +74,7 @@
           });
     });
     function deleteaccount(){
-      var out=confirm("Delete Account");
+      var out=confirm("Are you sure?");
       if(out==true){
         <%--location.href="<%=request.getContextPath()%>/registration?userid="+userid;--%>
         location.href="<%=request.getContextPath()%>/deleteaccount";

@@ -92,8 +92,17 @@
                                         <p>Quantity Available:<%=x.getQuantity()%></p>
                                         <p>Product Price:<%=x.getPrice()%></p>
                                         <div>
-                                            <a><button class="Order-btn-cart">Order Product</button></a>
-                                            <a><button class="Order-btn-cart" id="<%=x.getProductid()%>" onclick="removeformcart(this)">Remove Product</button></a>
+                                            <form action="<%=request.getContextPath()%>/orderproduct" method="get">
+                                                <input type="text" hidden value="<%=x.getProductid()%>" name="productid">
+                                                <input type="text" hidden value="<%=x.getPrice()%>" name="productprice">
+                                                <input type="text" hidden value="<%=x.getProductName()%>" name="productname">
+                                                <input type="text" hidden value="<%=x.getQuantity()%>" name="productquantity">
+                                                <div>
+                                                    <a><button class="Order-btn-cart">Order Product</button></a>
+                                                    <a><button class="Order-btn-cart" id="<%=x.getProductid()%>" onclick="removeformcart(this)">Remove Product</button></a>
+                                                </div>
+                                                </form>
+
                                         </div>
                                     </div>
                                 </li>

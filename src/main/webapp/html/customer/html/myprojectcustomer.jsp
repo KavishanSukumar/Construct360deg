@@ -226,7 +226,7 @@
                 <%for (Project z:newprojects){%>
                 <div class="box2">
                     <h2>Project Members</h2>
-                    <p> * Contractor : <%=z.getContractor()%><br> * Customer :<%=z.getCustomer()%><br> * Landscape Designer :<%=z.getLandscape()%></p>
+                    <p> * Contractor : <%=z.getContractor()%><br></p>
                     <h2>Another Members</h2>
                     <p>* <%=project.getMember1()%><br>* <%=project.getMember2()%><br>* <%=project.getMember3()%></p>
                 </div>
@@ -239,7 +239,7 @@
         </div>
 
         <div class="update_payment" id="update_payment">
-            <div>
+            <div style="margin: 10px" >
                 <%for(Payment x:payments){%>
 
                 <%
@@ -252,7 +252,10 @@
                         base64Encoded1 = new String(realreqfile, "UTF-8");
                     }
                 %>
-                <a href="application/jpeg,application/jpg,application/png,application/pdf;base64,<%=base64Encoded1%>" download="<%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%>"><i class="fas fa-file-pdf"></i><%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%></a>
+                <div class="uploadpayment">
+                    <a style="margin: 5px" href="application/jpeg,application/jpg,application/png,application/pdf;base64,<%=base64Encoded1%>" download="<%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%>"><i class="fas fa-file-pdf"></i><%=x.getPaymentName()%>-<%=x.getPaymentdatetime()%></a>
+                </div>
+
                 <%}%>
             </div>
             <div class="newpayment" id="newpayment">
