@@ -124,9 +124,10 @@
                 <form action="<%=request.getContextPath()%>/changepassword" method="POST" >
                     <input type="text" style="width: 310px" name="otp" id="otp" placeholder="Enter the code send to you email">
                     <br>
-                    <button class="btn" style="width: 150px" id="cancel">Cancel</button>
                     <button type="submit" class="btn" style="width: 150px" id="reset">Reset</button>
+                    <button type="reset" class="btn" style="width: 150px" id="cancel">Cancel</button>
                 </form>
+
             </div>
         </div>
     </div>
