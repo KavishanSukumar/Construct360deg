@@ -1,8 +1,11 @@
 package com.example.construct360deg.controllers;
 
 import com.example.construct360deg.dao.AdvertiseDAO;
+import com.example.construct360deg.dao.AllProfileDAO;
+import com.example.construct360deg.dao.PaySubDAO;
 import com.example.construct360deg.dao.UserloginDAO;
 import com.example.construct360deg.model.Advertise;
+import com.example.construct360deg.model.AllUsers;
 import com.example.construct360deg.model.Userlogin;
 
 import javax.servlet.RequestDispatcher;
@@ -30,6 +33,8 @@ public class LoginServlet extends HttpServlet {
         userlogin.setUsername(username);
         userlogin.setPassword(password);
 
+
+
         try {
             userlogin=userloginDAO.verify(userlogin);
             if(userlogin.getUserrole()!=null){
@@ -40,6 +45,36 @@ public class LoginServlet extends HttpServlet {
 
 //                System.out.println(userlogin.getUserid());
 //                System.out.println(userlogin.getUserrole());
+                PaySubDAO paySubDAO=new PaySubDAO();
+                String status=null;
+
+                AllProfileDAO allProfileDAO=new AllProfileDAO();
+                AllUsers allUsers=new AllUsers();
+                String paymentyype=null;
+
+                try {
+                    paymentyype=paySubDAO.getThesubtype(userlogin.getUserid());
+                    req.setAttribute("paymentyype",paymentyype);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+                try {
+                    allUsers=allProfileDAO.getuser(userlogin.getUserid());
+                    req.setAttribute("user",allUsers);
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+
+                try {
+                    status=paySubDAO.getThesubtype(userlogin.getUserid());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
 
                 if(userlogin.getUserrole().equals("admin")){
                     RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/admin/html/landingpage.jsp");
@@ -60,8 +95,16 @@ public class LoginServlet extends HttpServlet {
                     }
                     System.out.println(displayadds);
                     req.setAttribute("displayadds",displayadds);
-                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
-                    requestDispatcher.forward(req,resp);
+
+                    if (status.equals("Basic")){
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/onlypay-sub.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }else {
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }
+
+
                     System.out.println("Customer");
                 }else if (userlogin.getUserrole().equals("cus_com")){
                     ArrayList<Advertise> displayadds = new ArrayList<>();
@@ -78,20 +121,51 @@ public class LoginServlet extends HttpServlet {
                     }
                     System.out.println(displayadds);
                     req.setAttribute("displayadds",displayadds);
-                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
-                    requestDispatcher.forward(req,resp);
+
+                    if (status.equals("Basic")){
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }else {
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }
+
+
                     System.out.println("Customer");
                 }else if(userlogin.getUserrole().equals("prof_com")){
-                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
-                    requestDispatcher.forward(req,resp);
+
+                    if (status.equals("Basic")){
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }else {
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }
+
+
                     System.out.println("Professional");
                 }else if (userlogin.getUserrole().equals("prof_indiv")){
-                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
-                    requestDispatcher.forward(req,resp);
+
+                    if (status.equals("Basic")){
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }else {
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }
+
                     System.out.println("Professional");
                 }else if (userlogin.getUserrole().equals("prod_com")){
-                    RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
-                    requestDispatcher.forward(req,resp);
+
+                    if (status.equals("Basic")){
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage-sub.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }else {
+                        RequestDispatcher requestDispatcher=req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
+                        requestDispatcher.forward(req,resp);
+                    }
+
+
                     System.out.println("Product company");
                 }
             }else{

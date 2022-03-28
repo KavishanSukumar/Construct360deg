@@ -141,36 +141,30 @@ ul li a:hover,ul li i:hover{
     grid-row-gap: 9px
 }
 .container-3{
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    background-color: #e9e9e9;
+    box-shadow: 0px 0px 5px 5px rgb(245 245 245);
+    background-color: #ffffff;
     width: 270px;
     height: 380px;
     padding: 20px;
     border-radius: 10px;
-    margin-top:110px;
-    margin-left: -1400px;
+    margin-top: 110px;
+    margin-left: -1295px;
 }
 .container-4{
-    background-color: #e9e9e9;
-    box-shadow: 5px 5px 5px 5px rgb(199, 195, 195);
-    display: grid;
     border-radius: 5px;
     padding: 20px;
     width: 810px;
-
     margin-left: 500px;
     margin-top: -470px;
-
     min-height: 100vh;
-    /*grid-template-areas: 'user2 user5 user6';*/
-
+    /* grid-template-areas: 'user2 user5 user6'; */
     grid-template-areas: 'user2 user5 user6';
 
 }
 .content1{
-    background-color: #e9e9e9;
-    height: 50px;
-    width: 1499px;
+    /*background-color: #e9e9e9;*/
+    /*height: 50px;*/
+    /*width: 1499px;*/
     
 }
 form.example input[type=text] {
@@ -254,7 +248,7 @@ form.example::after {
 .gallery .user{
     background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
     overflow: hidden;
-    box-shadow: 0 1px 5px rgb(104 104 104 / 80%);
+    box-shadow: 0 1px 5px rgb(104 104 104 );
     width: 210px;
     height: 200px;
     transition: transform .2s;

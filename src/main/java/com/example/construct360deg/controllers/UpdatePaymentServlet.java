@@ -44,13 +44,13 @@ public class UpdatePaymentServlet extends HttpServlet {
                 System.out.println("payment added is successfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Payment uploaded successfully');");
-                out.println("location='"+req.getContextPath()+"/myproject';");
+                out.println("location='"+req.getContextPath()+"/myproject?projectid="+payment.getProjectid()+"';");
                 out.println("</script>");
             }else{
                 System.out.println("payment added is unsuccessfull");
                 out.println("<script type='text/javascript'>");
                 out.println("alert('Payment upload unsuccessful');");
-                out.println("location='"+req.getContextPath()+"/myproject';");
+                out.println("location='"+req.getContextPath()+"/myproject?projectid="+payment.getProjectid()+"';");
                 out.println("</script>");
             }
         } catch (SQLException e) {
