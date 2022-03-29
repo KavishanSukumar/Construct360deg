@@ -42,7 +42,7 @@
         <figure class="homepagepic-4"></figure>
     </div>
     <div  class="content">
-        <h1>DESIGN YOU HOUSE</h1>
+        <h1>DESIGN YOUR HOUSE</h1>
         <P>Our construction of the constitution is very different from that you quote.<br> It is that each department is truly independent of the others, and has an equal right to decide for itself what is the meaning of the constitution in the cases submitted to its action; <br>and especially, where it is to act ultimately and without appeal.</P>
         <div>
             <a href="<%=request.getContextPath()%>/login"><button><span></span>SIGN IN</button></a>
