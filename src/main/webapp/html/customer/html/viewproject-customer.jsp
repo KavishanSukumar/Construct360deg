@@ -144,7 +144,7 @@
         <label for="con-num">Contact Number</label>
         <input type="tel" id="con-num" name="contactnum" pattern="[0-9]{10}" required><br><br><br>
         <label for="reqfile">Requirement</label>
-        <input type="file" id="reqfile" name="reqfile" multiple onchange="processSelectedFiles(this)" required accept="application/pdf,application/zip"><br>
+        <input type="file" id="reqfile" name="reqfile"  onchange="fileValidation(this)" ><br>
         <input  type="hidden" id="filename" name="filename" value="">
         <label id="filetype">(Choose pdf or zip file)</label>
         <h4>Construction area</h4>
@@ -152,14 +152,41 @@
         <input type="text" id="street" name="street" required><br><br>
         <label for="city">City</label>
         <input type="text" id="city" name="city" required><br><br>
-        <label for="dis">District</label>
-        <input type="text" id="dis" name="district" required><br><br>
-        <label for="provin">Province</label>
+        <p>District</p>
+<%--        <input type="text" id="dis" name="district" required><br><br>--%>
+<%--        <label for="provin">Province</label>--%>
+        <select name="type" id="type">
+            <option value="none" disabled >Select</option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="3">Both Building and Landscape design</option>
+            <option value="3">Both Building and Landscape design</option>
+            <option value="3">Both Building and Landscape design</option>
+        </select>
+
+
         <input type="text" id="provin" name="province" required><br><br>
         <div class="uploadFile">
             <input type="submit" id="create" value="Create">
             <!-- <input type="submit" value="Uplaod" style="float: right;"> -->
         </div>
+        <script>
+            function fileValidation(id){
+                const reqfile = id.value;
+                // var path = reqfile.value;
+                console.log("this is length "+id);
+                console.log("this is value"+reqfile);
+                var extensions = /(\.png|\.jpeg|\.jpg)$/i;
+                console.log(extensions)
+                if(!extensions.exec(reqfile)){
+                    alert('Please upload an image file');
+                    id.value = '';
+
+                }
+
+            }
+        </script>
     </form>
 </div>
 <%--+++++++++++++++++++++++++++++++++++ senal's req form  end++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--%>

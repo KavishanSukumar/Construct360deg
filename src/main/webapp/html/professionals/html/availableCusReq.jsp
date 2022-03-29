@@ -234,6 +234,16 @@
             console.log(val.value);
         }
     }
+    // function processSelectedFiles(fileInput) {
+    //     let files = fileInput.files;
+    //     let val = document.querySelector("#filename");
+    //
+    //     for (let i = 0; i < files.length; i++) {
+    //         val.value += files[i].name;
+    //         console.log("blajjncuans");
+    //         console.log(val.value);
+    //     }
+    // }
 </script>
 </body>
 
