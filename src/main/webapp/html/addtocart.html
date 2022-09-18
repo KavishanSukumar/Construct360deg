@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add to cart</title>
+    <link rel="stylesheet" href="../resources/css/addtocart.css">
+    <link rel="stylesheet" href="../resources/css/nav-sidebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="../resources/js/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#sidebar_btn").click(function (){
+                $(".container-2").css('grid-template-columns',"25px 5fr 2fr");
+                $(".container-2").css('grid-template-areas',"'sidebar container-3 subtotalcolumn'");
+
+                $(".navpart").css('display',"none");
+                console.log("Kavishan");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container-1">
+        <div id="navbar" class="navbar">
+            <header>
+                <div class="left_area">
+                    <!--<h2 class="logoname">Construct360</h2>-->
+                    <img src="../resources/images/navbar/LoginLogo.png" id="logopic">
+                </div>
+                <div class="right_area" >
+                    <!-- <a href="#" id="logout_btn">Logout</a> -->
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">PROJECT</a></li>
+                        <li><a href="#">SERVICES</a></li>
+                        <li><a href="#">CONTACT_US</a></li>
+                        <li><i class="fa fa-bars" aria-hidden="true" ></i></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+        <div class="container-2">
+            <div >
+                <div class="navpart sidebar" >
+                    <div class="userdesc">
+                        <img src="../resources/images/navbar/sidebarpro.jpg" id="profile_image" alt="">
+                        <h4 id="profile_name">Reena</h4>
+                    </div>
+                    <div class="tabs">
+                        <a href="#"><i class="fas fa-hard-hat" id="hat"></i><span>Projects</span></a>
+                        <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><span>Products</span></a>
+                        <a href="#"><i class="fas fa-user" id="user"></i><span>Professional Profile</span></a>
+                        <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><span>Report</span></a>
+                        <a href="#"><i class="fas fa-ad" id="advertise"></i><span>Advertise</span></a>
+                        <a href="#"><i class="fas fa-headset" id="head"></i><span>Help and Support</span></a>
+                        <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><span>Logout</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-3">
+                <div class="selectall">
+                    <input type="checkbox" id="selectall" name="selectall">
+                    <label for="selectall">Select all</label>
+                </div>
+                <div class="itemcolumn">
+                        <ul class="itemlist">
+                            <li class="item">
+                                <div class="itemimg">
+                                    <input type="checkbox" id="item1" name="item1">
+                                    <label for="item1"><strong>General purpose cement</strong></label>
+                                    <br>
+                                    <img src="../resources/images/addtocart/image1.jpg" alt="image1">
+                                </div>
+                                <div class="itemdes">
+                                    <p>Lorem ipsum dolor, sit amet consectetur
+                                        adipisicing elit. Totam odit quia suscipit consequuntur
+                                        esse earum quidem, deleniti culpa minima? Consectetur?
+                                    </p>
+                                </div>
+                            </li>
+                            <br>
+                            <li class="item">
+                                <div class="itemimg">
+                                    <input type="checkbox" id="item2" name="item2">
+                                    <label for="item2"><strong>Electronic sew driver</strong></label>
+                                    <br>
+                                    <img src="../resources/images/addtocart/image2.jpg" alt="item2">
+                                </div>
+                                <div class="itemdes">
+                                    <p>Lorem ipsum dolor, sit amet consectetur
+                                        adipisicing elit. Totam odit quia suscipit consequuntur
+                                        esse earum quidem, deleniti culpa minima? Consectetur?
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="itemimg">
+                                    <input type="checkbox" id="item3" name="item2">
+                                    <label for="item2"><strong>Electronic sew driver</strong></label>
+                                    <br>
+                                    <img src="../resources/images/addtocart/image2.jpg" alt="item2">
+                                </div>
+                                <div class="itemdes">
+                                    <p>Lorem ipsum dolor, sit amet consectetur
+                                        adipisicing elit. Totam odit quia suscipit consequuntur
+                                        esse earum quidem, deleniti culpa minima? Consectetur?
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            <div class="subtotalcolumn">
+                <div class="subtotalsection">
+                    <h3>Order Summary</h3>
+                    <div class="prices">
+                        <table class="pricetable">
+                            <br>
+                            <tr>
+                                <td>Total price</td>
+                                <td>Rs.<span id="priceval">500.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>Discount</td>
+                                <td>Rs.<span id="discountval">500.00</span></td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>Rs.<span id="subtotalval">500.00</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

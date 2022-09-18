@@ -1,0 +1,212 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer{
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0.4%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+/* .Maxcontainer{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "firstpart"
+        "content";
+} */
+
+.content{
+    grid-area: webpage;
+    height: 100vh;
+    display: grid;
+    
+    /* align-items: center;
+    justify-content: center; */
+    width: 100%;
+    margin-top: 5px;
+    grid-template-areas:"first_row"
+                        "second_row"
+                        "third_row" ;
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 10px;
+}
+.first{
+  grid-area: first_row;
+  background-color: rgb(255, 255, 255);
+  height: 5vh;
+  width: 160vh;
+}
+.second{
+    grid-area: second_row;
+    background-color: rgb(255, 255, 255);
+    height: 5vh;
+    width: 100%; 
+    width: 160vh;
+  }
+  .third{
+    grid-area: third_row;
+    background-color: rgb(255, 255, 255);
+    height: 86vh;
+    width: 100%; 
+    width: 160vh;
+      z-index: -1;
+  }
+
+  /* //////////////////////////////////////////////////////////////////////////// */
+
+  .from{
+      float: left;
+      margin-left: 50px;
+  }
+
+  .to{
+    float: left;
+    margin-left: 50px;
+}
+
+.By_option{
+    float: left;
+    margin-left: 50px;
+}
+.okbtn{
+        background-color: #585858;
+        border: none;
+        color: white;
+        padding: 4px 14px;
+        display: inline-block;
+        font-size: 15px;
+        margin: 1px 11px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+.logTable{
+    
+    border-collapse: collapse;
+    width: 90.4%;
+    margin-left: 54px;
+}
+
+.logTable td, .logTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+    .logTable tr:nth-child(even){
+        background-color: #f2f2f2;
+    }
+
+.logTable  tr:hover {
+    background-color: #ddd;
+}
+
+.logTable  tr:hover {
+    cursor: pointer;
+}
+
+.logTable  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7c7c7c;
+  color: white;
+}
+
+.manageLog{
+    margin-right: 20px;
+    padding-left: 1400px;
+    
+}
+
+.btnManagelog{
+    background-color: #585858;
+  border: none;
+  color: white;
+  padding: 4px 14px;
+  /* text-align: center;
+  text-decoration: none; */
+  display: inline-block;
+  font-size: 15px;
+  margin: 7px -27px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type=text], select, textarea {
+    
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+  }
+
+  input[type=date], select, textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+  }
+
+.btn{
+    border: none;
+    padding: 7px 25px;
+    font-size: 15px;
+    margin: 8px 11px;
+    border-radius: 5px;
+}
+.btn:hover{
+    background-color: #ff7200;
+}
+
+.viewinquires{
+    display: none;
+    position: fixed;
+    background-color: #cccccc;
+    height: auto;
+    width: 550px;
+    z-index: 100;
+    text-align: center;
+    margin: 150px 520px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 6px grey;
+}
+.blurer{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+/*////////////////////////////*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+

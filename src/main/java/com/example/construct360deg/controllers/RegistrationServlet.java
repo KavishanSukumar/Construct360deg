@@ -32,6 +32,7 @@ public class RegistrationServlet extends HttpServlet {
         String password1=req.getParameter("password");
         String contactno=req.getParameter("contactno");
         String role=req.getParameter("professional");
+        String address=req.getParameter("address");
 
         String password= DigestUtils.sha256Hex(password1);
 
@@ -40,6 +41,7 @@ public class RegistrationServlet extends HttpServlet {
         userRegistration.setPassword(password);
         userRegistration.setContactno(contactno);
         userRegistration.setProfessionalrole(role);
+        userRegistration.setAddress(address);
         try {
             if (registrationDAO.userRegistration(userRegistration)){
                 Userlogin userlogin=new Userlogin();

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Previous Project</title>
+    <link rel="stylesheet" href="../resources/css/uploadpreproject.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <!-- header area start -->
+    <header>
+        <div class="left_area">
+            <img src="../resources/images/uploadpreproject/LoginLogo.png" id="logopic">
+        </div>
+        <div class="right_area" >
+             <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">PROJECT</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">CONTACT_US</a></li>
+                <li><a href="#">ACCOUNT</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- header area end -->
+
+    <!-- sidebar start-->
+    <div class="sidebar">
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <center>
+            <img src="../resources/images/uploadpreproject/sidebarpro.jpg" id="profile_image" alt="">
+            <h4 id="profile_name">Construction</h4>
+        </center>
+        <a href="#"><i class="fas fa-laptop-house" id="house"></i><span>Available Projects</span></a>
+        <a href="#"><i class="fas fa-hard-hat" id="hat"></i><span>Projects</span></a>
+        <a href="#"><i class="fab fa-product-hunt" id="hunt"></i><span>Products</span></a>
+        <a href="#"><i class="fas fa-user" id="user"></i><span>Profile</span></a>
+        <a href="#"><i class="fas fa-flag-checkered" id="chek"></i><span>Report</span></a>
+        <a href="#"><i class="fas fa-headset" id="head"></i><span>Help and Support</span></a>
+        <a href="#"><i class="fas fa-sign-out-alt" id="logout"></i><span>Logout</span></a>
+    </div>
+    <!-- sidebar end-->
+
+    <div class="container">
+    
+    </div>
+    <p>Upload the previous project - <span>PDF only</span></p>
+
+    <div class="content">
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <i class="fas fa-upload"></i>
+            <p>Drag and Drop a file here<br>or</p>
+            <form action="/action_page.java">
+                <input type="file" id="myFile" name="filename">
+                <!-- <input type="submit"> -->
+            </form>
+        </div>
+    </div>
+    
+    <!-- <button class="button">Button</button> -->
+    <a href="#" class="btn1">Save Changes</a>
+    <a href="#" class="btn2">Submit</a>
+    
+
+    <script src="../resources/js/uploadpreproject.js"></script>
+    
+
+</body>  
+</html>   

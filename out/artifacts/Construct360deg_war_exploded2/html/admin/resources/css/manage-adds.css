@@ -1,0 +1,237 @@
+
+.container{
+    display: grid;
+    grid-template-rows: 70px auto 110px;
+    grid-template-areas: "nav"
+                         "webpage"
+                         "footer";
+
+
+}
+
+.content{
+    grid-area: webpage;
+    height: 100vh;
+    display: grid;
+
+    /* align-items: center;
+    justify-content: center; */
+    width: 100%;
+    margin-top: 5px;
+    grid-template-areas:"first_row"
+                        "second_row"
+                        "third_row" ;
+    grid-template-rows: 100px auto auto;
+    grid-row-gap: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+.blur{
+
+}
+
+
+.first{
+    grid-area: first_row;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    background-color: rgb(255, 255, 255);
+    height: 5vh;
+    /*width: 199.9vh;*/
+}
+.second{
+    grid-area: second_row;
+    background-color: rgb(255, 255, 255);
+    height: 5vh;
+    width: 100%;
+    /*width: 199.9vh;*/
+}
+.third{
+    grid-area: third_row;
+    background-color: rgb(255, 255, 255);
+    height: 86vh;
+    width: 100%;
+    /*width: 199.9vh;*/
+}
+
+/* //////////////////////////////////////////////////////////////////////////// */
+
+.common{
+    margin-top: 5px;
+    margin-left: 53px;
+    height: 10px;
+    width: 55px;
+    border-radius: 3px;
+
+}
+
+.button {
+    display: block;
+    width: 140px;
+    height: 55px;
+    background-color: #c4c4c4;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    line-height: 25px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+.content a:hover{
+    background-color: #ff7200;
+}
+
+.from {
+    float: left;
+    margin-left: 53px;
+}
+
+.to{
+    float: left;
+    margin-left: 50px;
+}
+
+.By_option{
+    float: left;
+    margin-left: 50px;
+}
+.btn, .okbtn{
+    background-color: #585858;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    display: inline-block;
+    font-size: 14px;
+    margin: 1px 9px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#confirm{
+    background-color: #1fa11f;
+}
+#reject{
+    background-color:red;
+}
+#reject:hover,#confirm:hover,#view:hover,#view1:hover,#view2:hover{
+    background-color: #000000;
+}
+
+.manageadds{
+    border-collapse: collapse;
+    margin-left: 50px;
+}
+
+.manageadds td, .manageadds th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.manageadds tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.manageadds  tr:hover {
+    background-color: #ddd;
+}
+
+.manageadds
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #e6e6e661;
+    color: black;
+    margin-left: 50px;
+    /* gap: 20px; */
+    padding: 8px;
+    /* border-style: none;
+}
+
+.headrow th{
+    text-align: center;
+}
+
+
+
+input[type=text], select, textarea {
+
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+}
+
+input[type=date], select, textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* resize: vertical; */
+}
+
+managebtn{
+    cursor: pointer;
+}
+.popup{
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 28%;
+    justify-content: center;
+    background-color: black;
+    visibility: hidden;
+
+}
+
+.popup-content{
+    width: 616px;
+    height: 520px;
+    display: grid;
+    border: solid;
+}
+
+
+#view,#view2,#view3{
+    margin-left: 33px;
+}
+
+#close,#close2,#close3{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 12px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 573px;
+    opacity: 0.5;
+}
+#close:hover,#close2:hover,#close3:hover{
+    color: white;
+    background-color: red;
+    opacity: 1;
+}
+
+.footer{
+    grid-area: footer;
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0.4%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+
+}

@@ -1,0 +1,308 @@
+/*body{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: "Roboto", sans-serif;*/
+/*}*/
+/*.menu_bar{*/
+/*    position: fixed;*/
+/*    background: black;*/
+/*    padding: 20px;*/
+/*    width: 100% ;*/
+/*    height: 65px;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*#logopic{*/
+/*    width: 100px;*/
+/*    float: left;*/
+/*    height: 74px;*/
+/*    margin-top: -15px;*/
+/*    cursor: pointer;*/
+/*    padding-right: 0%;*/
+/*}*/
+/*.left_area {*/
+/*    color: #fff;*/
+/*    margin: 0;*/
+/*    text-transform: uppercase;*/
+/*    font-size: 24px;*/
+/*}*/
+/*.right_area{*/
+/*    float: right;*/
+/*    margin-top: 15px;*/
+/*}*/
+/*.nav-panel {*/
+/*    background: #000000d6;*/
+/*    padding: 0px;*/
+/*    position: absolute;*/
+/*    top: 100%;*/
+/*    width: 100%;*/
+/*    left: 0;*/
+/*    height: 109px;*/
+/*    opacity: 0.75;*/
+/*}*/
+/*.hidden {*/
+/*    display: none;*/
+/*}*/
+/*.nav-panel a{*/
+/*    color: rgb(255, 255, 255);*/
+/*    display: block;*/
+/*    width: 100%;*/
+/*    line-height: 60px;*/
+/*    text-decoration: none;*/
+/*    box-sizing: border-box;*/
+/*    transition: 0.5s;*/
+/*    transition-property:back;*/
+/*    justify-content: center;*/
+/*}*/
+/*#profile_image{*/
+/*    display: flex;*/
+/*    width: 75px;*/
+/*    height: 75px;*/
+/*    border-radius: 100px;*/
+/*    margin-bottom: 10px;*/
+/*    position: relative;*/
+/*    flex-basis: 100px;*/
+/*    margin-left: 44px;*/
+/*    margin-right: 44px;*/
+/*    margin-top: 18px;*/
+/*    cursor: pointer;*/
+/*}*/
+/*#profile_name{*/
+/*    color: rgb(255, 255, 255);*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 20px;*/
+/*    cursor: pointer;*/
+/*}*/
+/*.fa-bars {*/
+/*    z-index: 1;*/
+/*    color: #fff;*/
+/*    cursor: pointer;*/
+/*    left:20px ;*/
+/*    font-size: 20px;*/
+/*    transition: 0.5s;*/
+/*    transition-property: color;*/
+/*}*/
+/*.nav-panel a:hover{*/
+/*    color: #FF7200;*/
+/*    transition: 0.4s ease-in-out;*/
+/*    height: 107px;*/
+/*}*/
+/*.nav-panel i{*/
+/*    padding-right:10px ;*/
+/*}*/
+/*.nav-panel .fas, .nav-panel .fab{*/
+/*    display: flex;*/
+/*    font-size: 270%;*/
+/*    text-align: center;*/
+/*    justify-content: center;*/
+/*    margin-top: 29px;*/
+/*}*/
+/*.nav-panel h4{*/
+/*    text-align: center;*/
+/*    margin: 0;*/
+/*}*/
+/*#check{*/
+/*    display: none;*/
+/*}*/
+/*ul{*/
+/*    margin-top: -0.8%;*/
+/*    display: flex;*/
+/*    margin-left: -3.5%;*/
+/*    justify-content: center;*/
+/*}*/
+/*ul li{*/
+/*    list-style: none;*/
+/*    margin-left: 40px;*/
+/*    margin-top: -3px;*/
+/*    font-size: 14px;*/
+/*}*/
+/*ul li a{*/
+/*    text-decoration: none;*/
+/*    color: #fff;*/
+/*    font-family:  'Roboto', sans-serif;*/
+/*    transition: 0.4s ease-in-out;*/
+/*}*/
+/*ul li a:hover,ul li i:hover{*/
+/*    color: #FF7200;*/
+/*}*/
+
+
+
+.container{
+    display: grid;
+    grid-template-rows: 72px auto;
+    grid-template-areas:'nav'
+                        'thecontent';
+    font-family: "Roboto", sans-serif;
+
+
+}
+.content{
+    grid-area: thecontent;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 50px auto;
+    grid-template-areas:'a1 a1'
+                        'c3 c4';
+    overflow-y: auto;
+    min-height: 100vh;
+}
+.container-3{
+
+    grid-area: c3;
+    box-shadow: 0px 1px 5px 5px rgb(241 241 241);
+    background-color: #ffffff;
+    width: 270px;
+    height: 392px;
+    padding: 20px;
+    border-radius: 6px;
+    /* margin-top: -117%; */
+    margin-left: 36px;
+    margin-bottom: 272px;
+
+
+}
+.container-4{
+    grid-area: c4;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 5px rgb(255, 255, 255);
+    display: grid;
+    border-radius: 5px;
+    padding: 20px;
+    /*width: 1081px;*/
+    height: auto;
+    /*margin-left: 250px;*/
+    margin-top: 2%;
+    grid-template-areas: 'user2 user5 user6 user7';
+    min-height: 100vh;
+
+}
+.content1{
+    align-items: center;
+    grid-area: a1;
+    background-color: #ffffff;
+    height: 50px;
+    /*width: 1499px;*/
+
+}
+form.example input[type=text] {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    margin-top: 25px;
+    width: 63%;
+    box-shadow: 0px 5px 10px 5px rgb(231, 231, 231);
+}
+form.example button {
+    float: left;
+    width: 3%;
+    padding: 8px;
+    background: #bbbfc2;
+    color: black;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 403px;
+    margin-top: 25px;
+}
+form.example button:hover {
+    background: #d1cfcd;
+}
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.box{
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+/* Hide the browser's default checkbox */
+.box input{
+    height: 0px;
+    width: 0px;
+}
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border: 1px solid rgb(161, 155, 155);
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Show the checkmark when checked */
+.box input:checked ~ .checkmark:after {
+    display: block;
+}
+/* Style the checkmark/indicator */
+.box .checkmark:after {
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.container-3 i{
+    color: rgb(217, 219, 92);
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(249 249 249); */
+    box-shadow: 0px 1px 5px 5px rgb(231 231 231);
+    margin: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 318px;
+    width: 220px;
+    /*    88888888888888888888*/
+}
+.gallery{
+    margin: 5px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 1px 5px rgb(104 104 104);
+    width: 210px;
+    height: 200px;
+}
+.gallery .desc{
+    text-align: center;
+    width: 200px;
+    font-size: 15px;
+}
+.footer{
+    grid-column: 1 /-1;
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    height: 50px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    margin-top: -5px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+

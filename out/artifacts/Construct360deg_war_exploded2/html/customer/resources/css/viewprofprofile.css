@@ -1,0 +1,254 @@
+.container{
+    grid-template-rows: 73px 50px 1500px;
+    display: grid;
+    grid-template-areas:
+    'menu_bar'
+    'content1'
+    'content2';
+}
+.content1{
+    margin-top: 83px;
+    height: 50px;
+    width: 100%;
+}
+.content2{
+    border: 1px solid rgb(255 255 255);
+    border-radius: 10px;
+    display: grid;
+    box-shadow: 0px 0px 10px 5px rgb(199 195 195);
+    grid-template-rows: 500px 500px 800px 150px;
+    background-color: rgb(255 255 255);
+    width: 900px;
+    height: 1950px;
+    /* margin-top: 90px; */
+    margin-left: 300px;
+}
+.box1{border-bottom: 1px solid rgb(177, 167, 167);}
+.box2{border-bottom: 1px solid rgb(177, 167, 167);}
+.box3{border-bottom: 1px solid rgb(177, 167, 167);}
+.box1 img{
+    width: 900px;
+    height: 260px;
+    border-radius: 10px;
+}
+.box1 .user{
+    background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
+    overflow: hidden;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin-top: -180px;
+    margin-left: 30px;
+    border: 5px solid white;
+}
+.box1 h2{margin-left: 30px;}
+.box1 p{
+    margin-left: 30px;
+    margin-top: -15px;
+    font-size: 15px;
+}
+.button{
+    background-color: rgb(222, 225, 226);
+    color: #000000;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border: 1px solid rgb(54, 54, 54);
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: none;
+}
+.button:hover{
+    background: #ff7200;
+    color: white;
+}
+.box2 h3{margin-left: 30px;}
+.box2 p{margin-left: 50px;}
+
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 210px;
+    height: 200px;
+}
+.box3 i{
+    margin-left: 430px;
+    font-size: 50px;
+    margin-top: 10px;
+}
+.box3 h3{
+    text-align: center;
+    margin-top: 5px;
+}
+.box3 p{
+    margin-left: 20px;}
+
+.box4 h3{margin-left: 30px;}
+.box4 p{margin-left: 100px;}
+
+/*---------- appointment select date ----------------------*/
+#appointment-timeslots{
+    position: absolute;
+    z-index: 100;
+    margin-left: 63vh;
+    margin-top: 71px;
+}
+
+.appointment{
+
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: #e5e5e5b8;
+    border-radius: 10px;
+    margin: auto;
+
+}
+.part1{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.part1_1 ,.part1_2{
+
+    display: flex;
+    flex-direction: row;
+}
+#ap-tittle{
+    padding-left: 10px;
+    margin: auto;
+}
+#ap-tittle2{
+    margin: auto;
+    margin-left: 106px;
+    margin-top: 20px;
+}
+
+.avai-timeslots{
+    margin: auto;
+    margin-left: 147px;
+    row-gap: 5px;
+    display: grid;
+    grid-row-gap: 6px;
+    padding-bottom: 21px;
+
+}
+
+#notavailable{
+    margin: auto;
+    margin-left: -28px;
+
+}
+#closebtn{
+    width: 29px;
+    /* float: left; */
+    border: black;
+    font-weight: bold;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    margin: 4px;
+    /* background: #f30707; */
+    font-size: 20px;
+    color: #060000;
+    margin-left: 29pc;
+}
+
+#closebtn:hover{
+    background-color: #f30707;
+    color: white;
+
+}
+.part1_2{
+    margin: auto;
+    margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+#updatetime{
+    margin-left: 36px;
+    margin-top: 13px;
+    background-color: rgb(165, 164, 164);
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+
+}
+#updatetime:hover{
+    background-color: #cc611a;
+    color: white;
+}
+
+
+.theday {
+    width: 160px;
+    height: 550px;
+    background-color: #c2c2f7;
+    padding:10px;
+    float:left;
+    margin-right:7px;
+    margin-bottom:5px;
+    border-radius: 10px;
+}
+
+.datelabel {
+    margin-bottom: 15px;
+}
+
+.timeslot {
+    background-color: #10d11a;
+    width: 188px;
+    height: 40px;
+    color: white;
+    padding: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    vertical-align: center;
+    text-align: center;
+}
+
+.timeslot:hover {
+    background-color: #e4640f;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}

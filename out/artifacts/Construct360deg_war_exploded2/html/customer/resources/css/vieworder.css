@@ -1,0 +1,106 @@
+body{
+    margin: 0px;
+}
+.container-1{
+    display: flex;
+    flex-direction: column;
+
+}
+.container-2{
+    display: flex;
+    margin-top: 109px;
+    flex-direction: row;
+}
+
+.container-3{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 300px;
+    box-shadow: 0px 5px 6px 5px rgb(233 233 233);
+    border-radius: 8px;
+    padding-top: 20px;
+}
+.ordercolm{
+    display: block;
+    background-color: #cccccc;
+}
+.ordercolm >ul{
+    flex-direction: column;
+    padding: 10px 0px 10px 0px;
+    margin: 10px;
+}
+.ordercolm>ul>li{
+    padding: 15px;
+    text-align: left;
+}
+.ordercolm>ul>li:hover{
+    background-color: #ff7200;
+}
+.heading>h2{
+    padding: 10px;
+    text-align: center;
+    margin: 10px 10px 10px 15px;
+}
+.container-4{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    box-shadow: 0px 0px 10px 5px rgb(229 229 229);
+    border-radius: 8px;
+    padding: 20px 35px 20px 35px;
+}
+
+.orderdetailscolm > table{
+    margin: auto;
+    text-align: left;
+    width: 90%;
+    padding: 10px;
+    border-spacing: 12px;
+}
+.dwn-btn{
+    padding: 10px;
+    border-style: none;
+    border-radius: 7px;
+}
+
+.dwn-btn:hover{
+    background-color: #ff7200;
+}
+
+.footer{
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0%;
+    padding-top: 0%;
+    padding-left: 0%;
+    font-size:14px;
+    background: rgb(0, 0, 0);
+    width: 100%;
+    left: 0;
+}
+
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.content{
+    margin-bottom: 360px;
+}
+
+.dwn-btn{
+    padding: 20px;
+}
+#downloadbutton{
+    padding: 15px;
+    border-style: none;
+    border-radius: 24px;
+    font-size: 13px;
+}
+
+.cancel-btn{
+    padding: 15px;
+    border-style: none;
+    border-radius: 15px;
+    font-size: 13px;
+}

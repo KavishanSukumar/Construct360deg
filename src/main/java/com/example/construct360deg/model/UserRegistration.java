@@ -6,6 +6,15 @@ public class UserRegistration {
     private String password;
     private String contactno;
     private String professionalrole;
+    private  String Address;
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
 
     public String getEmail() {
         return email;

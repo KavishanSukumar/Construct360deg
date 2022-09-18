@@ -61,7 +61,7 @@ public class LandingpageServlet extends HttpServlet {
 
         if (userrole.equals("prof_com")) {
             if (status.equals("Basic")){
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/onlypay-sub.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
                 requestDispatcher.forward(req, resp);
             }else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
@@ -70,7 +70,7 @@ public class LandingpageServlet extends HttpServlet {
             System.out.println("Professional");
         } else if (userrole.equals("prof_indiv")) {
             if (status.equals("Basic")){
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/onlypay-sub.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
                 requestDispatcher.forward(req, resp);
             }else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/professionals/html/landingpage.jsp");
@@ -80,7 +80,7 @@ public class LandingpageServlet extends HttpServlet {
             System.out.println("Professional");
         } else if (userrole.equals("prod_com")) {
             if (status.equals("Basic")){
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/onlypay-sub.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
                 requestDispatcher.forward(req, resp);
             }else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/productcompany/html/landingpage.jsp");
@@ -136,7 +136,7 @@ public class LandingpageServlet extends HttpServlet {
             System.out.println(displayadds);
             req.setAttribute("displayadds",displayadds);
             if (status.equals("Basic")){
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/onlypay-sub.jsp");
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/landingpage.jsp");
                 requestDispatcher.forward(req, resp);
             }else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/html/customer/html/landingpage.jsp");

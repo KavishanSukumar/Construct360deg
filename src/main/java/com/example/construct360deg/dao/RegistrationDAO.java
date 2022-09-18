@@ -13,7 +13,7 @@ public class RegistrationDAO {
         boolean status=false;
         int row;
         int userid=0;
-        String sql="INSERT INTO `login`( `username`, `password`,`user_role`) VALUES (?,?,?);";
+        String sql="INSERT INTO `login`( `username`, `password`,`user_role`,`address`) VALUES (?,?,?,?);";
         Connection connection=Database.getConnection();
         PreparedStatement preparedStatement;
 
@@ -21,6 +21,7 @@ public class RegistrationDAO {
         preparedStatement.setString(1,userRegistration.getUsername());
         preparedStatement.setString(2,userRegistration.getPassword());
         preparedStatement.setString(3,userRegistration.getProfessionalrole());
+        preparedStatement.setString(4,userRegistration.getAddress());
         row=preparedStatement.executeUpdate();
 
         String sql2="SELECT userid FROM login where username=?";

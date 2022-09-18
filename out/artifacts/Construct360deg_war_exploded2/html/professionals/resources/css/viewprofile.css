@@ -1,0 +1,282 @@
+.container{
+    grid-template-rows: 73px 50px 1500px;
+    display: grid;
+    grid-template-areas: 
+    'menu_bar'
+    'content1'
+    'content2';
+    font-family: "Roboto", sans-serif;
+}
+.content1{
+    margin-top: 83px;
+    height: 50px;
+    width: 100%;
+}
+.content2{
+    border: 1px solid rgb(224, 218, 218);
+    border-radius: 10px;
+    display: grid;
+    box-shadow: 0px 5px 10px 5px rgb(199, 195, 195);
+    grid-template-rows: 500px 550px 800px 150px;
+    background-color: rgb(255, 255, 255);
+    width: 900px;
+    height: 2000px;
+    /*margin-top: 90px;*/
+    margin-left: 300px;
+}
+.box1{border-bottom: 1px solid rgb(177, 167, 167);}
+.box2{border-bottom: 1px solid rgb(177, 167, 167);}
+.box3{border-bottom: 1px solid rgb(177, 167, 167);}
+
+.box1 img{
+    width: 900px;
+    height: 260px;
+    border-radius: 10px;
+}
+.box1 .user{
+    background-image: url("https://i0.wp.com/cms.ironk12.org/wp-content/uploads/2020/02/no-person-profile-pic.png?ssl=1");
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: -180px;
+    margin-left: 30px;
+    border: 5px solid white;
+}
+.box1 h2{
+    margin-left: 30px;
+}
+.box1 p{
+    margin-left: 30px;
+    margin-top: -15px;
+    font-size: 15px;
+}
+.box1 i{
+    font-size: 25px;
+    margin-left: 580px;
+    color: #292727;
+}
+.button{
+    background-color: rgb(222, 225, 226);
+    color: #000000;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    /*border: 1px solid rgb(54, 54, 54);*/
+    margin-left: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button:hover{
+    background: #ff7200;
+    color: white;
+}
+.box2 h3{margin-left: 30px;}
+.box2 p{margin-left: 50px;}
+.gallery{
+    margin: 17px;
+    float: left;
+}
+.gallery img{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 210px;
+    height: 200px;
+}
+.box2 i{
+    float: right;
+    font-size: 20px;
+    margin-top: -490px;
+    margin-right: 10px;
+    color: #292727;
+}
+.box3 i{
+    margin-left: 430px;
+    font-size: 50px;
+    margin-top: 10px;
+}
+.box3 h3{
+    text-align: center;
+    margin-top: 5px;
+}
+.box3 p{
+    margin-left: 20px;}
+
+.summary .background, .experience .background, .skills .background, .box1 .background{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+.summary .close-btn, .experience .close-btn, .skills .close-btn, .box1 .close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: #22242A;
+    color: #ffffff;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.summary .summarycontent{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 400px;
+    transform: translate(-50%, -50%)scale(0);
+    background: #ffffff;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.box1 .piccontent{
+    position: absolute;
+    left: 50%;
+    height: 450px;
+    width: 600px;
+    transform: translate(-50%, -50%)scale(0);
+    background: #ffffff;
+    z-index: 2;
+    /*text-align: center;*/
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.box1 .piccontent form #frame{
+    width: 300px;
+    height: 300px;
+}
+.skills .skills-content{
+    background-color: rgb(230, 228, 228);
+    margin-top: 50px;
+    padding: 30px;
+    width: 550px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%)scale(0);
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.summary h3{
+    margin-right: 640px;
+    margin-top: -10px}
+.description{
+    border: 1px solid grey;
+    border-radius: 30px;
+    width: 700px;
+    height: 280px;
+}
+.summary .save-btn{
+    font-size: 18px;
+    background: #e6e4e3;
+    padding: 10px;
+    margin-left: 680px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid grey;
+}
+.summary .save-btn:hover{
+    background: #ff7200;
+    color: white;
+}
+.box1.active .background{display: block;}
+.summary.active .background{display: block;}
+.experience.active .background{display: block;}
+.skills.active .background{display: block;}
+.box1.active .piccontent{
+    transition: all 300ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+.summary.active .summarycontent{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.experience.active .excontent{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.skills.active .skills-content{
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%, -50%) scale(1);
+}
+.excontent input[type=text], .skills-content input[type=text]{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /*font-size: 15px;*/
+}
+.excontent{
+    background-color: rgb(230, 228, 228);
+    margin-top: 50px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    height: 450px;
+    transform: translate(-50%, -50%)scale(0);
+    z-index: 2;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.piccontent input[type="submit"]{
+    padding: 10px;
+    margin-left: 290px;
+    border-radius: 5px;
+    width: 100px;
+    font-size: 15px;
+}
+.piccontent input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+.excontent input[type="submit"]{
+    padding: 8px;
+    border-radius: 5px;
+    width: 80px;
+}
+.excontent input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+.skills-content input[type="submit"]{
+    padding: 10px;
+    border-radius: 5px;
+    width: 80px;
+}
+.skills-content input[type="submit"]:hover{
+    background: #ff7200;
+    color: white;
+}
+.excontent label{font-size: 15px;}
+
+.box4 h3{margin-left: 30px;}
+.box4 p{margin-left: 100px;}
+
+.footer{
+    border-top: 1px solid #ebebeb;
+    padding-bottom: 0%;
+    padding-top: 1%;
+    padding-left: 0%;
+    font-size: 14px;
+    background: rgb(0, 0, 0);
+}
+.footer p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
