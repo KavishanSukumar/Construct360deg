@@ -206,6 +206,7 @@ if(active_page==null){
                </tr>
            <div class="popup" id="popupid<%=z.getAddid()%>">
              <div class="popup-content">
+               <p>Construct 360</p>
                <button id="close3"  type="button" onclick="mypopupclose('popupid<%=z.getAddid()%>')">X</button>
                <img src="data:image/jpeg;base64,<%=base64Encoded1%>" onerror="this.src='./resources/images/Avatar.png;'" id="addimg3" style="width: 600px; height: 500px; padding: 8px">
              </div>
